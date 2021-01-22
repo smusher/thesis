@@ -71,9 +71,9 @@
 
 %%%%% THESIS / TITLE PAGE INFORMATION
 % Everybody needs to complete the following:
-\title{Suitably impressive thesis title}
-\author{Your Name}
-\college{Your College}
+\title{Regulation of the pancreatic K\textsubscript{ATP} channel}
+\author{Samuel Usher}
+\college{Green Templeton College}
 
 % Master's candidates who require the alternate title page (with candidate number and word count)
 % must also un-comment and complete the following three lines:
@@ -86,7 +86,7 @@
 % Your full degree name.  (But remember that DPhils aren't "in" anything.  They're just DPhils.)
 \degree{Doctor of Philosophy}
 % Term and year of submission, or date if your board requires (eg most masters)
-\degreedate{Michaelmas 2014}
+\degreedate{Trinity 2021}
 
 
 %%%%% YOUR OWN PERSONAL MACROS
@@ -97,6 +97,46 @@
 	\newcommand{\nd}{\textsuperscript{nd}}
 	\renewcommand{\st}{\textsuperscript{st}}
 	\newcommand{\rd}{\textsuperscript{rd}}
+
+% To make coloured figure backgrounds and allow for multipanel figures
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{mdframed}
+\usepackage{lipsum}
+\usepackage{xcolor}
+\definecolor{bg_figure}{RGB}{239, 235, 233}
+
+\let\originalfigure=\figure
+\let\endoriginalfigure=\endfigure
+
+\renewenvironment{figure}[1][]{
+  \begin{originalfigure}[#1]
+    \begin{mdframed}[linecolor=black!30,backgroundcolor=bg_figure]
+}{
+    \end{mdframed}
+  \end{originalfigure}
+}
+\DeclareCaptionLabelFormat{bold}{\textbf{#2)}}
+\DeclareCaptionSubType[Alph]{figure}
+\DeclareCaptionSubType[Alph]{subfigure}
+
+\captionsetup[subfigure]{
+	position=top,
+	labelfont=bf,
+	textfont=small,
+	singlelinecheck=off,
+	justification=raggedright,
+	labelformat=simple
+	}
+
+\captionsetup[figure]{
+	position=bottom,
+	labelfont={bf,sc},
+	textfont=small,
+	justification=justified,
+	labelformat=simple,
+	subrefformat=bold
+	}
 
 %%%%% THE ACTUAL DOCUMENT STARTS HERE
 \begin{document}
