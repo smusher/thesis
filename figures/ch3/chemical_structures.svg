@@ -1,0 +1,1062 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="63.324257mm"
+   height="77.764938mm"
+   viewBox="0 0 63.324257 77.764938"
+   version="1.1"
+   id="svg1097"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07, custom)"
+   sodipodi:docname="chemical_structures.svg">
+  <defs
+     id="defs1091">
+    <filter
+       height="1.072"
+       y="-0.035999998"
+       width="1.072"
+       x="-0.036000002"
+       id="filter4596-3-5"
+       style="color-interpolation-filters:sRGB"
+       inkscape:collect="always">
+      <feGaussianBlur
+         id="feGaussianBlur4598-3-1"
+         stdDeviation="3.6340628"
+         inkscape:collect="always" />
+    </filter>
+    <filter
+       height="1.072"
+       y="-0.035999998"
+       width="1.072"
+       x="-0.036000002"
+       id="filter4596-1"
+       style="color-interpolation-filters:sRGB"
+       inkscape:collect="always">
+      <feGaussianBlur
+         id="feGaussianBlur4598-33"
+         stdDeviation="3.6340628"
+         inkscape:collect="always" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="242.46249"
+     inkscape:cy="161.93395"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="768"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata1094">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-14.38502,-9.2619664)">
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="-38.619751"
+       y="-19.916767"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4729-5"
+       transform="scale(-1)">N</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="-31.607433"
+       y="-17.937647"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4731-9"
+       transform="scale(-1)">H</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="-28.456518"
+       y="-13.232878"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4733-1"
+       transform="scale(-1)">N</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="-18.293671"
+       y="-19.916767"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4735-3"
+       transform="scale(-1)">O</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="-23.374908"
+       y="-28.71813"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4737-4"
+       transform="scale(-1)">O</text>
+    <ellipse
+       transform="matrix(0.14452214,0,0,0.14452214,40.174803,9.5229453)"
+       ry="121.13543"
+       rx="121.13542"
+       cy="129.85718"
+       cx="129.85718"
+       id="path4578-7-0"
+       style="fill:#e3f2fd;fill-opacity:1;stroke:none;stroke-width:7.729;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5.90082;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;filter:url(#filter4596-3-5)" />
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="-69.564247"
+       y="-37.541836"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4739-5"
+       transform="scale(-1)">O</text>
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="74.611557"
+       y1="29.352859"
+       x2="69.541382"
+       y2="32.306023"
+       id="line4741-5" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="69.541382"
+       y1="32.306023"
+       x2="64.44886"
+       y2="29.392149"
+       id="line4743-8" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="64.44886"
+       y1="29.392149"
+       x2="59.378635"
+       y2="32.345314"
+       id="line4745-5" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="63.183167"
+       y1="28.96784"
+       x2="59.634018"
+       y2="31.035038"
+       id="line4747-1" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="59.378635"
+       y1="32.345314"
+       x2="54.285576"
+       y2="29.430845"
+       id="line4749-5" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="54.285576"
+       y1="29.430845"
+       x2="49.05225"
+       y2="32.588825"
+       id="line4751-7" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="52.982048"
+       y1="29.045179"
+       x2="49.318699"
+       y2="31.255774"
+       id="line4753-6" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="49.05225"
+       y1="32.588825"
+       x2="43.72448"
+       y2="29.593996"
+       id="line4755-6" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="43.72448"
+       y1="29.593996"
+       x2="43.701004"
+       y2="23.482315"
+       id="line4757-9" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="44.724644"
+       y1="28.673382"
+       x2="44.708183"
+       y2="24.395157"
+       id="line4759-2" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="43.701004"
+       y1="23.482315"
+       x2="39.912174"
+       y2="21.294712"
+       id="line4761-1" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="37.326977"
+       y1="21.294712"
+       x2="33.537769"
+       y2="23.482315"
+       id="line4763-9" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="33.537769"
+       y1="23.482315"
+       x2="28.456532"
+       y2="20.548529"
+       id="line4765-1" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="28.456532"
+       y1="20.548529"
+       x2="30.314651"
+       y2="19.475613"
+       id="line4767-3" />
+    <polygon
+       style="fill:#000000;stroke:none;stroke-width:0.732893;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       points="142.143,118.371 137.556,118.371 139.849,106.284 "
+       id="polygon4769-0"
+       transform="matrix(-0.36101214,0,0,-0.36101214,78.943719,58.918336)" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="28.456532"
+       y1="20.548529"
+       x2="23.374922"
+       y2="23.482315"
+       id="line4771-8" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="23.374922"
+       y1="23.482315"
+       x2="19.818966"
+       y2="21.429043"
+       id="line4773-0" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="22.873106"
+       y1="23.482315"
+       x2="22.873106"
+       y2="28.166607"
+       id="line4775-8" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="23.876726"
+       y1="23.482315"
+       x2="23.876726"
+       y2="28.166607"
+       id="line4777-8" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="43.701004"
+       y1="23.482315"
+       x2="49.00589"
+       y2="20.446363"
+       id="line4779-5" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="49.00589"
+       y1="20.446363"
+       x2="54.263287"
+       y2="23.563864"
+       id="line4781-1" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="49.282593"
+       y1="21.777416"
+       x2="52.962727"
+       y2="23.959568"
+       id="line4783-4" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="54.285576"
+       y1="29.430845"
+       x2="54.263287"
+       y2="23.563864"
+       id="line4785-9" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="54.263287"
+       y1="23.563864"
+       x2="59.333515"
+       y2="20.61027"
+       id="line4787-8" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="59.333515"
+       y1="20.61027"
+       x2="64.42598"
+       y2="23.524519"
+       id="line4789-9" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="59.598831"
+       y1="21.918222"
+       x2="63.163578"
+       y2="23.95849"
+       id="line4791-9" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="64.44886"
+       y1="29.392149"
+       x2="64.42598"
+       y2="23.524519"
+       id="line4793-1" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="69.03952"
+       y1="32.307964"
+       x2="69.057816"
+       y2="36.990261"
+       id="line4795-4" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="70.04319"
+       y1="32.304081"
+       x2="70.061485"
+       y2="36.990261"
+       id="line4797-5" />
+    <text
+       id="text49914-1"
+       y="12.793272"
+       x="34.139275"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:4.93889px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:4.93889px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.264583"
+         y="12.793272"
+         x="34.139275"
+         id="tspan49912-1"
+         sodipodi:role="line">ANAP</tspan></text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="51.318653"
+       y="66.831398"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4265-7">O</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="51.318653"
+       y="72.000351"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4267-3">P</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="56.05022"
+       y="72.000351"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4269-6">O</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="58.416187"
+       y="76.098068"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4271-4">P</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="60.782093"
+       y="80.195839"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4273-0">O</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="65.51403"
+       y="80.195839"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4275-2">P</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="70.245903"
+       y="80.195839"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4277-3">O</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="65.51403"
+       y="84.92778"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4279-4">O</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="65.51403"
+       y="75.027252"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4281-3">O</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="62.513905"
+       y="74.291016"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4283-4">O</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="54.318043"
+       y="78.464035"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4285-7">O</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="51.318653"
+       y="76.732224"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4287-6">O</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="46.586658"
+       y="72.000351"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4289-7">O</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="40.821888"
+       y="70.515732"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4291-7">H</text>
+    <ellipse
+       ry="121.13543"
+       rx="121.13542"
+       cy="115.14981"
+       cx="112.68084"
+       id="path4578-8"
+       style="fill:#fff3e0;fill-opacity:1;stroke:none;stroke-width:2.1616;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;filter:url(#filter4596-1)"
+       transform="matrix(0.1224015,0,0,0.1224015,16.487429,36.847292)" />
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="40.551685"
+       y="62.850025"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4293-5">H</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="29.441761"
+       y="61.741383"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4295-5">O</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="40.00658"
+       y="55.362354"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4297-6">N</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="43.166492"
+       y="51.840443"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4299-8">O</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="41.476307"
+       y="59.859974"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4301-9">O</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="24.426014"
+       y="60.454273"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4303-5">N</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="19.795887"
+       y="59.478565"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4305-8">O</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="25.895741"
+       y="64.951889"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4307-0">O</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="26.621111"
+       y="44.415207"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4309-4">N</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="29.415657"
+       y="41.300999"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4311-9">O</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="22.527029"
+       y="43.552448"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4313-7">O</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="36.718861"
+       y="59.362659"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4315-1">O</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="28.407887"
+       y="66.819145"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4317-0">H</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="32.71764"
+       y="73.164413"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4319-8">H</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="28.431507"
+       y="73.062851"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4321-3">N</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="21.192249"
+       y="75.428825"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4323-1">N</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="31.973804"
+       y="80.926559"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4325-5">N</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="26.499989"
+       y="87.026901"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4327-7">N</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="18.480457"
+       y="85.336594"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4329-9">N</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="36.727406"
+       y="71.710312"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4331-1">O</text>
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="50.875355"
+       y1="67.338478"
+       x2="50.875355"
+       y2="69.434296"
+       id="line4333-9" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="51.761646"
+       y1="67.338478"
+       x2="51.761646"
+       y2="69.434296"
+       id="line4335-2" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="52.50658"
+       y1="70.866875"
+       x2="54.648243"
+       y2="70.866875"
+       id="line4337-6" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="56.678394"
+       y1="72.50737"
+       x2="57.522205"
+       y2="73.969101"
+       id="line4339-5" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="59.0443"
+       y1="76.605148"
+       x2="59.888172"
+       y2="78.066818"
+       id="line4341-7" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="62.184437"
+       y1="79.062363"
+       x2="64.326042"
+       y2="79.062363"
+       id="line4343-1" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="66.702263"
+       y1="79.062363"
+       x2="68.843925"
+       y2="79.062363"
+       id="line4345-5" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="65.51403"
+       y1="80.702934"
+       x2="65.51403"
+       y2="82.798752"
+       id="line4347-6" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="65.957329"
+       y1="77.629791"
+       x2="65.957329"
+       y2="75.533966"
+       id="line4349-8" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="65.070671"
+       y1="77.629791"
+       x2="65.070671"
+       y2="75.533966"
+       id="line4351-2" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="59.60442"
+       y1="74.831535"
+       x2="61.111927"
+       y2="73.961105"
+       id="line4353-6" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="57.228199"
+       y1="75.691574"
+       x2="55.72002"
+       y2="76.562302"
+       id="line4355-5" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="57.41869"
+       y1="76.605148"
+       x2="55.72002"
+       y2="77.585678"
+       id="line4357-0" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="51.318653"
+       y1="72.50737"
+       x2="51.318653"
+       y2="74.603195"
+       id="line4359-2" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="50.13036"
+       y1="70.866875"
+       x2="47.988758"
+       y2="70.866875"
+       id="line4361-3" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="45.692677"
+       y1="69.871323"
+       x2="44.220753"
+       y2="67.321518"
+       id="line4363-9" />
+    <polygon
+       transform="matrix(0.33182974,0,0,0.33182974,14.498509,33.514712)"
+       style="fill:#000000;stroke:none;stroke-width:0.797347;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       points="89.5708,104.143 75.3109,101.88 89.5708,99.6165 "
+       id="polygon4365-8" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="39.48888"
+       y1="67.321518"
+       x2="40.032032"
+       y2="68.386398"
+       id="line4367-1" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="39.48888"
+       y1="67.321518"
+       x2="36.727406"
+       y2="63.513783"
+       id="line4369-2" />
+    <polygon
+       transform="matrix(0.33182974,0,0,0.33182974,14.498509,33.514712)"
+       style="fill:#000000;stroke:none;stroke-width:0.797347;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       points="76.1337,89.8093 66.9889,90.405 74.733,85.5048 "
+       id="polygon4371-4" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="36.727406"
+       y1="63.513783"
+       x2="32.229298"
+       y2="64.983932"
+       id="line4373-2" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="32.229298"
+       y1="64.983932"
+       x2="30.234791"
+       y2="62.248272"
+       id="line4375-9" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="30.562489"
+       y1="59.61211"
+       x2="32.216053"
+       y2="57.327381"
+       id="line4377-6" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="32.216053"
+       y1="57.327381"
+       x2="35.376453"
+       y2="53.80547"
+       id="line4379-4" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="35.376453"
+       y1="53.80547"
+       x2="38.818531"
+       y2="54.531178"
+       id="line4381-7" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="41.19463"
+       y1="53.457508"
+       x2="42.190601"
+       y2="52.347401"
+       id="line4383-9" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="39.895741"
+       y1="55.869312"
+       x2="40.503956"
+       y2="57.730701"
+       id="line4385-7" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="40.828236"
+       y1="55.869312"
+       x2="41.436512"
+       y2="57.730701"
+       id="line4387-3" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="35.376453"
+       y1="53.80547"
+       x2="33.906239"
+       y2="49.30785"
+       id="line4389-8" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="34.313404"
+       y1="53.406239"
+       x2="33.284229"
+       y2="50.257862"
+       id="line4391-6" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="33.906239"
+       y1="49.30785"
+       x2="29.276173"
+       y2="48.332142"
+       id="line4393-6" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="29.276173"
+       y1="48.332142"
+       x2="26.116199"
+       y2="51.854053"
+       id="line4395-9" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="26.116199"
+       y1="51.854053"
+       x2="27.585926"
+       y2="56.351673"
+       id="line4397-0" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="27.179249"
+       y1="52.253345"
+       x2="28.208057"
+       y2="55.401661"
+       id="line4399-3" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="32.216053"
+       y1="57.327381"
+       x2="27.585926"
+       y2="56.351673"
+       id="line4401-7" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="27.585926"
+       y1="56.351673"
+       x2="25.614063"
+       y2="58.549427"
+       id="line4403-0" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="23.237965"
+       y1="59.623219"
+       x2="21.197987"
+       y2="59.193348"
+       id="line4405-4" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="24.315174"
+       y1="60.961239"
+       x2="24.92345"
+       y2="62.822689"
+       id="line4407-2" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="25.24773"
+       y1="60.961239"
+       x2="25.856007"
+       y2="62.822689"
+       id="line4409-6" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="29.697437"
+       y1="48.194447"
+       x2="28.627796"
+       y2="44.922165"
+       id="line4411-2" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="28.854908"
+       y1="48.469837"
+       x2="27.695179"
+       y2="44.922165"
+       id="line4413-6" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="27.671629"
+       y1="42.73103"
+       x2="28.552628"
+       y2="41.749271"
+       id="line4415-2" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="25.570591"
+       y1="43.680355"
+       x2="23.766766"
+       y2="43.300247"
+       id="line4417-7" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="32.216053"
+       y1="57.327381"
+       x2="35.316822"
+       y2="58.329029"
+       id="line4419-6" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="36.727406"
+       y1="63.513783"
+       x2="36.720814"
+       y2="59.869617"
+       id="line4421-7" />
+    <polygon
+       transform="matrix(0.33182974,0,0,0.33182974,14.498509,33.514712)"
+       style="fill:#000000;stroke:none;stroke-width:0.797347;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       points="44.2916,95.4542 53.4334,94.8355 45.7034,99.7551 "
+       id="polygon4423-2" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="32.229298"
+       y1="64.983932"
+       x2="32.249683"
+       y2="69.687485"
+       id="line4425-8" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="32.249683"
+       y1="69.687485"
+       x2="32.467396"
+       y2="71.035385"
+       id="line4427-5" />
+    <polygon
+       transform="matrix(0.33182974,0,0,0.33182974,14.498509,33.514712)"
+       style="fill:#000000;stroke:none;stroke-width:0.797347;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       points="43.732,113.351 53.4948,109.01 46.4056,117.003 "
+       id="polygon4429-5" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="27.243458"
+       y1="72.099533"
+       x2="23.953785"
+       y2="71.040329"
+       id="line4431-0" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="23.953785"
+       y1="71.040329"
+       x2="22.315357"
+       y2="73.299423"
+       id="line4433-1" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="24.25713"
+       y1="72.13176"
+       x2="22.380299"
+       y2="74.71965"
+       id="line4435-7" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="21.981007"
+       y1="75.935471"
+       x2="23.953785"
+       y2="78.656174"
+       id="line4437-9" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="23.953785"
+       y1="78.656174"
+       x2="28.451893"
+       y2="77.185844"
+       id="line4439-9" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="24.353138"
+       y1="77.593002"
+       x2="27.501759"
+       y2="76.564011"
+       id="line4441-1" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="28.436268"
+       y1="73.569565"
+       x2="28.451893"
+       y2="77.185844"
+       id="line4443-8" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="28.451893"
+       y1="77.185844"
+       x2="30.785755"
+       y2="79.280014"
+       id="line4445-1" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="31.744434"
+       y1="81.433578"
+       x2="30.997608"
+       y2="84.975861"
+       id="line4447-8" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="30.838551"
+       y1="81.433578"
+       x2="30.276661"
+       y2="84.09848"
+       id="line4449-3" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="30.997608"
+       y1="84.975861"
+       x2="27.688038"
+       y2="86.057961"
+       id="line4451-9" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="25.311939"
+       y1="85.380341"
+       x2="22.978077"
+       y2="83.286186"
+       id="line4453-6" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="26.101429"
+       y1="84.897575"
+       x2="24.098316"
+       y2="83.100395"
+       id="line4455-0" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="23.953785"
+       y1="78.656174"
+       x2="22.978077"
+       y2="83.286186"
+       id="line4457-1" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="22.978077"
+       y1="83.286186"
+       x2="19.668507"
+       y2="84.367599"
+       id="line4459-7" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="32.249683"
+       y1="69.687485"
+       x2="35.325306"
+       y2="70.677963"
+       id="line4461-3" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="39.48888"
+       y1="67.321518"
+       x2="37.85033"
+       y2="69.581284"
+       id="line4463-8" />
+    <text
+       id="text49918-7"
+       y="85.732941"
+       x="39.744896"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:4.93889px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:4.93889px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.264583"
+         y="85.732941"
+         x="39.744896"
+         id="tspan49916-9"
+         sodipodi:role="line">TNP-ATP</tspan></text>
+  </g>
+</svg>

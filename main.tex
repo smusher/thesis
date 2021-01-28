@@ -97,6 +97,7 @@
 	\newcommand{\nd}{\textsuperscript{nd}}
 	\renewcommand{\st}{\textsuperscript{st}}
 	\newcommand{\rd}{\textsuperscript{rd}}
+	\newcommand{\ATP}{\textsubscript{ATP}}
 
 % To make coloured figure backgrounds and allow for multipanel figures
 \usepackage{caption}
@@ -137,6 +138,12 @@
 	labelformat=simple,
 	subrefformat=bold
 	}
+
+% For SI units
+\usepackage{siunitx}
+\DeclareSIUnit\Molar{M}
+\DeclareSIUnit\Calorie{cal}
+\DeclareSIUnit\Unit{U}
 
 %%%%% THE ACTUAL DOCUMENT STARTS HERE
 \begin{document}
@@ -237,7 +244,7 @@
 \flushbottom
 \include{text/ch1-intro}
 \include{text/ch2-methods}
-
+\include{text/ch3}
 
 %% APPENDICES %% 
 % Starts lettered appendices, adds a heading in table of contents, and adds a

@@ -340,7 +340,7 @@ control <-
 test <-
 	current_fits %>%
 	ungroup() %>%
-	filter(construct != "WT-GFP+SUR", construct != "W311*-GFP+SUR") %>%
+	filter(construct != "WT-GFP+SUR", construct != "W311*-GFP+SUR", unique_experiment_id != 12) %>%
 	select(Anap, construct, nucleotide, estimate) %>%
 	group_by(Anap, construct, nucleotide) %>%
 	summarise(estimate = list(estimate)) %>%
@@ -352,9 +352,9 @@ t_tests <-
 	mutate(
 		p_value = tidy(t.test(unlist(estimate), unlist(control_estimate), data = .))$p.value
 		) %>%
-	ungroup() %>%
+	group_by(Anap, nucleotide) %>%
 	mutate(
-		p_value_adjusted = p.adjust(p_value, method = "bonferroni")
+		p_value_adjusted = p.adjust(p_value, method = "bonferroni", n = n())
 		)
 
 ic50_1 +
@@ -383,17 +383,17 @@ current_fits <-
 
 anova_anap_atp <- aov(
 		estimate ~ construct,
-		data = current_fits %>% filter(nucleotide == "ATP", Anap == TRUE)
+		data = current_fits %>% filter(nucleotide == "ATP", Anap == TRUE, unique_experiment_id != 12)
 	) %>%
 multcomp::glht(linfct = multcomp::mcp(construct = "Dunnet")) %>%
-tidy()
+tidy(conf.int = TRUE)
 
 anova_atp <- aov(
 		estimate ~ construct,
 		data = current_fits %>% filter(nucleotide == "ATP", Anap == FALSE)
 	) %>%
 multcomp::glht(linfct = multcomp::mcp(construct = "Dunnet")) %>%
-tidy() %>%
+tidy(conf.int = TRUE) %>%
 bind_rows(anova_anap_atp) %>%
 mutate(nucleotide = "ATP", measure = "current")
 
@@ -402,14 +402,14 @@ anova_anap_tnpatp <- aov(
 		data = current_fits %>% filter(nucleotide == "TNP-ATP", Anap == TRUE)
 	) %>%
 multcomp::glht(linfct = multcomp::mcp(construct = "Dunnet")) %>%
-tidy()
+tidy(conf.int = TRUE)
 
 anova_tnpatp <- aov(
 		estimate ~ construct,
 		data = current_fits %>% filter(nucleotide == "TNP-ATP", Anap == FALSE)
 	) %>%
 multcomp::glht(linfct = multcomp::mcp(construct = "Dunnet")) %>%
-tidy() %>%
+tidy(conf.int = TRUE) %>%
 bind_rows(anova_anap_tnpatp) %>%
 mutate(nucleotide = "TNP-ATP", measure = "current")
 
@@ -418,7 +418,7 @@ anova_fluor <- aov(
 		data = fluorescence_fits %>% filter(method == "pcf")
 	) %>%
 multcomp::glht(linfct = multcomp::mcp(construct = "Dunnet")) %>%
-tidy() %>%
+tidy(conf.int = TRUE) %>%
 mutate(nucleotide = "TNP-ATP", measure = "fluorescence")
 
 anova_table <-
@@ -435,7 +435,7 @@ geom_hline(yintercept = 0, linetype = 2, size = 1) +
 ggtitle("ATP") +
 scale_y_continuous(limits = c(-0.5, 1)) -> aov_1
 
-ggplot(data = anova_atp, aes(x = contrast, ymin = conf.low, y = estimate, ymax = conf.high), shape = 21) +
+ggplot(data = anova_tnpatp, aes(x = contrast, ymin = conf.low, y = estimate, ymax = conf.high), shape = 21) +
 geom_pointrange() +
 geom_label(aes(label = format(signif(adj.p.value, digits = 3), scientific = FALSE)), position = position_nudge(x = 0.25)) +
 coord_flip() +

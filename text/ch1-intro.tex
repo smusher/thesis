@@ -6,7 +6,7 @@
 
 \section{General introduction}
 
-\section{Structure and function of the pancreatic K\textsubscript{ATP} channel}
+\section{Structure and function of the pancreatic K\ATP{} channel}
 
 \subsection{Pancreatic islets and the \textgreek{b}-cell}
 
@@ -18,11 +18,11 @@ Conversely, decreases in blood glucose leads to the release of glucagon, which a
 
 \subsection{Glucose induced insulin secretion in \textgreek{b}-cells}
 
-\subsection{Architecture of the pancreatic K\textsubscript{ATP} channel}
+\subsection{Architecture of the pancreatic K\ATP{} channel}
 
-ATP-sensitive potassium (K\textsubscript{ATP}) channels are present in many tissues, where they couple the metabolic state of a cell to its electrical activity by regulating the flow of K\textsuperscript{+} across the membrane.
-K\textsubscript{ATP} channels are an octameric complex, comprised of four inwardly-rectifying potassium channel subunits (Kir6.1 or Kir6.2), each of which is associated with a sulphonylurea receptor subunit (SUR1, SUR2A or SUR2B).
-In pancreatic \textgreek{b}-cells, the K\textsubscript{ATP} channel isoform is composed of Kir6.2 and SUR1.
+ATP-sensitive potassium (K\ATP{}) channels are present in many tissues, where they couple the metabolic state of a cell to its electrical activity by regulating the flow of K\textsuperscript{+} across the membrane.
+K\ATP{} channels are an octameric complex, comprised of four inwardly-rectifying potassium channel subunits (Kir6.1 or Kir6.2), each of which is associated with a sulphonylurea receptor subunit (SUR1, SUR2A or SUR2B).
+In pancreatic \textgreek{b}-cells, the K\ATP{} channel isoform is composed of Kir6.2 and SUR1.
 
 Inwardly-rectifying potassium channels are so named because they allow K\textsuperscript{+} to flow more easily into the cell than out of it (Figure \ref{ch1fig:rectification}).
 This phenomenon is a consequence of voltage-dependent pore blockade by intracellular divalent cations (especially Mg\textsuperscript{2+}) and polyamines.
@@ -107,15 +107,11 @@ Sulphonylureas go here.
 	}
 \end{figure}
 
-\subsection{Nucleotide regulation of the pancreatic K\textsubscript{ATP} channel}
+\subsection{Nucleotide regulation of the pancreatic K\ATP{} channel}
 
 Together, Kir6.2 and SUR1 form a complex nearly a megadalton in size and over 15 nanometres across (Figure \ref{ch1fig:katp_cartoon}, \ref{ch1fig:sur_topdown}).
 While the binding of adenine nucleotides to the Kir6.2 binding site leads to closure of the pore, binding of nucleotides to either of the two NBSs of SUR1 in the presence of Mg\textsuperscript{2+} activates the channel.
-The interplay between the action of nucleotides at these distinct sites (Figure \ref{ch1fig:sur_ctd}) determines the response of the K\textsubscript{ATP} channel to metabolic changes, and therefore even subtle mutations or modifications to these sites can lead to diseases of insulin secretion.
-
-In addition to its nucleotide binding and sensitivity to sulphonylureas, SUR1 also has intrinsic effects on channel properties.
-The presence of SUR1 increases the open probability of the channel pore,
-
+The interplay between the action of nucleotides at these distinct sites (Figure \ref{ch1fig:sur_ctd}) determines the response of the K\ATP{} channel to metabolic changes, and therefore even subtle mutations or modifications to these sites can lead to diseases of insulin secretion.
 
 \begin{figure}[h]
 	\centering
@@ -136,14 +132,51 @@ The presence of SUR1 increases the open probability of the channel pore,
 		\centering
 		\includegraphics[width=\textwidth]{sur_topdown_ctd_propellor.pdf}
 	\end{subfigure}
-	\caption[K\textsubscript{ATP} architecture and nucleotide regulation]{
-		\subref{ch1fig:katp_cartoon} Membrane topology of the K\textsubscript{ATP} channel shown with two Kir6.2 subunits and one SUR1 subunit.
-		\subref{ch1fig:sur_topdown} Top-down view of a cryo-EM structure of the K\textsubscript{ATP} channel (PDB \# 6C3P) solved with nucleotides bound at each of the three canonical binding sites.
+	\caption[K\ATP{} architecture and nucleotide regulation]{
+		\subref{ch1fig:katp_cartoon} Membrane topology of the K\ATP{} channel shown with two Kir6.2 subunits and one SUR1 subunit.
+		\subref{ch1fig:sur_topdown} Top-down view of a cryo-EM structure of the K\ATP{} channel (PDB \# 6C3P) solved with nucleotides bound at each of the three canonical binding sites.
 		Each SUR1 subunit is shown in a shade of purple, and each Kir6.2 subunit is shown in a shade of orange.
 		\subref{ch1fig:sur_ctd} The same view of the structure shown to the left, but with the transmembrane domains removed to reveal the cytoplasmic domains of each subunit only.
 		The nucleotides bound to the channel are shown in red.
 	}
 \end{figure}
+
+In addition to its nucleotide binding and sensitivity to sulphonylureas, SUR1 also has intrinsic effects on channel properties.
+The presence of SUR1 increases the open probability of the channel pore (Figure \ref{ch1fig:singles_sur}), and this increase is conferred by the TMD0 region (Figure \ref{ch1fig:singles_tmd0}).
+Furthermore, coexpression of SUR1 increases the sensitivity of Kir6.2 to inhibition by nucleotides (Figure \ref{ch1fig:sur_shift}).
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[t]{0.45\textwidth}
+		\caption{}\label{ch1fig:singles_sur}
+		\centering
+		\includegraphics[width=\textwidth]{single_traces_sur.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.45\textwidth}
+		\caption{}\label{ch1fig:singles_tmd0}
+		\centering
+		\includegraphics[width=\textwidth]{single_traces_tmd0.pdf}
+	\end{subfigure}
+	\vfill
+	\begin{subfigure}[t]{0.45\textwidth}
+		\caption{}\label{ch1fig:sur_shift}
+		\centering
+		\includegraphics[width=\textwidth]{tucker_sur_shift.pdf}
+	\end{subfigure}
+	\caption[SUR1 intrinscally modulates Kir6.2]{
+		\subref{ch1fig:singles_sur} Single channel recordings of excised patches from cultured cells either expressing Kir6.2 alone with the C-terminal 36 amino acids truncated (Kir6.2\textgreek{D}C36) or coexpressing wild-type Kir6.2 with SUR1.
+		Adapted from (Enkvetchakul/Nichols, 2000).
+		\subref{ch1fig:singles_tmd0} Single channel recordings of excised patches from cultured cells either expressing Kir6.2\textgreek{D}C36 alone or coexpressing Kir6.2\textgreek{D}C36 with the TMD0 region of SUR1.
+		Adapted from (Pratt/Shyng, 2011).
+		In both panels, currents were recorded in symmetrical 140 mM K\textsuperscript{+} at a membrane potential of -50 mV and openings are displayed as upward deflections.
+		Note that the timescales differ slightly between panels as traces are from two separate papers.
+		\subref{ch1fig:sur_shift} Concentration-response relationship of ATP from macroscopic currents excised from \textit{Xenopus} oocytes injected with either Kir6.2\textgreek{D}C26 mRNA alone (open circles), or a mixture of Kir6.2\textgreek{D}C26 and SUR1 mRNAs (closed circles).
+		Response is given as the fraction of the slope conductance (G) remaining during exposure to ATP.
+		Adapted from (Tucker/Ashcroft, 1997).
+	}
+\end{figure}
+
 
 \section{Fluorescence methods in ion channel research}
 
