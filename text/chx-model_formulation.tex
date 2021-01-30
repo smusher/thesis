@@ -1,0 +1,102 @@
+\chapter{\label{ch:x}MWC model formulation} 
+
+\graphicspath{{figures/chx/}}
+
+\minitoc
+
+\setchemfig{scheme debug=false}
+
+\section{The MWC model}
+
+The simplest case of an allosteric MWC model is shown in Figure \ref{sch:1lig_1prot}.
+This simple case assumes a protein composed of a single monomer with a single binding site for ligand $A$.
+The protein is restricted to two states; R which is the inactive form and R* which is the active form.
+These two states exist in an equilibrium described by L, which is equivalent to $\frac{[R*]}{[R]}$.
+Ligand $A$ binds to the protein with a microscopic affinity constant $K_A$.
+However, the ligand $A$ differentially stabilises the R and R* states by a constant $D$.
+When $D$ is unity, the ligand $A$ binds equally to both states and so does not influence the conformational changes of the protein.
+When $D>1$, the ligand $A$ preferentially stabilises the active R* state, while when $D<1$ the ligand instead preferentially stabilises the inactive R state.
+
+\begin{figure}[h]
+\centering
+\schemestart
+	R\arrow(r--ar){<=>[$K_A[A]$]}AR
+	\arrow(@r--r*){<=>[$L$]}[-90]R*
+	\arrow(@ar--ar*){<=>[$DL$]}[-90]AR*
+	\arrow(@r*--@ar*){<=>[$DK_A[A]$]}
+\schemestop
+\caption{Single ligand, single protomer}\label{sch:1lig_1prot}
+\end{figure}
+
+Two characteristics of interest - the equation for binding of ligand A and the equation for the probability of the protein being active - are shown in equations \ref{eq:1lig_1prot_b} and \ref{eq:1lig_1prot_g}.
+
+\begin{equation} 
+[AR] = K_A[A][R] \quad [R*] = L[R] \quad [AR*] = DLK_A[A][R]
+\end{equation}
+
+\begin{equation}\label{eq:1lig_1prot_b}
+\begin{split}
+\frac{bound}{all} &= \frac{[AR] + [AR*]}{[R] + [R*] + [AR] + [AR*]}\\
+&= \frac{K_A[A][R] + DLK_A[A][R]}{[R] + L[R] + K_A[A][R] + DLK_A[A][R]}\\
+&= \frac{K_A[A] + DLK_A[A]}{1 + L + K_A[A] + DLK_A[A]}\\
+&= \frac{K_A[A](1 + DL)}{1 + K_A[A] + L(1 + DK_A[A])}
+\end{split}
+\end{equation}
+
+\begin{equation}\label{eq:1lig_1prot_g}
+\begin{split}
+\frac{active}{all} &= \frac{[R*] + [AR*]}{[R] + [R*] + [AR] + [AR*]}\\
+&= \frac{L[R] + DLK_A[A][R]}{[R] + L[R] + K_A[A][R] + DLK_A[A][R]}\\
+&= \frac{L + DLK_A[A]}{1 + L + K_A[A] + DLK_A[A]}\\
+&= \frac{L(1 + DK_A[A])}{1 + K_A[A] + L(1 + DK_A[A])}
+\end{split}
+\end{equation}
+
+If we consider introducing a second ligand B which binds to a distinct site and does not directly interact with ligand A, the scheme looks like Figure \ref{sch:2lig_1prot}.
+Each ligand has its own microscopic association constant ($K_A$ or $K_B$) and its own preference for the R or R* states ($D_A$ or $D_B$).
+Importantly, there is no interaction term between ligand A and ligand B; the only way these ligands can impact each other is through effects on protein activity.
+
+\begin{figure}[h]
+\centering
+\schemestart
+	R\arrow(r--ar){<=>[$K_A[A]$]}AR
+	\arrow(@ar--bar){<=>[$K_B[B]$]}BAR
+	\arrow(@bar--br){<=>[][$K_A[A]$]}BR
+	\arrow(@br--r2){<=>[][$K_B[B]$]}R
+	\arrow(@r--r*){<=>[$L$]}[-90]R*
+	\arrow(@ar--ar*){<=>[$D_AL$]}[-90]AR*
+	\arrow(@bar--bar*){<=>[$D_AD_BL$]}[-90]BAR*
+	\arrow(@br--br*){<=>[$D_BL$]}[-90]BR*
+	\arrow(@r2--r*2){<=>[$L$]}[-90]R*
+	\arrow(@r*--@ar*){<=>[$D_AK_A[A]$]}
+	\arrow(@ar*--@bar*){<=>[$D_BK_B[B]$]}
+	\arrow(@bar*--br*){<=>[][$D_AK_A[A]$]}
+	\arrow(@br*--r*){<=>[][$D_BK_B[B]$]}
+\schemestop
+\caption{Two non-interacting ligands, single protomer}\label{sch:2lig_1prot}
+\end{figure}
+
+Similar equations for this more compicated model are shown here.
+
+\begin{align*}
+& & [AR] &= K_A[A][R] & [BR] &= K_B[B][R] & [BAR] &= K_A[A]K_B[B][R]\\
+[R*] &= L[R] & [AR*] &= LD_AK_A[A][R] & [BR*] &= LD_BK_B[B][R] & [BAR*] &= LD_AK_A[A]D_BK_B[B][R]
+\end{align*}
+
+\begin{equation}\label{eq:2lig_1prot_b}
+\begin{split}
+\frac{Abound}{all} &= \frac{[AR] + [AR*] + [BAR] + [BAR*]}{[R] + [R*] + [AR] + [AR*] + [BR] + [BR*] + [BAR] + [BAR*]}\\
+&= \frac{K_A[A][R] + LD_AK_A[A][R] + K_A[A]K_B[B][R] + LD_AK_A[A]D_BK_B[B][R]}{[R] + K_A[A][R] + K_B[B][R] + K_A[A]K_B[B][R] + L[R] + LD_AK_A[A][R] + LD_BK_B[B][R] + LD_AK_A[A]D_BK_B[B][R]}\\
+&= \frac{K_A[A] + LD_AK_A[A] + K_A[A]K_B[B] + LD_AK_A[A]D_BK_B[B]}{1 + K_A[A] + K_B[B] + K_A[A]K_B[B] + L + LD_AK_A[A] + LD_BK_B[B] + LD_AK_A[A]D_BK_B[B]}\\
+&= \frac{K_A[A](1 + LD_A) + K_A[A]K_B[B](1 + LD_AD_B)}{(1 + K_A[A])(1 + K_B[B]) + L(1 + D_AK_A[A])(1 + D_BK_B[B])}
+\end{split}
+\end{equation}
+
+\begin{equation}\label{eq:2lig_1prot_g}
+\begin{split}
+\frac{active}{all} &= \frac{[R*] + [AR*] + [BAR*] + [BR*]}{[R] + [R*] + [AR] + [AR*] + [BR] + [BR*] + [BAR] + [BAR*]}\\
+&= \frac{L[R] + LD_AK_A[A][R] + LD_BK_B[B][R] + LD_AK_A[A]D_BK_B[B][R]}{[R] + K_A[A][R] + K_B[B][R] + K_A[A]K_B[B][R] + L[R] + LD_AK_A[A][R] + LD_BK_B[B][R] + LD_AK_A[A]D_BK_B[B][R]}\\
+&= \frac{L + LD_AK_A[A] + LD_BK_B[B] + LD_AK_A[A]D_BK_B[B]}{1 + K_A[A] + K_B[B] + K_A[A]K_B[B] + L + LD_AK_A[A] + LD_BK_B[B] + LD_AK_A[A]D_BK_B[B]}\\
+&= \frac{ L(1 + D_AK_A[A])(1 + D_BK_B[B])}{(1 + K_A[A])(1 + K_B[B]) + L(1 + D_AK_A[A])(1 + D_BK_B[B])}
+\end{split}
+\end{equation}
