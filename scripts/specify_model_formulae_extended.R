@@ -1,233 +1,317 @@
 library(tidyverse)
 library(patchwork)
 
-#closed states, each monomer bound to one ligand only
-4u <- 1
+mwc_model <- function(Fa, Ka, Da, Fb, Kb, Db, L, C){
 
-3u1a <- 4*K1*F1*4u
-2u2a <- 3/2*K1*F1*3u1a
-1u3a <- 2/3*K1*F1*2u2a
-4a <- 1/4*K1*F1*1u3a
+	# closed states, each monomer bound to one ligand only
+	s4u <- 1
+	
+	s3u1a <- 4*Ka*Fa*s4u
+	s2u2a <- 3/2*Ka*Fa*s3u1a
+	s1u3a <- 2/3*Ka*Fa*s2u2a
+	s4a <- 1/4*Ka*Fa*s1u3a
+	
+	s3u1b <- 4*Kb*Fb*s4u
+	s2u2b <- 3/2*Kb*Fb*s3u1b
+	s1u3b <- 2/3*Kb*Fb*s2u2b
+	s4b <- 1/4*Kb*Fb*s1u3b
+	
+	s2u1a1b <- 3*Kb*Fb*s3u1a
+	s1u1a2b <- 1*Kb*Fb*s2u1a1b
+	s1a3b <- 1/3*Kb*Fb*s1u1a2b
+	
+	s1u2a1b <- 1*Ka*Fa*s2u1a1b
+	s2a2b <- 1/2*Kb*Fb*s1u2a1b
+	
+	s3a1b <- 1/3*Ka*Fa*s1u2a1b
+	
+	#closed states, monomers bound to multiple ligands
+	s3u1ab <- C*Kb*Fb*s3u1a
+	
+	s2u1a1ab <- 3*Ka*Fa*s3u1ab
+	s1u2a1ab <- Ka*Fa*s2u1a1ab
+	s3a1ab <- 1/3*Ka*Fa*s1u2a1ab
+	
+	s2u1b1ab <- 3*Kb*Fb*s3u1ab
+	s1u2b1ab <- Kb*Fb*s2u1b1ab
+	s3b1ab <- 1/3*Kb*Fb*s1u2b1ab
+	
+	s1u1a1b1ab <- 2*Ka*Fa*s2u1b1ab
+	s2a1b1ab <- 1/2*Ka*Fa*s1u1a1b1ab
+	s1a2b1ab <- 1/2*Kb*Fb*s1u1a1b1ab
+	
+	s2u2ab <- 1/2*C*Kb*Fb*s2u1a1ab
+	s1u1a2ab <- 2*Ka*Fa*s2u2ab
+	s2a2ab <- 1/2*Ka*Fa*s1u1a2ab
+	
+	s1a1b2ab <- Kb*Fb*s1u1a2ab
+	s1u1b2ab <- 2*Kb*Fb*s2u2ab
+	s2b2ab <- 1/2*Kb*Fb*s1u1b2ab
+	
+	s1u3ab <- 1/3*C*Kb*Fb*s1u1a2ab
+	s1a3ab <- Ka*Fa*s1u3ab
+	s1b3ab <- Kb*Fb*s1u3ab
+	s4ab <- 1/4*C*Kb*Fb*s1a3ab
+	
+	#open states, each monomer bound to one ligand only
+	s4u_o <- L
+	
+	s3u1a_o <- Da*L*s3u1a
+	s2u2a_o <- Da^2*L*s2u2a
+	s1u3a_o <- Da^3*L*s1u3a
+	s4a_o <- Da^4*L*s4a
+	
+	s3u1b_o <- Db*L*s3u1b
+	s2u2b_o <- Db^2*L*s2u2b
+	s1u3b_o <- Db^3*L*s1u3b
+	s4b_o <- Db^4*L*s4b
+	
+	s2u1a1b_o <- Da*Db*L*s2u1a1b
+	s1u1a2b_o <- Da*Db^2*L*s1u1a2b
+	s1a3b_o <- Da*Db^3*L*s1a3b
+	
+	s1u2a1b_o <- Da^2*Db*L*s1u2a1b
+	s2a2b_o <- Da^2*Db^2*L*s2a2b
+	
+	s3a1b_o <- Da^3*Db*L*s3a1b
+	
+	#open states, monomers bound to multiple ligands
+	s3u1ab_o <- Da*Db*L*s3u1ab
+	
+	s2u1a1ab_o <- Da^2*Db*L*s2u1a1ab
+	s1u2a1ab_o <- Da^3*Db*L*s1u2a1ab
+	s3a1ab_o <- Da^4*Db*L*s3a1ab
+	
+	s2u1b1ab_o <- Da*Db^2*L*s2u1b1ab
+	s1u2b1ab_o <- Da*Db^3*L*s1u2b1ab
+	s3b1ab_o <- Da*Db^3*L*s3b1ab
+	
+	s1u1a1b1ab_o <- Da^2*Db^2*L*s1u1a1b1ab
+	s2a1b1ab_o <- Da^3*Db^2*L*s2a1b1ab
+	s1a2b1ab_o <- Da^2*Db^3*L*s1a2b1ab
+	
+	s2u2ab_o <- Da^2*Db^2*L*s2u2ab
+	s1u1a2ab_o <- Da^3*Db^2*L*s1u1a2ab
+	s2a2ab_o <- Da^4*Db^2*L*s2a2ab
+	
+	s1a1b2ab_o <- Da^3*Db^3*L*s1a1b2ab
+	s1u1b2ab_o <- Da^2*Db^3*L*s1u1b2ab
+	s2b2ab_o <- Da^2*Db^4*L*s2b2ab
+	
+	s1u3ab_o <- Da^3*Db^3*L*s1u3ab
+	s1a3ab_o <- Da^4*Db^3*L*s1a3ab
+	s1b3ab_o <- Da^3*Db^4*L*s1b3ab
+	s4ab_o <- Da^4*Db^4*L*s4ab
 
-3u1b <- 4*K2*F2*4u
-2u2b <- 3/2*K2*F2*3u1b
-1u3b <- 2/3*K2*F2*2u2b
-4b <- 1/4*K2*F2*1u3b
+	closed_states <-
+		c(
+		s4u, s3u1a, s2u2a, s1u3a, s4a, s3u1b, s2u2b, s1u3b, s4b,
+		s2u1a1b, s1u2a1b, s1u1a2b, s3a1b, s1a3b, s2a2b,
+		s3u1ab, s2u1a1ab, s1u2a1ab, s3a1ab, s2u1b1ab, s1u2b1ab,
+		s3b1ab, s1u1a1b1ab, s2a1b1ab, s1a2b1ab, s2u2ab, s1u1a2ab,
+		s2a2ab, s1a1b2ab, s1u1b2ab, s2b2ab, s1u3ab, s1a3ab, s1b3ab, s4ab
+			)
 
-2u1a1b <- 3*K2*F2*3u1a
-1u1a2b <- 1*K2*F2*2u1a1b
-1a3b <- 1/3*K2*F2*1u1a2b
+	open_states <-
+		c(
+		s4u_o, s3u1a_o, s2u2a_o, s1u3a_o, s4a_o, s3u1b_o, s2u2b_o, s1u3b_o, s4b_o,
+		s2u1a1b_o, s1u2a1b_o, s1u1a2b_o, s3a1b_o, s1a3b_o, s2a2b_o,
+		s3u1ab_o, s2u1a1ab_o, s1u2a1ab_o, s3a1ab_o, s2u1b1ab_o, s1u2b1ab_o,
+		s3b1ab_o, s1u1a1b1ab_o, s2a1b1ab_o, s1a2b1ab_o, s2u2ab_o, s1u1a2ab_o,
+		s2a2ab_o, s1a1b2ab_o, s1u1b2ab_o, s2b2ab_o, s1u3ab_o, s1a3ab_o, s1b3ab_o, s4ab_o
+			)
 
-1u2a1b <- 1*K1*F1*2u1a1b
-2a2b <- 1/2*K2*F2*1u2a1b
+	a_bound_states <-
+		c(
+		s3u1a, 2*s2u2a, 3*s1u3a, 4*s4a, s2u1a1b, 2*s1u2a1b, s1u1a2b, 3*s3a1b,
+		s1a3b, 2*s2a2b, s3u1ab, 2*s2u1a1ab, 3*s1u2a1ab, 4*s3a1ab, s2u1b1ab, s1u2b1ab,
+		s3b1ab, 2*s1u1a1b1ab, 3*s2a1b1ab, 2*s1a2b1ab, 2*s2u2ab, 3*s1u1a2ab,
+		4*s2a2ab, 3*s1a1b2ab, 2*s1u1b2ab, 2*s2b2ab, 3*s1u3ab, 4*s1a3ab, 3*s1b3ab, 4*s4ab,
+		s3u1a_o, 2*s2u2a_o, 3*s1u3a_o, 4*s4a_o, s2u1a1b_o, 2*s1u2a1b_o, s1u1a2b_o, 3*s3a1b_o,
+		s1a3b_o, 2*s2a2b_o, s3u1ab_o, 2*s2u1a1ab_o, 3*s1u2a1ab_o, 4*s3a1ab_o, s2u1b1ab_o, s1u2b1ab_o,
+		s3b1ab_o, 2*s1u1a1b1ab_o, 3*s2a1b1ab_o, 2*s1a2b1ab_o, 2*s2u2ab_o, 3*s1u1a2ab_o,
+		4*s2a2ab_o, 3*s1a1b2ab_o, 2*s1u1b2ab_o, 2*s2b2ab_o, 3*s1u3ab_o, 4*s1a3ab_o, 3*s1b3ab_o, 4*s4ab_o
+			)
 
-3a1b <- 1/3*K1*F1*1u2a1b
+	b_bound_states <-
+		c(
+		s3u1b, 2*s2u2b, 3*s1u3b, 4*s4b,
+		s2u1a1b, s1u2a1b, 2*s1u1a2b, s3a1b, 3*s1a3b, 2*s2a2b,
+		s3u1ab, s2u1a1ab, s1u2a1ab, s3a1ab, 2*s2u1b1ab, 3*s1u2b1ab,
+		4*s3b1ab, 2*s1u1a1b1ab, 2*s2a1b1ab, 3*s1a2b1ab, 2*s2u2ab, 2*s1u1a2ab,
+		2*s2a2ab, 3*s1a1b2ab, 3*s1u1b2ab, 4*s2b2ab, 3*s1u3ab, 3*s1a3ab, 4*s1b3ab, 4*s4ab,
+		s3u1b_o, 2*s2u2b_o, 3*s1u3b_o, 4*s4b_o,
+		s2u1a1b_o, s1u2a1b_o, 2*s1u1a2b_o, s3a1b_o, 3*s1a3b_o, 2*s2a2b_o,
+		s3u1ab_o, s2u1a1ab_o, s1u2a1ab_o, s3a1ab_o, 2*s2u1b1ab_o, 3*s1u2b1ab_o,
+		4*s3b1ab_o, 2*s1u1a1b1ab_o, 2*s2a1b1ab_o, 3*s1a2b1ab_o, 2*s2u2ab_o, 2*s1u1a2ab_o,
+		2*s2a2ab_o, 3*s1a1b2ab_o, 3*s1u1b2ab_o, 4*s2b2ab_o, 3*s1u3ab_o, 3*s1a3ab_o, 4*s1b3ab_o, 4*s4ab_o
+		)
 
-#closed states, monomers bound to multiple ligands
-3u1ab <- C*K2*F2*3u1a
+	all_gating_states <- c(closed_states, open_states)
+	all_binding_states <- 4 * all_gating_states
 
-2u1a1ab <- 3*K1*F1*3u1ab
-1u2a1ab <- K1*F1*2u1a1ab
-3a1ab <- 1/3*K1*F1*1u2a1ab
+		tibble("open_fraction" = sum(open_states) / sum(all_gating_states),
+		"a_bound_fraction" = sum(a_bound_states) / sum(all_binding_states),
+		"b_bound_fraction" = sum(b_bound_states) / sum(all_binding_states)
+		) %>% return()
 
-2u1b1ab<- 3*K2*F2*3u1ab
-1u2b1ab <- K2*F2*2u1b1ab
-3b1ab <- 1/3*K2*F2*1u2b1ab
+}
 
-1u1a1b1ab <- 2*K1*F1*2u1b1ab
-2a1b1ab <- 1/2*K1*F1*1u1a1b1ab
-1a2b1ab <- 1/2*K2*F2*1u1a1b1ab
+Fb <- 0
+Kb <- 1
+Db <- 1
+C <- 1
 
-2u2ab <- 1/2*C*K2*F2*2u1a1ab
-1u1a2ab <- 2*K1*F1*2u2ab
-2a2ab <- 1/2*K1*F1*1u1a2ab
+tibble("Fa" = 10^seq(-7, -2, length.out = 31)) %>%
+mutate(res = purrr::map(Fa, mwc_model, 1e4, 0.1, Fb, Kb, Db, 1, C)) %>%
+unnest(res) %>%
+mutate(open_fraction_norm = open_fraction / max(open_fraction)) %>%
+pivot_longer(-Fa, names_to = "measure", values_to = "fraction") -> test
 
-1a1b2ab <- K2*F2*1u1a2ab
-1u1b2ab <- 2*K2*F2*2u2ab
-2b2ab <- 1/2*K2*F2*1u1b2ab
-
-1u3ab <- 1/3*C*K2*F2*1u1a2ab
-1a3ab <- K1*F1*1u3ab
-1b3ab <- K2*F2*1u3ab
-4ab <- 1/4*C*K2*F2*1a3ab
-
-#open states, each monomer bound to one ligand only
-
-4u_o <- L
-
-all_states <-
-    list(
-        "(1)",
-        "(4 * K1^1 * F1^1)",
-        "(6 * K1^2 * F1^2)",
-        "(4 * K1^3 * F1^3)",
-        "(1 * K1^4 * F1^4)",
-        "(L)",
-        "(L * D1^1 * 4 * K1^1 * F1^1)",
-        "(L * D1^2 * 6 * K1^2 * F1^2)",
-        "(L * D1^3 * 4 * K1^3 * F1^3)",
-        "(L * D1^4 * 1 * K1^4 * F1^4)",
-        "(4 * K2^1 * F2^1)",
-        "(6 * K2^2 * F2^2)",
-        "(4 * K2^3 * F2^3)",
-        "(1 * K2^4 * F2^4)",
-        "(L * D2^1 * 4 * K2^1 * F2^1)",
-        "(L * D2^2 * 6 * K2^2 * F2^2)",
-        "(L * D2^3 * 4 * K2^3 * F2^3)",
-        "(L * D2^4 * 1 * K2^4 * F2^4)",
-        "(4 * K1^1 * F1^1 * K2^1 * F2^1 * C^1)",
-        "(6 * K1^2 * F1^2 * K2^2 * F2^2 * C^2)",
-        "(4 * K1^3 * F1^3 * K2^3 * F2^3 * C^3)",
-        "(1 * K1^4 * F1^4 * K2^4 * F2^4 * C^4)",
-        "(L * D1^1 * D2^1 * 4 * K1^1 * F1^1 * K2^1 * F2^1 * C^1)",
-        "(L * D1^2 * D2^2 * 6 * K1^2 * F1^2 * K2^2 * F2^2 * C^2)",
-        "(L * D1^3 * D2^3 * 4 * K1^3 * F1^3 * K2^3 * F2^3 * C^3)",
-        "(L * D1^4 * D2^4 * 1 * K1^4 * F1^4 * K2^4 * F2^4 * C^4)"
-    )
-
-open_states <-
-    list(
-        "(L)",
-        "(L * D1^1 * 4 * K1^1 * F1^1)",
-        "(L * D1^2 * 6 * K1^2 * F1^2)",
-        "(L * D1^3 * 4 * K1^3 * F1^3)",
-        "(L * D1^4 * 1 * K1^4 * F1^4)",
-        "(L * D2^1 * 4 * K2^1 * F2^1)",
-        "(L * D2^2 * 6 * K2^2 * F2^2)",
-        "(L * D2^3 * 4 * K2^3 * F2^3)",
-        "(L * D2^4 * 1 * K2^4 * F2^4)",
-        "(L * D1^1 * D2^1 * 4 * K1^1 * F1^1 * K2^1 * F2^1 * C^1)",
-        "(L * D1^2 * D2^2 * 6 * K1^2 * F1^2 * K2^2 * F2^2 * C^2)",
-        "(L * D1^3 * D2^3 * 4 * K1^3 * F1^3 * K2^3 * F2^3 * C^3)",
-        "(L * D1^4 * D2^4 * 1 * K1^4 * F1^4 * K2^4 * F2^4 * C^4)"
-    )
-
-bound_states <-
-    list(
-        "(1 * 4 * K1^1 * F1^1)",
-        "(2 * 6 * K1^2 * F1^2)",
-        "(3 * 4 * K1^3 * F1^3)",
-        "(4 * 1 * K1^4 * F1^4)",
-        "(1 * L * D1^1 * 4 * K1^1 * F1^1)",
-        "(2 * L * D1^2 * 6 * K1^2 * F1^2)",
-        "(3 * L * D1^3 * 4 * K1^3 * F1^3)",
-        "(4 * L * D1^4 * 1 * K1^4 * F1^4)",
-        "(1 * 4 * K1^1 * F1^1 * K2^1 * F2^1 * C^1)",
-        "(2 * 6 * K1^2 * F1^2 * K2^2 * F2^2 * C^2)",
-        "(3 * 4 * K1^3 * F1^3 * K2^3 * F2^3 * C^3)",
-        "(4 * 1 * K1^4 * F1^4 * K2^4 * F2^4 * C^4)",
-        "(1 * L * D1^1 * D2^1 * 4 * K1^1 * F1^1 * K2^1 * F2^1 * C^1)",
-        "(2 * L * D1^2 * D2^2 * 6 * K1^2 * F1^2 * K2^2 * F2^2 * C^2)",
-        "(3 * L * D1^3 * D2^3 * 4 * K1^3 * F1^3 * K2^3 * F2^3 * C^3)",
-        "(4 * L * D1^4 * D2^4 * 1 * K1^4 * F1^4 * K2^4 * F2^4 * C^4)"
-    )
-
-binding_eq <-
-    paste(
-        "(",
-        paste(bound_states, collapse = " + "),
-        ") / (4 * (",
-        paste(all_states, collapse = " + "),
-        "))",
-        sep = ""
-    )
-
-gating_eq <-
-    paste(
-        "((",
-        paste(open_states, collapse = " + "),
-        ") / (",
-        paste(all_states, collapse = " + "),
-        "))",
-        sep = ""
-    )
-
-args <- c("F1, F2, L, K1, D1, K2, D2, C")
-
-paste('f <- function(', args, ') { return(' ,binding_eq , ')}', sep='') %>%
-parse(text = .) %>%
-eval() -> binding_function
-
-paste('f <- function(', args, ') { return(' ,gating_eq , ')}', sep='') %>%
-parse(text = .) %>%
-eval() -> gating_function
-
-simplest_model <- 
-	expand.grid(
-		"ATP" = 10^seq(-6, -2, length.out = 31),
-		"PIP2" = 0,
-		"L" = c(0.1, 1, 10),
-		"KA_ATP" = c(10^3, 10^4, 10^5),
-		"KA_PIP2" = 1,
-		"D_ATP" = c(0.1, 0.5, 0.9),
-		"D_PIP2" = 1,
-		"C" = 1) %>%
-	tibble() %>%
-	mutate(
-		atp_bound = binding_function(F1=ATP, F2=PIP2, L=L, K1=KA_ATP, D1=D_ATP, K2=KA_PIP2, D2=D_PIP2, C=C),
-		pip2_bound = binding_function(F1=PIP2, F2=ATP, L=L, K1=KA_PIP2, D1=D_PIP2, K2=KA_ATP, D2=D_ATP, C=C),
-		open = gating_function(F1=ATP, F2=PIP2, L=L, K1=KA_ATP, D1=D_ATP, K2=KA_PIP2, D2=D_PIP2, C=C),
-		open_normalised = open / (L/(L+1))
-		) %>%
-	pivot_longer(atp_bound:open_normalised, names_to = "measure", values_to = "fraction")
-
-ggplot(simplest_model %>% filter(L == 1, D_ATP == 0.5), aes(x = ATP, y = fraction, colour = factor(KA_ATP))) +
+ggplot(test, aes(x = Fa, y = fraction, linetype = measure)) +
 geom_line() +
-facet_grid(cols = vars(measure), rows = vars(interaction(L, D_ATP)), labeller = label_both) +
 scale_x_log10() +
-theme_thesis() -> simple_a
+theme_thesis() +
+ggtitle("Ka = 1e4, Da = 0.1, L = 1")
 
-ggplot(simplest_model %>% filter(KA_ATP == 10^4, D_ATP == 0.5), aes(x = ATP, y = fraction, colour = factor(L))) +
+ggsave("/home/sam/thesis/figures/chx/simple_model_1.svg")
+
+tibble("Fa" = 10^seq(-7, -2, length.out = 31)) %>%
+mutate(res = purrr::map(Fa, mwc_model, 1e4, 0.1, Fb, Kb, Db, 10, C)) %>%
+unnest(res) %>%
+mutate(open_fraction_norm = open_fraction / max(open_fraction)) %>%
+pivot_longer(-Fa, names_to = "measure", values_to = "fraction") -> test
+
+ggplot(test, aes(x = Fa, y = fraction, linetype = measure)) +
 geom_line() +
-facet_grid(cols = vars(measure), rows = vars(interaction(KA_ATP, D_ATP)), labeller = label_both) +
 scale_x_log10() +
-theme_thesis() -> simple_b
+theme_thesis() +
+ggtitle("Ka = 1e4, Da = 0.1, L = 10")
 
-ggplot(simplest_model %>% filter(KA_ATP == 10^4, L == 1), aes(x = ATP, y = fraction, colour = factor(D_ATP))) +
+ggsave("/home/sam/thesis/figures/chx/simple_model_2.svg")
+
+tibble("Fa" = 10^seq(-7, -2, length.out = 31)) %>%
+mutate(res = purrr::map(Fa, mwc_model, 1e4, 0.1, Fb, Kb, Db, 100, C)) %>%
+unnest(res) %>%
+mutate(open_fraction_norm = open_fraction / max(open_fraction)) %>%
+pivot_longer(-Fa, names_to = "measure", values_to = "fraction") -> test
+
+ggplot(test, aes(x = Fa, y = fraction, linetype = measure)) +
 geom_line() +
-facet_grid(cols = vars(measure), rows = vars(interaction(L, KA_ATP)), labeller = label_both) +
 scale_x_log10() +
-theme_thesis() -> simple_c
+theme_thesis() +
+ggtitle("Ka = 1e4, Da = 0.1, L = 100")
 
-simple_a/simple_b/simple_c
+ggsave("/home/sam/thesis/figures/chx/simple_model_2b.svg")
 
+tibble("Fa" = 10^seq(-7, -2, length.out = 31)) %>%
+mutate(res = purrr::map(Fa, mwc_model, 1e4, 0.6, Fb, Kb, Db, 1, C)) %>%
+unnest(res) %>%
+mutate(open_fraction_norm = open_fraction / max(open_fraction)) %>%
+pivot_longer(-Fa, names_to = "measure", values_to = "fraction") -> test
 
-pip_model <- 
-	expand.grid(
-		"ATP" = 10^seq(-6, -2, length.out = 31),
-		"PIP2" = 10^seq(-6, -2, length.out = 31),
-		"L" = c(0.1, 1, 10),
-		"KA_ATP" = 10^4,
-		"KA_PIP2" = c(10^3, 10^4, 10^5),
-		"D_ATP" = 0.5,
-		"D_PIP2" = c(2, 5, 10),
-		"C" = 1) %>%
-	tibble() %>%
-	mutate(
-		atp_bound = binding_function(F1=ATP, F2=PIP2, L=L, K1=KA_ATP, D1=D_ATP, K2=KA_PIP2, D2=D_PIP2, C=C),
-		pip2_bound = binding_function(F1=PIP2, F2=ATP, L=L, K1=KA_PIP2, D1=D_PIP2, K2=KA_ATP, D2=D_ATP, C=C),
-		open = gating_function(F1=ATP, F2=PIP2, L=L, K1=KA_ATP, D1=D_ATP, K2=KA_PIP2, D2=D_PIP2, C=C),
-		) %>%
-	group_by(L, PIP2, KA_ATP, KA_PIP2, D_ATP, D_PIP2, C) %>%
-	mutate(open_normalised = open/max(open)) %>%
-	pivot_longer(atp_bound:open_normalised, names_to = "measure", values_to = "fraction")
-
-ggplot(pip_model %>% filter(L == 0.1, D_PIP2 == 5, PIP2 == 1e-4), aes(x = ATP, y = fraction, colour = factor(KA_PIP2))) +
+ggplot(test, aes(x = Fa, y = fraction, linetype = measure)) +
 geom_line() +
-facet_grid(cols = vars(measure), rows = vars(interaction(PIP2, L, D_ATP, D_PIP2)), labeller = label_both) +
 scale_x_log10() +
-theme_thesis() -> pip_a
+theme_thesis() +
+ggtitle("Ka = 1e4, Da = 0.6, L = 1")
 
-ggplot(simplest_model %>% filter(KA_ATP == 10^4, D_ATP == 0.5), aes(x = ATP, y = fraction, colour = factor(L))) +
+ggsave("/home/sam/thesis/figures/chx/simple_model_3.svg")
+
+tibble("Fa" = 10^seq(-7, -2, length.out = 31)) %>%
+mutate(res = purrr::map(Fa, mwc_model, 1e4, 0.95, Fb, Kb, Db, 1, C)) %>%
+unnest(res) %>%
+mutate(open_fraction_norm = open_fraction / max(open_fraction)) %>%
+pivot_longer(-Fa, names_to = "measure", values_to = "fraction") -> test
+
+ggplot(test, aes(x = Fa, y = fraction, linetype = measure)) +
 geom_line() +
-facet_grid(cols = vars(measure), rows = vars(interaction(KA_ATP, D_ATP)), labeller = label_both) +
 scale_x_log10() +
-theme_thesis() -> simple_b
+theme_thesis() +
+ggtitle("Ka = 1e4, Da = 0.95, L = 1")
 
-ggplot(simplest_model %>% filter(KA_ATP == 10^4, L == 1), aes(x = ATP, y = fraction, colour = factor(D_ATP))) +
+ggsave("/home/sam/thesis/figures/chx/simple_model_3b.svg")
+
+tibble("Fa" = 10^seq(-7, -2, length.out = 31)) %>%
+mutate(res = purrr::map(Fa, mwc_model, Ka=1e4, Da=0.1, Fb=1e-6, Kb=1e5, Db=10, L=0.1, C=1)) %>%
+unnest(res) %>%
+mutate(open_fraction_norm = open_fraction / max(open_fraction)) %>%
+pivot_longer(-Fa, names_to = "measure", values_to = "fraction") -> test
+
+ggplot(test, aes(x = Fa, y = fraction, linetype = measure)) +
 geom_line() +
-facet_grid(cols = vars(measure), rows = vars(interaction(L, KA_ATP)), labeller = label_both) +
 scale_x_log10() +
-theme_thesis() -> simple_c
+theme_thesis() +
+ggtitle("Ka = 1e4, Da = 0.1, L = 0.1, [b] = 1e-6, Kb = 1e5, Db = 10")
 
-simple_a/simple_b/simple_c
+ggsave("/home/sam/thesis/figures/chx/pip_model_1.svg")
+
+tibble("Fa" = 10^seq(-7, -2, length.out = 31)) %>%
+mutate(res = purrr::map(Fa, mwc_model, Ka=1e4, Da=0.1, Fb=1e-6, Kb=1e6, Db=10, L=0.1, C=1)) %>%
+unnest(res) %>%
+mutate(open_fraction_norm = open_fraction / max(open_fraction)) %>%
+pivot_longer(-Fa, names_to = "measure", values_to = "fraction") -> test
+
+ggplot(test, aes(x = Fa, y = fraction, linetype = measure)) +
+geom_line() +
+scale_x_log10() +
+theme_thesis() +
+ggtitle("Ka = 1e4, Da = 0.1, L = 0.1, [b] = 1e-6, Kb = 1e6, Db = 10")
+
+ggsave("/home/sam/thesis/figures/chx/pip_model_2.svg")
+
+tibble("Fa" = 10^seq(-7, -2, length.out = 31)) %>%
+mutate(res = purrr::map(Fa, mwc_model, Ka=1e4, Da=0.1, Fb=1e-6, Kb=1e5, Db=50, L=0.1, C=1)) %>%
+unnest(res) %>%
+mutate(open_fraction_norm = open_fraction / max(open_fraction)) %>%
+pivot_longer(-Fa, names_to = "measure", values_to = "fraction") -> test
+
+ggplot(test, aes(x = Fa, y = fraction, linetype = measure)) +
+geom_line() +
+scale_x_log10() +
+theme_thesis() +
+ggtitle("Ka = 1e4, Da = 0.1, L = 0.1, [b] = 1e-6, Kb = 1e5, Db = 50")
+
+ggsave("/home/sam/thesis/figures/chx/pip_model_3.svg")
+
+tibble("Fa" = 10^seq(-7, -2, length.out = 31)) %>%
+mutate(res = purrr::map(Fa, mwc_model, Ka=1e4, Da=0.1, Fb=1e-6, Kb=1e5, Db=10, L=0.1, C=0.5)) %>%
+unnest(res) %>%
+mutate(open_fraction_norm = open_fraction / max(open_fraction)) %>%
+pivot_longer(-Fa, names_to = "measure", values_to = "fraction") -> test
+
+ggplot(test, aes(x = Fa, y = fraction, linetype = measure)) +
+geom_line() +
+scale_x_log10() +
+theme_thesis() +
+ggtitle("Ka = 1e4, Da = 0.1, L = 0.1, [b] = 1e-6, Kb = 1e5, Db = 10, C = 0.5")
+
+ggsave("/home/sam/thesis/figures/chx/full_model_1.svg")
+
+tibble("Fa" = 10^seq(-7, -2, length.out = 31)) %>%
+mutate(res = purrr::map(Fa, mwc_model, Ka=1e4, Da=0.1, Fb=1e-6, Kb=1e5, Db=10, L=0.1, C=0.01)) %>%
+unnest(res) %>%
+mutate(open_fraction_norm = open_fraction / max(open_fraction)) %>%
+pivot_longer(-Fa, names_to = "measure", values_to = "fraction") -> test
+
+ggplot(test, aes(x = Fa, y = fraction, linetype = measure)) +
+geom_line() +
+scale_x_log10() +
+theme_thesis() +
+ggtitle("Ka = 1e4, Da = 0.1, L = 0.1, [b] = 1e-6, Kb = 1e5, Db = 10, C = 0.01")
+
+ggsave("/home/sam/thesis/figures/chx/full_model_2.svg")
+
+tibble("Fa" = 10^seq(-7, -2, length.out = 31)) %>%
+mutate(res = purrr::map(Fa, mwc_model, Ka=1e4, Da=0.1, Fb=1e-6, Kb=1e6, Db=10, L=0.1, C=0.01)) %>%
+unnest(res) %>%
+mutate(open_fraction_norm = open_fraction / max(open_fraction)) %>%
+pivot_longer(-Fa, names_to = "measure", values_to = "fraction") -> test
+
+ggplot(test, aes(x = Fa, y = fraction, linetype = measure)) +
+geom_line() +
+scale_x_log10() +
+theme_thesis() +
+ggtitle("Ka = 1e4, Da = 0.1, L = 0.1, [b] = 1e-6, Kb = 1e6, Db = 10, C = 0.01")
+
+ggsave("/home/sam/thesis/figures/chx/full_model_3.svg")
