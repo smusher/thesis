@@ -1,5 +1,6 @@
 library(tidyverse)
-library(patchwork)
+library(brms)
+source("scripts/specify_model_formulae.R")
 
 mwc_model <- function(Fa, Ka, Da, Fb, Kb, Db, L, C){
 
@@ -157,161 +158,87 @@ mwc_model <- function(Fa, Ka, Da, Fb, Kb, Db, L, C){
 
 }
 
-Fb <- 0
-Kb <- 1
-Db <- 1
-C <- 1
+atp_seq <- 10^seq(-7, -2, length.out = 31)
 
-tibble("Fa" = 10^seq(-7, -2, length.out = 31)) %>%
-mutate(res = purrr::map(Fa, mwc_model, 1e4, 0.1, Fb, Kb, Db, 1, C)) %>%
+tribble(
+	~data_gen_process, ~Fa, ~Ka, ~Da, ~Fb, ~Kb, ~Db, ~L, ~C,
+	"control_scheme_1", atp_seq, 1e4, 0.1, 0, 1, 1, 1, 1,
+	"control_scheme_2", atp_seq, 1e4, 0.1, 1e-6, 1e5, 10, 0.1, 1
+	) %>%
+unnest(Fa) %>%
+group_by(data_gen_process) %>%
+mutate(res = purrr::map(Fa, mwc_model, Ka, Da, Fb, Kb, Db, L, C))
+
+tribble(
+	~data_gen_process, ~Fa,                        ~Ka, ~Da, ~Fb,  ~Kb, ~Db, ~L,  ~C,
+	"scheme_1_control", c(0,1e-6,1e-5,1e-4,1e-3),  1e4, 0.1, 0,    1,   1,   1,   1,
+	"scheme_1_Ka_shift", c(0,1e-6,1e-5,1e-4,1e-3), 1e3, 0.1, 0,    1,   1,   1,   1,
+	"scheme_1_L_shift", c(0,1e-6,1e-5,1e-4,1e-3),  1e4, 0.1, 0,    1,   1,   10,  1,
+	"scheme_1_D_shift", c(0,1e-6,1e-5,1e-4,1e-3),  1e4, 0.8, 0,    1,   1,   1,  1,
+	"scheme_2_control", c(0,1e-6,1e-5,1e-4,1e-3),  1e4, 0.1, 1e-6, 1e5, 10,  0.1, 1,
+	"scheme_2_Kb_shift", c(0,1e-6,1e-5,1e-4,1e-3), 1e4, 0.1, 1e-6, 1e6, 10,  0.1, 1,
+	"scheme_3a_control", c(0,1e-6,1e-5,1e-4,1e-3), 1e4, 0.1, 1e-6, 1e5, 10,  0.1, 0.1,
+	"scheme_3a_Kb_shift",c(0,1e-6,1e-5,1e-4,1e-3), 1e4, 0.1, 1e-6, 1e6, 10,  0.1, 0.1,
+	"scheme_3b_control", c(0,1e-6,1e-5,1e-4,1e-3), 1e4, 0.1, 1e-6, 1e5, 10,  0.1, 0.01,
+	"scheme_3b_Kb_shift", c(0,1e-6,1e-5,1e-4,1e-3),1e4, 0.1, 1e-6, 1e6, 10,  0.1, 0.01
+	) %>%
+pivot_longer(Ka:C, names_to = "param", values_to = "value") %>%
+rowwise() %>% mutate(draws = purrr::map(log(value), rlnorm, n=10, sd=0.25)) %>%
+unnest(draws) %>%
+select(-value) %>%
+pivot_wider(names_from = param, values_from = draws) %>%
+unnest(-Fa) %>%
+mutate(experiment = row_number()) %>%
+unnest(Fa) %>%
+rowwise() %>% mutate(res = purrr::map(Fa, mwc_model, Ka, Da, Fb, Kb, Db, L, C)) %>%
 unnest(res) %>%
-mutate(open_fraction_norm = open_fraction / max(open_fraction)) %>%
-pivot_longer(-Fa, names_to = "measure", values_to = "fraction") -> test
+group_by(data_gen_process, experiment) %>%
+mutate(open_fraction_norm = open_fraction/max(open_fraction)) %>%
+pivot_longer(open_fraction:open_fraction_norm, names_to = "measure", values_to = "response") -> test
 
-ggplot(test, aes(x = Fa, y = fraction, linetype = measure)) +
-geom_line() +
+ggplot(test %>% filter(measure %in% c("a_bound_fraction", "open_fraction_norm")), aes(x = Fa, y = response, fill = measure)) +
+geom_point(shape = 21)+
 scale_x_log10() +
-theme_thesis() +
-ggtitle("Ka = 1e4, Da = 0.1, L = 1")
+facet_wrap(vars(data_gen_process))
 
-ggsave("/home/sam/thesis/figures/chx/simple_model_1.svg")
+test %>%
+filter(measure %in% c("a_bound_fraction", "open_fraction_norm")) %>%
+mutate(binding_mask = case_when(measure == "a_bound_fraction" ~ 1, measure == "open_fraction_norm" ~ 0)) %>%
+rename(concentration = Fa) -> data_tofit
 
-tibble("Fa" = 10^seq(-7, -2, length.out = 31)) %>%
-mutate(res = purrr::map(Fa, mwc_model, 1e4, 0.1, Fb, Kb, Db, 10, C)) %>%
-unnest(res) %>%
-mutate(open_fraction_norm = open_fraction / max(open_fraction)) %>%
-pivot_longer(-Fa, names_to = "measure", values_to = "fraction") -> test
+mwc_formula_transformed <-
+    mwc_formula %>%
+    str_replace_all("Ka", "(10^logKa)") %>%
+    str_replace_all("L", "(10^logL)")
 
-ggplot(test, aes(x = Fa, y = fraction, linetype = measure)) +
-geom_line() +
-scale_x_log10() +
-theme_thesis() +
-ggtitle("Ka = 1e4, Da = 0.1, L = 10")
+mwc_priors <-
+    c(
+        prior(uniform(0, 1), nlpar = "D", lb = 0, ub = 1),
+        prior(uniform(2, 6), nlpar = "logKa", lb = 2, ub = 6),
+        prior(normal(0, 0.7), nlpar = "logL")
+    )
 
-ggsave("/home/sam/thesis/figures/chx/simple_model_2.svg")
+mwc_reduced_2 <-
+    bf(
+        as.formula(mwc_formula_transformed),
+        logL ~ 0 + data_gen_process,
+        D ~ 0 + data_gen_process,
+        logKa ~ 0 + data_gen_process,
+        nl = TRUE
+    )
 
-tibble("Fa" = 10^seq(-7, -2, length.out = 31)) %>%
-mutate(res = purrr::map(Fa, mwc_model, 1e4, 0.1, Fb, Kb, Db, 100, C)) %>%
-unnest(res) %>%
-mutate(open_fraction_norm = open_fraction / max(open_fraction)) %>%
-pivot_longer(-Fa, names_to = "measure", values_to = "fraction") -> test
-
-ggplot(test, aes(x = Fa, y = fraction, linetype = measure)) +
-geom_line() +
-scale_x_log10() +
-theme_thesis() +
-ggtitle("Ka = 1e4, Da = 0.1, L = 100")
-
-ggsave("/home/sam/thesis/figures/chx/simple_model_2b.svg")
-
-tibble("Fa" = 10^seq(-7, -2, length.out = 31)) %>%
-mutate(res = purrr::map(Fa, mwc_model, 1e4, 0.6, Fb, Kb, Db, 1, C)) %>%
-unnest(res) %>%
-mutate(open_fraction_norm = open_fraction / max(open_fraction)) %>%
-pivot_longer(-Fa, names_to = "measure", values_to = "fraction") -> test
-
-ggplot(test, aes(x = Fa, y = fraction, linetype = measure)) +
-geom_line() +
-scale_x_log10() +
-theme_thesis() +
-ggtitle("Ka = 1e4, Da = 0.6, L = 1")
-
-ggsave("/home/sam/thesis/figures/chx/simple_model_3.svg")
-
-tibble("Fa" = 10^seq(-7, -2, length.out = 31)) %>%
-mutate(res = purrr::map(Fa, mwc_model, 1e4, 0.95, Fb, Kb, Db, 1, C)) %>%
-unnest(res) %>%
-mutate(open_fraction_norm = open_fraction / max(open_fraction)) %>%
-pivot_longer(-Fa, names_to = "measure", values_to = "fraction") -> test
-
-ggplot(test, aes(x = Fa, y = fraction, linetype = measure)) +
-geom_line() +
-scale_x_log10() +
-theme_thesis() +
-ggtitle("Ka = 1e4, Da = 0.95, L = 1")
-
-ggsave("/home/sam/thesis/figures/chx/simple_model_3b.svg")
-
-tibble("Fa" = 10^seq(-7, -2, length.out = 31)) %>%
-mutate(res = purrr::map(Fa, mwc_model, Ka=1e4, Da=0.1, Fb=1e-6, Kb=1e5, Db=10, L=0.1, C=1)) %>%
-unnest(res) %>%
-mutate(open_fraction_norm = open_fraction / max(open_fraction)) %>%
-pivot_longer(-Fa, names_to = "measure", values_to = "fraction") -> test
-
-ggplot(test, aes(x = Fa, y = fraction, linetype = measure)) +
-geom_line() +
-scale_x_log10() +
-theme_thesis() +
-ggtitle("Ka = 1e4, Da = 0.1, L = 0.1, [b] = 1e-6, Kb = 1e5, Db = 10")
-
-ggsave("/home/sam/thesis/figures/chx/pip_model_1.svg")
-
-tibble("Fa" = 10^seq(-7, -2, length.out = 31)) %>%
-mutate(res = purrr::map(Fa, mwc_model, Ka=1e4, Da=0.1, Fb=1e-6, Kb=1e6, Db=10, L=0.1, C=1)) %>%
-unnest(res) %>%
-mutate(open_fraction_norm = open_fraction / max(open_fraction)) %>%
-pivot_longer(-Fa, names_to = "measure", values_to = "fraction") -> test
-
-ggplot(test, aes(x = Fa, y = fraction, linetype = measure)) +
-geom_line() +
-scale_x_log10() +
-theme_thesis() +
-ggtitle("Ka = 1e4, Da = 0.1, L = 0.1, [b] = 1e-6, Kb = 1e6, Db = 10")
-
-ggsave("/home/sam/thesis/figures/chx/pip_model_2.svg")
-
-tibble("Fa" = 10^seq(-7, -2, length.out = 31)) %>%
-mutate(res = purrr::map(Fa, mwc_model, Ka=1e4, Da=0.1, Fb=1e-6, Kb=1e5, Db=50, L=0.1, C=1)) %>%
-unnest(res) %>%
-mutate(open_fraction_norm = open_fraction / max(open_fraction)) %>%
-pivot_longer(-Fa, names_to = "measure", values_to = "fraction") -> test
-
-ggplot(test, aes(x = Fa, y = fraction, linetype = measure)) +
-geom_line() +
-scale_x_log10() +
-theme_thesis() +
-ggtitle("Ka = 1e4, Da = 0.1, L = 0.1, [b] = 1e-6, Kb = 1e5, Db = 50")
-
-ggsave("/home/sam/thesis/figures/chx/pip_model_3.svg")
-
-tibble("Fa" = 10^seq(-7, -2, length.out = 31)) %>%
-mutate(res = purrr::map(Fa, mwc_model, Ka=1e4, Da=0.1, Fb=1e-6, Kb=1e5, Db=10, L=0.1, C=0.5)) %>%
-unnest(res) %>%
-mutate(open_fraction_norm = open_fraction / max(open_fraction)) %>%
-pivot_longer(-Fa, names_to = "measure", values_to = "fraction") -> test
-
-ggplot(test, aes(x = Fa, y = fraction, linetype = measure)) +
-geom_line() +
-scale_x_log10() +
-theme_thesis() +
-ggtitle("Ka = 1e4, Da = 0.1, L = 0.1, [b] = 1e-6, Kb = 1e5, Db = 10, C = 0.5")
-
-ggsave("/home/sam/thesis/figures/chx/full_model_1.svg")
-
-tibble("Fa" = 10^seq(-7, -2, length.out = 31)) %>%
-mutate(res = purrr::map(Fa, mwc_model, Ka=1e4, Da=0.1, Fb=1e-6, Kb=1e5, Db=10, L=0.1, C=0.01)) %>%
-unnest(res) %>%
-mutate(open_fraction_norm = open_fraction / max(open_fraction)) %>%
-pivot_longer(-Fa, names_to = "measure", values_to = "fraction") -> test
-
-ggplot(test, aes(x = Fa, y = fraction, linetype = measure)) +
-geom_line() +
-scale_x_log10() +
-theme_thesis() +
-ggtitle("Ka = 1e4, Da = 0.1, L = 0.1, [b] = 1e-6, Kb = 1e5, Db = 10, C = 0.01")
-
-ggsave("/home/sam/thesis/figures/chx/full_model_2.svg")
-
-tibble("Fa" = 10^seq(-7, -2, length.out = 31)) %>%
-mutate(res = purrr::map(Fa, mwc_model, Ka=1e4, Da=0.1, Fb=1e-6, Kb=1e6, Db=10, L=0.1, C=0.01)) %>%
-unnest(res) %>%
-mutate(open_fraction_norm = open_fraction / max(open_fraction)) %>%
-pivot_longer(-Fa, names_to = "measure", values_to = "fraction") -> test
-
-ggplot(test, aes(x = Fa, y = fraction, linetype = measure)) +
-geom_line() +
-scale_x_log10() +
-theme_thesis() +
-ggtitle("Ka = 1e4, Da = 0.1, L = 0.1, [b] = 1e-6, Kb = 1e6, Db = 10, C = 0.01")
-
-ggsave("/home/sam/thesis/figures/chx/full_model_3.svg")
+brm(
+    formula = mwc_reduced_2,
+    data = data_tofit,
+    prior = mwc_priors,
+    family = gaussian(),
+    iter = 400,
+    warmup = 200,
+    chains = 4,
+    thin = 1,
+    seed = 2020,
+    control = list(adapt_delta = 0.99, max_treedepth = 15),
+    sample_prior = "yes",
+    save_all_pars = TRUE,
+    cores = getOption("mc.cores", 4)
+    ) -> test_1
