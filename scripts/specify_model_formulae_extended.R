@@ -1,5 +1,7 @@
 library(tidyverse)
 library(brms)
+library(tidybayes)
+library(modelr)
 source("scripts/specify_model_formulae.R")
 
 mwc_model <- function(Fa, Ka, Da, Fb, Kb, Db, L, C){
@@ -232,13 +234,69 @@ brm(
     data = data_tofit,
     prior = mwc_priors,
     family = gaussian(),
-    iter = 400,
-    warmup = 200,
+    iter = 4000,
+    warmup = 2000,
     chains = 4,
     thin = 1,
     seed = 2020,
     control = list(adapt_delta = 0.99, max_treedepth = 15),
     sample_prior = "yes",
     save_all_pars = TRUE,
-    cores = getOption("mc.cores", 4)
+    cores = getOption("mc.cores", 4),
+    file = "data/mwc_fits_new_model/generated_data.rds"
     ) -> test_1
+
+data_tofit %>%
+data_grid(
+    concentration = 10^seq_range(-7:-2, n = 51),
+    data_gen_process,
+    binding_mask
+    ) %>%
+add_fitted_draws(test_1, re_formula = NA) %>%
+group_by(data_gen_process, binding_mask, concentration) %>%
+point_interval(.value, .point = median, .interval = qi, .width = .95) %>%
+mutate(
+    measure = case_when(binding_mask == 1 ~ "a_bound_fraction", TRUE ~ "open_fraction_norm"),
+    .value = case_when(binding_mask == 1 ~ 1 - .value, TRUE ~ .value),
+    .lower = case_when(binding_mask == 1 ~ 1 - .lower, TRUE ~ .lower),
+    .upper = case_when(binding_mask == 1 ~ 1 - .upper, TRUE ~ .upper)
+    ) -> fitted_draws
+
+data_tofit <-
+	data_tofit %>%
+	mutate(
+		response = case_when(binding_mask == 1 ~ 1 - response, TRUE ~ response)
+		)
+
+ggplot() +
+geom_ribbon(data = fitted_draws, aes(x = concentration, ymin = .lower, ymax = .upper, fill = measure), alpha = 0.5) +
+geom_line(data = fitted_draws, aes(x = concentration, y = .value, colour = measure)) +
+geom_point(data = data_tofit, aes(x = concentration, y = response, fill = measure), shape = 21, size = 1) +
+facet_wrap(vars(data_gen_process)) +
+scale_y_continuous(breaks = c(0.0, 0.5, 1.0)) +
+scale_x_log10() +
+labs(
+    x = "[TNP-ATP] (M)",
+    y = expression(I/I[max] ~ or ~ F/F[max])
+    ) +
+scale_colour_brewer(aesthetics = c("colour", "fill"), palette = "Set1")
+
+test_1 %>%
+gather_draws(regex=TRUE, `b_.*`) %>%
+separate(.variable, into = c("parameter", "data_gen_process"), sep = "_data_gen_process") -> param_fits
+
+ggplot() +
+stat_slab(
+    data = param_fits,
+    aes(
+        x = data_gen_process,
+        y = .value,
+        fill = data_gen_process
+        ),
+    colour = "black", size = 0.5, normalize = "panels"
+    ) +
+theme(legend.position = "none") +
+facet_wrap(vars(parameter), scales = "free") +
+coord_flip() +
+scale_colour_brewer(aesthetics = c("colour", "fill"), palette = "Set1")
+
