@@ -4,10 +4,40 @@
 
 \minitoc
 
-\section{Choosing a site to incorporate Anap}
+\section{Designing a nucleotide binding assay}
 
-Needs to fulfill a number of criteria:
+\subsection{Criteria for a useful assay}
 
+Previous approaches to measuring nucleotide binding directly have relied on isolating binding to individual classes of site by disrupting protein function; either by introducing mutations which abolish binding to a particular site or by measuring binding to Kir6.2 or SUR1 alone.
+Traditionally, assays such as radioligand binding experiments require purifying the protein out of it's native membrane environment, thus rendering the channels nonfunctional.
+
+To improve on these methods, an ideal assay measuring nucleotide binding to the K\ATP{} channel neeeds to fulfill a number of criteria.
+
+\begin{enumerate}
+	\item We need sufficient spatial sensitivity to distinguish between different classes of binding site; i.e. the assay should be capable of distingushing binding to Kir6.2 from binding to NBS1 or NBS2.
+	\item We should be able to measure binding to a functional channel, for which we need to be able to measure binding in a membrane.
+	\item There should be minimal perturbation of the channel in order for binding measurements to be physiologically relevant.
+\end{enumerate}
+
+TO fulfill these criteria, we used an approach involving a fluorescent unnatural amino acid, ANAP.
+ANAP has been used increasing widely in the study of ion channel structure and function due to a few desirable qualities.
+
+\begin{enumerate}
+	\item It is smaller than traditional fluorescent labels such as fluorescent proteins or rhodamine derivatives.
+	Therefore, it should be less perturbing to the function of the protein it labels.
+	\item As it is an amino acid, it can be site-specifically inserted into any protein.
+	This avoids the issues of other small chemical dyes which are targeted to a site via post-translational covalent modifications, typically by reacting with a cysteine residue.
+	While this can be avoided in some proteins by mutating each cysteine residue to an alternative residue to avoid off-target labelling, there are functionally important cysteines in the K\ATP{} channel which cannot be mutated.
+	\item ANAP is environmentally sensitive, which has been used to great effect in other studies.
+	Notably, the peak emission ranges from \textasciitilde450nm to \textasciitilde490nm depending on the hydrophobicity of the surrounding environment.
+\end{enumerate}
+
+Initially, we hoped that the environmental sensitivity of ANAP fluorescence might be sufficient for the peak fluorescence of an ANAP residue inserted into an ATP binding site to measureably change when ATP was bound.
+Unfortunately, when we introduced ANAP directly into the Kir6.2 binding site in place of residues I182 or F183 we were not able to observe any functional K\ATP{} channels at the cell membrane.
+
+Instead, we turned to FRET as a reporter for ATP binding.
+
+\subsection{Choosing a site to incorporate ANAP}
 Close enough to the binding site to measure FRET.
 Far enough from other classes of binding site to avoid inteference.
 Far enough from other subunits to avoid cross talk.
@@ -45,7 +75,33 @@ Far enough from other subunits to avoid cross talk.
 
 \end{figure}
 
-
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[t]{0.9\textwidth}
+		\caption{}\label{ch3fig:atp_tnpatp_trace}
+		\centering
+		\includegraphics[width=\textwidth]{atp_tnpatp_trace.pdf}
+	\end{subfigure}
+	\vfill
+	\begin{subfigure}[t]{0.5\textwidth}
+		\caption{}\label{ch3fig:atp_tnpatp_spectra_1}
+		\centering
+		\includegraphics[width=\textwidth]{atp_tnpatp_spectral_images.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.4\textwidth}
+		\caption{}\label{ch3fig:atp_tnpatp_spectra_2}
+		\centering
+		\includegraphics[width=\textwidth]{atp_tnpatp_spectral_traces.pdf}
+	\end{subfigure}
+	\caption[ANAP is not quenched by ATP]{
+	\subref{ch3fig:atp_tnpatp_trace} Current trace from an excised patch expressing W311*-GFP+SUR1 perfused with either ATP or TNP-ATP.
+	The zero current level is shown as a dotted line, and the nucleotide applications are marked as coloured bars.
+	\subref{ch3fig:atp_tnpatp_spectra_1} Spectra captured from the same patch during the nucleotide applications marked in \subref{ch3fig:atp_tnpatp_trace}, and during the washout periods between applications.
+	Each spectra was captured with a one second exposure and corrected for background fluorescence and bleaching as described elsewhere.
+	\subref{ch3fig:atp_tnpatp_spectra_2} Averaged traces of the spectra shown in \subref{ch3fig:atp_tnpatp_spectra_1}. The location of the peak ANAP fluorescence is marked by a grey box.
+	}
+\end{figure}
 
 \subsection{Scanning a region}
 

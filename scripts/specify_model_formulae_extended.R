@@ -163,26 +163,38 @@ mwc_model <- function(Fa, Ka, Da, Fb, Kb, Db, L, C){
 atp_seq <- 10^seq(-7, -2, length.out = 31)
 
 tribble(
-	~data_gen_process, ~Fa, ~Ka, ~Da, ~Fb, ~Kb, ~Db, ~L, ~C,
-	"control_scheme_1", atp_seq, 1e4, 0.1, 0, 1, 1, 1, 1,
-	"control_scheme_2", atp_seq, 1e4, 0.1, 1e-6, 1e5, 10, 0.1, 1
+	~data_gen_process, ~Fa,      ~Ka, ~Da, ~Fb, ~Kb, ~Db, ~L, ~C,
+	"control_scheme_1", atp_seq, 1e4, 0.1, 0,    1,   1,   1,  1,
+	"control_scheme_2", atp_seq, 1e4, 0.1, 1e-6, 1e5, 25, 0.01, 1,
+	"control_scheme_3", atp_seq, 1e4, 0.1, 1e-6, 1e5, 25, 0.01, 0.1
 	) %>%
 unnest(Fa) %>%
+rowwise() %>% mutate(res = purrr::map(Fa, mwc_model, Ka, Da, Fb, Kb, Db, L, C)) %>%
+unnest(res) %>%
 group_by(data_gen_process) %>%
-mutate(res = purrr::map(Fa, mwc_model, Ka, Da, Fb, Kb, Db, L, C))
+mutate(open_fraction_norm = open_fraction/max(open_fraction)) %>%
+pivot_longer(open_fraction:open_fraction_norm, names_to = "measure", values_to = "response") -> preview
+
+ggplot(preview, aes(x = Fa, y = response, linetype = measure)) +
+geom_line()+
+scale_x_log10() +
+facet_wrap(vars(data_gen_process))
 
 tribble(
-	~data_gen_process, ~Fa,                        ~Ka, ~Da, ~Fb,  ~Kb, ~Db, ~L,  ~C,
-	"scheme_1_control", c(0,1e-6,1e-5,1e-4,1e-3),  1e4, 0.1, 0,    1,   1,   1,   1,
-	"scheme_1_Ka_shift", c(0,1e-6,1e-5,1e-4,1e-3), 1e3, 0.1, 0,    1,   1,   1,   1,
-	"scheme_1_L_shift", c(0,1e-6,1e-5,1e-4,1e-3),  1e4, 0.1, 0,    1,   1,   10,  1,
-	"scheme_1_D_shift", c(0,1e-6,1e-5,1e-4,1e-3),  1e4, 0.8, 0,    1,   1,   1,  1,
-	"scheme_2_control", c(0,1e-6,1e-5,1e-4,1e-3),  1e4, 0.1, 1e-6, 1e5, 10,  0.1, 1,
-	"scheme_2_Kb_shift", c(0,1e-6,1e-5,1e-4,1e-3), 1e4, 0.1, 1e-6, 1e6, 10,  0.1, 1,
-	"scheme_3a_control", c(0,1e-6,1e-5,1e-4,1e-3), 1e4, 0.1, 1e-6, 1e5, 10,  0.1, 0.1,
-	"scheme_3a_Kb_shift",c(0,1e-6,1e-5,1e-4,1e-3), 1e4, 0.1, 1e-6, 1e6, 10,  0.1, 0.1,
-	"scheme_3b_control", c(0,1e-6,1e-5,1e-4,1e-3), 1e4, 0.1, 1e-6, 1e5, 10,  0.1, 0.01,
-	"scheme_3b_Kb_shift", c(0,1e-6,1e-5,1e-4,1e-3),1e4, 0.1, 1e-6, 1e6, 10,  0.1, 0.01
+	~data_gen_process, ~Fa,                        ~Ka, ~Da, ~Fb,  ~Kb, ~Db, ~L,   ~C,
+	"scheme_1_control", c(0,1e-6,1e-5,1e-4,1e-3),  1e4, 0.1, 0,    1,   1,   1,    1,
+	"scheme_1_Ka_shift", c(0,1e-6,1e-5,1e-4,1e-3), 1e3, 0.1, 0,    1,   1,   1,    1,
+	"scheme_1_L_shift", c(0,1e-6,1e-5,1e-4,1e-3),  1e4, 0.1, 0,    1,   1,   10,   1,
+	"scheme_1_D_shift", c(0,1e-6,1e-5,1e-4,1e-3),  1e4, 0.8, 0,    1,   1,   1,    1,
+	"scheme_2_control", c(0,1e-6,1e-5,1e-4,1e-3),  1e4, 0.1, 1e-6, 1e5, 25,  0.01, 1,
+	"scheme_2_Kb_shift", c(0,1e-6,1e-5,1e-4,1e-3), 1e4, 0.1, 1e-6, 1e6, 25,  0.01, 1,
+	"scheme_3a_control", c(0,1e-6,1e-5,1e-4,1e-3), 1e4, 0.1, 1e-6, 1e5, 25,  0.01, 0.1,
+	"scheme_3a_Kb_shift",c(0,1e-6,1e-5,1e-4,1e-3), 1e4, 0.1, 1e-6, 1e6, 25,  0.01, 0.1,
+	"scheme_3b_control", c(0,1e-6,1e-5,1e-4,1e-3), 1e4, 0.1, 1e-6, 1e5, 25,  0.01, 0.01,
+	"scheme_3b_Kb_shift", c(0,1e-6,1e-5,1e-4,1e-3),1e4, 0.1, 1e-6, 1e6, 25,  0.01, 0.01,
+	"scheme_3c_control", c(0,1e-6,1e-5,1e-4,1e-3), 1e4, 0.1, 1e-6, 1e5, 25,  0.01, 0.5,
+	"scheme_3c_Kb_shift", c(0,1e-6,1e-5,1e-4,1e-3),1e4, 0.1, 1e-6, 1e6, 25,  0.01, 0.5
+
 	) %>%
 pivot_longer(Ka:C, names_to = "param", values_to = "value") %>%
 rowwise() %>% mutate(draws = purrr::map(log(value), rlnorm, n=10, sd=0.25)) %>%
@@ -238,12 +250,12 @@ brm(
     warmup = 2000,
     chains = 4,
     thin = 1,
-    seed = 2020,
+    seed = 2021,
     control = list(adapt_delta = 0.99, max_treedepth = 15),
     sample_prior = "yes",
     save_all_pars = TRUE,
     cores = getOption("mc.cores", 4),
-    file = "data/mwc_fits_new_model/generated_data.rds"
+    file = "data/mwc_fits_new_model/generated_data_seed2021.rds"
     ) -> test_1
 
 data_tofit %>%

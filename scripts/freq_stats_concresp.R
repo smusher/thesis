@@ -34,7 +34,7 @@ pcf_data <-
 concresp <-
     bind_rows(currents, fluorescence, pcf_data) %>%
     mutate(log_concentration = log10(concentration)) %>%
-    filter(log_concentration > -Inf) %>%
+    filter(log_concentration > -Inf, unique_experiment_id != 12) %>%
     group_by(unique_experiment_id, experimenter, method, measure, construct, nucleotide) %>%
     mutate(n = n()) %>%
     filter(n > 3)
@@ -44,6 +44,7 @@ concresp_summary <-
 	group_by(method, measure, construct, nucleotide, log_concentration) %>%
 	summarise(
 		error = qnorm(0.975)*sd(response)/sqrt(length(response)),
+		se = sd(response)/sqrt(length(response)),
 		response = mean(response)
 		)
 
@@ -265,7 +266,8 @@ current_fits <-
 	filter(
 		term == "ec50",
     	nucleotide != "MG-ATP",
-    	measure == "current"
+    	measure == "current",
+    	unique_experiment_id != 12
     ) %>%
     mutate(
     	Anap = case_when(stringr::str_detect(construct, "W311*") == TRUE ~ TRUE, TRUE ~ FALSE)
@@ -276,6 +278,7 @@ current_fits_summary <-
 	group_by(Anap, construct, nucleotide) %>%
 	summarise(
 		error = qnorm(0.975)*sd(estimate)/sqrt(length(estimate)),
+		se = sd(10^estimate)/sqrt(length(estimate)),
 		estimate = mean(estimate)
 		)	
 
@@ -383,7 +386,7 @@ current_fits <-
 
 anova_anap_atp <- aov(
 		estimate ~ construct,
-		data = current_fits %>% filter(nucleotide == "ATP", Anap == TRUE, unique_experiment_id != 12)
+		data = current_fits %>% filter(nucleotide == "ATP", Anap == TRUE)
 	) %>%
 multcomp::glht(linfct = multcomp::mcp(construct = "Dunnet")) %>%
 tidy(conf.int = TRUE)
