@@ -36,11 +36,10 @@ Initially, we hoped that the environmental sensitivity of ANAP fluorescence migh
 Unfortunately, when we introduced ANAP directly into the Kir6.2 binding site in place of residues I182 or F183 we were not able to observe any functional K\ATP{} channels at the cell membrane.
 
 Instead, we turned to FRET as a reporter for ATP binding.
-
-\subsection{Choosing a site to incorporate ANAP}
-Close enough to the binding site to measure FRET.
-Far enough from other classes of binding site to avoid inteference.
-Far enough from other subunits to avoid cross talk.
+As ATP itself is not fluorescent, and has no intrinsic fluorescence quenching, we identified trinitrophenyl (TNP) -ATP as a fluorescent congener (Figure \ref{ch3fig:chemical_structures}).
+TNP-ATP is most commonly used as an antogonist of P2X receptors, which are also sensitive to endogenous ATP.
+TNP-ATP is an excellent FRET partner of ANAP, as evidenced by the good overlap in the TNP emission spectra and the ANAP extinction spectra (Figure \ref{ch3fig:spectral_overlap}).
+This leads to a theoretical distance-dependency of FRET which is most sensitive between \SIrange{20}{60}{\angstrom} (Figure \ref{ch3fig:fret_efficiency}) with a calculated R0 of \SI{38.4}{\angstrom}.
 
 \begin{figure}[h]
 	\centering
@@ -75,6 +74,88 @@ Far enough from other subunits to avoid cross talk.
 
 \end{figure}
 
+\subsection{Choosing a site to incorporate ANAP}
+
+THe theoretical R0 of \SI{38.4}{\angstrom} for FRET between ANAP and TNP-ATP allowed for flexibility when choosing a site to incorporate ANAP.
+Ideally, a residue should be chosen to maximise the following aims:
+
+\begin{enumerate}
+	\item The incorporated ANAP needs to be close enough to the nucleotide binding site of interest to report a quantifiable change in FRET when TNP-ATP is bound.
+	This would not have to be close enough for \SI{100}{\percent} FRET to occur, but the greater the efficiency achieved the higher the signal-to-noise ratio would be for measuring binding.
+	\item It also needs to be far enough from each other class of nucleotide binding site to avoid quenching by TNP-ATP bound to other sites.
+	\item In addition to avoiding interference from other classes of binding site, we also need to avoid cross-talk between nucleotide binding sites of the same class on different subunits, as this would lead to difficulty interpreting the measured quenching.
+	The ideal theoretical solution would be labelling only one nucleotide binding site per ion channel, but without using a concatemer this is not so easy in practise.
+\end{enumerate}
+
+To narrow down which residues could be candidates for ANAP incorporation to measure binding at Kir6.2, we took three cryo-EM structures of K\ATP{} with ATP bound and computationally docked TNP-ATP into the nucleotide binding pocket (Figure \ref{ch3fig:docking}).
+To assess the validity of computationally docking a ligand to each structure, we first attempted to dock ATP to check that the highest-scoring binding poses were similar to those observed in the cryo-EM structures.
+Docking ATP to both \#6C3P and \#6C3O yielded binding poses which were very similar to the pose found in the cryo-EM structures (Figures \ref{ch3fig:6c3p_docking}, \ref{ch3fig:6c3o_docking}).
+However, docking ATP to \#6BAA resulted in binding poses which were in a flipped orientation relative to the pose found in the cryo-EM structure (Figure \ref{ch3fig:6baa_docking}).
+We then took TNP-nucleotide structures from eleven different X-ray diffraction and cryo-EM structures published on RCSB to dock to the Kir6.2 binding site of K\ATP{}.
+For both \#6BAA and \#6C3P we observed that the three highest scoring binding poses for TNP-nucleotides closely resemble those of the ATP solved in complex with the channel (Figures \ref{ch3fig:6baa_docking}, \ref{ch3fig:6c3p_docking}).
+It is not so clear for \#6C3O, for which the highest scoring poses are not in agreement with each other or the solved structure of ATP.
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[t]{0.28\textwidth}
+		\caption{}\label{ch3fig:6baa_docking}
+		\centering
+		\includegraphics[width=\textwidth]{6baa_docking.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.28\textwidth}
+		\caption{}\label{ch3fig:6c3p_docking}
+		\centering
+		\includegraphics[width=\textwidth]{6c3p_docking.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.34\textwidth}
+		\caption{}\label{ch3fig:6c3o_docking}
+		\centering
+		\includegraphics[width=\textwidth]{6c3o_docking.pdf}
+	\end{subfigure}
+	\vfill
+	\begin{subfigure}[t]{0.45\textwidth}
+		\caption{}\label{ch3fig:6c3p_bound}
+		\centering
+		\includegraphics[width=\textwidth]{6c3p_site_bound.png}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.45\textwidth}
+		\caption{}\label{ch3fig:6c3p_docked}
+		\centering
+		\includegraphics[width=\textwidth]{6c3p_site_docked.png}
+	\end{subfigure}
+	\caption[TNP-nucleotides can bind with a similar pose to ATP]{
+	\subref{ch3fig:6baa_docking}, \subref{ch3fig:6c3p_docking}, \subref{ch3fig:6c3o_docking} Cryo-EM binding poses for ATP bound to Kir6.2 (white) overlayed with either the ten highest scoring computationally docked ATP poses (red) or the three highest scoring computationally docked TNP-nucleotide poses (orange).
+	Starting poses for ATP were generated from ten different random seeds based on the cryo-EM poses.
+	Starting poses for TNP-nucleotides were generated from eleven structures taken from the RCSB database for different proteins solved in the presence of TNP-ATP.
+	The poses shown are from \#3B5J (X-ray diffraction structure of TNP-ADP bound to the NBD complex of a bacterial ABC transporter) and \#5SVQ (X-ray diffraction structure of TNP-ATP bound to the human P2X3 ion channel).
+	\subref{ch3fig:6c3p_bound} Cryo-EM structure of the nucleotide binding site in the presence of ATP from \#6C3P.
+	\subref{ch3fig:6c3p_docked} As \subref{ch3fig:6c3p_bound} but with the three top scoring binding poses for docked TNP-nucleotides.
+	}\label{ch3fig:docking}
+\end{figure}
+
+\subsection{Scanning a region}
+
+Introduced cutting sites and pasted in oligos
+(with Mike and Tascia - Mike did the molecular biology on SUR, I did on Kir6.2, Mike and I did surface expression together, Tascia did ephys on the mutants that expressed).
+
+\subsection{Rational residues}
+
+Number of hydrophobic residues chosen and mutated.
+Checked with exiFret v2 (might put discussion of this in appendix)
+
+\section{Testing for membrane expression}
+
+\subsection{Expression with SUR1}
+
+Surface expression assay
+
+Confocal microscopy
+
+Electrophys
+
 \begin{figure}[h]
 	\centering
 	\begin{subfigure}[t]{0.9\textwidth}
@@ -103,25 +184,6 @@ Far enough from other subunits to avoid cross talk.
 	}
 \end{figure}
 
-\subsection{Scanning a region}
-
-Introduced cutting sites and pasted in oligos
-(with Mike and Tascia - Mike did the molecular biology on SUR, I did on Kir6.2, Mike and I did surface expression together, Tascia did ephys on the mutants that expressed).
-
-\subsection{Rational residues}
-
-Number of hydrophobic residues chosen and mutated.
-Checked with exiFret v2 (might put discussion of this in appendix)
-
-\section{Testing for membrane expression}
-
-\subsection{Expression with SUR1}
-
-Surface expression assay
-
-Confocal microscopy
-
-Electrophys
 
 \subsection{Expression alone/with TMD0(195/232)}
 
