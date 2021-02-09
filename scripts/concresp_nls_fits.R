@@ -31,7 +31,7 @@ pcf_data <-
 
 concresp <-
     bind_rows(currents, fluorescence, pcf_data) %>%
-    mutate(log_concentration = log10(concentration)) %>%
+    mutate(log_concentration = log10(concentration) %>%
     filter(log_concentration > -Inf) %>%
     group_by(unique_experiment_id, experimenter, method, measure, construct, nucleotide) %>%
     mutate(n = n()) %>%

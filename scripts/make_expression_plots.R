@@ -12,44 +12,9 @@ surface_expression <-
         read_csv("data/tmd0_surface_expression_two.csv")
         )
 
-kir_construct_comparison <-
-    surface_expression %>%
-    filter(
-        kir_construct %in% c("WT-GFP", "WT", "WT-HA-GFP", "WT-HA", "W311*-GFP", "W311*", "W311*-HA", "W311*-HA-GFP"),
-        sur_construct %in% c("SUR", NA),
-        chaperone %in% c(NA, "Tolbutamide")
-        ) %>%
-    unite(construct, kir_construct, sur_construct, sep = "+")
-
-sur_construct_comparison <-
-    surface_expression %>%
-    filter(
-        kir_construct %in% c("WT-GFP", "WT-HA-GFP", "W311*-GFP", "W311*-HA-GFP"),
-        sur_construct %in% c("SUR", "TMD0_195", "TMD0_232", NA),
-        chaperone %in% c(NA, "Tolbutamide"),
-        !(kir_construct %in% c("W311*-GFP", "W311*-HA-GFP") & anap_present == FALSE)
-        )
-
-tolbutamide_currents <-
-    read_csv("data/electrophys_data.csv") %>%
-    select(unique_experiment_id, construct, tolbutamide_response) %>%
-    group_by(construct, unique_experiment_id) %>%
-    summarise(tolbutamide_response = mean(tolbutamide_response)) %>%
-    drop_na()
-
-fancy_scientific <- function(l) {
-    l <- format(l, scientific = TRUE)
-    l <- gsub("^(.*)e", "10^", l)
-    parse(text=l)
-}
-
-split_construct <- function(l) {
-    gsub("[+]", "\n +", l)
-}
-
 ggplot() +
 geom_point(
-    data = kir_construct_comparison,
+    data = surface_expression,
     shape = 21,
     stroke = 0.5,
     size = 2,

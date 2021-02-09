@@ -16,12 +16,12 @@ pcf_data <-
     filter(dye < 480 | is.na(dye), concentration > 0) %>%
     select(unique_experiment_id, construct, measure, method, concentration, response) %>%
     mutate(
-        response = case_when(measure == "fluorescence" ~ 1 - response, TRUE ~ response),
+        response = case_when(measure == "fluorescence" ~ 1 - log2(response + 1), TRUE ~ response),
         binding_mask = case_when(measure == "fluorescence" ~ 1, TRUE ~ 0)
     ) %>%
     group_by(unique_experiment_id, construct, measure) %>%
     mutate(response_normalised = case_when(
-        measure == "fluorescence" ~ (response-min(response))/(max(response)-min(response)),
+        measure == "fluorescence" ~ response/0.9,
         measure == "current" ~ response
     )) %>%
     ungroup()
@@ -361,7 +361,7 @@ brm(
     thin = brms_thin,
     seed = brms_seed,
     control = list(adapt_delta = 0.99, max_treedepth = 15),
-    file = "data/mwc_fits_new_model/reduced_2.rds",
+    file = "data/mwc_fits_new_model/reduced_2_corrected_fluor.rds",
     sample_prior = "yes",
     save_all_pars = TRUE,
     cores = getOption("mc.cores", 4)

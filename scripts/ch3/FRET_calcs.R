@@ -2,8 +2,8 @@ library(tidyverse)
 source("/home/sam/thesis/scripts/plot_theme.R")
 
 #read in spectra for donor and acceptor
-anap <- read_csv("anap.csv")
-tnpatp <- read_csv("tnp-atp.csv")
+anap <- read_csv("scripts/ch3/anap.csv")
+tnpatp <- read_csv("scripts/ch3/tnp-atp.csv")
 J <-
 	left_join(anap, tnpatp) %>%
 	mutate(overlap = donor_emission_normalised * molar_extinction_coefficient * wavelength^4) %>%
