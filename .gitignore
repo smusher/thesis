@@ -1,6 +1,7 @@
 ## Large data files
 data/hill_fits/
 data/mwc_fits_new_model/
+data/other_fits/
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
