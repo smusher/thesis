@@ -28,29 +28,31 @@ coord_flip()
 control <-
     surface_expression %>%
     filter(ha_present == FALSE) %>%
-    summarise(control_mean = mean(log_counts), control_sd = sd(log_counts))
+    group_by(kir_construct) %>%
+    summarise(control_mean = mean(log_counts))
 
 centered <-
     surface_expression %>%
+    left_join(control) %>%
     mutate(
-        centered_response = log_counts - control$control_mean,
+        centered_response = log_counts - control_mean,
         kir_construct = fct_relevel(kir_construct, "WT", "WT-GFP", "F183*", "F183*-GFP", "W311*", "W311*-GFP")
         )
 
 centered_prior_calc <-
     centered %>%
-    summarise(mu =  mean(centered_response), sigma = 2*sd(centered_response))
+    summarise(mu =  mean(centered_response), sigma = sd(centered_response))
 
 ggplot() +
 geom_point(data = centered, aes(x = kir_construct, y = centered_response, fill = ha_present), shape=21) +
-stat_dist_slab(data = centered_prior_calc, aes(dist = dist_normal(0.931, 1.49))) +
+stat_dist_slab(data = centered_prior_calc, aes(dist = dist_normal(mu, sigma))) +
 facet_grid(rows=vars(sur1_present), cols=vars(anap_present), labeller = label_both) +
 coord_flip()
 
 priors <- c(
-    prior(normal(0.931, 1.49), class = Intercept),
+    prior(normal(0.928, 0.753), class = Intercept),
     prior(cauchy(0, 5), class = sigma),
-    prior(normal(0, 1), class = sd, group = kir_construct)
+    prior(cauchy(0, 1), class = sd, group = kir_construct)
     )
 
 brm(
@@ -66,7 +68,7 @@ brm(
     warmup= 5000,
     thin  = 10,
     control = list(adapt_delta = 0.99, max_treedepth = 15),
-    file = "/home/sam/thesis/data/other_fits/surface_expression.rds"
+    file = "/home/sam/thesis/data/other_fits/surface_expression_2.rds"
     ) -> model_1
 
 centered %>%
@@ -74,9 +76,9 @@ expand(nesting(kir_construct, anap_present, sur1_present, ha_present)) %>%
 add_fitted_draws(model_1) -> plot_1
 
 ggplot() +
-stat_slab(data = plot_1, aes(x = kir_construct, y = .value, colour = ha_present), fill = NA, size = 1) +
-geom_point(data = centered, aes(x = kir_construct, y = centered_response, fill = ha_present), shape=21, size = 2) +
-facet_grid(cols=vars(sur1_present), rows=vars(anap_present), labeller = label_both) +
+stat_slab(data = plot_1, aes(x = kir_construct, y = .value, colour = interaction(anap_present, ha_present)), fill = NA, size = 1) +
+geom_point(data = centered, position = position_dodge(width=0.2), aes(x = kir_construct, y = centered_response, fill = interaction(anap_present, ha_present)), shape=21, size = 2) +
+facet_grid(cols=vars(sur1_present), labeller = label_both) +
 coord_flip() +
 scale_colour_brewer(palette = "Pastel1", aesthetics = c("fill", "colour"))
 
