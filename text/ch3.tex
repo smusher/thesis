@@ -143,7 +143,62 @@ We targeted F183 and W311 intitally as they are both bulky hydrophobic residues 
 	}\label{ch3fig:docking}
 \end{figure}
 
-\section{Amber stop codon expression system}
+\section{Incorporating ANAP into the Kir6.2 binding site}
+
+\subsection{Amber stop codon expression system}
+
+ANAP can be introduced into a protein of interest by essentially expanding the genetic code to incorporate a noncanconical amino acid.
+The amber stop codon (TAG) is the least frequently occuring stop codon in eukaryotic cells, and can be repurposed to encode ANAP.
+An orthologous set of tRNA and its aminoacyl-tRNA synthetase are mutated and screened through directed evolution in order to charge the tRNA which recognises the amber stop codon with ANAP.
+Thus, in cells expressing the ANAP charged tRNA, the amber stop codon introduced into the protein of interest is suppressed and ANAP is translated instead (Figure \ref{ch3fig:amber_codon}).
+
+\subsection{ANAP incorporation into amber stop codon containing constructs}
+
+The nature of the amber stop codon suppression system requires a number of careful controls to ensure the following:
+
+\begin{enumerate}
+	\item Stop codon recognition is not perfect, and there is a chance of read-through.
+	Instead of incorporating ANAP, it is possible that the translation machinery can insert endogenous amino acids instead, leading to production of full length,unlabelled Kir6.2.
+	However, we found that cells transfected with W311TAG constructs and pANAP which were not cultured in the presence of ANAP did not produce full length Kir6.2 (Figure \ref{ch3fig:western_1}, \ref{ch3fig:western_2}), suggesting there is minimal read-through of the stop codon in our experiments.
+	\item Introducing a stop codon creates a risk that truncated Kir6.2 will be produced instead of ANAP labelled Kir6.2.
+	This risk can be reduced by transfecting a dominant negative engineered version of eukaryotic translation termination factor 1(eRF1-E55D), which does not efficiently terminate protein synthesis in response to the amber stop codon (but leaves opal and ochre stop codons nearly unaffected) and thus increases the incorporation of ANAP.
+	We found that transfection of W311TAG constructs with a C-terminal GFP tag produced minimal truncated Kir6.2 (less than \SI{10}{\percent} of the total density observed in Figure \ref{ch3fig:western_2}).
+	
+\end{enumerate}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[t]{0.9\textwidth}
+		\caption{}\label{ch3fig:amber_codon}
+		\centering
+		\includegraphics[width=\textwidth]{amber_codon.pdf}
+	\end{subfigure}
+	\vfill
+	\begin{subfigure}[t]{0.45\textwidth}
+		\caption{}\label{ch3fig:western_1}
+		\centering
+		\includegraphics[width=\textwidth]{western_1.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.45\textwidth}
+		\caption{}\label{ch3fig:western_2}
+		\centering
+		\includegraphics[width=\textwidth]{western_2.pdf}
+	\end{subfigure}
+	\caption[ANAP incorporation]{
+	\subref{ch3fig:amber_codon} ANAP incorporation is accomplished through the transfection of two plasmids.
+	pANAP codes for tRNA (red) and it's tRNA synthetase (green), while pW311TAG codes for Kir6.2 with an amber stop codon (TAG) inserted in place of the codon for W311 (grey).
+	When the transfected cells are incubated with ANAP (present here as its free acid, ANAP-TFA, blue) the tRNA synthetase assembles tRNA which is capable of recognising the amber stop codon and loads it with ANAP.
+	During translation of W311TAG, the primed ANAP tRNAs recognise the TAG and insert ANAP into the desired location.
+	\subref{ch3fig:western_1} Two separate western blots against the N-terminal HA epitope incorporated into WT or W311* (left) and WT-GFP or W311*-GFP (right) constructs.
+	Cells were co-transfected with pANAP, eRF1-E55D, and SUR1 unless otherwise indicated.
+	Full-length Kir6.2 constructs are indicated on each gel with a dashed box.
+	The doublets represent an N-terminally truncated product decribed in the main text.
+	\subref{ch3fig:western_2} Each lane from the gel containing C-terminally GFP-tagged consstructs is displayed normalised to its highest intensity accompanied by the line averaged density trace.
+	The density peak corresponding to full-length Kir6.2 is filled in blue.
+	The density peak for C-terminally truncated Kir6.2 is filled in orange.
+	}\label{ch3fig:anap_incorporation}
+\end{figure}
 
 \section{Testing for functional membrane expression}
 
@@ -157,12 +212,13 @@ We assessed the membrane expression of N-terminally HA-tagged Kir6.2 (nHA-Kir6.2
 We also measured how the addition of a C-terminal GFP tag affected membrane expression under these conditions.
 We used untagged Kir6.2 as a control for nonspecific luminesence.
 
-We find that for wild-type Kir6.2 (WT) there is a x-fold increase in observed luminescence when coexpressed with SUR1 over background, and an x-fold increase for the C-terminally tagged Kir6.2 (WT-GFP).
-There is no difference in surface expression of these constructs when ANAP is present in the culture medium.
-When ANAP is incorporated at either residue 183 or 311 (F183* and W311* respectively) we see an x-fold increase in luminescence over background when coexpressed with SUR1 and with ANAP present in the culture medium.
-The presence of the C-terminal GFP tag increases luminescence further for both constructs.
-However, when F183* is transfected and ANAP is not present in the culture media we still see an x-fold increase in fluorescence over background, suggesting that a large proportion of the protein reaching the membrane does not have ANAP incorporated.
-In contrast, when W311*-GFP is transfected with SUR1 in the presence of ANAP, we see a 10-fold increase in luminescence compared to when ANAP is not present.
+We find that for wild-type Kir6.2 (WT) there is roughly a 20-fold increase in observed luminescence when coexpressed with SUR1 over background, and roughly a 100-fold increase for the C-terminally tagged Kir6.2 (WT-GFP, Figure \ref{ch3fig:surface_expression_1}, \ref{ch3fig:surface_expression_3}).
+There is no difference in surface expression of these constructs when ANAP is present in the culture medium (Figure \ref{ch3fig:surface_expression_1}, \ref{ch3fig:surface_expression_4}).
+When ANAP is incorporated at either residue 183 or 311 (F183* and W311* respectively) we see an increase in luminescence over background when coexpressed with SUR1 and with ANAP present in the culture medium (Figure \ref{ch3fig:surface_expression_1}, \ref{ch3fig:surface_expression_3}).
+The presence of the C-terminal GFP tag increases luminescence further for both constructs, dramatically so for W311*.
+However, when F183* is transfected and ANAP is not present in the culture media we still see a similar increase in fluorescence over background when compared to the luminescence when ANAP is present (Figure \ref{ch3fig:surface_expression_1}, \ref{ch3fig:surface_expression_4}), suggesting that a large proportion of the protein reaching the membrane does not have ANAP incorporated.
+In contrast, when W311*-GFP is transfected with SUR1 in the presence of ANAP, we see a 10-fold increase in luminescence compared to when ANAP is not present, consitent with the majority of surface expressed protein incorporating ANAP.
+We also see a consistent increase in luminescence for all constructs aside from W311* due to cotransfection with SUR1 (Figure \ref{ch3fig:surface_expression_2}), suggesting that the incorporation of ANAP and the addition of a C-terminal GFP tag do not affect the role of SUR1 in froming the full K\ATP{} complex and trafficking to the membrane.
 
 \begin{figure}[h]
 	\centering
