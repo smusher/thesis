@@ -50,39 +50,51 @@ concresp <-
 currents <-
     concresp %>%
     filter(measure == "current") %>%
-    group_by(construct, nucleotide, unique_experiment_id) %>%
-    mutate(n = cur_group_id())
+    ungroup() %>%
+    mutate(
+        construct = fct_relevel(factor(construct), "WT-GFP+SUR"),
+        nucleotide = fct_relevel(factor(nucleotide), "ATP")
+        )
 
 fluorescence <-
     concresp %>%
     filter(measure == "fluorescence") %>%
-    group_by(construct, method, unique_experiment_id) %>%
-    mutate(n = cur_group_id())
+    ungroup() %>%
+    mutate(
+        construct = fct_relevel(factor(construct), "W311*-GFP+SUR")
+        )
 
 hill_priors <-
     c(
-        prior(uniform(-8, 0), nlpar = "ec50", lb = -8, ub = 0),
-        prior(uniform(0, 2), nlpar = "hill", lb = 0, ub = 2),
-        prior(uniform(0, 1), nlpar = "floor", lb = 0, ub = 1)
+        prior(uniform(-8, 0), nlpar = "ec50", class = b, lb = -8, ub = 0),
+        prior(uniform(0, 2), nlpar = "hill", class = b, lb = 0, ub = 2),
+        prior(uniform(0, 1), nlpar = "floor", class = b, lb = 0, ub = 1),
+        prior(cauchy(0, 5), class = sd, nlpar = "ec50"),
+        prior(cauchy(0, 5), class = sd, nlpar = "hill"),
+        prior(cauchy(0, 5), class = sd, nlpar = "floor"),
+        prior(cauchy(0, 5), class = sigma)
     )
 
 hill_priors_2 <-
     c(
-        prior(uniform(-8, 0), nlpar = "ec50", lb = -8, ub = 0),
-        prior(uniform(0, 2), nlpar = "hill", lb = 0, ub = 2)
+        prior(uniform(-8, 0), nlpar = "ec50", class = b, lb = -8, ub = 0),
+        prior(uniform(0, 2), nlpar = "hill", class = b, lb = 0, ub = 2),
+        prior(cauchy(0, 5), class = sd, nlpar = "ec50"),
+        prior(cauchy(0, 5), class = sd, nlpar = "hill"),
+        prior(cauchy(0, 5), class = sigma)
     )
 
 brm_hill_eq_1a <-
     bf(#fully specified model - no obvious correlations apart from maybe ec50 and floor
         response ~ floor + ((1 - floor) / (1 + 10^((ec50 - log_concentration) * -hill))),
-        ec50 + hill + floor ~ 0 + construct:nucleotide + (1|ID|n),
+        ec50 + hill + floor ~ 0 + construct:nucleotide + (1|construct:nucleotide),
         nl = TRUE
         )
 
 brm_hill_eq_1b <-
     bf(#without correlations
         response ~ floor + ((1 - floor) / (1 + 10^((ec50 - log_concentration) * -hill))),
-        ec50 + hill + floor ~ 0 + construct:nucleotide + (1|n),
+        ec50 + hill + floor ~ 0 + construct:nucleotide + (1||construct:nucleotide),
         nl = TRUE
         )
 
@@ -290,10 +302,31 @@ stringr::str_replace_all(
         )
     ) -> dimnames(posterior)[[3]]
 
-loo(hill_brm_fit_1a, save_psis = TRUE) -> loo1
-loo(hill_brm_fit_1b, save_psis = TRUE) -> loo2
-loo(hill_brm_fit_1c, save_psis = TRUE) -> loo3
-loo(hill_brm_fit_1d, save_psis = TRUE) -> loo4
+add_criterion(
+    hill_brm_fit_1a,
+    criterion = "loo",
+    save_psis = TRUE,
+    moment_match=TRUE,
+    file = "data/hill_fits/1a_currents.rds"
+    ) -> loo1
+add_criterion(
+    hill_brm_fit_1b,
+    criterion = "loo",
+    save_psis = TRUE,
+    moment_match=TRUE,
+    file = "data/hill_fits/1b_currents.rds") -> loo2
+add_criterion(
+    hill_brm_fit_1c,
+    criterion = "loo",
+    save_psis = TRUE,
+    moment_match=TRUE,
+    file = "data/hill_fits/1c_currents.rds") -> loo3
+add_criterion(
+    hill_brm_fit_1d,
+    criterion = "loo",
+    save_psis = TRUE,
+    moment_match=TRUE,
+    file = "data/hill_fits/1d_currents.rds") -> loo4
 loo(hill_brm_fit_2a, save_psis = TRUE) -> loo5
 loo(hill_brm_fit_2b, save_psis = TRUE) -> loo6
 loo(hill_brm_fit_2c, save_psis = TRUE) -> loo7

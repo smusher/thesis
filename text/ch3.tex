@@ -296,10 +296,32 @@ We also see a consistent increase in luminescence for all constructs aside from 
 
 \subsection{Electrophysiology of Kir6.2 constructs}
 
-To establish whether W311*-GFP formed K\ATP{} channels with similar function to wild-type, we excised patches from cells transfected with W311*-GFP and SUR1.
-
+To establish whether W311*-GFP formed K\ATP{} channels with similar function to wild-type, we excised patches from cells transfected with either WT-GFP or W311*-GFP cotransfected with SUR1.
+Excision was performed in Mg\textsuperscript{2+}-free solution to reduce rundown and to prevent activation of the channel by nucleotides.
+We observed similar magnitudes of current for both WT-GFP and W311*-GFP, and currents ran own at similar rates.
+Perfusion of ATP resulted in current inhibition with an IC\textsubscript{50} of x for WT-GFP and x for W311*-GFP.
+Thus, despite the distance from the ATP binding site, the W311 mutation clearly affects some aspect of nucleotide inhibition.
+However, we assume that insights into the function of the ANAP-incorporating channel will still be applicable to wild-type channels despite the change in nucleotide inhibition.
 
 \subsection{Unroofed membrane binding assay of Kir6.2 constructs}
+
+We then directly measured nucleotide binding to W311*-GFP in unroofed membranes.
+Briefly sonicating transfected cells adhered to coverslips results in the lower membrane of the cell remaining stuck to the coverslip while the rest of the cell contents is disrupted and perfused away.
+This leaves the cytoplasmic domains of expressed K\ATP{} channels open to perfusion of TNP-ATP.
+By measuring the fluorescence spectra of patches of unroofed membrane, we can separate the fluorescence emission peaks of the C-terminal GFP tag and the incorporated ANAP.
+
+Perfusing TNP-ATP results in a decrease in the peak corresponding to ANAP fluorescence, and a concomittant increase in a fluorescence peak which corresponds to the TNP-ATP.
+This phenomenon is the fresult of FRET between TNP-ATP bound to the channel at the Kir6.2 binding site.
+The decrease in ANAP fluorescence is almost directly correlated to an increase in bound nucleotide.
+
+To equivocate ANAP quenching and nucleotide binding, first we need to correct for incomplete FRET due to the distance between the donor and acceptor.
+Based on the computational docking, we predicted a maximal FRET efficiency of \SI{95}{\percent} when every Kir6.2 subunit is bound by TNP-ATP.
+Fitting our observed data to a Hill equation results in a maximum observed FRET efficiency of \SI{95}{\percent}, agreeing with our prediction.
+We can then normalise our observed fluorescence data by this value.
+
+Secondly, we need to adjust for the FRET between adjacent subunits of Kir6.2.
+The difference between the ideal 1:1 subunit/ligand FRET efficiency and the simulated experimental FRET efficiency resulted in a correction factor of $log_2(\frac{F}{F_{max}} + 1)$.
+Overall, these two corrections do not dramatically alter our results, and we performed our analysis on both corrected and uncorrected results to ensure that there was no potential difference in interpration which derived from treating our data in this way.
 
 \subsection{Patch-clamp fluorometry of Kir6.2 constructs}
 
