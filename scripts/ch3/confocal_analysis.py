@@ -1,27 +1,32 @@
 import os
 import math
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 from skimage import io
 from skimage.filters import threshold_otsu
 from scipy.ndimage.filters import median_filter
-from statistics import mean
-
-def bin(array, bin_size):
-    processed = []
-    z, i, j = array.shape
-    for image in array:
-        binned_image = image.reshape(i//bin_size, bin_size, j//bin_size, bin_size).mean(-1).mean(1)
-        processed.append(binned_image)
-    return np.array(processed)
 
 def filter(array, filter_size):
     processed = []
-    z, i, j = array.shape
     for image in array:
         filtered_image = median_filter(image, size = filter_size)
         processed.append(filtered_image)
     return np.array(processed)
+
+def max_proj(array):
+    processed = []
+    for stack in np.split(array, 4, axis=0):
+        maximum = np.max(stack, axis=0)
+        processed.append(maximum)
+    return np.stack(processed, axis=0)
+
+def normalise(array):
+    processed = []
+    for stack in np.split(array, 4, axis=0):
+        maximum = np.max(stack.flatten())
+        processed.append(stack / maximum)
+    return np.concatenate(processed, axis=0)
 
 def plot(array):
     #convenience function for plotting a full Z-stack
@@ -37,26 +42,27 @@ def plot(array):
     for i, image in enumerate(array):
         #set which row of the sublot
         yi = math.floor(i/xi_max)
-        ax[yi, xi].imshow(image)
+        ax[yi, xi].imshow(image, cmap = "gray")
+        ax[yi, xi].axis("off")
         #iterate through each column of the subplot
         xi += 1
         if xi == xi_max:
             xi = 0
     plt.show()
 
-def extract_membrane_mask(array):
+def extract_mask(array, channel):
     #retrieve the cell membrane mask channel only
     z, i, j = array.shape
     channel_length = int(z/4)
-    membrane_channel = array[3*channel_length:z,:,:]
+    channel_images = array[channel*channel_length:(channel+1)*channel_length,:,:]
     #set the threshold value with otsu's algorithm
-    threshold = threshold_otsu(membrane_channel)
-    thresholded_membrane_channel = []
-    for i, image in enumerate(membrane_channel):
-        #only keep intensity values above the threshold
-        thresholded_image = image > threshold
-        thresholded_membrane_channel.append(thresholded_image)
-    return(np.tile(thresholded_membrane_channel, (4,1,1)))
+    threshold = threshold_otsu(channel_images)
+    thresholded_channel_images = []
+    for i, image in enumerate(channel_images):
+        #create binary mask with values below the threshold as true
+        thresholded_image = image < threshold
+        thresholded_channel_images.append(thresholded_image)
+    return(np.tile(thresholded_channel_images, (4,1,1)))
 
 def pcc(array1, array2):
     #calculate Pearsons correlation coefficient
@@ -65,43 +71,106 @@ def pcc(array1, array2):
     r = np.sum((array1 - array1_mean) * (array2 - array2_mean)) / np.sqrt(np.sum((array1 - array1_mean) ** 2) * (np.sum((array2 - array2_mean) ** 2)))
     return(r)
 
-def plot_intensities(array):
+def plot_intensities(array, channel_1, channel_2):
     z, i, j = array.shape
     channel_length = int(z/4)
-    gfp_images = array[channel_length:2*channel_length,:,:]
-    anap_images = array[2*channel_length:3*channel_length,:,:]
-    gfp_intensities = gfp_images[gfp_images>0].flatten()
-    anap_intensities = anap_images[anap_images>0].flatten()
-    plt.plot(gfp_intensities, anap_intensities, ',')
+    channel_1_images = array[channel_1*channel_length:(channel_1+1)*channel_length,:,:]
+    channel_2_images = array[channel_2*channel_length:(channel_2+1)*channel_length,:,:]
+    channel_1_intensities = channel_1_images[channel_1_images!=0].flatten()
+    channel_2_intensities = channel_2_images[channel_2_images!=0].flatten()
+    plt.plot(channel_1_intensities, channel_2_intensities, ',')
     plt.show()
-    return(pcc(gfp_intensities, anap_intensities))
+    return(channel_1_intensities, channel_2_intensities)
 
+def plot_profiles(array, z_position, j1, j2):
+    z, i, j = array.shape
+    profiles = []
+    fig, ax = plt.subplots(ncols = 5)
+    for index, channel in enumerate(np.split(array, 4, axis=0)):
+        image = channel[z_position,:,:]
+        ax[index].imshow(image, cmap = "gray")
+        ax[index].axis("off")
+        profile = np.mean(image[:,j1:j2], axis=1)
+        ax[4].plot((profile - np.min(profile)) / (np.max(profile) - np.min(profile)), label = index)
+    ax[4].legend()        
+    plt.show()
 
-#read and bin the image stacks
-a1 = filter(bin(io.imread("data/confocal_images/WT-GFP1.tif"), bin_size=2), filter_size=10)
-a2 = filter(bin(io.imread("data/confocal_images/WT-GFP2.tif"), bin_size=2), filter_size=10)
-a3 = filter(bin(io.imread("data/confocal_images/WT-GFP3.tif"), bin_size=2), filter_size=10)
+def read(directory, trim):
+    stack = io.imread(directory)
+    trimmed = []
+    for channel in np.split(stack, 4, axis=0):
+        z, i, j = channel.shape
+        trimmed_channel = channel[trim:(z-trim),:,:]
+        trimmed.append(trimmed_channel)
+    return np.concatenate(trimmed, axis=0)
 
-b1 = filter(bin(io.imread("data/confocal_images/W311-GFP1.tif"), bin_size=2), filter_size=10)
-b2 = filter(bin(io.imread("data/confocal_images/W311-GFP2.tif"), bin_size=2), filter_size=10)
-b3 = filter(bin(io.imread("data/confocal_images/W311-GFP3.tif"), bin_size=2), filter_size=10)
+#read the image stacks
+a1 = read("data/confocal_images/WT-GFP1.tif", trim=4)[:,:,0:340]
+a2 = read("data/confocal_images/WT-GFP2.tif", trim=4)[:,122:450,140:]
+a3 = read("data/confocal_images/WT-GFP3.tif", trim=4)[:,40:400,:]
+b1 = read("data/confocal_images/W311-GFP1.tif", trim=4)[:,0:380,165:440]
+b2 = read("data/confocal_images/W311-GFP2.tif", trim=4)[:,100:,50:]
 
-plot(a1)
-plot(b1)
+b2_processed = normalise(filter(b2, filter_size=5))
+plot(b2_processed)
+plot_profiles(b2_processed, 5, 200, 220)
 
-#invert the binary matrix in order to set all values below the threshold (not membrane) to zero
-a1[np.invert(extract_membrane_mask(a1))] = 0
-a2[np.invert(extract_membrane_mask(a2))] = 0
-a3[np.invert(extract_membrane_mask(a3))] = 0
-b1[np.invert(extract_membrane_mask(b1))] = 0
-b2[np.invert(extract_membrane_mask(b2))] = 0
-b3[np.invert(extract_membrane_mask(b3))] = 0
+a3_processed = normalise(filter(a3, filter_size=5))
+plot(a3_processed)
+plot_profiles(a3_processed, 5, 280, 300)
 
-a1_pcc = plot_intensities(a1)
-a2_pcc = plot_intensities(a2)
-a3_pcc = plot_intensities(a3)
-b1_pcc = plot_intensities(b1)
-b2_pcc = plot_intensities(b2)
-b3_pcc = plot_intensities(b3)
+for stack in (a1, a2, a3, b1, b2):
+    filtered_stack = filter(stack, filter_size = 20)
+    normalised_stack = normalise(filtered_stack)
+    plot(normalised_stack)
+    maxproj = max_proj(normalised_stack)
+    fig, ax = plt.subplots(4)
+    for i, image in enumerate(maxproj):
+        ax[i].imshow(image, cmap = "gray")
+    plt.show()
 
-print(mean([a1_pcc, a2_pcc, a3_pcc]), mean([b1_pcc, b2_pcc, b3_pcc]))
+#set the fluorescence channels
+dic_channel = 0
+gfp_channel = 1
+anap_channel = 2
+membrane_channel = 3
+
+wt = []
+for i, stack in enumerate((a1, a2, a3), start=1):
+    #extract masks for gfp and the membrane stain such that true should be masked
+    gfp_mask = extract_mask(stack, channel=gfp_channel)
+    membrane_mask = extract_mask(stack, channel=membrane_channel)
+    #values inside either of the masks (i.e. not gfp and membrane stain positive) are set to zero
+    stack[np.logical_or(gfp_mask, membrane_mask)] = 0
+    #extract per pixel intesities for gfp and anap
+    gfp, anap = plot_intensities(stack, channel_1=gfp_channel, channel_2=anap_channel)
+    wt.append(pd.DataFrame({
+        "construct" : "WT-GFP+SUR1",
+        "image_stack" : i,
+        "gfp_intensity" : gfp,
+        "anap_intensity" : anap
+    }))
+
+wt = pd.concat(wt)
+
+w311 = []
+for i, stack in enumerate((b1, b2), start=1):
+    #extract masks for gfp and the membrane stain such that true should be masked
+    gfp_mask = extract_mask(stack, channel=gfp_channel)
+    membrane_mask = extract_mask(stack, channel=membrane_channel)
+    #values inside either of the masks (i.e. not gfp and membrane stain positive) are set to zero
+    stack[np.logical_or(gfp_mask, membrane_mask)] = 0
+    #extract per pixel intesities for gfp and anap
+    gfp, anap = plot_intensities(stack, channel_1=gfp_channel, channel_2=anap_channel)
+    w311.append(pd.DataFrame({
+        "construct" : "W311*-GFP+SUR1",
+        "image_stack" : i,
+        "gfp_intensity" : gfp,
+        "anap_intensity" : anap
+    }))
+
+w311 = pd.concat(w311)
+
+intensities = wt.append(w311)
+
+# intensities.to_csv("data/confocal_images/per_pixel_intensities.csv")

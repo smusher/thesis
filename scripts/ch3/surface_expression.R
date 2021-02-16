@@ -73,10 +73,10 @@ brm(
 
 centered %>%
 expand(nesting(kir_construct, anap_present, sur1_present, ha_present)) %>%
-add_fitted_draws(model_1) -> plot_1
+add_predicted_draws(model_1) -> plot_1
 
 ggplot() +
-stat_slab(data = plot_1, aes(x = kir_construct, y = .value, colour = interaction(anap_present, ha_present)), fill = NA, size = 1) +
+stat_slab(data = plot_1, aes(x = kir_construct, y = .prediction, colour = interaction(anap_present, ha_present)), fill = NA, size = 1) +
 geom_point(data = centered, position = position_dodge(width=0.2), aes(x = kir_construct, y = centered_response, fill = interaction(anap_present, ha_present)), shape=21, size = 2) +
 facet_grid(cols=vars(sur1_present), labeller = label_both) +
 coord_flip() +
@@ -86,10 +86,10 @@ nd_1 <-
     centered %>%
     expand(kir_construct, ha_present, anap_present = TRUE, sur1_present = TRUE)
 
-fitted_draws(model_1, newdata = nd_1) %>%
+predicted_draws(model_1, newdata = nd_1) %>%
 ungroup() %>%
-select(kir_construct, ha_present, .draw, .value) %>%
-pivot_wider(names_from = ha_present, names_prefix = "ha_present_", values_from = .value) %>%
+select(kir_construct, ha_present, .draw, .prediction) %>%
+pivot_wider(names_from = ha_present, names_prefix = "ha_present_", values_from = .prediction) %>%
 mutate(ha_contrast = ha_present_TRUE - ha_present_FALSE) -> ha_contrasts_1
 
 ggplot() +
@@ -103,10 +103,10 @@ nd_2 <-
     centered %>%
     expand(kir_construct, ha_present, anap_present = FALSE, sur1_present = TRUE)
 
-fitted_draws(model_1, newdata = nd_2) %>%
+predicted_draws(model_1, newdata = nd_2) %>%
 ungroup() %>%
-select(kir_construct, ha_present, .draw, .value) %>%
-pivot_wider(names_from = ha_present, names_prefix = "ha_present_", values_from = .value) %>%
+select(kir_construct, ha_present, .draw, .prediction) %>%
+pivot_wider(names_from = ha_present, names_prefix = "ha_present_", values_from = .prediction) %>%
 mutate(ha_contrast = ha_present_TRUE - ha_present_FALSE) -> ha_contrasts_2
 
 ggplot() +
@@ -120,10 +120,10 @@ nd_3 <-
     centered %>%
     expand(kir_construct, anap_present, ha_present = TRUE, sur1_present = TRUE)
 
-fitted_draws(model_1, newdata = nd_3) %>%
+predicted_draws(model_1, newdata = nd_3) %>%
 ungroup() %>%
-select(kir_construct, anap_present, .draw, .value) %>%
-pivot_wider(names_from = anap_present, names_prefix = "anap_present_", values_from = .value) %>%
+select(kir_construct, anap_present, .draw, .prediction) %>%
+pivot_wider(names_from = anap_present, names_prefix = "anap_present_", values_from = .prediction) %>%
 mutate(anap_contrast = anap_present_TRUE - anap_present_FALSE) -> anap_contrasts_1
 
 ggplot() +

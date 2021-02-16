@@ -199,9 +199,46 @@ The nature of the amber stop codon suppression system requires a number of caref
 	We found that transfection of W311TAG constructs with a C-terminal GFP tag produced minimal truncated Kir6.2 (less than \SI{10}{\percent} of the total density observed in Figure \ref{ch3fig:western_2}).
 	\item Despite being the least frequent eukaryotic stop codon, the amber stop codon is still present in a significant number of proetin sequences.
 	We must be careful that ANAP is not incorporated into a protein which localises to the plasma membrane to an extent which would affect our ability to assign ANAP fluorescence to Kir6.2.
-	We used confocal microscopy to determine the level of 
-
+	We found that in cells transfected with GFP-tagged Kir6.2 without an amber stop codon, there was no increase in ANAP fluorescence at the cell membrane (Figure \ref{ch3fig:wt_confocal}, \ref{ch3fig:wt_confocal_profiles}).
+	By contrast, when W311TAG-GFP was transfected, we saw a clear increase in ANAP fluorescence at the cell membrane (Figure \ref{ch3fig:w311_confocal}, \ref{ch3fig:w311_confocal_profiles}), suggesting that any observed ANAP fluorescence at the cell membrane originates from our labelled Kir6.2 construct.
 \end{enumerate}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[t]{0.55\textwidth}
+		\caption{}\label{ch3fig:wt_confocal}
+		\centering
+		\includegraphics[width=\textwidth]{wt_confocal.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.35\textwidth}
+		\caption{}\label{ch3fig:wt_confocal_profiles}
+		\centering
+		\includegraphics[width=\textwidth]{wt_confocal_profiles.pdf}
+	\end{subfigure}
+	\vfill
+	\begin{subfigure}[t]{0.55\textwidth}
+		\caption{}\label{ch3fig:w311_confocal}
+		\centering
+		\includegraphics[width=\textwidth]{w311_confocal.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.35\textwidth}
+		\caption{}\label{ch3fig:w311_confocal_profiles}
+		\centering
+		\includegraphics[width=\textwidth]{w311_confocal_profiles.pdf}
+	\end{subfigure}
+	\caption[Confocal imaging]{
+	\subref{ch3fig:wt_confocal}, \subref{ch3fig:w311_confocal} Confocal images of two HEK293T cells transfected with WT-GFP (\subref{ch3fig:wt_confocal}) or W311TAG-GFP (\subref{ch3fig:w311_confocal}), plus SUR1, pANAP, peRF1-E55D and with ANAP in the culture medium.
+	Cells were incubated with Cellmask Deep Red for ten minutes before imaging to label the plasma membranes.
+	The vertical grey box indicates the section of the images plotted in \subref{ch3fig:wt_confocal_profiles} and \subref{ch3fig:w311_confocal_profiles}
+	Images are displayed after median filtering with a box radius of 5, and normalising the intensities per channel.
+	\subref{ch3fig:wt_confocal_profiles}, \subref{ch3fig:w311_confocal_profiles}The line-averaged intensity of the pixels in the grey boxes in \subref{ch3fig:wt_confocal} and \subref{ch3fig:w311_confocal} respectively.
+	The plasma membranes are identifiable as clear peaks in the Cellmask Deep Red fluorescence (magenta) and are marked with arrows.
+	Notably, while there are clear GFP peaks at the membrane in both \subref{ch3fig:wt_confocal_profiles} and \subref{ch3fig:w311_confocal_profiles}, only in \subref{ch3fig:w311_confocal_profiles} do peaks in the ANAP fluorescence coincide with the membrane.
+	}
+\end{figure}
+
 
 \section{Testing for functional membrane expression}
 
@@ -249,15 +286,20 @@ We also see a consistent increase in luminescence for all constructs aside from 
 		\includegraphics[width=\textwidth]{surface_expression_4.pdf}
 	\end{subfigure}
 	\caption[ANAP construct surface expression assay]{
+	\subref{ch3fig:surface_expression_1}, \subref{ch3fig:surface_expression_2} Individual observations (points) and posterior probability distributions for surface expression of Kir6.2 constructs.
+	Before fitting, the observations for each construct were centered by subtracting the mean of the luminesence observed without the N-temrinal HA tag.
+	Observations for constructs without the N-terminal HA tag and for constructs transfected with both ANAP and SUR1 are duplicated between panels to clarify the differences observed when either ANAP (\subref{ch3fig:surface_expression_1}) or SUR1 (\subref{ch3fig:surface_expression_2}) are omitted.
+	\subref{ch3fig:surface_expression_3}, \subref{ch3fig:surface_expression_4} Contrasts between constructs differing only in the presence or absence of the N-terminal HA-tag (\subref{ch3fig:surface_expression_3}) or the presence or absence of ANAP in the culture media (\subref{ch3fig:surface_expression_4}).
+	Different intervals in the posterior probability distribution of the contrasts are shown in shades of blue.
 	}
 \end{figure}
 
+\subsection{Electrophysiology of Kir6.2 constructs}
 
-\subsection{Confocal microscopy of Kir6.2 constructs}
+To establish whether W311*-GFP formed K\ATP{} channels with similar function to wild-type, we excised patches from cells transfected with W311*-GFP and SUR1.
+
 
 \subsection{Unroofed membrane binding assay of Kir6.2 constructs}
-
-\subsection{Electrophysiology of Kir6.2 constructs}
 
 \subsection{Patch-clamp fluorometry of Kir6.2 constructs}
 
