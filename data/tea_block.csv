@@ -1,4 +1,4 @@
-unique_experiment_id,method,construct,tea_concentration,raw_current,wash_current,barium_current,response
+unique_experiment_id,method,construct,concentration,raw_current,wash_current,barium_current,response
 1,patch-clamp,W311*-GFP+SUR1,0.05,2016.54272460937,3238.72021484375,41.8759460449218,0.617692515659014
 1,patch-clamp,W311*-GFP+SUR1,0.015,2102.99682617187,2610.78686523437,41.8759460449218,0.80233256230515
 1,patch-clamp,W311*-GFP+SUR1,0.005,2266.15942382812,2446.60571289062,41.8759460449218,0.924961926470768

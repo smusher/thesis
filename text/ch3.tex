@@ -303,6 +303,12 @@ Perfusion of ATP resulted in current inhibition with an IC\textsubscript{50} of 
 Thus, despite the distance from the ATP binding site, the W311 mutation clearly affects some aspect of nucleotide inhibition.
 However, we assume that insights into the function of the ANAP-incorporating channel will still be applicable to wild-type channels despite the change in nucleotide inhibition.
 
+Next, we established that TNP-ATP inhibits K\ATP{} to a similar extent as ATP.
+We observed current inhibition with an IC\textsubscript{50} of x for WT-GFP and x for W311*-GFP.
+K\ATP{} thus appears to be more sensitive to inhibition by TNP-ATP than by ATP.
+This could potentially be due to extra contacts made by the TNP moiety with Kir6.2, seen in our computational docking.
+Despite the change in the relative IC\textsubscript{50}, there is nothing that would suggest a different mechanism of action for TNP-ATP inhibition.
+
 \subsection{Unroofed membrane binding assay of Kir6.2 constructs}
 
 We then directly measured nucleotide binding to W311*-GFP in unroofed membranes.
@@ -316,14 +322,32 @@ The decrease in ANAP fluorescence is almost directly correlated to an increase i
 
 To equivocate ANAP quenching and nucleotide binding, first we need to correct for incomplete FRET due to the distance between the donor and acceptor.
 Based on the computational docking, we predicted a maximal FRET efficiency of \SI{95}{\percent} when every Kir6.2 subunit is bound by TNP-ATP.
-Fitting our observed data to a Hill equation results in a maximum observed FRET efficiency of \SI{95}{\percent}, agreeing with our prediction.
+Fitting our observed data to a Hill equation results in a maximum observed FRET efficiency of \SI{93}{\percent}, agreeing well with our prediction.
 We can then normalise our observed fluorescence data by this value.
 
 Secondly, we need to adjust for the FRET between adjacent subunits of Kir6.2.
 The difference between the ideal 1:1 subunit/ligand FRET efficiency and the simulated experimental FRET efficiency resulted in a correction factor of $log_2(\frac{F}{F_{max}} + 1)$.
 Overall, these two corrections do not dramatically alter our results, and we performed our analysis on both corrected and uncorrected results to ensure that there was no potential difference in interpration which derived from treating our data in this way.
 
+We observed quenching of ANAP fluorescence over a concentration range of TNP-ATP similar to the range in which we observed inhibition of current in W311*-GFP.
+When fit to a Hill equation, quenching was fit with an EC\textsubscript{50} of x, while the corrected binding data gave an EC\textsubscript{50} of x.
+Notably, this EC\textsubscript{50} is somewhat right-shifted compared to the IC\textsubscript{50} we observed in excised patches (x).
+
 \subsection{Patch-clamp fluorometry of Kir6.2 constructs}
+
+To ensure that the ANAP fluorescence we observe in the unroofed membranes is emitted by functional channels, and thus the quenching by TNP-ATP reflects nucleotide binding to the same population of channels we are measuring inhibition from, we measured fluorescence quenching and current inhibition from the same excised patches.
+
+This experimental paradigm leads to two complications compared to performing the measurements separately.
+Firstly, the number of channels in an excised patch are far smaller than the number of channels in an unroofed membrane patch.
+This results in a much dimmer fluorescence readout, and a lower signal-to-noise ratio.
+Secondly, the presence of the pipette glass in the images results in some abnormalities in the background subtraction procedure.
+This is not due to the glass itself, but results from the occlusion of TNP-ATP from the image surrounding the patch.
+This leads to oversubtraction of the background TNP-ATP spectra, leading to an apparent negative peak in our corrected images.
+However, we find that there is no overlap of this peak and the ANAP peak, so our fluorescence quenching measurements are unaffected by this phenomenon.
+
+Our fluoresence measurements from excised patches agree reasonably well with our measurements for unroofed membranes.
+Our finding that the EC\textsubscript{50} for TNP-ATP binding is right-shifted compared to the IC\textsubscript{50} for TNP-ATP inhibition is consistent between each experimental paradigm.
+This finding has implications for how exactly the binding of nucleotides to Kir6.2 leads to closure of the K\ATP{} channel pore.
 
 \begin{figure}[h]
 	\centering
