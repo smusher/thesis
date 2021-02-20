@@ -51,12 +51,17 @@ coord_flip()
 
 priors <- c(
     prior(normal(0.928, 0.753), class = Intercept),
-    prior(cauchy(0, 5), class = sigma),
-    prior(cauchy(0, 1), class = sd, group = kir_construct)
+    prior(cauchy(0, 1), class = sd)
     )
 
+ranef_form_1 <-
+    bf(
+        centered_response ~ 1 + (1 + anap_present * sur1_present * ha_present||kir_construct),
+        sigma ~ (1 + anap_present * sur1_present * ha_present||kir_construct)
+        )
+
 brm(
-    centered_response ~ 1 + (1 + anap_present * sur1_present * ha_present||kir_construct),
+    formula = ranef_form_1,
     family = gaussian(),
     data = centered,
     prior = priors,
@@ -64,8 +69,8 @@ brm(
     sample_prior = "yes",
     save_all_pars = TRUE,
     chains = 4,
-    iter = 45000,
-    warmup= 5000,
+    iter = 10000,
+    warmup= 2000,
     thin  = 10,
     control = list(adapt_delta = 0.99, max_treedepth = 15),
     file = "/home/sam/thesis/data/other_fits/surface_expression_2.rds"

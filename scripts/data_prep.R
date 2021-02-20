@@ -230,17 +230,14 @@ data_7 <-
   import("/home/sam/current_analysis/paper/tnp-atp_doseresponse_unroofed/W311-GFP+TMD0_195", "intensities") %>%
   mutate(construct = "W311*-GFP+TMD0_195")
 data_8 <-
-  import("/home/sam/current_analysis/paper/tnp-atp_doseresponse_unroofed/W311-GFP+SUR-K205E", "intensities") %>%
-  mutate(construct = "W311*-GFP+SUR-K205E")
-data_9 <-
   import("/home/sam/current_analysis/paper/tnp-atp_doseresponse_unroofed/W311+SUR", "intensities") %>%
   mutate(construct = "W311*+SUR")
-data_10 <-
+data_9 <-
   import("/home/sam/current_analysis/paper/tnp-atp_doseresponse_unroofed/W311-GFP+SUR+MG", "intensities") %>%
   mutate(construct = "W311*-GFP+SUR+MG")
 
 combined_unroofed <-
-    bind_rows(data_1, data_2, data_3, data_5, data_6, data_7, data_8, data_9, data_10) %>%
+    bind_rows(data_1, data_2, data_3, data_5, data_6, data_7, data_8, data_9) %>%
     mutate(
       construct = factor(construct),
       response = 1 - response
