@@ -275,6 +275,7 @@ combined_data <-
     bind_rows(combined_pcf, combined_patch, combined_unroofed) %>%
     group_by(method, within_method_id) %>%
     mutate(unique_experiment_id = factor(cur_group_id())) %>%
+    filter(!(unique_experiment_id %in% c(328, 329))) %>%
     write_csv("data/combined_drc_data.csv")
 
 # ggplot(combined_data %>% unite(experiment, c(method, measure)), aes(x = concentration, y = response, colour = experiment)) +

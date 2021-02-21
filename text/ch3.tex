@@ -320,13 +320,14 @@ Perfusing TNP-ATP results in a decrease in the peak corresponding to ANAP fluore
 This phenomenon is the fresult of FRET between TNP-ATP bound to the channel at the Kir6.2 binding site.
 The decrease in ANAP fluorescence is almost directly correlated to an increase in bound nucleotide.
 
-To equivocate ANAP quenching and nucleotide binding, first we need to correct for incomplete FRET due to the distance between the donor and acceptor.
-Based on the computational docking, we predicted a maximal FRET efficiency of \SI{95}{\percent} when every Kir6.2 subunit is bound by TNP-ATP.
-Fitting our observed data to a Hill equation results in a maximum observed FRET efficiency of \SI{93}{\percent}, agreeing well with our prediction.
+To equivocate ANAP quenching and nucleotide binding, first we need to adjust for the FRET between adjacent subunits of Kir6.2.
+The difference between the ideal 1:1 subunit/ligand FRET efficiency and the simulated experimental FRET efficiency resulted in a correction factor of $log_2(\frac{F}{F_{max}} + 1)$.
+
+Secondly, we need to correct for incomplete FRET due to the distance between the donor and acceptor.
+Based on the computational docking, we predicted a maximal FRET efficiency of \SI{91}{\percent} when every Kir6.2 subunit is bound by TNP-ATP.
+Fitting our adjusted data to a Hill equation results in a maximum observed FRET efficiency of \SI{90}{\percent}, agreeing well with our prediction.
 We can then normalise our observed fluorescence data by this value.
 
-Secondly, we need to adjust for the FRET between adjacent subunits of Kir6.2.
-The difference between the ideal 1:1 subunit/ligand FRET efficiency and the simulated experimental FRET efficiency resulted in a correction factor of $log_2(\frac{F}{F_{max}} + 1)$.
 Overall, these two corrections do not dramatically alter our results, and we performed our analysis on both corrected and uncorrected results to ensure that there was no potential difference in interpration which derived from treating our data in this way.
 
 We observed quenching of ANAP fluorescence over a concentration range of TNP-ATP similar to the range in which we observed inhibition of current in W311*-GFP.
