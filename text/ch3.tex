@@ -239,7 +239,6 @@ The nature of the amber stop codon suppression system requires a number of caref
 	}
 \end{figure}
 
-
 \section{Testing for functional membrane expression}
 
 \subsection{Surface expression of HA-epitope labelled Kir6.2 constructs}
@@ -347,6 +346,15 @@ Despite the change in the relative IC\textsubscript{50}, there is nothing that w
 		\includegraphics[width=\textwidth]{ec50_fits_2.pdf}
 	\end{subfigure}
 	\caption[WT-GFP and W311*-GFP electrophysology]{
+	\subref{ch3fig:atp_inhibition_1},  \subref{ch3fig:tnpatp_inhibition_1}Inhibition of current by ATP (\subref{ch3fig:atp_inhibition_1}) or TNP-ATP (\subref{ch3fig:tnpatp_inhibition_1}) in excised patches expressing either WT-GFP+SUR1 (blue) or W311*-GFP+SUR1 (orange).
+	Each point represents an individual measurement normalised to the maximum current observed in that patch.
+	The smooth curve is a fit to equation \ref{eq:hill}, yielding the following paramter estimates:
+	WT-GFP+SUR1/ATP: $IC_{50} = \SI{32.4}{\micro\Molar}, hill = 1.36, I_{max} = 0.99$.
+	W311*-GFP+SUR1/ATP: $IC_{50} = \SI{95.5}{\micro\Molar}, hill = 1.36, I_{max} = 0.99$.
+	WT-GFP+SUR1/TNP-ATP: $IC_{50} = \SI{1.15}{\micro\Molar}, hill = 0.95, I_{max} = 1.00$.
+	W311*-GFP+SUR1/TNP-ATP: $IC_{50} = \SI{5.62}{\micro\Molar}, hill = 1.04, I_{max} = 0.93$.
+	\subref{ch3fig:atp_inhibition_2}, \subref{ch3fig:tnpatp_inhibition_2} Each experiment was individually fit to equation \ref{eq:hill} with the $hill$ and $I_{max}$ parameters fixed to their estimates from \subref{ch3fig:atp_inhibition_1} and  \subref{ch3fig:tnpatp_inhibition_1}.
+	\subref{ch3fig:ec50_fits_1}, \subref{ch3fig:ec50_fits_2} $IC_{50}$ values from fits to individual experiments are shown as points, and posterior probability distributions for the estimated population $IC_50$ value are shown coloured according to their intervals.
 	}
 \end{figure}
 
@@ -395,6 +403,14 @@ Notably, this EC\textsubscript{50} is somewhat right-shifted compared to the IC\
 		\includegraphics[width=\textwidth]{tnpatp_quenching_2.pdf}
 	\end{subfigure}
 	\caption[W311*-GFP unroofed membrane binding]{
+	\subref{ch3fig:tnpatp_quenching_1} Fluorescence quenching of W311*-GP+SUR1 by TNP-ATP in unroofed membrane patches.
+	Each uncorrected point (white with dashed blue outline) represents an individual measurement normalised to the maximum current observed in that unroofed membrane.
+	Each corrected point (blue filled points) has been transformed to $log_2(\frac{F}{F_{max}}+1)$.
+	The smooth curves are fits to equation \ref{eq:hill}, yielding the following parameter estimates:
+	Uncorrected: $EC_{50} = \SI{25.7}{\micro\Molar}, hill = 0.82, E_{max} = 0.93$.
+	Corrected: $EC_{50} = \SI{36.3}{\micro\Molar}, hill = 0.82$, with  $E_{max}$ set to $0.1$.
+	\subref{ch3fig:ec50_fits_3} $EC_{50}$ values from fits to individual experiments shown in \subref{ch3fig:tnpatp_quenching_2} are shown as points, and posterior probability distributions for the estimated population $EC_50$ value are shown coloured according to their intervals.
+	Uncorrected values and their posterior probability distributions are shown as white points with a dashed blue outline and a dashed blue curve, respectively.
 	}
 \end{figure}
 
