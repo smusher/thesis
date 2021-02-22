@@ -100,7 +100,11 @@ Based on the predicted TNP-ATP poses for \#6BAA and \#6C3P, we could narrow down
 In addition, we excluded residues which fell within \SI{45}{\angstrom} of NBS1 or NBS2, as this restricts the potential FRET between TNP-ATP bound at these sites and our chosen residue to roughly \SI{25}{\percent} or less.
 While we can exclude residues which fall too close to the NBS's of SUR1, the close proximity of the Kir6.2 nucleotide binding sites to each other means that we cannot exclude intersubunit FRET occuring; i.e. TNP-ATP binding to a neighbouring subunit will also be able to quench ANAP to a certain extent. However, this occurs in a predictable way that we can measure and account for.
 
-We targeted F183 and W311 intitally as they are both bulky hydrophobic residues similar to ANAP, and at which no mutations have been previously identified to alter K\ATP{} function. 
+We targeted two residues which fulfilled these criteria; F183 and W311.
+In addition, they are both bulky hydrophobic residues similar to ANAP, and at which no mutations have been previously identified to alter K\ATP{} function.
+To determine the extent to which crosstalk between neighbouring subunits would affect the measure FRET efficiency at these sites, we simulated the expected FRET for a single K\ATP{} channel bound to 0-4 molecules of TNP-ATP in an idealised scenario with no crosstalk, and compared the observed fluorescence quenching to a scenario including the possibility of crosstalk.
+Due to the much shorter fluorescence lifetime of TNP-ATP compared to ANAP, we observe a deviation from the ideal scenario.
+We can correct for this systematic deviation by transforming our observed ANAP quenching ($F/F_{max}$) into $log_2(\frac{F}{F_{max} + 1})$.
 
 \begin{figure}[h]
 	\centering
@@ -122,16 +126,22 @@ We targeted F183 and W311 intitally as they are both bulky hydrophobic residues 
 		\includegraphics[width=\textwidth]{6c3o_docking.pdf}
 	\end{subfigure}
 	\vfill
-	\begin{subfigure}[t]{0.45\textwidth}
+	\begin{subfigure}[t]{0.3\textwidth}
 		\caption{}\label{ch3fig:6c3p_bound}
 		\centering
 		\includegraphics[width=\textwidth]{6c3p_site_bound.png}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}[t]{0.45\textwidth}
+	\begin{subfigure}[t]{0.3\textwidth}
 		\caption{}\label{ch3fig:6c3p_docked}
 		\centering
 		\includegraphics[width=\textwidth]{6c3p_site_docked.png}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.3\textwidth}
+		\caption{}\label{ch3fig:exifret_out}
+		\centering
+		\includegraphics[width=\textwidth]{exifret_out.pdf}
 	\end{subfigure}
 	\caption[TNP-nucleotides can bind with a similar pose to ATP]{
 	\subref{ch3fig:6baa_docking}, \subref{ch3fig:6c3p_docking}, \subref{ch3fig:6c3o_docking} Cryo-EM binding poses for ATP bound to Kir6.2 (white) overlayed with either the ten highest scoring computationally docked ATP poses (red) or the three highest scoring computationally docked TNP-nucleotide poses (orange).
@@ -140,6 +150,9 @@ We targeted F183 and W311 intitally as they are both bulky hydrophobic residues 
 	The poses shown are from \#3B5J (X-ray diffraction structure of TNP-ADP bound to the NBD complex of a bacterial ABC transporter) and \#5SVQ (X-ray diffraction structure of TNP-ATP bound to the human P2X3 ion channel).
 	\subref{ch3fig:6c3p_bound} Cryo-EM structure of the nucleotide binding site in the presence of ATP from \#6C3P.
 	\subref{ch3fig:6c3p_docked} As \subref{ch3fig:6c3p_bound} but with the three top scoring binding poses for docked TNP-nucleotides.
+	\subref{ch3fig:exifret_out} Correcting measured FRET efficiency for crosstalk between adjacent subunits requires transforming measured fluorescence quenching as described in the main text.
+	Shown as a line is the idealised FRET efficiency for a single K\ATP{} channel bound to increasing numbers of TNP-ATP.
+	Observed (blue) and corrected (orange) observed FRET efficiencies at each ligand occupancy state are shown as points.
 	}\label{ch3fig:docking}
 \end{figure}
 
@@ -389,6 +402,12 @@ The decrease in ANAP fluorescence is almost directly correlated to an increase i
 		\includegraphics[width=\textwidth]{bleaching_terms_4.pdf}
 	\end{subfigure}
 	\caption[Unroofed membranes bleaching correction]{
+	\subref{ch3fig:bleaching_plots_2} Normalised ANAP fluorescence intensities in unroofed membranes perfused at different concentrations of TNP-ATP are shown as points coloured according to the concentration of TNP-ATP.
+	The black dashed lines are fits to the fluorescence intensities without TNP-ATP present with equation \ref{eq:bleaching}.
+	\subref{ch3fig:bleaching_terms_3} Values of the two parameters in equation \ref{eq:bleaching} for fits to each of the experiments in \subref{ch3fig:bleaching_plots_2}.
+	Estimates are shown on a log scale due to a number of the experiments which show bleaching behaviour on a different timescale than the majority.
+	\subref{ch3fig:bleaching_terms_4} Proportion of ANAP fluorescence remaining unbleached in the last exposure taken without the presence of TNP-ATP in each experiment.
+	The dashed line is the mean, with a value of $0.49$.
 	}
 \end{figure}
 
@@ -473,6 +492,11 @@ This finding has implications for how exactly the binding of nucleotides to Kir6
 		\includegraphics[width=\textwidth]{bleaching_terms_2.pdf}
 	\end{subfigure}
 	\caption[PCF bleaching correction]{
+	\subref{ch3fig:bleaching_plots_1} Normalised ANAP fluorescence intensities in excised patches perfused at different concentrations of TNP-ATP are shown as points coloured according to the concentration of TNP-ATP.
+	The black dashed lines are fits to the fluorescence intensities without TNP-ATP present with equation \ref{eq:bleaching}.
+	\subref{ch3fig:bleaching_terms_1} Values of the two parameters in equation \ref{eq:bleaching} for fits to each of the experiments in \subref{ch3fig:bleaching_plots_2}.
+	\subref{ch3fig:bleaching_terms_2} Proportion of ANAP fluorescence remaining unbleached in the last exposure taken without the presence of TNP-ATP in each experiment.
+	The dashed line is the mean, with a value of $0.41$.
 	}
 \end{figure}
 
@@ -514,7 +538,9 @@ This finding has implications for how exactly the binding of nucleotides to Kir6
 	Each spectra was captured with a one second exposure and corrected for background fluorescence and bleaching as described elsewhere.
 	\subref{ch3fig:atp_tnpatp_spectra_2} Averaged traces of the spectra shown in \subref{ch3fig:atp_tnpatp_spectra_1}. The location of the peak ANAP fluorescence is marked by a grey box.
 	\subref{ch3fig:pcf_1} Current inhibition ($I/I_{max}$, blue points) and fluorescence quenching (Adjusted $F/F_{max}$, orange points) of W311*-GFP+SUR1 in excised membrane patches recorded simultaneously.
-	Smooth curves are fits to equation \ref{eq:hill}.
+	Smooth curves are fits to equation \ref{eq:hill}, yielding the following parameter estimates:
+	PCF $I/I_{max}$: data and fit replicated from Figure \ref{ch3fig:tnpatp_inhibition_1}.
+	PCF adjusted $F/F_{max}$: $EC_{50} = \SI{110}{\micro\Molar}, hill = 1.20$, with  $E_{max}$ set to $0.1$.
 	The dashed orange line is the fit to the adjusted $F/F_{max}$ in unroofed membranes reported in Figure \ref{ch3fig:tnpatp_quenching_1}.
 	\subref{ch3fig:ec50_fits_4} $EC_{50}$ and $IC_{50}$ values from fits to individual experiments are shown as points, and posterior probability distributions for the estimated population $EC_50$ and $IC_{50}$ values are shown coloured according to their intervals.
 	}
