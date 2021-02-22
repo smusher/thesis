@@ -52,6 +52,7 @@ adjusted_fits_fixed_floor %>%
 mutate(augmented = map(fit, augment, newdata = nd_1)) %>%
 unnest(augmented) -> a_fixed_plot
 
+
 ggplot() +
 geom_line(
 	data = ua_free_plot_pop %>% filter(measure == "current", construct %in% interesting_constructs, nucleotide %in% interesting_nucleotides),
@@ -109,22 +110,21 @@ facet_grid(cols = vars(method))
 
 ggplot() +
 geom_line(
-	data = ua_free_plot %>% filter(method == "unroofed", construct %in% interesting_constructs, nucleotide %in% interesting_nucleotides),
-	aes(x = log_concentration, y = .fitted), colour = "black"
+	data = ua_free_plot_pop %>% filter(construct == "W311*-GFP+SUR", nucleotide == "TNP-ATP"),
+	aes(x = log_concentration, y = .fitted, colour = interaction(method, measure)), linetype = 2
 	) +
 geom_line(
-	data = a_fixed_plot %>% filter(method == "unroofed", construct %in% interesting_constructs, nucleotide %in% interesting_nucleotides),
-	aes(x = log_concentration, y = .fitted), colour = "grey50"
+	data = a_fixed_plot_pop %>% filter(construct == "W311*-GFP+SUR", nucleotide == "TNP-ATP"),
+	aes(x = log_concentration, y = .fitted, colour = interaction(method, measure))
 	) +
-geom_point(
-	data = concresp %>% filter(method == "unroofed", construct %in% interesting_constructs, nucleotide %in% interesting_nucleotides),
-	aes(x = log_concentration, y = response, fill = construct), shape = 21
+geom_quasirandom(
+	data = concresp %>% filter(construct == "W311*-GFP+SUR", nucleotide == "TNP-ATP", measure == "current"),
+	aes(x = log_concentration, y = response, fill = interaction(method, measure)), shape = 21, width = 0.1
 	) +
-geom_point(
-	data = concresp %>% filter(method == "unroofed", construct %in% interesting_constructs, nucleotide %in% interesting_nucleotides),
-	aes(x = log_concentration, y = log2(response+1), colour = construct), shape = 21
-	) +
-facet_wrap(vars(unique_experiment_id))
+geom_quasirandom(
+	data = concresp %>% filter(construct == "W311*-GFP+SUR", nucleotide == "TNP-ATP", measure == "fluorescence"),
+	aes(x = log_concentration, y = log2(response+1), fill = interaction(method, measure)), shape = 21, width = 0.1
+	)
 
 unadjusted_fits_free_floor %>%
 mutate(tidied = map(fit, tidy)) %>%
@@ -231,14 +231,21 @@ labs(fill_ramp = "Interval")
 
 ggplot() +
 stat_slab(
-    data = plot_2 %>% filter(construct %in% interesting_constructs, nucleotide %in% interesting_nucleotides),
+    data = plot_2 %>% filter(construct == "W311*-GFP+SUR", nucleotide == "TNP-ATP", measure == "fluorescence"),
     aes(y = construct, x = .prediction, fill = interaction(measure, method), fill_ramp = stat(cut_cdf_qi(cdf, .width = c(.5, .8, .95), labels = scales::percent_format())))
     ) +
 geom_point(
-    data = a_fixed_tidy %>% filter(construct %in% interesting_constructs, nucleotide %in% interesting_nucleotides),
+    data = a_fixed_tidy %>% filter(construct == "W311*-GFP+SUR", nucleotide == "TNP-ATP", measure == "fluorescence"),
+    position = position_dodge(width=0.2), aes(y = construct, x = ec50, fill = interaction(measure, method)), shape=21, size = 2
+    ) +
+stat_slab(
+    data = plot_1 %>% filter(construct == "W311*-GFP+SUR", nucleotide == "TNP-ATP", measure == "current"),
+    aes(y = construct, x = .prediction, fill = interaction(measure, method), fill_ramp = stat(cut_cdf_qi(cdf, .width = c(.5, .8, .95), labels = scales::percent_format())))
+    ) +
+geom_point(
+    data = ua_free_tidy %>% filter(construct == "W311*-GFP+SUR", nucleotide == "TNP-ATP", measure == "current"),
     position = position_dodge(width=0.2), aes(y = construct, x = ec50, fill = interaction(measure, method)), shape=21, size = 2
     ) +
 scale_fill_brewer(palette = "Pastel1", aesthetics = c("fill", "colour")) +
 scale_fill_ramp_discrete(range = c(1, 0.2), na.translate = FALSE) +
-facet_grid(cols = vars(nucleotide)) +
 labs(fill_ramp = "Interval")
