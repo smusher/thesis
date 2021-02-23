@@ -1,0 +1,1369 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 335.7431 256.81241"
+   version="1.1"
+   id="svg65365"
+   sodipodi:docname="unroofed_intensities.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07, custom)"
+   width="335.7431"
+   height="256.81241">
+  <metadata
+     id="metadata65369">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="768"
+     id="namedview65367"
+     showgrid="false"
+     inkscape:zoom="0.8263609"
+     inkscape:cx="367.46066"
+     inkscape:cy="17.971165"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg65365" />
+  <defs
+     id="defs64146">
+    <style
+       type="text/css"
+       id="style64144"><![CDATA[
+    line, polyline, polygon, path, rect, circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+  ]]></style>
+    <style
+       type="text/css"
+       id="style4660"><![CDATA[
+    line, polyline, polygon, path, rect, circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+  ]]></style>
+    <pattern
+       id="EMFhbasepattern"
+       patternUnits="userSpaceOnUse"
+       width="6"
+       height="6"
+       x="0"
+       y="0" />
+    <clipPath
+       id="cpNS40OHw0OTguNTJ8MjUyLjAwfDUuNDg=">
+      <rect
+         x="5.48"
+         y="5.48"
+         width="493.04001"
+         height="246.52"
+         id="rect4668" />
+    </clipPath>
+    <clipPath
+       id="cpMC4wMHw1MDQuMDB8NTA0LjAwfDAuMDA=-7">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect4675" />
+    </clipPath>
+    <clipPath
+       id="clipPath4707">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect4705" />
+    </clipPath>
+    <clipPath
+       id="cpNS40OHw0OTguNTJ8NDk4LjUyfDI1Mi4wMA==-1">
+      <rect
+         x="5.48"
+         y="252"
+         width="493.04001"
+         height="246.52"
+         id="rect4807" />
+    </clipPath>
+    <clipPath
+       id="clipPath4816">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect4814" />
+    </clipPath>
+    <clipPath
+       id="cpNDguMDB8MzUzLjMzfDI3NC4xNXwyNTcuNDg=">
+      <rect
+         x="48"
+         y="257.48001"
+         width="305.32001"
+         height="16.67"
+         id="rect4820" />
+    </clipPath>
+    <clipPath
+       id="clipPath4833">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect4831" />
+    </clipPath>
+    <clipPath
+       id="cpNDguMDB8MzUzLjMzfDI5Ni4zMHwyNzkuNjM=">
+      <rect
+         x="48"
+         y="279.63"
+         width="305.32001"
+         height="16.67"
+         id="rect4837" />
+    </clipPath>
+    <clipPath
+       id="clipPath4850">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect4848" />
+    </clipPath>
+    <clipPath
+       id="cpNDguMDB8MzUzLjMzfDMxOC40NnwzMDEuNzg=">
+      <rect
+         x="48"
+         y="301.78"
+         width="305.32001"
+         height="16.67"
+         id="rect4854" />
+    </clipPath>
+    <clipPath
+       id="clipPath4867">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect4865" />
+    </clipPath>
+    <clipPath
+       id="cpNDguMDB8MzUzLjMzfDM0MC42MXwzMjMuOTM=">
+      <rect
+         x="48"
+         y="323.92999"
+         width="305.32001"
+         height="16.67"
+         id="rect4871" />
+    </clipPath>
+    <clipPath
+       id="clipPath4884">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect4882" />
+    </clipPath>
+    <clipPath
+       id="cpNDguMDB8MzUzLjMzfDM2Mi43NnwzNDYuMDk=">
+      <rect
+         x="48"
+         y="346.09"
+         width="305.32001"
+         height="16.67"
+         id="rect4888" />
+    </clipPath>
+    <clipPath
+       id="clipPath4901">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect4899" />
+    </clipPath>
+    <clipPath
+       id="cpNDguMDB8MzUzLjMzfDM4NC45MXwzNjguMjQ=">
+      <rect
+         x="48"
+         y="368.23999"
+         width="305.32001"
+         height="16.67"
+         id="rect4905" />
+    </clipPath>
+    <clipPath
+       id="clipPath4918">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect4916" />
+    </clipPath>
+    <clipPath
+       id="cpNDguMDB8MzUzLjMzfDQwNy4wNnwzOTAuMzk=">
+      <rect
+         x="48"
+         y="390.39001"
+         width="305.32001"
+         height="16.67"
+         id="rect4922" />
+    </clipPath>
+    <clipPath
+       id="clipPath4935">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect4933" />
+    </clipPath>
+    <clipPath
+       id="cpNDguMDB8MzUzLjMzfDQyOS4yMXw0MTIuNTQ=">
+      <rect
+         x="48"
+         y="412.54001"
+         width="305.32001"
+         height="16.67"
+         id="rect4939" />
+    </clipPath>
+    <clipPath
+       id="clipPath4952">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect4950" />
+    </clipPath>
+    <clipPath
+       id="cpNDguMDB8MzUzLjMzfDQ1MS4zN3w0MzQuNjk=">
+      <rect
+         x="48"
+         y="434.69"
+         width="305.32001"
+         height="16.67"
+         id="rect4956" />
+    </clipPath>
+    <clipPath
+       id="clipPath4969">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect4967" />
+    </clipPath>
+    <clipPath
+       id="cpMzUzLjMzfDM3MC4yNHwyNzQuMTV8MjU3LjQ4">
+      <rect
+         x="353.32999"
+         y="257.48001"
+         width="16.92"
+         height="16.67"
+         id="rect4973" />
+    </clipPath>
+    <clipPath
+       id="clipPath4986">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect4984" />
+    </clipPath>
+    <clipPath
+       id="cpMzUzLjMzfDM3MC4yNHwyOTYuMzB8Mjc5LjYz">
+      <rect
+         x="353.32999"
+         y="279.63"
+         width="16.92"
+         height="16.67"
+         id="rect4990" />
+    </clipPath>
+    <clipPath
+       id="clipPath5003">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect5001" />
+    </clipPath>
+    <clipPath
+       id="cpMzUzLjMzfDM3MC4yNHwzMTguNDZ8MzAxLjc4">
+      <rect
+         x="353.32999"
+         y="301.78"
+         width="16.92"
+         height="16.67"
+         id="rect5007" />
+    </clipPath>
+    <clipPath
+       id="clipPath5020">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect5018" />
+    </clipPath>
+    <clipPath
+       id="cpMzUzLjMzfDM3MC4yNHwzNDAuNjF8MzIzLjkz">
+      <rect
+         x="353.32999"
+         y="323.92999"
+         width="16.92"
+         height="16.67"
+         id="rect5024" />
+    </clipPath>
+    <clipPath
+       id="clipPath5037">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect5035" />
+    </clipPath>
+    <clipPath
+       id="cpMzUzLjMzfDM3MC4yNHwzNjIuNzZ8MzQ2LjA5">
+      <rect
+         x="353.32999"
+         y="346.09"
+         width="16.92"
+         height="16.67"
+         id="rect5041" />
+    </clipPath>
+    <clipPath
+       id="clipPath5054">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect5052" />
+    </clipPath>
+    <clipPath
+       id="cpMzUzLjMzfDM3MC4yNHwzODQuOTF8MzY4LjI0">
+      <rect
+         x="353.32999"
+         y="368.23999"
+         width="16.92"
+         height="16.67"
+         id="rect5058" />
+    </clipPath>
+    <clipPath
+       id="clipPath5071">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect5069" />
+    </clipPath>
+    <clipPath
+       id="cpMzUzLjMzfDM3MC4yNHw0MDcuMDZ8MzkwLjM5">
+      <rect
+         x="353.32999"
+         y="390.39001"
+         width="16.92"
+         height="16.67"
+         id="rect5075" />
+    </clipPath>
+    <clipPath
+       id="clipPath5088">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect5086" />
+    </clipPath>
+    <clipPath
+       id="cpMzUzLjMzfDM3MC4yNHw0MjkuMjF8NDEyLjU0">
+      <rect
+         x="353.32999"
+         y="412.54001"
+         width="16.92"
+         height="16.67"
+         id="rect5092" />
+    </clipPath>
+    <clipPath
+       id="clipPath5105">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect5103" />
+    </clipPath>
+    <clipPath
+       id="cpMzUzLjMzfDM3MC4yNHw0NTEuMzd8NDM0LjY5">
+      <rect
+         x="353.32999"
+         y="434.69"
+         width="16.92"
+         height="16.67"
+         id="rect5109" />
+    </clipPath>
+    <clipPath
+       id="clipPath5122">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect5120" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64155">
+    <clipPath
+       id="cpNTAuNjJ8MzcwLjI0fDIwNC44NXwxMC45Ng==">
+      <rect
+         x="50.619999"
+         y="10.96"
+         width="319.63"
+         height="193.89"
+         id="rect64152" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64160">
+    <clipPath
+       id="cpMC4wMHw1MDQuMDB8NTA0LjAwfDAuMDA=">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect64157" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64165">
+    <clipPath
+       id="cpNS40OHwyMzEuNTB8MjUyLjAwfDUuNDg=">
+      <rect
+         x="5.48"
+         y="5.48"
+         width="226.03"
+         height="246.52"
+         id="rect64162" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64173">
+    <clipPath
+       id="clipPath64171">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect64169" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64178">
+    <clipPath
+       id="cpNTAuNjJ8MTQ2Ljg0fDIyLjA5fDEwLjk2">
+      <rect
+         x="50.619999"
+         y="10.96"
+         width="96.220001"
+         height="11.13"
+         id="rect64175" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64190">
+    <clipPath
+       id="clipPath64188">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect64186" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64195">
+    <clipPath
+       id="cpNTAuNjJ8MTQ2Ljg0fDM4LjcxfDI3LjU3">
+      <rect
+         x="50.619999"
+         y="27.57"
+         width="96.220001"
+         height="11.13"
+         id="rect64192" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64207">
+    <clipPath
+       id="clipPath64205">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect64203" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64212">
+    <clipPath
+       id="cpNTAuNjJ8MTQ2Ljg0fDU1LjMyfDQ0LjE5">
+      <rect
+         x="50.619999"
+         y="44.189999"
+         width="96.220001"
+         height="11.13"
+         id="rect64209" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64224">
+    <clipPath
+       id="clipPath64222">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect64220" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64229">
+    <clipPath
+       id="cpNTAuNjJ8MTQ2Ljg0fDcxLjkzfDYwLjgw">
+      <rect
+         x="50.619999"
+         y="60.799999"
+         width="96.220001"
+         height="11.13"
+         id="rect64226" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64241">
+    <clipPath
+       id="clipPath64239">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect64237" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64246">
+    <clipPath
+       id="cpNTAuNjJ8MTQ2Ljg0fDg4LjU1fDc3LjQx">
+      <rect
+         x="50.619999"
+         y="77.410004"
+         width="96.220001"
+         height="11.13"
+         id="rect64243" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64258">
+    <clipPath
+       id="clipPath64256">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect64254" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64263">
+    <clipPath
+       id="cpNTAuNjJ8MTQ2Ljg0fDEwNS4xNnw5NC4wMw==">
+      <rect
+         x="50.619999"
+         y="94.029999"
+         width="96.220001"
+         height="11.13"
+         id="rect64260" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64275">
+    <clipPath
+       id="clipPath64273">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect64271" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64280">
+    <clipPath
+       id="cpNTAuNjJ8MTQ2Ljg0fDEyMS43OHwxMTAuNjQ=">
+      <rect
+         x="50.619999"
+         y="110.64"
+         width="96.220001"
+         height="11.13"
+         id="rect64277" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64292">
+    <clipPath
+       id="clipPath64290">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect64288" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64297">
+    <clipPath
+       id="cpNTAuNjJ8MTQ2Ljg0fDEzOC4zOXwxMjcuMjY=">
+      <rect
+         x="50.619999"
+         y="127.26"
+         width="96.220001"
+         height="11.13"
+         id="rect64294" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64309">
+    <clipPath
+       id="clipPath64307">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect64305" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64314">
+    <clipPath
+       id="cpNTAuNjJ8MTQ2Ljg0fDE1NS4wMHwxNDMuODc=">
+      <rect
+         x="50.619999"
+         y="143.87"
+         width="96.220001"
+         height="11.13"
+         id="rect64311" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64326">
+    <clipPath
+       id="clipPath64324">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect64322" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64331">
+    <clipPath
+       id="cpNTAuNjJ8MTQ2Ljg0fDE3MS42MnwxNjAuNDg=">
+      <rect
+         x="50.619999"
+         y="160.48"
+         width="96.220001"
+         height="11.13"
+         id="rect64328" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64343">
+    <clipPath
+       id="clipPath64341">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect64339" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64348">
+    <clipPath
+       id="cpNTAuNjJ8MTQ2Ljg0fDE4OC4yM3wxNzcuMTA=">
+      <rect
+         x="50.619999"
+         y="177.10001"
+         width="96.220001"
+         height="11.13"
+         id="rect64345" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64360">
+    <clipPath
+       id="clipPath64358">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect64356" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64365">
+    <clipPath
+       id="cpNTAuNjJ8MTQ2Ljg0fDIwNC44NXwxOTMuNzE=">
+      <rect
+         x="50.619999"
+         y="193.71001"
+         width="96.220001"
+         height="11.13"
+         id="rect64362" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64377">
+    <clipPath
+       id="clipPath64375">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect64373" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64382">
+    <clipPath
+       id="cpMTQ2Ljg0fDE2My43NXwyMi4wOXwxMC45Ng==">
+      <rect
+         x="146.84"
+         y="10.96"
+         width="16.92"
+         height="11.13"
+         id="rect64379" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64394">
+    <clipPath
+       id="clipPath64392">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect64390" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64399">
+    <clipPath
+       id="cpMTQ2Ljg0fDE2My43NXwzOC43MXwyNy41Nw==">
+      <rect
+         x="146.84"
+         y="27.57"
+         width="16.92"
+         height="11.13"
+         id="rect64396" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64411">
+    <clipPath
+       id="clipPath64409">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect64407" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64416">
+    <clipPath
+       id="cpMTQ2Ljg0fDE2My43NXw1NS4zMnw0NC4xOQ==">
+      <rect
+         x="146.84"
+         y="44.189999"
+         width="16.92"
+         height="11.13"
+         id="rect64413" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64428">
+    <clipPath
+       id="clipPath64426">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect64424" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64433">
+    <clipPath
+       id="cpMTQ2Ljg0fDE2My43NXw3MS45M3w2MC44MA==">
+      <rect
+         x="146.84"
+         y="60.799999"
+         width="16.92"
+         height="11.13"
+         id="rect64430" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64445">
+    <clipPath
+       id="clipPath64443">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect64441" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64450">
+    <clipPath
+       id="cpMTQ2Ljg0fDE2My43NXw4OC41NXw3Ny40MQ==">
+      <rect
+         x="146.84"
+         y="77.410004"
+         width="16.92"
+         height="11.13"
+         id="rect64447" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64462">
+    <clipPath
+       id="clipPath64460">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect64458" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64467">
+    <clipPath
+       id="cpMTQ2Ljg0fDE2My43NXwxMDUuMTZ8OTQuMDM=">
+      <rect
+         x="146.84"
+         y="94.029999"
+         width="16.92"
+         height="11.13"
+         id="rect64464" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64479">
+    <clipPath
+       id="clipPath64477">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect64475" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64484">
+    <clipPath
+       id="cpMTQ2Ljg0fDE2My43NXwxMjEuNzh8MTEwLjY0">
+      <rect
+         x="146.84"
+         y="110.64"
+         width="16.92"
+         height="11.13"
+         id="rect64481" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64496">
+    <clipPath
+       id="clipPath64494">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect64492" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64501">
+    <clipPath
+       id="cpMTQ2Ljg0fDE2My43NXwxMzguMzl8MTI3LjI2">
+      <rect
+         x="146.84"
+         y="127.26"
+         width="16.92"
+         height="11.13"
+         id="rect64498" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64513">
+    <clipPath
+       id="clipPath64511">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect64509" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64518">
+    <clipPath
+       id="cpMTQ2Ljg0fDE2My43NXwxNTUuMDB8MTQzLjg3">
+      <rect
+         x="146.84"
+         y="143.87"
+         width="16.92"
+         height="11.13"
+         id="rect64515" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64530">
+    <clipPath
+       id="clipPath64528">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect64526" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64535">
+    <clipPath
+       id="cpMTQ2Ljg0fDE2My43NXwxNzEuNjJ8MTYwLjQ4">
+      <rect
+         x="146.84"
+         y="160.48"
+         width="16.92"
+         height="11.13"
+         id="rect64532" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64547">
+    <clipPath
+       id="clipPath64545">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect64543" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64552">
+    <clipPath
+       id="cpMTQ2Ljg0fDE2My43NXwxODguMjN8MTc3LjEw">
+      <rect
+         x="146.84"
+         y="177.10001"
+         width="16.92"
+         height="11.13"
+         id="rect64549" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64564">
+    <clipPath
+       id="clipPath64562">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect64560" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64569">
+    <clipPath
+       id="cpMTQ2Ljg0fDE2My43NXwyMDQuODV8MTkzLjcx">
+      <rect
+         x="146.84"
+         y="193.71001"
+         width="16.92"
+         height="11.13"
+         id="rect64566" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs64581">
+    <clipPath
+       id="clipPath64579">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect64577" />
+    </clipPath>
+  </defs>
+  <rect
+     style="opacity:1;fill:#efebe9;stroke:none;stroke-width:1.0496;stroke-linecap:square;stroke-miterlimit:10;stroke-dasharray:none"
+     id="rect66693"
+     width="298.15323"
+     height="224.67928"
+     x="37.561661"
+     y="0.028214512" />
+  <path
+     id="polyline65263"
+     clip-path="none"
+     style="fill:none;stroke:#ffffff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+     d="M 52.3661,224.35518 V 0"
+     sodipodi:nodetypes="cc" />
+  <path
+     id="polyline65287"
+     clip-path="none"
+     style="fill:none;stroke:#ffffff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+     d="M 37.164065,11.82517 H 335.74312"
+     sodipodi:nodetypes="cc" />
+  <path
+     id="polyline65287-1"
+     clip-path="none"
+     style="fill:none;stroke:#ffffff;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+     d="M 37.164065,62.52171 H 335.74312"
+     sodipodi:nodetypes="cc" />
+  <path
+     id="polyline65287-4"
+     clip-path="none"
+     style="fill:none;stroke:#ffffff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+     d="M 37.164065,113.20827 H 335.74312"
+     sodipodi:nodetypes="cc" />
+  <path
+     id="polyline65287-7"
+     clip-path="none"
+     style="fill:none;stroke:#ffffff;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+     d="M 37.164065,163.89483 H 335.74312"
+     sodipodi:nodetypes="cc" />
+  <path
+     id="polyline65263-9"
+     clip-path="none"
+     style="fill:none;stroke:#ffffff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+     d="M 143.23205,224.35518 V 0"
+     sodipodi:nodetypes="cc" />
+  <path
+     id="polyline65263-2"
+     clip-path="none"
+     style="fill:none;stroke:#ffffff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+     d="M 234.09799,224.35518 V 0"
+     sodipodi:nodetypes="cc" />
+  <path
+     id="polyline65287-7-2"
+     clip-path="none"
+     style="fill:none;stroke:#ffffff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+     d="M 37.164065,214.58139 H 335.74312"
+     sodipodi:nodetypes="cc" />
+  <path
+     id="polyline65263-2-6"
+     clip-path="none"
+     style="fill:none;stroke:#ffffff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+     d="M 324.96415,224.35518 V 0"
+     sodipodi:nodetypes="cc" />
+  <defs
+     id="defs65052">
+    <clipPath
+       id="cpMjMxLjUwfDQ5OC41MnwyNTIuMDB8NS40OA==">
+      <rect
+         x="231.5"
+         y="5.48"
+         width="267.01999"
+         height="246.52"
+         id="rect65049" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs65060">
+    <clipPath
+       id="clipPath65058">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect65056" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs65065" />
+  <defs
+     id="defs65097">
+    <clipPath
+       id="clipPath65095">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect65093" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs65216">
+    <clipPath
+       id="cpNS40OHw0OTguNTJ8NDk4LjUyfDI1Mi4wMA==">
+      <rect
+         x="5.48"
+         y="252"
+         width="493.04001"
+         height="246.52"
+         id="rect65213" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs65224">
+    <clipPath
+       id="clipPath65222">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect65220" />
+    </clipPath>
+  </defs>
+  <defs
+     id="defs65229">
+    <clipPath
+       id="cpNTAuNjJ8MzcwLjI0fDQ1MS4zN3wyNTcuNDg=">
+      <rect
+         x="50.619999"
+         y="257.48001"
+         width="319.63"
+         height="193.89"
+         id="rect65226" />
+    </clipPath>
+  </defs>
+  <circle
+     cx="65.150002"
+     cy="286.44"
+     r="3.5599999"
+     style="fill:#fff9c4;fill-opacity:1;stroke-width:0.244687;stroke-miterlimit:10;stroke-dasharray:none"
+     clip-path="url(#cpNTAuNjJ8MzcwLjI0fDQ1MS4zN3wyNTcuNDg=)"
+     id="circle65235"
+     transform="matrix(2.0434228,0,0,2.0434228,-80.866684,-556.35797)" />
+  <circle
+     cx="121.11"
+     cy="314.51999"
+     r="3.5599999"
+     style="fill:#fff176;fill-opacity:1;stroke-width:0.244687;stroke-miterlimit:10;stroke-dasharray:none"
+     clip-path="url(#cpNTAuNjJ8MzcwLjI0fDQ1MS4zN3wyNTcuNDg=)"
+     id="circle65239"
+     transform="matrix(2.0434228,0,0,2.0434228,-151.81792,-585.65727)" />
+  <circle
+     cx="182.45"
+     cy="347.01001"
+     r="3.5599999"
+     style="fill:#ffeb3b;fill-opacity:1;stroke-width:0.244687;stroke-miterlimit:10;stroke-dasharray:none"
+     clip-path="url(#cpNTAuNjJ8MzcwLjI0fDQ1MS4zN3wyNTcuNDg=)"
+     id="circle65243"
+     transform="matrix(2.0434228,0,0,2.0434228,-229.59037,-619.5581)" />
+  <circle
+     cx="238.41"
+     cy="396.97"
+     r="3.5599999"
+     style="fill:#fbc02d;fill-opacity:1;stroke-width:0.244687;stroke-miterlimit:10;stroke-dasharray:none"
+     clip-path="url(#cpNTAuNjJ8MzcwLjI0fDQ1MS4zN3wyNTcuNDg=)"
+     id="circle65247"
+     transform="matrix(2.0434228,0,0,2.0434228,-300.54165,-671.68751)" />
+  <circle
+     cx="299.75"
+     cy="431.97"
+     r="3.5599999"
+     style="fill:#f57f17;fill-opacity:1;stroke-width:0.244687;stroke-miterlimit:10;stroke-dasharray:none"
+     clip-path="url(#cpNTAuNjJ8MzcwLjI0fDQ1MS4zN3wyNTcuNDg=)"
+     id="circle65251"
+     transform="matrix(2.0434228,0,0,2.0434228,-378.31415,-708.20729)" />
+  <circle
+     cx="355.70999"
+     cy="442.54999"
+     r="3.5599999"
+     style="fill:#bf360c;fill-opacity:1;stroke-width:0.244687;stroke-miterlimit:10;stroke-dasharray:none"
+     clip-path="url(#cpNTAuNjJ8MzcwLjI0fDQ1MS4zN3wyNTcuNDg=)"
+     id="circle65255"
+     transform="matrix(2.0434228,0,0,2.0434228,-449.2654,-719.2467)" />
+  <defs
+     id="defs65261">
+    <clipPath
+       id="clipPath65259">
+      <rect
+         x="0"
+         y="0"
+         width="504"
+         height="504"
+         id="rect65257" />
+    </clipPath>
+  </defs>
+  <text
+     xml:space="preserve"
+     style="font-stretch:condensed;font-size:10.6667px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb"
+     x="44.4725"
+     y="236.38658"
+     id="text66712"><tspan
+       sodipodi:role="line"
+       id="tspan66710"
+       x="44.4725"
+       y="236.38658">10<tspan
+   style="font-size:65%;baseline-shift:super"
+   id="tspan66714">-6</tspan></tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-stretch:condensed;font-size:10.6667px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb"
+     x="135.35577"
+     y="236.31725"
+     id="text66712-6"><tspan
+       sodipodi:role="line"
+       id="tspan66710-0"
+       x="135.35577"
+       y="236.31725">10<tspan
+   style="font-size:65%;baseline-shift:super"
+   id="tspan66714-0">-5</tspan></tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-stretch:condensed;font-size:10.6667px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb"
+     x="226.11079"
+     y="236.35191"
+     id="text66712-0"><tspan
+       sodipodi:role="line"
+       id="tspan66710-4"
+       x="226.11079"
+       y="236.35191">10<tspan
+   style="font-size:65%;baseline-shift:super"
+   id="tspan66714-4">-4</tspan></tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-stretch:condensed;font-size:10.6667px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb"
+     x="317.09827"
+     y="236.38658"
+     id="text66712-1"><tspan
+       sodipodi:role="line"
+       id="tspan66710-7"
+       x="317.09827"
+       y="236.38658">10<tspan
+   style="font-size:65%;baseline-shift:super"
+   id="tspan66714-8">-3</tspan></tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-stretch:condensed;font-size:10.6667px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb"
+     x="21.141949"
+     y="218.38939"
+     id="text66759"><tspan
+       sodipodi:role="line"
+       id="tspan66757"
+       x="21.141949"
+       y="218.38939">0.0</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-stretch:condensed;font-size:10.6667px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb"
+     x="21.184614"
+     y="117.01628"
+     id="text66763"><tspan
+       sodipodi:role="line"
+       id="tspan66761"
+       x="21.184614"
+       y="117.01628">0.5</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-stretch:condensed;font-size:10.6667px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb"
+     x="21.141949"
+     y="15.633195"
+     id="text66767"><tspan
+       sodipodi:role="line"
+       id="tspan66765"
+       x="21.141949"
+       y="15.633195">1.0</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:13.3333px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb"
+     x="150.15846"
+     y="254.67909"
+     id="text66771"><tspan
+       sodipodi:role="line"
+       id="tspan66769"
+       x="150.15846"
+       y="254.67909">[TNP-ATP] (M)</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:13.3333px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;white-space:pre;inline-size:0"
+     x="-125.47132"
+     y="420.43985"
+     id="text66771-1"
+     transform="rotate(-90,-204.16521,206.728)"><tspan
+       id="tspan66769-5"
+       x="-125.47132"
+       y="420.43985">F/F<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan66791">max</tspan></tspan></text>
+</svg>

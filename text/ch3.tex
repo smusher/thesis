@@ -384,6 +384,47 @@ The decrease in ANAP fluorescence is almost directly correlated to an increase i
 
 \begin{figure}[h]
 	\centering
+	\begin{subfigure}[t]{0.3\textwidth}
+		\caption{}\label{ch3fig:unroofed_images}
+		\centering
+		\includegraphics[width=\textwidth]{unroofed_images.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.6\textwidth}
+		\caption{}\label{ch3fig:unroofed_spectral_images}
+		\centering
+		\includegraphics[width=\textwidth]{unroofed_spectral_images.pdf}
+	\end{subfigure}
+	\vfill
+	\begin{subfigure}[t]{0.45\textwidth}
+		\caption{}\label{ch3fig:unroofed_spectral_traces}
+		\centering
+		\includegraphics[width=\textwidth]{unroofed_spectral_traces.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.45\textwidth}
+		\caption{}\label{ch3fig:unroofed_intensities}
+		\centering
+		\includegraphics[width=\textwidth]{unroofed_intensities.pdf}
+	\end{subfigure}
+	\caption[Unroofed membranes spectral images]{
+	\subref{ch3fig:unroofed_images} An unroofed membrane patch imaged either with brightfield illumination (top panel), GFP fluorescence (middle panel) or ANAP fluorescence (bottom panel).
+	The dashed white lines indicate the region of the image isolated by the spectrometer mask for spectral imaging.
+	\subref{ch3fig:unroofed_spectral_images} Spectral images of the unroofed membrane patch in \subref{ch3fig:unroofed_images} captured in the presence of different concentrations of TNP-ATP.
+	Each image represents the region delineated by the dashed white lines in \subref{ch3fig:unroofed_images}, but the $x$-dimension is lost and instead we are able to separate the emitted light by wavelength.
+	\subref{ch3fig:unroofed_spectral_traces} Line-averaged traces of the spectral images in \subref{ch3fig:unroofed_spectral_images} coloured according to the TNP-ATP concentration present.
+	The two clearest peaks in emission belong to ANAP and GFP.
+	The ANAP peak is marked with with a grey line.
+	At the higher TNP-ATP concentrations, the presence of a third peak belonging to the TNP-moiety begins to appear as the ANAP peak reduces in intensity due to FRET.
+	\subref{ch3fig:unroofed_intensities} ANAP fluorescence intensities of the spectral traces in \subref{ch3fig:unroofed_spectral_images} expressed as the average fluorescence of the ANAP peak (the average intensity of the spectra inside the grey line in \subref{ch3fig:unroofed_spectral_images}) divided by the average fluorescence of the ANAP peak in $0$ TNP-ATP, or $F/F_{max}$.
+	}
+\end{figure}
+
+To equivocate ANAP quenching and nucleotide binding, first we need to adjust for the FRET between adjacent subunits of Kir6.2.
+The difference between the ideal 1:1 subunit/ligand FRET efficiency and the simulated experimental FRET efficiency resulted in a correction factor of $log_2(\frac{F}{F_{max}} + 1)$.
+
+\begin{figure}[h]
+	\centering
 	\begin{subfigure}[t]{0.9\textwidth}
 		\caption{}\label{ch3fig:bleaching_plots_2}
 		\centering
@@ -410,9 +451,6 @@ The decrease in ANAP fluorescence is almost directly correlated to an increase i
 	The dashed line is the mean, with a value of $0.49$.
 	}
 \end{figure}
-
-To equivocate ANAP quenching and nucleotide binding, first we need to adjust for the FRET between adjacent subunits of Kir6.2.
-The difference between the ideal 1:1 subunit/ligand FRET efficiency and the simulated experimental FRET efficiency resulted in a correction factor of $log_2(\frac{F}{F_{max}} + 1)$.
 
 Secondly, we need to correct for incomplete FRET due to the distance between the donor and acceptor.
 Based on the computational docking, we predicted a maximal FRET efficiency of \SI{91}{\percent} when every Kir6.2 subunit is bound by TNP-ATP.

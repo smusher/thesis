@@ -43,8 +43,8 @@ mwc_brms_formula <-
 	bf(
 		mwc_full_formula,
 		nl = TRUE,
-		logKa + logDa + logL ~ 1 + (1|c|unique_experiment_id),
-		sigma ~ (1|c|unique_experiment_id),
+		logKa + logDa + logL ~ 1 + (1||unique_experiment_id),
+		sigma ~ (1||unique_experiment_id),
 		family = gaussian()
 		)
 
@@ -62,10 +62,10 @@ mwc_brms_priors <-
 		set_prior("cauchy(0, 3)", nlpar = "logDa", class = "sd")
 		)
 
-brms_iter <- 30000
-brms_warmup <- 5000
+brms_iter <- 2000
+brms_warmup <- 1000
 brms_chains <- 4
-brms_thin <- 10
+brms_thin <- 1
 brms_seed <- 2021
 
 brm(
@@ -79,7 +79,7 @@ brm(
 	seed = brms_seed,
 	control = list(adapt_delta = 0.99, max_treedepth = 15),
 	cores = getOption("mc.cores", 4),
-	file = "data/mwc_fits_new_model/control_fit_230221",
+	file = "data/mwc_fits_new_model/control_fit_230221_short",
 	sample_prior = "yes",
 	save_pars = save_pars(all = TRUE)
 	) -> test_run
