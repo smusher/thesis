@@ -206,11 +206,13 @@ brm(
     ) -> model_3
 
 ua_free_tidy %>%
+ungroup() %>%
 expand(nesting(construct, method, measure, nucleotide)) %>%
 add_predicted_draws(model_1) %>%
 group_by(construct, method, measure, nucleotide) -> plot_1
 
 a_fixed_tidy %>%
+ungroup() %>%
 expand(nesting(construct, method, measure, nucleotide)) %>%
 add_predicted_draws(model_3) %>%
 group_by(construct, method, measure, nucleotide) -> plot_2
