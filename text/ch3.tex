@@ -102,7 +102,7 @@ While we can exclude residues which fall too close to the NBS's of SUR1, the clo
 
 We targeted two residues which fulfilled these criteria; F183 and W311.
 In addition, they are both bulky hydrophobic residues similar to ANAP, and at which no mutations have been previously identified to alter K\ATP{} function.
-To determine the extent to which crosstalk between neighbouring subunits would affect the measure FRET efficiency at these sites, we simulated the expected FRET for a single K\ATP{} channel bound to 0-4 molecules of TNP-ATP in an idealised scenario with no crosstalk, and compared the observed fluorescence quenching to a scenario including the possibility of crosstalk.
+To determine the extent to which crosstalk between neighbouring subunits would affect the measure FRET efficiency at these sites, we simulated the expected FRET for a single K\ATP{} channel bound to 0-4 molecules of TNP-ATP in an idealised scenario with no crosstalk, and compared the observed fluorescence quenching to a scenario including the possibility of crosstalk (Figure \ref{ch3fig:exifret_out}).
 Due to the much shorter fluorescence lifetime of TNP-ATP compared to ANAP, we observe a deviation from the ideal scenario.
 We can correct for this systematic deviation by transforming our observed ANAP quenching ($F/F_{max}$) into $log_2(\frac{F}{F_{max} + 1})$.
 
@@ -264,7 +264,7 @@ We assessed the membrane expression of N-terminally HA-tagged Kir6.2 (nHA-Kir6.2
 We also measured how the addition of a C-terminal GFP tag affected membrane expression under these conditions.
 We used untagged Kir6.2 as a control for nonspecific luminesence.
 
-We find that for wild-type Kir6.2 (WT) there is roughly a 20-fold increase in observed luminescence when coexpressed with SUR1 over background, and roughly a 100-fold increase for the C-terminally tagged Kir6.2 (WT-GFP, Figure \ref{ch3fig:surface_expression_1}, \ref{ch3fig:surface_expression_3}).
+We find that for wild-type Kir6.2 (WT) there is roughly a 20-fold increase in observed luminescence when coexpressed with SUR1 over background, and roughly a 100-fold increase for the C-terminally GFP tagged Kir6.2 (WT-GFP, Figure \ref{ch3fig:surface_expression_1}, \ref{ch3fig:surface_expression_3}).
 There is no difference in surface expression of these constructs when ANAP is present in the culture medium (Figure \ref{ch3fig:surface_expression_1}, \ref{ch3fig:surface_expression_4}).
 When ANAP is incorporated at either residue 183 or 311 (F183* and W311* respectively) we see an increase in luminescence over background when coexpressed with SUR1 and with ANAP present in the culture medium (Figure \ref{ch3fig:surface_expression_1}, \ref{ch3fig:surface_expression_3}).
 The presence of the C-terminal GFP tag increases luminescence further for both constructs, dramatically so for W311*.
@@ -311,15 +311,21 @@ We also see a consistent increase in luminescence for all constructs aside from 
 To establish whether W311*-GFP formed K\ATP{} channels with similar function to wild-type, we excised patches from cells transfected with either WT-GFP or W311*-GFP cotransfected with SUR1.
 Excision was performed in Mg\textsuperscript{2+}-free solution to reduce rundown and to prevent activation of the channel by nucleotides.
 We observed similar magnitudes of current for both WT-GFP and W311*-GFP, and currents ran own at similar rates.
-Perfusion of ATP resulted in current inhibition with an IC\textsubscript{50} of x for WT-GFP and x for W311*-GFP.
+
+We fit our full dataset with equation \ref{eq:hill} (Figure \ref{ch3fig:atp_inhibition_1}), and used the estimated $h$ and $I_{max}$ parameters to fit each individual experiment and determine an $IC_{50}$ value (plotted as points in Figure \ref{ch3fig:atp_inhibition_2}).
+The $IC_{50}$ values were fit with a random effects model with values grouped by construct and nucleotide.
+The posterior probability distributions of this model are also shown in Figure \ref{ch3fig:atp_inhibition_2}.
+These distributions reflect the variability of the observed data, not our uncertainty of the underlying $IC_{50}$ value; i.e. we would expect \SI{95}{\percent} of all future observations for a given construct and nucleotide to fall within the \SI{95}{\percent} intervals of the distributions.
+For all $IC_50$ and $EC_{50}$ values fitted this way, in the text we will report the \SI{95}{\percent} confidence intervals of the parameter estimate, which reflects only our uncertainty of the true value and not experimental variability.
+
+Perfusion of ATP resulted in current inhibition with an IC\textsubscript{50} of \SIrange{25}{45}{\micro\Molar} for WT-GFP and \SIrange{77}{130}{\micro\Molar} for W311*-GFP.
 Thus, despite the distance from the ATP binding site, the W311 mutation clearly affects some aspect of nucleotide inhibition.
 However, we assume that insights into the function of the ANAP-incorporating channel will still be applicable to wild-type channels despite the change in nucleotide inhibition.
 
-Next, we established that TNP-ATP inhibits K\ATP{} to a similar extent as ATP.
-We observed current inhibition with an IC\textsubscript{50} of x for WT-GFP and x for W311*-GFP.
+Next, we established that TNP-ATP inhibits K\ATP{} to a similar extent as ATP (Figure \ref{ch3fig:tnpatp_inhibition_1}, \ref{ch3fig:tnpatp_inhibition_2}).
+We observed current inhibition with an IC\textsubscript{50} of \SIrange{0.7}{1.8}{\micro\Molar} for WT-GFP and \SIrange{3.5}{10}{\micro\Molar} for W311*-GFP.
 K\ATP{} thus appears to be more sensitive to inhibition by TNP-ATP than by ATP.
-This could potentially be due to extra contacts made by the TNP moiety with Kir6.2, seen in our computational docking.
-Despite the change in the relative IC\textsubscript{50}, there is nothing that would suggest a different mechanism of action for TNP-ATP inhibition.
+This could potentially be due to extra contacts made by the TNP moiety with Kir6.2, seen in our computational docking (Figure \ref{ch3fig:docking}).
 
 \begin{figure}[h]
 	\centering
@@ -376,11 +382,15 @@ Despite the change in the relative IC\textsubscript{50}, there is nothing that w
 We then directly measured nucleotide binding to W311*-GFP in unroofed membranes.
 Briefly sonicating transfected cells adhered to coverslips results in the lower membrane of the cell remaining stuck to the coverslip while the rest of the cell contents is disrupted and perfused away.
 This leaves the cytoplasmic domains of expressed K\ATP{} channels open to perfusion of TNP-ATP.
-By measuring the fluorescence spectra of patches of unroofed membrane, we can separate the fluorescence emission peaks of the C-terminal GFP tag and the incorporated ANAP.
+These patches of membrane are barely visible under brightfield illumination, but due to the presence of the C-terminal GFP tag and the incorporated ANAP, we can see patches of membrane expressing K\ATP{} channels light up when we excite either fluorophore (Figure \ref{ch3fig:unroofed_images}).
+By measuring the fluorescence spectra of patches of unroofed membrane, we can separate the fluorescence emission peaks of the C-terminal GFP tag and the incorporated ANAP (Figure \ref{ch3fig:unroofed_spectral_images}).
+The peak at \SI{472}{\nano\metre} corresponds to ANAP emission, while the peak at \SI{508}{\nano\metre} corresponds to GFP emission.
+We observed no change in the locations of those peaks in the presence of ATP or TNP-ATP.
 
-Perfusing TNP-ATP results in a decrease in the peak corresponding to ANAP fluorescence, and a concomittant increase in a fluorescence peak which corresponds to the TNP-ATP.
+Perfusing TNP-ATP results in a decrease in the peak corresponding to ANAP fluorescence, and a concomittant increase in a fluorescence peak which corresponds to the TNP-ATP (Figure \ref{ch3fig:unroofed_spectral_traces}).
 This phenomenon is the fresult of FRET between TNP-ATP bound to the channel at the Kir6.2 binding site.
 The decrease in ANAP fluorescence is almost directly correlated to an increase in bound nucleotide.
+We can plot the quenching of ANAP fluorescence as a concentration-response curve as in Figure \ref{ch3fig:unroofed_intensities}.
 
 \begin{figure}[h]
 	\centering
@@ -410,18 +420,20 @@ The decrease in ANAP fluorescence is almost directly correlated to an increase i
 	\caption[Unroofed membranes spectral images]{
 	\subref{ch3fig:unroofed_images} An unroofed membrane patch imaged either with brightfield illumination (top panel), GFP fluorescence (middle panel) or ANAP fluorescence (bottom panel).
 	The dashed white lines indicate the region of the image isolated by the spectrometer mask for spectral imaging.
-	\subref{ch3fig:unroofed_spectral_images} Spectral images of the unroofed membrane patch in \subref{ch3fig:unroofed_images} captured in the presence of different concentrations of TNP-ATP.
+	\subref{ch3fig:unroofed_spectral_images} Bleaching-corrected spectral images of the unroofed membrane patch in \subref{ch3fig:unroofed_images} captured in the presence of different concentrations of TNP-ATP.
 	Each image represents the region delineated by the dashed white lines in \subref{ch3fig:unroofed_images}, but the $x$-dimension is lost and instead we are able to separate the emitted light by wavelength.
-	\subref{ch3fig:unroofed_spectral_traces} Line-averaged traces of the spectral images in \subref{ch3fig:unroofed_spectral_images} coloured according to the TNP-ATP concentration present.
+	\subref{ch3fig:unroofed_spectral_traces} Line-averaged, bleaching-corrected traces of the spectral images in \subref{ch3fig:unroofed_spectral_images} coloured according to the TNP-ATP concentration present.
 	The two clearest peaks in emission belong to ANAP and GFP.
 	The ANAP peak is marked with with a grey line.
 	At the higher TNP-ATP concentrations, the presence of a third peak belonging to the TNP-moiety begins to appear as the ANAP peak reduces in intensity due to FRET.
-	\subref{ch3fig:unroofed_intensities} ANAP fluorescence intensities of the spectral traces in \subref{ch3fig:unroofed_spectral_images} expressed as the average fluorescence of the ANAP peak (the average intensity of the spectra inside the grey line in \subref{ch3fig:unroofed_spectral_images}) divided by the average fluorescence of the ANAP peak in $0$ TNP-ATP, or $F/F_{max}$.
+	\subref{ch3fig:unroofed_intensities} Bleaching-corrected ANAP fluorescence intensities of the spectral traces in \subref{ch3fig:unroofed_spectral_images} expressed as the average fluorescence of the ANAP peak (the average intensity of the spectra inside the grey line in \subref{ch3fig:unroofed_spectral_images}) divided by the average fluorescence of the ANAP peak in $0$ TNP-ATP, or $F/F_{max}$.
 	}
 \end{figure}
 
-To equivocate ANAP quenching and nucleotide binding, first we need to adjust for the FRET between adjacent subunits of Kir6.2.
-The difference between the ideal 1:1 subunit/ligand FRET efficiency and the simulated experimental FRET efficiency resulted in a correction factor of $log_2(\frac{F}{F_{max}} + 1)$.
+Before analysis, ANAP bleaching was corrected as shown in Figure \ref{ch3fig:bleaching_plots_2}.
+ANAP intensities of spectra imaged during bath perfusion in between applications of TNP-ATP were fit with Equation \ref{eq:bleaching}.
+We found that all unroofed experiments showed bleaching well described by the single exponential fit to equation \ref{eq:bleaching}.
+In each experiment, there was a reasonable proportion of ANAP fluorescence remaining by the last exposure (FIgure \ref{ch3fig:bleaching_terms_4}), maintaining a good signal-to-noise ratio for each spectra imaged.
 
 \begin{figure}[h]
 	\centering
@@ -452,16 +464,19 @@ The difference between the ideal 1:1 subunit/ligand FRET efficiency and the simu
 	}
 \end{figure}
 
+To equivocate ANAP quenching and nucleotide binding, first we need to adjust for the FRET between adjacent subunits of Kir6.2.
+The difference between the ideal 1:1 subunit/ligand FRET efficiency and the simulated experimental FRET efficiency resulted in a correction factor of $log_2(\frac{F}{F_{max}} + 1)$.
+
 Secondly, we need to correct for incomplete FRET due to the distance between the donor and acceptor.
 Based on the computational docking, we predicted a maximal FRET efficiency of \SI{91}{\percent} when every Kir6.2 subunit is bound by TNP-ATP.
 Fitting our adjusted data to a Hill equation results in a maximum observed FRET efficiency of \SI{90}{\percent}, agreeing well with our prediction.
 We can then normalise our observed fluorescence data by this value.
 
-Overall, these two corrections do not dramatically alter our results, and we performed our analysis on both corrected and uncorrected results to ensure that there was no potential difference in interpration which derived from treating our data in this way.
+Overall, these two corrections do not dramatically alter our results (Figure \ref{ch3fig:tnpatp_quenching_1}), and we performed our analysis on both corrected and uncorrected results to ensure that there was no potential difference in interpration which derived from treating our data in this way.
 
-We observed quenching of ANAP fluorescence over a concentration range of TNP-ATP similar to the range in which we observed inhibition of current in W311*-GFP.
-When fit to a Hill equation, quenching was fit with an EC\textsubscript{50} of x, while the corrected binding data gave an EC\textsubscript{50} of x.
-Notably, this EC\textsubscript{50} is somewhat right-shifted compared to the IC\textsubscript{50} we observed in excised patches (x).
+We observed quenching of ANAP fluorescence over a concentration range of TNP-ATP similar to the range in which we observed inhibition of current in W311*-GFP (Figure \ref{ch3fig:ec50_fits_3}, \ref{ch3fig:tnpatp_quenching_2}).
+When fit to a Hill equation, quenching was fit with an EC\textsubscript{50} of \SIrange{21}{31}{\micro\Molar}, while the corrected binding data gave an EC\textsubscript{50} of \SIrange{30}{46}{\micro\Molar}.
+Notably, this EC\textsubscript{50} is somewhat right-shifted compared to the IC\textsubscript{50} we observed in excised patches (\SIrange{3.5}{10}{\micro\Molar}).
 
 \begin{figure}[h]
 	\centering
@@ -496,7 +511,7 @@ Notably, this EC\textsubscript{50} is somewhat right-shifted compared to the IC\
 
 \subsection{Patch-clamp fluorometry of Kir6.2 constructs}
 
-To ensure that the ANAP fluorescence we observe in the unroofed membranes is emitted by functional channels, and thus the quenching by TNP-ATP reflects nucleotide binding to the same population of channels we are measuring inhibition from, we measured fluorescence quenching and current inhibition from the same excised patches.
+To ensure that the ANAP fluorescence we observe in the unroofed membranes is emitted by functional channels, and thus the quenching by TNP-ATP reflects nucleotide binding to the same population of channels we are measuring inhibition from, we measured fluorescence quenching and current inhibition from the same excised patches (Figure \ref{ch3fig:atp_tnpatp_trace}, \ref{ch3fig:atp_tnpatp_spectra_1}, \ref{ch3fig:atp_tnpatp_spectra_2}).
 
 This experimental paradigm leads to two complications compared to performing the measurements separately.
 Firstly, the number of channels in an excised patch are far smaller than the number of channels in an unroofed membrane patch.
@@ -505,10 +520,7 @@ Secondly, the presence of the pipette glass in the images results in some abnorm
 This is not due to the glass itself, but results from the occlusion of TNP-ATP from the image surrounding the patch.
 This leads to oversubtraction of the background TNP-ATP spectra, leading to an apparent negative peak in our corrected images.
 However, we find that there is no overlap of this peak and the ANAP peak, so our fluorescence quenching measurements are unaffected by this phenomenon.
-
-Our fluoresence measurements from excised patches agree reasonably well with our measurements for unroofed membranes.
-Our finding that the EC\textsubscript{50} for TNP-ATP binding is right-shifted compared to the IC\textsubscript{50} for TNP-ATP inhibition is consistent between each experimental paradigm.
-This finding has implications for how exactly the binding of nucleotides to Kir6.2 leads to closure of the K\ATP{} channel pore.
+We were able to correct for ANAP bleaching in the same manner as we did for unroofed membranes (Figure \ref{ch3fig:pcf_bleaching}).
 
 \begin{figure}[h]
 	\centering
@@ -535,8 +547,12 @@ This finding has implications for how exactly the binding of nucleotides to Kir6
 	\subref{ch3fig:bleaching_terms_1} Values of the two parameters in equation \ref{eq:bleaching} for fits to each of the experiments in \subref{ch3fig:bleaching_plots_2}.
 	\subref{ch3fig:bleaching_terms_2} Proportion of ANAP fluorescence remaining unbleached in the last exposure taken without the presence of TNP-ATP in each experiment.
 	The dashed line is the mean, with a value of $0.41$.
-	}
+	}\label{ch3fig:pcf_bleaching}
 \end{figure}
+
+Our fluoresence measurements from excised patches agree reasonably well (albeit slightly right-shifted) with our measurements for unroofed membranes (Figure \ref{ch3fig:pcf_1}), with an $EC_{50}$ value of \SIrange{77}{140}{\micro\Molar}.
+Our finding that the EC\textsubscript{50} for TNP-ATP binding is right-shifted compared to the IC\textsubscript{50} for TNP-ATP inhibition is consistent between each experimental paradigm (Figure \ref{ch3fig:ec50_fits_3}, \ref{ch3fig:ec50_fits_4}).
+This finding has implications for how exactly the binding of nucleotides to Kir6.2 leads to closure of the K\ATP{} channel pore.
 
 \begin{figure}[h]
 	\centering
@@ -583,3 +599,5 @@ This finding has implications for how exactly the binding of nucleotides to Kir6
 	\subref{ch3fig:ec50_fits_4} $EC_{50}$ and $IC_{50}$ values from fits to individual experiments are shown as points, and posterior probability distributions for the estimated population $EC_50$ and $IC_{50}$ values are shown coloured according to their intervals.
 	}
 \end{figure}
+
+\section{Discussion}

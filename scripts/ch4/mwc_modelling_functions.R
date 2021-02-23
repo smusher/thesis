@@ -158,7 +158,7 @@ mwc_formula_string <-
         "response ~ (binding_mask*(",
         binding_eq,
         "))+((1-binding_mask)*(",
-        gating_eq,
+        norm_gating_eq,
         "))",
         sep = ""
     )

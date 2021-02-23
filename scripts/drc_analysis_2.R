@@ -251,3 +251,21 @@ geom_point(
 scale_fill_brewer(palette = "Pastel1", aesthetics = c("fill", "colour")) +
 scale_fill_ramp_discrete(range = c(1, 0.2), na.translate = FALSE) +
 labs(fill_ramp = "Interval")
+
+ua_free_tidy %>%
+ungroup() %>%
+expand(nesting(construct, method, measure, nucleotide)) %>%
+add_fitted_draws(model_1) %>%
+group_by(construct, method, measure, nucleotide) %>%
+median_qi(.width= .95) %>%
+mutate(lower = 10^.lower, upper = 10^.upper) %>%
+select(construct, method, measure, nucleotide, lower, upper) -> summary_1
+
+a_fixed_tidy %>%
+ungroup() %>%
+expand(nesting(construct, method, measure, nucleotide)) %>%
+add_fitted_draws(model_3) %>%
+group_by(construct, method, measure, nucleotide) %>%
+median_qi(.width= .95) %>%
+mutate(lower = 10^.lower, upper = 10^.upper) %>%
+select(construct, method, measure, nucleotide, lower, upper) -> summary_2

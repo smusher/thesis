@@ -1,5 +1,7 @@
 library(tidyverse)
 library(brms)
+library(tidybayes)
+library(bayesplot)
 library(ggdist)
 library(distributional)
 source("scripts/ch4/mwc_modelling_functions.R")
@@ -48,6 +50,16 @@ mwc_brms_formula <-
 		family = gaussian()
 		)
 
+mwc_brms_formula_restricted <-
+	bf(
+		mwc_full_formula,
+		nl = TRUE,
+		logKa + logDa ~ 1,
+		logL ~ 1 + (1||unique_experiment_id),
+		sigma ~ (1||unique_experiment_id),
+		family = gaussian()
+		)
+
 mwc_brms_priors <-
 	c(
 		#posterior probability distribution of ec50s from pcf fluorescence
@@ -57,9 +69,11 @@ mwc_brms_priors <-
 		#test D prior
 		set_prior("normal(log(0.1), log(5))", nlpar = "logDa", class = "b"),
 		#standard cauchy prior for sigmas
-		set_prior("cauchy(0, 3)", nlpar = "logKa", class = "sd"),
-		set_prior("cauchy(0, 3)", nlpar = "logL", class = "sd"),
-		set_prior("cauchy(0, 3)", nlpar = "logDa", class = "sd")
+		set_prior("cauchy(0, 1)", nlpar = "logKa", class = "sd"),
+		set_prior("cauchy(0, 1)", nlpar = "logL", class = "sd"),
+		set_prior("cauchy(0, 1)", nlpar = "logDa", class = "sd"),
+		set_prior("cauchy(0, 1)", dpar = "sigma", class = "Intercept"),
+		set_prior("cauchy(0, 1)", dpar = "sigma", class = "sd")
 		)
 
 brms_iter <- 2000
@@ -83,3 +97,54 @@ brm(
 	sample_prior = "yes",
 	save_pars = save_pars(all = TRUE)
 	) -> test_run
+
+posterior <- as.array(test_run)
+dim(posterior)
+dimnames(posterior)
+
+mcmc_areas(
+  posterior, 
+  pars = c(
+  	"b_logKa_Intercept", "b_logDa_Intercept", "b_logL_Intercept", 
+  	"prior_b_logKa", "prior_b_logDa", "prior_b_logL"),
+  prob = 0.8, # 80% intervals
+  prob_outer = 0.99, # 99%
+  point_est = "median"
+)
+
+mcmc_pairs(
+	posterior,
+	pars = c("b_logKa_Intercept", "b_logDa_Intercept", "b_logL_Intercept"),
+    diag_fun="dens",
+    off_diag_args = list(size = 0.75, alpha = 0.2)
+    )
+
+mcmc_pairs(
+	posterior,
+	pars = c("b_logKa_Intercept", "b_logDa_Intercept", "b_logL_Intercept"),
+    diag_fun="dens",
+    off_diag_args = list(size = 0.75, alpha = 0.2),
+	transform = list(
+		b_logKa_Intercept = exp,
+		b_logDa_Intercept = exp,
+		b_logL_Intercept = exp
+		)
+    )
+
+control_data %>%
+ungroup() %>%
+expand(nesting(measure, binding_mask), concentration = 10^seq(-8, -2, length.out = 31), unique_experiment_id = 1000) %>%
+add_predicted_draws(test_run, allow_new_levels = TRUE) %>%
+median_qi(.prediction, .width = c(.50, .80, .95)) -> predicted_future
+
+control_data %>%
+ungroup() %>%
+expand(nesting(measure, binding_mask), concentration = 10^seq(-8, -2, length.out = 31)) %>%
+add_fitted_draws(test_run, re_formula = NA) %>%
+median_qi(.value, .width = c(.50, .80, .95)) -> inferred_underlying
+
+ggplot() +
+geom_ribbon(data = inferred_underlying %>% filter(.width == 0.95), aes(x = concentration, ymin = .lower, ymax = .upper, fill = measure, alpha = .width)) +
+geom_point(data = control_data, aes(x = concentration, y = response, fill = measure), size = 2, shape = 21) +
+scale_colour_brewer(aesthetics = c("colour", "fill"), palette = "Pastel1") +
+scale_x_log10()
