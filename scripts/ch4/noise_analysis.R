@@ -396,11 +396,11 @@ abf_1 <-
 abf_1 %>%
 mutate(
     time_point = case_when(
-    (s > 63.5 & s < 70.5) ~ 1,
-    (s > 142 & s < 150) ~ 2,
-    (s > 212 & s < 221) ~ 3,
-    (s > 243 & s < 266) ~ 4,
-    (s > 280 & s < 291) ~ 5,
+    (s > 65 & s < 70) ~ 1,
+    (s > 144 & s < 149) ~ 2,
+    (s > 215 & s < 220) ~ 3,
+    (s > 255 & s < 260) ~ 4,
+    (s > 283 & s < 288) ~ 5,
     (s > 440 & s < 444) ~ 6,
     TRUE ~ 0
         )
@@ -425,13 +425,13 @@ abf_2 <-
 abf_2 %>%
 mutate(
     time_point = case_when(
-    (s > 20 & s < 30) ~ 1,
+    (s > 23 & s <28) ~ 1,
     (s > 32 & s < 37) ~ 2,
-    (s > 109.5 & s < 118.5) ~ 3,
-    (s > 161 & s < 175) ~ 4,
-    (s > 187 & s < 98) ~ 5,
-    (s > 243 & s < 256) ~ 6,
-    (s > 266 & s < 286) ~ 7,
+    (s > 111 & s < 116) ~ 3,
+    (s > 166 & s < 171) ~ 4,
+    (s > 191 & s < 196) ~ 5,
+    (s > 247 & s < 252) ~ 6,
+    (s > 276 & s < 281) ~ 7,
     (s > 409 & s < 414) ~ 8,
     TRUE ~ 0
         )
@@ -447,13 +447,45 @@ summarise(
     variance = mean(variance)
     ) -> wt_2
 
+abf_3 <-
+    readABF::readABF("/home/sam/data/patch_fluorometry_raw/201123/WT-GFP+SUR1/20n23003.abf") %>%
+    as.data.frame() %>%
+    as_tibble() %>%
+    rename(s = `Time [s]`, pA = `IN 0 [pA]`)
+
+abf_3 %>%
+mutate(
+    time_point = case_when(
+    (s > 45 & s < 50) ~ 1,
+    (s > 83 & s < 88) ~ 2,
+    (s > 99 & s < 104) ~ 3,
+    (s > 130 & s < 135) ~ 4,
+    (s > 163 & s < 168) ~ 5,
+    (s > 212 & s < 217) ~ 6,
+    (s > 363 & s < 368) ~ 7,
+    TRUE ~ 0
+        )
+    ) %>%
+filter(time_point !=0) %>%
+group_by(time_point) -> abf_3a
+
+abf_3a %>%
+mutate(
+    pA_average = mean(pA),
+    variance = (pA - pA_average)^2,
+    ) %>%
+summarise(
+    pA = mean(pA_average),
+    variance = mean(variance)
+    ) -> wt_3
+
 wt_1 %>%
 filter(time_point == 6) %>%
 rename(ba_pA = pA, ba_var = variance) %>%
 mutate(ba_pA = -ba_pA) %>%
 select(-time_point) %>%
 bind_cols(wt_1 %>% filter(time_point !=6)) %>%
-mutate(pA = pA - ba_pA, variance = variance - ba_var) -> wt_1_cor
+mutate(pA = pA - ba_pA, variance = variance - ba_var, n = 1) -> wt_1_cor
 
 wt_2 %>%
 filter(time_point == 8) %>%
@@ -461,28 +493,59 @@ rename(ba_pA = pA, ba_var = variance) %>%
 mutate(ba_pA = -ba_pA) %>%
 select(-time_point) %>%
 bind_cols(wt_2 %>% filter(time_point !=8)) %>%
-mutate(pA = pA - ba_pA, variance = variance - ba_var) -> wt_2_cor
+mutate(pA = pA - ba_pA, variance = variance - ba_var, n = 2) -> wt_2_cor
+
+wt_3 %>%
+filter(time_point == 7) %>%
+rename(ba_pA = pA, ba_var = variance) %>%
+mutate(ba_pA = -ba_pA) %>%
+select(-time_point) %>%
+bind_cols(wt_3 %>% filter(time_point !=7)) %>%
+mutate(pA = pA - ba_pA, variance = variance - ba_var, n = 3) -> wt_3_cor
+
+wt_cor <-
+    bind_rows(wt_1_cor, wt_2_cor, wt_3_cor)
 
 ggplot() +
-geom_point(data = wt_1_cor, aes(x = pA, y = variance), colour = "black") +
-geom_point(data = wt_2_cor, aes(x = pA, y = variance), colour = "red")
+geom_point(data = wt_cor, aes(x = pA, y = variance, colour = factor(n)))
 
+free <-
+    wt_cor %>%
+    group_by(n) %>%
+    nest() %>%
+    mutate(
+        fit = map(data, ~ nls.multstart::nls_multstart(
+            formula = variance ~ (i * pA) - ((pA ^ 2) / nchannels),
+            data = data.frame(.),
+            iter=500,
+            start_lower = list(i = 2, nchannels = 100),
+            start_upper = list(i = 6, nchannels = 100000),
+            control = nls.control(warnOnly = TRUE)
+            ))) %>%
+    mutate(augmented = map(fit, augment, newdata = tibble(pA = seq(0, 7500, length.out = 51))))
 
-nls(
-    variance ~ (i * pA) - ((pA ^ 2) / nchannels),
-    data = data.frame(wt_2_cor),
-    start = list(i = 4.32, nchannels = 1000)
-    ) %>%
-augment(newdata = tibble(pA = seq(0, 8000, length.out=51))) -> free
-
-nls(
-    variance ~ (4.32 * pA) - ((pA ^ 2) / nchannels),
-    data = data.frame(wt_2_cor),
-    start = list(nchannels = 1000)
-    ) %>%
-augment(newdata = tibble(pA = seq(0, 8000, length.out=51))) -> fixed
+fixed <-
+    wt_cor %>%
+    group_by(n) %>%
+    nest() %>%
+    mutate(
+        fit = map(data, ~ nls.multstart::nls_multstart(
+            formula = variance ~ (4.32 * pA) - ((pA ^ 2) / nchannels),
+            data = data.frame(.),
+            iter=500,
+            start_lower = list(nchannels = 100),
+            start_upper = list(nchannels = 100000),
+            control = nls.control(warnOnly = TRUE)
+            ))) %>%
+    mutate(augmented = map(fit, augment, newdata = tibble(pA = seq(0, 7500, length.out = 51))))
 
 ggplot() +
-geom_point(data = wt_2_cor, aes(x = pA, y = variance)) +
-geom_line(data = free, aes(x = pA, y = .fitted), linetype = 1) +
-geom_line(data = fixed, aes(x = pA, y = .fitted), linetype = 2)
+geom_point(data = wt_cor, aes(x = pA, y = variance, colour = factor(n))) +
+geom_line(
+    data = free %>% unnest(augmented),
+    aes(x = pA, y = .fitted, colour = factor(n)), linetype = 1) +
+geom_line(
+    data = fixed %>% unnest(augmented),
+    aes(x = pA, y = .fitted, colour = factor(n)), linetype = 2) +
+coord_cartesian(ylim = c(0, 8000)) +
+facet_wrap(vars(n))
