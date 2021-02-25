@@ -1,12 +1,18 @@
-\chapter{\label{ch:x}MWC modelling} 
+\chapter{\label{ch:4}MWC modelling} 
 
-\graphicspath{{figures/chx/}}
+\graphicspath{{figures/ch4/}}
 
 \minitoc
 
-\setchemfig{scheme debug=false}
+\section{Modelling of ion channel function}
 
-\section{The MWC model}
+\subsection{Restricting the subset of possible models}
+
+\subsection{Considerations for fitting a model}
+
+\section{Implementing an MWC model}
+
+\subsection{A simple case}
 
 The simplest case of an allosteric MWC model for an ion channel is shown as Scheme I in Figure \ref{chxfig:mwc_model_diagrams}.
 This simple case assumes a channel composed of a single monomer with a single binding site for ligand $A$.
@@ -58,6 +64,8 @@ When $D>1$, the ligand $A$ preferentially stabilises the open state, while when 
 	The input parameter value is marked as a black vertical line for each panel.
 	}\label{chxfig:mwc_models}
 \end{figure}
+
+\subsection{The role of PIP\textsubscript{2}}
 
 If we consider introducing a second ligand B which binds to a distinct site on the same monomer and does not directly interact with ligand A, we introduce the states shown in Scheme II of Figure \ref{chxfig:mwc_model_diagrams}.
 Each ligand has its own microscopic association constant ($K_A$ or $K_B$) and its own preference for the open or closed states ($D_A$ or $D_B$).
@@ -149,4 +157,3 @@ So far so good, as an observed increase in $L$ when fit with Scheme I would lead
 However, changes in $K_B$ are not perfectly captured by changes in $L$ when fit to scheme I.
 Notably, if local allostery exists between the nucleotide and PIP\textsubscript{2} binding site - if Scheme III is the true underlying model - then fitting the observed data to Scheme I would lead us to estimate an incorrect value for $K_A$ (Figure \ref{chxfig:scheme_2_kb_shift}).
 Thus, if there is local allostery between the sites, then a mutation which induces an increase in the binding affinity for PIP\textsubscript{2} would not just increase our estimate of $L$ (which would lead to a correct inference) but it would also decrease our estimate of $K_A$ by a not-insignificant amount, which could lead to the incorrect inference that a mutation is causing a direct change in nucleotide binding when it is in fact causing a direct change in PIP\textsubscript{2} binding, which through local allostery is influencing our estimates of $K_A$.
-

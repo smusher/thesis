@@ -16,7 +16,14 @@ concresp <-
     group_by(unique_experiment_id) %>%
     mutate(observations = n()) %>%
     filter(observations >= 3) %>%
-    ungroup()
+    ungroup() %>%
+    mutate(
+    	response = case_when(
+    		response < -0.1 ~ -0.1,
+    		response > 1.1 ~ 1.1,
+    		TRUE ~ response
+    		)
+    	)
 
 control_data <-
 	concresp %>%
@@ -76,6 +83,20 @@ mwc_brms_priors <-
 		set_prior("cauchy(0, 1)", dpar = "sigma", class = "sd")
 		)
 
+mwc_brms_priors_restricted <-
+	c(
+		#posterior probability distribution of ec50s from pcf fluorescence
+		set_prior("normal(log(1e4), log(5))", nlpar = "logKa", class = "b"),
+		#99% of density within popens of 0.01 and 0.99
+		set_prior("normal(log(1), log(5))", nlpar = "logL", class = "b"),
+		#test D prior
+		set_prior("normal(log(0.1), log(5))", nlpar = "logDa", class = "b"),
+		#standard cauchy prior for sigmas
+		set_prior("cauchy(0, 1)", nlpar = "logL", class = "sd"),
+		set_prior("cauchy(0, 1)", dpar = "sigma", class = "Intercept"),
+		set_prior("cauchy(0, 1)", dpar = "sigma", class = "sd")
+		)
+
 brms_iter <- 2000
 brms_warmup <- 1000
 brms_chains <- 4
@@ -95,10 +116,28 @@ brm(
 	cores = getOption("mc.cores", 4),
 	file = "data/mwc_fits_new_model/control_fit_230221_short",
 	sample_prior = "yes",
-	save_pars = save_pars(all = TRUE)
-	) -> test_run
+	save_all_pars = TRUE
+	) %>%
+	add_criterion("loo", moment_match=TRUE) -> test_run
 
-posterior <- as.array(test_run)
+brm(
+	formula = mwc_brms_formula_restricted,
+	prior = mwc_brms_priors_restricted,
+	data = control_data,
+	chains = brms_chains,
+	iter = brms_iter,
+	warmup = brms_warmup,
+	thin  = brms_thin,
+	seed = brms_seed,
+	control = list(adapt_delta = 0.99, max_treedepth = 15),
+	cores = getOption("mc.cores", 4),
+	file = "data/mwc_fits_new_model/control_fit_230221_short_restricted",
+	sample_prior = "yes",
+	save_all_pars = TRUE
+	) %>%
+	add_criterion("loo", moment_match=TRUE) -> test_run_2
+
+posterior <- as.array(test_run_2)
 dim(posterior)
 dimnames(posterior)
 
@@ -133,18 +172,72 @@ mcmc_pairs(
 
 control_data %>%
 ungroup() %>%
-expand(nesting(measure, binding_mask), concentration = 10^seq(-8, -2, length.out = 31), unique_experiment_id = 1000) %>%
-add_predicted_draws(test_run, allow_new_levels = TRUE) %>%
-median_qi(.prediction, .width = c(.50, .80, .95)) -> predicted_future
+expand(nesting(measure, binding_mask), concentration = 10^seq(-8, -2, length.out = 51)) %>%
+add_fitted_draws(test_run, re_formula = NA) %>%
+median_qi(.value, .width = .95) %>%
+mutate(model = "full") -> inferred_underlying_1
 
 control_data %>%
 ungroup() %>%
-expand(nesting(measure, binding_mask), concentration = 10^seq(-8, -2, length.out = 31)) %>%
-add_fitted_draws(test_run, re_formula = NA) %>%
-median_qi(.value, .width = c(.50, .80, .95)) -> inferred_underlying
+expand(nesting(measure, binding_mask), concentration = 10^seq(-8, -2, length.out = 51)) %>%
+add_fitted_draws(test_run_2, re_formula = NA) %>%
+median_qi(.value, .width = .95) %>%
+mutate(model = "restricted") -> inferred_underlying_2
+
+inferred_underlying <-
+	bind_rows(inferred_underlying_1, inferred_underlying_2)
 
 ggplot() +
-geom_ribbon(data = inferred_underlying %>% filter(.width == 0.95), aes(x = concentration, ymin = .lower, ymax = .upper, fill = measure, alpha = .width)) +
-geom_point(data = control_data, aes(x = concentration, y = response, fill = measure), size = 2, shape = 21) +
+geom_ribbon(data = inferred_underlying, aes(x = concentration, ymin = .lower, ymax = .upper, colour = measure, linetype = model), fill = NA) +
+geom_quasirandom(data = control_data, aes(x = concentration, y = response, fill = measure), size = 3, shape = 21, width=0.1) +
 scale_colour_brewer(aesthetics = c("colour", "fill"), palette = "Pastel1") +
 scale_x_log10()
+
+control_data %>%
+ungroup() %>%
+expand(nesting(measure, binding_mask, unique_experiment_id), concentration = 10^seq(-8, -2, length.out = 51)) %>%
+add_fitted_draws(test_run) %>%
+median_qi(.value, .width = .95) %>%
+mutate(model = "full") -> per_experiment_1
+
+control_data %>%
+ungroup() %>%
+expand(nesting(measure, binding_mask, unique_experiment_id), concentration = 10^seq(-8, -2, length.out = 51)) %>%
+add_fitted_draws(test_run_2) %>%
+median_qi(.value, .width = .95) %>%
+mutate(model = "restricted") -> per_experiment_2
+
+per_experiment <-
+	bind_rows(per_experiment_1, per_experiment_2)
+
+ggplot() +
+geom_ribbon(data = per_experiment, aes(x = concentration, ymin = .lower, ymax = .upper, colour = measure, linetype = model), fill = NA) +
+geom_point(data = control_data, aes(x = concentration, y = response, fill = measure), size = 3, shape = 21) +
+scale_colour_brewer(aesthetics = c("colour", "fill"), palette = "Pastel1") +
+scale_x_log10() +
+facet_wrap(vars(unique_experiment_id))
+
+test_run %>%
+gather_draws(`b_.*`, `sd_.*`, regex = TRUE) %>%
+mutate(model = "full") -> draws_1
+
+test_run_2 %>%
+gather_draws(`b_.*`, `sd_.*`, regex = TRUE) %>%
+mutate(model = "restricted") -> draws_2
+
+draws <-
+	bind_rows(draws_1, draws_2) %>%
+	mutate(.value = case_when(
+		.variable == "b_logL_Intercept" ~ exp(.value)/(1+exp(.value)),
+		TRUE ~ .value)
+	)
+
+ggplot() +
+stat_slab(
+    data = draws,
+    aes(y = model, x = .value, fill = model, fill_ramp = stat(cut_cdf_qi(cdf, .width = c(.5, .8, .95), labels = scales::percent_format())))
+    ) +
+scale_fill_brewer(palette = "Pastel1", aesthetics = c("fill", "colour")) +
+scale_fill_ramp_discrete(range = c(1, 0.2), na.translate = FALSE) +
+labs(fill_ramp = "Interval") +
+facet_wrap(vars(.variable), scales = "free")
