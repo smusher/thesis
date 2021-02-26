@@ -35,7 +35,10 @@ abfs_3 <- c(
     "/home/sam/data/patch_fluorometry_raw/201123/WT-GFP+SUR1/20n23003.abf",
     "/home/sam/data/patch_fluorometry_raw/201105/WT-GFP+SUR1/20n05028.abf",
     "/home/sam/data/patch_fluorometry_raw/201105/WT-GFP+SUR1/20n05030.abf",
-    "/home/sam/data/patch_fluorometry_raw/201105/WT-GFP+SUR1/20n05031.abf"    
+    "/home/sam/data/patch_fluorometry_raw/201105/WT-GFP+SUR1/20n05031.abf",
+    "/home/sam/data/patch_fluorometry_raw/201006/WT-GFP+SUR1/20o06007.abf",
+    "/home/sam/data/patch_fluorometry_raw/201006/WT-GFP+SUR1/20o06008.abf",
+    "/home/sam/data/patch_fluorometry_raw/201006/WT-GFP+SUR1/20o06010.abf"    
 )
 
 data_1 <-
@@ -98,19 +101,6 @@ data_3 <-
         )  %>%
     mutate(construct = "WT-GFP+SUR")
 
-data_3 <-
-    abfs_3 %>%
-    map(~ as.data.frame(readABF::readABF(.x))) %>%
-    bind_rows(.id = "n") %>%
-    as_tibble() %>%
-    rename(s = `Time [s]`, pA = `IN 0 [pA]`)
-
-data_3 %>%
-group_by(n) %>%
-nest() %>%
-mutate(fit  = map(data, ~ loess(pA ~ s, data = data.frame(.)))) %>%
-uunest(fit, augment)
-
 bind_rows(data_1, data_2, data_3) -> summarised_data
 
 ggplot(summarised_data) +
@@ -124,10 +114,16 @@ scale_colour_distiller(palette = "PuOr")
 
 filtered_summarised_data <-
     summarised_data %>%
-    filter(variance < 1e4, variance > 0, second_chunks > 20)
+    mutate(rounded_pA = signif(pA, 2)) %>%
+    group_by(rounded_pA) %>%
+    filter(variance > 0, variance < 12000, second_chunks > 20, variance > quantile(variance, 0.025), variance < quantile(variance, 0.975))
 
 ggplot(filtered_summarised_data) +
-geom_point(aes(x = second_chunks, y = pA, colour = log(variance))) +
+geom_point(aes(x = pA, y = variance)) +
+facet_wrap(vars(construct, n), scales = "free")
+
+ggplot(filtered_summarised_data) +
+geom_point(aes(x = second_chunks, y = rounded_pA, colour = sqrt(variance))) +
 facet_grid(rows = vars(construct, n), scales = "free") +
 scale_colour_distiller(palette = "PuOr")
 
@@ -144,12 +140,13 @@ filtered_summarised_data %>%
 left_join(barium_data) %>%
 replace_na(list(ba_pA = 0, ba_variance = 0)) %>%
 mutate(corrected_pA = pA - ba_pA, corrected_variance = variance - ba_variance) %>%
-group_by(construct, n, pA) %>%
-filter(corrected_variance < 2*corrected_pA) -> cleaned_data
+filter(corrected_pA >= 0) %>%
+group_by(construct, n) %>%
+mutate(linear = case_when(corrected_pA <= mean(corrected_pA) & corrected_pA <= 2000 ~ TRUE, TRUE ~ FALSE)) -> cleaned_data
 
 ggplot(cleaned_data) +
-geom_point(aes(x = corrected_pA, y = corrected_variance)) +
-facet_wrap(vars(construct, n))
+geom_point(aes(x = corrected_pA, y = corrected_variance, colour = linear)) +
+facet_wrap(vars(construct, n), scales = "free")
 
 fits_n_freei <-
     cleaned_data %>%
@@ -171,6 +168,7 @@ fits_n_freei <-
 fits_n_fixedi <-
     cleaned_data %>%
     group_by(construct, n) %>%
+    mutate(max_I = max(corrected_pA)) %>%
     nest() %>%
     mutate(
         fit = map(data, ~ nls.multstart::nls_multstart(
@@ -178,42 +176,22 @@ fits_n_fixedi <-
             data = data.frame(.),
             iter=500,
             start_lower = list(nchannels = 100),
-            start_upper = list(nchannels = 100000),
+            start_upper = list(nchannels = 10000),
             control = nls.control(warnOnly = TRUE)
             )),
         tidy = map(fit, broom::tidy),
         augment = map(fit, broom::augment, newdata = tibble(corrected_pA = seq(0, 10000, length.out = 51)))
         )
 
-fits_popen_freei <-
+fits_popen <-
     cleaned_data %>%
+    filter(linear == TRUE) %>%
     group_by(construct, n) %>%
     nest() %>%
     mutate(
-        fit = map(data, ~ nls.multstart::nls_multstart(
-            formula = corrected_variance ~ i * corrected_pA * (1 - popen),
-            data = data.frame(.),
-            iter=500,
-            start_lower = list(i = 2, popen = 0.1),
-            start_upper = list(i = 6, popen = 0.9),
-            control = nls.control(warnOnly = TRUE)
-            )),
-        tidy = map(fit, broom::tidy),
-        augment = map(fit, broom::augment, newdata = tibble(corrected_pA = seq(0, 10000, length.out = 51)))
-        )
-
-fits_popen_fixedi <-
-    cleaned_data %>%
-    group_by(construct, n) %>%
-    nest() %>%
-    mutate(
-        fit = map(data, ~ nls.multstart::nls_multstart(
-            formula = corrected_variance ~ 4.32 * corrected_pA * (1 - popen),
-            data = data.frame(.),
-            iter=500,
-            start_lower = list(popen = 0.1),
-            start_upper = list(popen = 0.9),
-            control = nls.control(warnOnly = TRUE)
+        fit = map(data, ~ lm(
+            formula = corrected_variance ~ 0 + corrected_pA,
+            data = data.frame(.)
             )),
         tidy = map(fit, broom::tidy),
         augment = map(fit, broom::augment, newdata = tibble(corrected_pA = seq(0, 10000, length.out = 51)))
@@ -222,22 +200,21 @@ fits_popen_fixedi <-
 bind_rows(
     fits_n_freei %>% unnest(augment) %>% mutate(model = "free_n_free_i"),
     fits_n_fixedi %>% unnest(augment) %>% mutate(model = "free_n_fixed_i"),
-    fits_popen_freei %>% unnest(augment) %>% mutate(model = "free_po_free_i"),
-    fits_popen_fixedi %>% unnest(augment) %>% mutate(model = "free_po_fixed_i")
+    fits_popen %>% unnest(augment) %>% mutate(model = "free_po")
     ) -> plot_fits
 
 ggplot() +
-geom_point(data = cleaned_data, aes(x = corrected_pA, y = corrected_variance)) +
+geom_point(data = cleaned_data, aes(x = corrected_pA, y = corrected_variance, colour = linear)) +
 geom_line(data = plot_fits, aes(x = corrected_pA, y = .fitted, colour = model)) +
-facet_wrap(vars(construct, n)) +
+facet_wrap(vars(construct, n), scales = "free") +
 coord_cartesian(xlim = c(0, 7500), ylim = c(0, 12000))
 
 bind_rows(
     fits_n_freei %>% unnest(tidy) %>% mutate(model = "free_n_free_i"),
     fits_n_fixedi %>% unnest(tidy) %>% mutate(model = "free_n_fixed_i"),
-    fits_popen_freei %>% unnest(tidy) %>% mutate(model = "free_po_free_i"),
-    fits_popen_fixedi %>% unnest(tidy) %>% mutate(model = "free_po_fixed_i")
-    ) -> tidy_fits
+    fits_popen %>% unnest(tidy) %>% mutate(model = "free_po", term = "popen", estimate = 1 - (estimate / 4.32))
+    ) %>%
+select(construct, n, term, estimate, model) -> tidy_fits
 
 cleaned_data %>%
 group_by(construct, n) %>%
@@ -247,11 +224,23 @@ mutate(
     i = case_when(is.na(i) ~ 4.32, TRUE ~ i),
     popen = case_when(is.na(popen) ~ corrected_pA / (nchannels * i), TRUE ~ popen)
     ) %>%
-pivot_longer(c(i, nchannels, popen), names_to = "term", values_to = "estimate") -> tidy_fits_2
+pivot_longer(c(i, nchannels, popen), names_to = "term", values_to = "estimate") %>%
+group_by(construct, model, n) %>%
+filter(is.na(estimate) | (estimate < 1e4 & estimate > 0)) -> tidy_fits_2
+
+tidy_fits_2 %>%
+group_by(construct, term, model) %>%
+summarise(mu = mean(estimate), sigma = sd(estimate)) %>%
+rowwise() %>%
+mutate(dist = case_when(
+    term == "popen" ~ dist_truncated(dist_normal(mu, sigma), 0, 1),
+    TRUE ~ dist_normal(mu, sigma)
+    )) -> tidy_fits_3
 
 ggplot() +
 geom_point(data = tidy_fits_2, aes(x = construct, y = estimate, colour = model)) +
-facet_grid(rows = vars(term), scales = "free")
+facet_grid(rows = vars(term), cols = vars(model), scales = "free") +
+stat_dist_slab(data = tidy_fits_3, aes(x = construct, dist = dist, colour = model), fill = NA)
 
 noise_formula <-
     bf(

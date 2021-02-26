@@ -49,8 +49,37 @@
 		\centering
 		\includegraphics[width=\textwidth]{noise_example_fits_3.pdf}
 	\end{subfigure}
-	\caption[Systematic underestimation of i]{
+	\caption[Systematic underestimation of single channel currents]{
+	\subref{ch4fig:noise_example_1},\subref{ch4fig:noise_example_2},\subref{ch4fig:noise_example_3} 5 second extracts from three separate recordings of WT-GFP+SUR1 currents.
+	Extracts from different recordings are coloured differently.
+	The zero current level determined by barium is indicated as a dashed line.
+	\subref{ch4fig:noise_example_fits_1}, \subref{ch4fig:noise_example_fits_2}, \subref{ch4fig:noise_example_fits_3} Plots of the mean current and variance for each of the extracts in the panel above.
+	Fits to equation x are shown as a solid line when $i$ is allowed to vary freely, and as a dashed line when $i$ is fixed to \SI{4.32}{\pico\ampere}.
+	The fitted value for $i$ is shown for each recording separately.
 	}\label{ch4fig:noise_manual}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[t]{0.9\textwidth}
+		\caption{}\label{ch4fig:noise_fits_1}
+		\centering
+		\includegraphics[width=\textwidth]{noise_fits_1.pdf}
+	\end{subfigure}
+	\vfill
+	\begin{subfigure}[t]{0.9\textwidth}
+		\caption{}\label{ch4fig:noise_fits_2}
+		\centering
+		\includegraphics[width=\textwidth]{noise_fits_2.pdf}
+	\end{subfigure}
+	\caption[Estimating open probability from stationary noise analysis]{
+	\subref{ch4fig:noise_fits_1} Plots of the mean current and variance for 1 second extracts from recordings of WT-GFP+SUR1 (blue) or W311*-GFP+SUR1 (orange).
+	Fits to equation x are shown as a solid line when $i$ is allowed to vary freely, and as a dashed line when $i$ is fixed to \SI{4.32}{\pico\ampere}.
+	The straight, finer dashed lines are fits to equation y only using the linear portion of the data, which are shown as solid filled points outlined in black.
+	\subref{ch4fig:noise_fits_2} Parameter estimates from fits in \subref{ch4fig:noise_fits_1} are shown as separate points for each experiment.
+	For fits to equation x, open probability is calculated from the intial current on patch excision.
+	To visualise the spread, normal distributions are plotted alongside the point estimates, limited to $0 < x < 1$.
+	}\label{ch4fig:all_noise_fits}
 \end{figure}
 
 \section{Implementing an MWC model}
