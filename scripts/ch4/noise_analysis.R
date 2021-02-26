@@ -197,6 +197,39 @@ fits_popen <-
         augment = map(fit, broom::augment, newdata = tibble(corrected_pA = seq(0, 10000, length.out = 51)))
         )
 
+beta_bin <- function(N, a, b){
+    return((N * a * b * (N + a + b)) / ((a + b)^2 * (a + b + 1)))
+}
+
+expand.grid(
+    N = seq(0, 1000, length.out=31),
+    a = seq(1, 11, by=2),
+    b = seq(1, 11, by=2)
+    ) %>%
+as_tibble() %>%
+mutate(var = beta_bin(N, a, b)) %>%
+ggplot(aes(x = N, y = var)) +
+geom_line() +
+facet_grid(cols = vars(a), rows = vars(b))
+
+fits_n_fixedi <-
+    cleaned_data %>%
+    group_by(construct, n) %>%
+    mutate(max_I = max(corrected_pA)) %>%
+    nest() %>%
+    mutate(
+        fit = map(data, ~ nls.multstart::nls_multstart(
+            formula = corrected_variance ~ (4.32 * corrected_pA) - ((corrected_pA ^ 2) / nchannels),
+            data = data.frame(.),
+            iter=500,
+            start_lower = list(nchannels = 100),
+            start_upper = list(nchannels = 10000),
+            control = nls.control(warnOnly = TRUE)
+            )),
+        tidy = map(fit, broom::tidy),
+        augment = map(fit, broom::augment, newdata = tibble(corrected_pA = seq(0, 10000, length.out = 51)))
+        )
+
 bind_rows(
     fits_n_freei %>% unnest(augment) %>% mutate(model = "free_n_free_i"),
     fits_n_fixedi %>% unnest(augment) %>% mutate(model = "free_n_fixed_i"),
