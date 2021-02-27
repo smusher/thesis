@@ -30,12 +30,16 @@ If we assume that in a given recording $N$ and $i$ remain constant, and it is $P
 \begin{equation}\label{eq:bin_2}
 	\sigma^2 = iI - \frac{1}{N} \cdot I^2
 \end{equation}
+This equation yields a parabola from $I = 0$ to $I = Ni$.
+Intuitively, there can be no variance when $P_O$ is exactly 0 or 1, as there will be no opening or closing events which can give rise to current fluctuations.
 
 Equation \ref{eq:bin_2} can be fit to experimental data by calculating the variance of observed current at different current magnitudes.
 This calculation is not exactly trivial, and has been accomplished a number of different ways for different purposes.
 For channels with fast inactivation such as the Na\textsubscript{V} family, non-stationary noise analysis involves repeating a stimulus multiple times and measuring variance as the squared sum of deviations from the mean of the current magnitude calculated at the same time point across multiple stimuli, referred to in the literature as an 'isochrone'.
-For channels which do not inactivate, stationary noise analysis is possible, and variance can be measured as the squared sum of deviations from the mean current magnitude over a period of time.
-Determination of variance is not trivial because observed deviations 
+For channels which do not inactivate, stationary noise analysis is possible, and variance can be measured as the squared sum of deviations from the mean current magnitude over a period of time for which $I$ is 'stationary'(Figure \ref{ch4fig:noise_example_1}, \ref{ch4fig:noise_example_2}, \ref{ch4fig:noise_example_3}).
+
+An additional assumption of noise analysis as described is that all current fluctuations can be observed, and thus the calculated variance accurately captures the true variance.
+If 
 
 \begin{figure}[h]
 	\centering

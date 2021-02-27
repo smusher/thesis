@@ -197,21 +197,6 @@ fits_popen <-
         augment = map(fit, broom::augment, newdata = tibble(corrected_pA = seq(0, 10000, length.out = 51)))
         )
 
-beta_bin <- function(N, a, b){
-    return((N * a * b * (N + a + b)) / ((a + b)^2 * (a + b + 1)))
-}
-
-expand.grid(
-    N = seq(0, 1000, length.out=31),
-    a = seq(1, 11, by=2),
-    b = seq(1, 11, by=2)
-    ) %>%
-as_tibble() %>%
-mutate(var = beta_bin(N, a, b)) %>%
-ggplot(aes(x = N, y = var)) +
-geom_line() +
-facet_grid(cols = vars(a), rows = vars(b))
-
 fits_n_fixedi <-
     cleaned_data %>%
     group_by(construct, n) %>%
@@ -544,7 +529,7 @@ free <-
             start_upper = list(i = 6, nchannels = 100000),
             control = nls.control(warnOnly = TRUE)
             ))) %>%
-    mutate(augmented = map(fit, augment, newdata = tibble(pA = seq(0, 7500, length.out = 51))))
+    mutate(augmented = map(fit, broom::augment, newdata = tibble(pA = seq(0, 7500, length.out = 51))))
 
 fixed <-
     wt_cor %>%
@@ -552,14 +537,14 @@ fixed <-
     nest() %>%
     mutate(
         fit = map(data, ~ nls.multstart::nls_multstart(
-            formula = variance ~ (4.32 * pA) - ((pA ^ 2) / nchannels),
+            formula = variance ~ (4 * pA) - ((pA ^ 2) / nchannels),
             data = data.frame(.),
             iter=500,
             start_lower = list(nchannels = 100),
             start_upper = list(nchannels = 100000),
             control = nls.control(warnOnly = TRUE)
             ))) %>%
-    mutate(augmented = map(fit, augment, newdata = tibble(pA = seq(0, 7500, length.out = 51))))
+    mutate(augmented = map(fit, broom::augment, newdata = tibble(pA = seq(0, 7500, length.out = 51))))
 
 ggplot() +
 geom_point(data = wt_cor, aes(x = pA, y = variance, colour = factor(n))) +
@@ -571,3 +556,38 @@ geom_line(
     aes(x = pA, y = .fitted, colour = factor(n)), linetype = 2) +
 coord_cartesian(ylim = c(0, 8000)) +
 facet_wrap(vars(n))
+
+
+expand.grid(
+    N = 1000,
+    i = 4.32,
+    popen = seq(0, 1, length.out = 10),
+    time = seq(0, 1000, length.out = 1001)
+    ) %>%
+as_tibble() %>%
+group_by(popen) %>%
+mutate(
+    nopen = rbinom(length(time), N, popen),
+    pA = nopen*i
+    ) -> test_grid
+
+ggplot(test_grid, aes(x = time, y = pA, colour = popen)) +
+geom_line() +
+facet_wrap(vars(popen))
+
+test_grid %>%
+group_by(popen) %>%
+mutate(
+    pA_average = mean(pA),
+    variance = (pA - pA_average)^2,
+    ) %>%
+summarise(
+    pA = mean(pA_average),
+    variance = mean(variance)
+    ) -> test_grid_summarised
+
+nls(
+    formula = variance ~ (i * pA) - ((pA ^ 2) / nchannels),
+    data = test_grid_summarised,
+    start = list(i=4, nchannels = 1000)
+    )
