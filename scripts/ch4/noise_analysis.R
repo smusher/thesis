@@ -116,7 +116,7 @@ filtered_summarised_data <-
     summarised_data %>%
     mutate(rounded_pA = signif(pA, 2)) %>%
     group_by(rounded_pA) %>%
-    filter(variance > 0, variance < 12000, second_chunks > 20, variance > quantile(variance, 0.025), variance < quantile(variance, 0.975))
+    filter(variance > 0, variance < 20000, second_chunks > 20, variance > quantile(variance, 0.025), variance < quantile(variance, 0.975))
 
 ggplot(filtered_summarised_data) +
 geom_point(aes(x = pA, y = variance)) +
@@ -627,25 +627,24 @@ geom_point(data = test_grid_filtered_summarised, aes(x = pA, y = variance)) +
 geom_line(data = fit_2 %>% broom::augment(newdata = tibble(pA = seq(0, 4500, length.out = 51))), aes(x = pA, y = .fitted))
 
 expand.grid(
-    N_1 = seq(0, 1000, length.out = 5),
+    N = seq(0, 1000, length.out = 5),
     i = 4,
-    popen_1 = 0.5,
-    popen_2 = 0.05,
+    popen = seq(0.1, 0.9, length.out = 5),
     time = seq(0, 1000, length.out = 1001)
     ) %>%
 as_tibble() %>%
-group_by(N_1) %>%
+group_by(N) %>%
 mutate(
-    nopen = rbinom(length(time), N_1, popen_1) + rbinom(length(time), 1000-N_1, popen_2),
+    nopen = rbinom(length(time), N, popen) + rbinom(length(time), 1000-N, popen/10),
     pA = nopen*i
     ) -> test_grid_2
 
-ggplot(test_grid_2, aes(x = time, y = pA, colour = N_1)) +
+ggplot(test_grid_2, aes(x = time, y = pA, colour = N)) +
 geom_line() +
-facet_wrap(vars(N_1))
+facet_wrap(vars(N, popen))
 
 test_grid_2 %>%
-group_by(N_1) %>%
+group_by(N, popen) %>%
 mutate(
     pA_average = mean(pA),
     variance = (pA - pA_average)^2,
@@ -659,4 +658,8 @@ nls(
     formula = variance ~ (i * pA) - ((pA ^ 2) / nchannels),
     data = test_grid_2_summarised,
     start = list(i=4, nchannels = 1000)
-    )
+    ) -> fit_3
+
+ggplot() +
+geom_point(data = test_grid_2_summarised, aes(x = pA, y = variance)) +
+geom_line(data = fit_3 %>% broom::augment(newdata = tibble(pA = seq(0, 4500, length.out = 51))), aes(x = pA, y = .fitted))

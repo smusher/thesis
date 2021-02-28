@@ -112,7 +112,28 @@ For WT-GFP+SUR1, we observe that at frequencies approaching our filter cut-off a
 	}\label{ch4fig:noise_manual}
 \end{figure}
 
+Secondly, an underestimation of $i$ could occur due to violations in the underlying assumptions of the binomial distribution.
+The first two assumptions are that $N$ and $i$ are constant throughout a recording.
+We know that $i$ does not change on nucleotide inhibition of K\ATP{} channels, noris it affected by PIP\textsubscript{2} and rundown.
+Additionally, in excised patches it is improbable that there will be any change in $N$ during the course of a recording.
+The third assumption is that the channels in a patch share a homogenous $P_O$, which exhibits graded changes in response to stimuli (in our case, application of nucleotide).
+This assumption is far harder to justify for our experimental condition, in which channel rundown due to loss of PIP\textsubscript{2} results in a complicated mixture of channel populations with different $P_O$s.
 
+An extreme case in which channels transition between two states, one where $0 < P_O < 1$ and one where $P_O \approx 0$ can be approximated by equation \ref{eq:bin_1}, with a channel transitioning to the $P_O \approx 0$ state essentially considered to be no longer available to open, thus reducing $N$.
+Thus, fitting the observed current-variance data with \ref{eq:bin_1} would yield a straight line where the slope of the line is equal to $i \cdot (1 - P_O)$.
+This formulation of equation \ref{eq:bin_1} has been used successfully in the analysis of currents from CRAC channels, VSOA channels, and in the analysis of a specific cardiac K\ATP{} channel mutation.
+Unfortunately, in our case channel rundown does not render the K\ATP{} channel completely unable to open, with fully rundown channels displaying single channel open probabilities in the range of \numrange{0.05}{0.25}.
+Instead of each current measurement being a draw from a single binomial distribution, we are instead drawing from a mixture of binomial distributions with different $P_O$s.
+We can demonstrate how this leads to an underestimation of $i$ by simulating a simple case where there are two populations of channels, $a$ and $b$, one with a tenfold lower $P_O$ than the other.
+By superimposing a stimulus which reduces $P_O$ by an equal factor in both populations.
+
+\begin{equation}\label{eq:bibi_sim}
+\begin{split}
+	N_a + N_b &= 1000 \\
+	0 < P_{O_{a}} &< 1 \\
+	P_{O_{b}} &= \frac{P_{O_{a}}}{10}
+\end{split}
+\end{equation}
 
 \begin{figure}[h]
 	\centering
