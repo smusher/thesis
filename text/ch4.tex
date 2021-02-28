@@ -32,14 +32,29 @@ If we assume that in a given recording $N$ and $i$ remain constant, and it is $P
 \end{equation}
 This equation yields a parabola from $I = 0$ to $I = Ni$.
 Intuitively, there can be no variance when $P_O$ is exactly 0 or 1, as there will be no opening or closing events which can give rise to current fluctuations.
+Once $i$ and $N$ have been determined for a given experiment, the observed current magnitude $I$ can be converted into the $P_O$ for the population of channels by rearranging equation \ref{eq:inpo} as follows:
+\begin{equation}\label{eq:poin}
+	P_O = \frac{I}{iN}
+\end{equation}
 
 Equation \ref{eq:bin_2} can be fit to experimental data by calculating the variance of observed current at different current magnitudes.
 This calculation is not exactly trivial, and has been accomplished a number of different ways for different purposes.
 For channels with fast inactivation such as the Na\textsubscript{V} family, non-stationary noise analysis involves repeating a stimulus multiple times and measuring variance as the squared sum of deviations from the mean of the current magnitude calculated at the same time point across multiple stimuli, referred to in the literature as an 'isochrone'.
 For channels which do not inactivate, stationary noise analysis is possible, and variance can be measured as the squared sum of deviations from the mean current magnitude over a period of time for which $I$ is 'stationary'(Figure \ref{ch4fig:noise_example_1}, \ref{ch4fig:noise_example_2}, \ref{ch4fig:noise_example_3}).
 
-An additional assumption of noise analysis as described is that all current fluctuations can be observed, and thus the calculated variance accurately captures the true variance.
-If 
+Stationary noise analysis has been described for K\ATP{} channels before by a number of different researchers (Shyng, Paolo, Peter).
+Unfortunately, in most of the published research the exact procedure for extracting the parameters in equation \ref{eq:bin_1} is described in the methods section, but the quality of the fits and the value of the fitted parameters besides the final calculated $P_O$ is not discussed.
+A notable exception to this rule is (Paolo), in which two findings are discussed.
+Firstly, fitting equation \ref{eq:bin_2} to the mean and variance of \SI{200}{\milli\second} sections of macroscopic currents from wild-type Kir6.2+SUR2A resulted in a systematic underestimation of the single channel current $i$.
+From single channel experiments, the single channel current was determined to be \SI{4}{\pico\ampere}, while the value obtained from fitting macroscopic currents was only \SI{2}{\pico\ampere}.
+In the case of WT-GFP+SUR1, we see a similar understimation of single channel current (Figure \ref{ch4fig:noise_example_fits_1}, \ref{ch4fig:noise_example_fits_2}, \ref{ch4fig:noise_example_fits_3}), with fits yielding estimates of \SIrange{1.66}{2.64}{\pico\ampere}, while measured single channel currents are at least \SI{4}{\pico\ampere}.
+This underestimate of $i$ is most likely due to an underestimate of channel current variance as $P_O$ increases, which could be due to two main reasons.
+
+Firstly, the process of filtering and digitising channel currents can lead to underestimates of variance depending on the relationship between the open time of the measured channel and the cut-off frequency of the filter used.
+It is unlikely that this phenomenon is responsible for our findings, as the K\ATP{} mean open time duration is close to \SI{1}{\milli\second} and filtering at \SI{5}{\kilo\hertz} would lead to less than a \SI{5}{\percent} underestimation of $i$.
+Even if the mean open time of WT-GFP+SUR1 was closer to \SI{0.1}{\milli\second}, we would expect a \SI{20}{\percent} reduction rather than the \SI{50}{\percent} we actually observe.
+Empirically, we can use the frequency power spectrum of our measured current fluctuations to determine whether there may be high frequency channel openings we are missing (Figure \ref{ch4fig:spectra_converge}).
+For WT-GFP+SUR1, we observe that at frequencies approaching our filter cut-off at \SI{5}{\kilo\hertz} there is very little observed amplitude in active channels when compared to fully inhibited channels, suggesting we are not missing high frequency current fluctuations.
 
 \begin{figure}[h]
 	\centering
@@ -78,6 +93,12 @@ If
 		\centering
 		\includegraphics[width=\textwidth]{noise_example_fits_3.pdf}
 	\end{subfigure}
+	\vfill
+	\begin{subfigure}[t]{0.5\textwidth}
+		\caption{}\label{ch4fig:spectra_converge}
+		\centering
+		\includegraphics[width=\textwidth]{spectra_converge.pdf}
+	\end{subfigure}
 	\caption[Systematic underestimation of single channel currents]{
 	\subref{ch4fig:noise_example_1},\subref{ch4fig:noise_example_2},\subref{ch4fig:noise_example_3} 5 second extracts from three separate recordings of WT-GFP+SUR1 currents.
 	Extracts from different recordings are coloured differently.
@@ -85,8 +106,13 @@ If
 	\subref{ch4fig:noise_example_fits_1}, \subref{ch4fig:noise_example_fits_2}, \subref{ch4fig:noise_example_fits_3} Plots of the mean current and variance for each of the extracts in the panel above.
 	Fits to equation x are shown as a solid line when $i$ is allowed to vary freely, and as a dashed line when $i$ is fixed to \SI{4.32}{\pico\ampere}.
 	The fitted value for $i$ is shown for each recording separately.
+	\subref{ch4fig:spectra_converge} Averaged power spectra for the three recordings analysed.
+	The blue line is the power spectra when channels are fully inhibited and represents the background, while the orange line is the power spectra when channels are most active.
+	The high frequency components of the current fluctuations are attenuated to near background levels above \SIrange{2}{3}{\kilo\hertz}.
 	}\label{ch4fig:noise_manual}
 \end{figure}
+
+
 
 \begin{figure}[h]
 	\centering

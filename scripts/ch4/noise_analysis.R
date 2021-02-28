@@ -172,7 +172,7 @@ fits_n_fixedi <-
     nest() %>%
     mutate(
         fit = map(data, ~ nls.multstart::nls_multstart(
-            formula = corrected_variance ~ (4.32 * corrected_pA) - ((corrected_pA ^ 2) / nchannels),
+            formula = corrected_variance ~ (4 * corrected_pA) - ((corrected_pA ^ 2) / nchannels),
             data = data.frame(.),
             iter=500,
             start_lower = list(nchannels = 100),
@@ -204,7 +204,7 @@ fits_n_fixedi <-
     nest() %>%
     mutate(
         fit = map(data, ~ nls.multstart::nls_multstart(
-            formula = corrected_variance ~ (4.32 * corrected_pA) - ((corrected_pA ^ 2) / nchannels),
+            formula = corrected_variance ~ (4 * corrected_pA) - ((corrected_pA ^ 2) / nchannels),
             data = data.frame(.),
             iter=500,
             start_lower = list(nchannels = 100),
@@ -230,7 +230,7 @@ coord_cartesian(xlim = c(0, 7500), ylim = c(0, 12000))
 bind_rows(
     fits_n_freei %>% unnest(tidy) %>% mutate(model = "free_n_free_i"),
     fits_n_fixedi %>% unnest(tidy) %>% mutate(model = "free_n_fixed_i"),
-    fits_popen %>% unnest(tidy) %>% mutate(model = "free_po", term = "popen", estimate = 1 - (estimate / 4.32))
+    fits_popen %>% unnest(tidy) %>% mutate(model = "free_po", term = "popen", estimate = 1 - (estimate / 4))
     ) %>%
 select(construct, n, term, estimate, model) -> tidy_fits
 
@@ -239,7 +239,7 @@ group_by(construct, n) %>%
 filter(corrected_pA == max(corrected_pA)) %>%
 right_join(tidy_fits %>% pivot_wider(names_from = term, values_from = estimate)) %>%
 mutate(
-    i = case_when(is.na(i) ~ 4.32, TRUE ~ i),
+    i = case_when(is.na(i) ~ 4, TRUE ~ i),
     popen = case_when(is.na(popen) ~ corrected_pA / (nchannels * i), TRUE ~ popen)
     ) %>%
 pivot_longer(c(i, nchannels, popen), names_to = "term", values_to = "estimate") %>%
@@ -272,7 +272,7 @@ noise_formula <-
 noise_priors <-
     c(
         #prior for single channel current given -60mV and 72 pS
-        set_prior("normal(4.32, 1)", nlpar = "i"),
+        set_prior("normal(4, 1)", nlpar = "i"),
         #prior for number of channels given above current and observed max current
         set_prior("uniform(0, 100000)", nlpar = "nchannels", lb = "0", ub="100000"),
         set_prior("cauchy(0, 1)", nlpar = "i", class = "sd"),
@@ -282,7 +282,7 @@ noise_priors <-
 
 noise_formula_2 <-
     bf(
-        corrected_variance ~ (4.32 * corrected_pA) - ((corrected_pA ^ 2) / nchannels),
+        corrected_variance ~ (4 * corrected_pA) - ((corrected_pA ^ 2) / nchannels),
         nchannels ~ 0 + n,
         sigma ~ (1||n),
         nl = TRUE
@@ -304,7 +304,7 @@ noise_formula_3 <-
 noise_priors_3 <-
     c(
         #prior for number of channels given above current and observed max current
-        set_prior("normal(2, 1)", class = "b", lb = "0", ub = "4.32"),
+        set_prior("normal(2, 1)", class = "b", lb = "0", ub = "4"),
         set_prior("cauchy(0, 1)", class = "sigma"),
         set_prior("cauchy(0, 1)", class = "sd")
     )
@@ -560,7 +560,7 @@ facet_wrap(vars(n))
 
 expand.grid(
     N = 1000,
-    i = 4.32,
+    i = 4,
     popen = seq(0, 1, length.out = 10),
     time = seq(0, 1000, length.out = 1001)
     ) %>%
@@ -572,6 +572,15 @@ mutate(
     ) -> test_grid
 
 ggplot(test_grid, aes(x = time, y = pA, colour = popen)) +
+geom_line() +
+facet_wrap(vars(popen))
+
+test_grid %>%
+mutate(time_chunks = floor(time/10)) %>%
+group_by(N, i, popen, time_chunks) %>%
+summarise(nopen = mean(nopen), pA = mean(pA)) -> test_grid_filtered
+
+ggplot(test_grid_filtered, aes(x = time_chunks, y = pA, colour = popen)) +
 geom_line() +
 facet_wrap(vars(popen))
 
@@ -589,5 +598,65 @@ summarise(
 nls(
     formula = variance ~ (i * pA) - ((pA ^ 2) / nchannels),
     data = test_grid_summarised,
+    start = list(i=4, nchannels = 1000)
+    ) -> fit_1
+
+ggplot() +
+geom_point(data = test_grid_summarised, aes(x = pA, y = variance)) +
+geom_line(data = fit_1 %>% broom::augment(newdata = tibble(pA = seq(0, 4500, length.out = 51))), aes(x = pA, y = .fitted))
+
+test_grid_filtered %>%
+group_by(popen) %>%
+mutate(
+    pA_average = mean(pA),
+    variance = (pA - pA_average)^2,
+    ) %>%
+summarise(
+    pA = mean(pA_average),
+    variance = mean(variance)
+    ) -> test_grid_filtered_summarised
+
+nls(
+    formula = variance ~ (i * pA) - ((pA ^ 2) / nchannels),
+    data = test_grid_filtered_summarised,
+    start = list(i=4, nchannels = 1000)
+    ) -> fit_2
+
+ggplot() +
+geom_point(data = test_grid_filtered_summarised, aes(x = pA, y = variance)) +
+geom_line(data = fit_2 %>% broom::augment(newdata = tibble(pA = seq(0, 4500, length.out = 51))), aes(x = pA, y = .fitted))
+
+expand.grid(
+    N_1 = seq(0, 1000, length.out = 5),
+    i = 4,
+    popen_1 = 0.5,
+    popen_2 = 0.05,
+    time = seq(0, 1000, length.out = 1001)
+    ) %>%
+as_tibble() %>%
+group_by(N_1) %>%
+mutate(
+    nopen = rbinom(length(time), N_1, popen_1) + rbinom(length(time), 1000-N_1, popen_2),
+    pA = nopen*i
+    ) -> test_grid_2
+
+ggplot(test_grid_2, aes(x = time, y = pA, colour = N_1)) +
+geom_line() +
+facet_wrap(vars(N_1))
+
+test_grid_2 %>%
+group_by(N_1) %>%
+mutate(
+    pA_average = mean(pA),
+    variance = (pA - pA_average)^2,
+    ) %>%
+summarise(
+    pA = mean(pA_average),
+    variance = mean(variance)
+    ) -> test_grid_2_summarised
+
+nls(
+    formula = variance ~ (i * pA) - ((pA ^ 2) / nchannels),
+    data = test_grid_2_summarised,
     start = list(i=4, nchannels = 1000)
     )
