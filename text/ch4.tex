@@ -125,7 +125,6 @@ This formulation of equation \ref{eq:bin_1} has been used successfully in the an
 Unfortunately, in our case channel rundown does not render the K\ATP{} channel completely unable to open, with fully rundown channels displaying single channel open probabilities in the range of \numrange{0.05}{0.25}.
 Instead of each current measurement being a draw from a single binomial distribution, we are instead drawing from a mixture of binomial distributions with different $P_O$s.
 We can demonstrate how this leads to an underestimation of $i$ by simulating a simple case where there are two populations of channels, $a$ and $b$, one with a tenfold lower $P_O$ than the other.
-By superimposing a stimulus which reduces $P_O$ by an equal factor in both populations.
 
 \begin{equation}\label{eq:bibi_sim}
 \begin{split}
@@ -134,6 +133,29 @@ By superimposing a stimulus which reduces $P_O$ by an equal factor in both popul
 	P_{O_{b}} &= \frac{P_{O_{a}}}{10}
 \end{split}
 \end{equation}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[t]{0.3\textwidth}
+		\caption{}\label{ch4fig:simulated_noise_1}
+		\centering
+		\includegraphics[width=\textwidth]{simulated_noise_1.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.3\textwidth}
+		\caption{}\label{ch4fig:simulated_noise_2}
+		\centering
+		\includegraphics[width=\textwidth]{simulated_noise_2.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.3\textwidth}
+		\caption{}\label{ch4fig:simulated_noise_3}
+		\centering
+		\includegraphics[width=\textwidth]{simulated_noise_3.pdf}
+	\end{subfigure}
+	\caption[Simulated multibinomial currents]{
+	}\label{ch4fig:noise_sim}
+\end{figure}
 
 \begin{figure}[h]
 	\centering

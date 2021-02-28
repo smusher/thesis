@@ -561,7 +561,7 @@ facet_wrap(vars(n))
 expand.grid(
     N = 1000,
     i = 4,
-    popen = seq(0, 1, length.out = 10),
+    popen = seq(0.1, 0.9, length.out = 6),
     time = seq(0, 1000, length.out = 1001)
     ) %>%
 as_tibble() %>%
@@ -603,7 +603,7 @@ nls(
 
 ggplot() +
 geom_point(data = test_grid_summarised, aes(x = pA, y = variance)) +
-geom_line(data = fit_1 %>% broom::augment(newdata = tibble(pA = seq(0, 4500, length.out = 51))), aes(x = pA, y = .fitted))
+geom_line(data = fit_1 %>% broom::augment(newdata = tibble(pA = seq(0, 4000, length.out = 51))), aes(x = pA, y = .fitted))
 
 test_grid_filtered %>%
 group_by(popen) %>%
@@ -660,6 +660,13 @@ nls(
     start = list(i=4, nchannels = 1000)
     ) -> fit_3
 
+nls(
+    formula = variance ~ (4 * pA) - ((pA ^ 2) / nchannels),
+    data = test_grid_2_summarised,
+    start = list(nchannels = 1000)
+    ) -> fit_4
+
 ggplot() +
 geom_point(data = test_grid_2_summarised, aes(x = pA, y = variance)) +
-geom_line(data = fit_3 %>% broom::augment(newdata = tibble(pA = seq(0, 4500, length.out = 51))), aes(x = pA, y = .fitted))
+geom_line(data = fit_3 %>% broom::augment(newdata = tibble(pA = seq(0, 4000, length.out = 51))), aes(x = pA, y = .fitted)) +
+geom_line(data = fit_4 %>% broom::augment(newdata = tibble(pA = seq(0, 4000, length.out = 51))), aes(x = pA, y = .fitted), linetype = 2)
