@@ -1,6 +1,6 @@
 \chapter{\label{ch:5}Nucleotide regulation of Kir6.2} 
 
-\graphicspath{{figures/ch5/}}
+\graphicspath{{figures/tempfigs/}}
 
 \minitoc
 
@@ -8,9 +8,120 @@
 
 \subsection{G334D abolishes nucleotide binding}
 
+Residue G334 of Kir6.2 is located in the C-terminal region (Figure \ref{ch5fig:g334d}) and has been hypothesised to form part of the ATP binding site since electrophysiological studies demonstrated a dramatic reduction in nucleotide sensitivity upon mutation of the residue.
+In addition, mutation of this residue to aspartic acid (G334D) results in severe permanent neonatal diabetes mellitus.
+This hypothesis was confirmed by the solving of cryo-EM structures of K\ATP{} in the presence of ATP, which revealed the close proximity of residue G334 to the bound ATP.
+Mutating G334 to a total of 13 different amino acid substitutions led to a increase in the IC\textsubscript{50} for ATP by over an order of magnitude in excised patches.
+However, only two of those substitutions (R and K) resulted in any changes in nucleotide-independent channel gating when examined at the single-channel level, with unliganded $P_O$ remaining constant.
+It has therefore been suggested that while G334 forms part of the ATP binding site of Kir6.2, it does not participate in channel gating or transduction of ligand binding to the channel pore.
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[t]{0.5\textwidth}
+		\caption{}\label{ch5fig:g334d_1}
+		\centering
+		\includegraphics[width=\textwidth]{g334d_1.pdf}
+	\end{subfigure}
+	\caption[G334D abolishes nucleotide binding at Kir6.2]{
+	}\label{ch5fig:g334d}
+\end{figure}
+
+We sought to test this directly by measuring the binding of TNP-ATP in unroofed membranes to W311*,G334D-GFP+SUR1.
+Fluorescence spectra captured from unroofed membrane patches expressing W311*,G334D-GFP+SUR1 were indistinguishable from those expressing W311*-GFP+SUR1.
+The location of the ANAP peak and the bleaching characteristics were also identical.
+We found that ANAP fluorescence from W311*,G334D-GFP+SUR1 was barely quenched by even \SI{1}{\milli\Molar} TNP-ATP, reducing the apparant binding EC\textsubscript{50} from x to x.
+Unfortunately, we were unable to resolve macroscopic currents from W311*,G334D-GFP+SUR1 in excised patches despite seeing fluorescence in unroofed membranes.
+Thus, we were unable to measure nucleotide inhibition of this construct to determine whether the G334D substitution affected transduction in addition to this binding effect.
+
 \section{Channel gating}
 
 \subsection{C166S alters inhibition without affecting binding}
+
+Residue C166 of Kir6.2 is located at the cytosolic end of the second transmembrane domain (Figure \ref{ch5fig:c166s_loc}), and has been suggested to play a role in regulating the intrinsic gating of the channel.
+Mutations at this residue lead to dramatically increased unliganded $P_O$ in single-channel experiments, and a reduction in sensitivity to nucleotide inhibition at both single-channel and the macroscopic level.
+In addition, two substitutions at this residue (F and Y) have been found to cause severe neonatal diabetes.
+Electrophysiological measurements alone are not sufficient to distinguish between the reduction in sensitivity to nucleotide inhibition being caused by the increase in intrinsic $P_O$ alone, or whether there is an additional disregulation of transduction.
+
+We measured TNP-ATP binding to W311*,C166S-GFP+SUR1 in unroofed membranes to determine the how mutations at C166 reduce sensitivity to nucleotide inhibition (Figure \ref{ch5fig:c166s_unroofed}).
+We observed no real change in binding on TNP-ATP to the channel.
+If the C166S mutation solely increases the $P_O$ of the channel, we would expect an increase in the apparent EC\textsubscript{50} of nucleotide binding due to the preference of nucleotides for the closed state of the channel.
+This finding suggested a role for C166 in the transduction of nucleotide binding
+to the channel pore.
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[t]{0.3\textwidth}
+		\caption{}\label{ch5fig:c166s_loc}
+		\centering
+		\includegraphics[width=\textwidth]{c166s_1.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.6\textwidth}
+		\caption{}\label{ch5fig:c166s_unroofed}
+		\centering
+		\includegraphics[width=\textwidth]{c166s_2.pdf}
+	\end{subfigure}
+	\vfill
+	\begin{subfigure}[t]{0.45\textwidth}
+		\caption{}\label{ch5fig:c166s_traces}
+		\centering
+		\includegraphics[width=\textwidth]{c166s_3.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.45\textwidth}
+		\caption{}\label{ch5fig:c166s_mwc_fit_1}
+		\centering
+		\includegraphics[width=\textwidth]{mwc_c166s_1.pdf}
+	\end{subfigure}
+	\caption[C166S alters apparent nucleotide sensitivity, but not binding]{
+	}\label{ch5fig:c166s_1}
+\end{figure}
+
+To investigate this further, we excised patches expressing W311*,C166S-GFP+SUR1 and measure current inhibition and fluorescence quenching by TNP-ATP simultaneously (Figure \ref{ch5fig:c166s_traces}).
+We found that the apprent affinity for nucleotide binding was indistinguishable from that for W311*-GFP+SUR1, and similar to our observations in unroofed membranes (Figure \ref{ch5fig:c166s_mwc_fit_1}).
+Consistent with the literature, we did observe a large reduction in the apparent sensitivity of W311*,C166S-GFP+SUR1 currents to inhibition by TNP-ATP.
+Intuitively, a change in nucleotide-dependent channel gating which is not accompanied by a change in nucleotide binding must be due (at least in part) to a change in the transduction of nucleotide binding to channel gating.
+Fitting our data to the MWC-type model described previously, we found that in addition to the effects of the C166S mutation on the intrinsic open probability of K\ATP{}, there is a striking shift in $D$ (Figure \ref{ch5fig:c166s_mwc_params_1}).
+This shift to a value much closer to unity indicates that binding of TNP-ATP to W311*,C166S-GFP+SUR1 favours the closed state far less than binding of TNP-ATP to W311*-GFP+SUR1.
+Equivalently, binding of TNP-ATP to the mutant channel is less able to induce closure of the pore.
+Thus, even at millimolar concentrations of TNP-ATP when all of the Kir6.2 subunits are predicted to be bound, the K\ATP{} channels are still able to open.
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[t]{0.9\textwidth}
+		\caption{}\label{ch5fig:c166s_mwc_params_1}
+		\centering
+		\includegraphics[width=\textwidth]{mwc_c166s_2.pdf}
+	\end{subfigure}
+	\vfill
+	\begin{subfigure}[t]{0.45\textwidth}
+		\caption{}\label{ch5fig:c166s_mwc_params_2}
+		\centering
+		\includegraphics[width=\textwidth]{mwc_c166s_3.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.45\textwidth}
+		\caption{}\label{ch5fig:tea_trace}
+		\centering
+		\includegraphics[width=\textwidth]{tea_trace.pdf}
+	\end{subfigure}
+	\vfill
+	\begin{subfigure}[t]{0.45\textwidth}
+		\caption{}\label{ch5fig:tea_drc}
+		\centering
+		\includegraphics[width=\textwidth]{tea_drc.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.45\textwidth}
+		\caption{}\label{ch5fig:l_d_sim}
+		\centering
+		\includegraphics[width=\textwidth]{c166s_param_sim_1.pdf}
+	\end{subfigure}
+	\caption[C166S alters apparent nucleotide sensitivity, but not binding]{
+	}\label{ch5fig:c166s_1}
+\end{figure}
+
+
 
 \subsection{Mutations at E179 alter both inhibition and binding}
 
