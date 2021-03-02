@@ -145,8 +145,8 @@ Residue E179 of Kir6.2 is located in the C-terminal region of Kir6.2 between the
 In some early homology models and predicted structures of Kir6.2, it was theorised that E179 would form part of the nucleotide binding pocket directly, potentially coordinating the adenine ring of ATP directly through hydrogen bonding.
 In another, it was hypothesised to form part of the PIP\textsubscript{2} binding pocket instead.
 Electrophysiological experiments painted a confusing picture of the residues role.
-Mutation to amino acids capable of forming hydrogen bonds (Q and N) resulted in no change in the IC\textsubscript{50} for nucleotide inhibition (although a separate study fpund that Q increased the IC\textsubscript{50}), while only one of two amino acids incapable of forming hydrogen bonds tested (M and L) resulted in an increased IC\textsubscript{50}.
-In addition, mutation of the residue to asparagine not only dramatically increased the nucleotide IC\textsubscript{50}, but increased the intrinsic open probability of the channel.
+Mutation to an amino acid capable of forming hydrogen bonds (Q) resulted in no change in the IC\textsubscript{50} for nucleotide inhibition (although a separate study fpund that Q increased the IC\textsubscript{50}), while only one of two amino acids incapable of forming hydrogen bonds tested (M and L) resulted in an increased IC\textsubscript{50}.
+In addition, mutation of the residue to asparagine (which is not capable of forming hydrogen bonds) not only dramatically increased the nucleotide IC\textsubscript{50}, but increased the intrinsic open probability of the channel.
 
 The cryo-EM structures of K\ATP{} in complex with ATP revealed that bound ATP adopted a radically different conformation to that proposed in early models, and the E179 side chain actually lies over \SI{8}{\angstrom} away from bound ATP.
 Unfortunately, no structure has been resolved in the presence of PIP\textsubscript{2} to date.
@@ -154,11 +154,29 @@ However, coarse-grained molecular dynamics simulations using the cryo-EM structu
 In addition, mutation to E179K results in reduced inhibition of the channel by the sequestering agent neomycin - potentially due to an increased affinity of the mutated residue for PIP\textsubscript{2}.
 
 To attempt to resolve the precise role of E179 in nucleotide binding and inhibition, we first determined how ATP and TNP-ATP inhibiton of K\ATP{} channels was affected by mutation of E179 to A or K.
+For E179A-GFP+SUR1 and E179K-GFP+SUR1, we observed an increase in IC\textsubscript{50} for both ATP and TNP-ATP inhibition.
+ATP inhibition did not seem to be influenced by the identity of the replacement amino acid (x and x respectively), while TNP-ATP inhibition was more reduced by mutation to a K rather than an A ( x and x respectively).
+Introducing the mutations into the ANAP-labelled construct did not affect the relative changes in inhibition by either nucleotide, with ATP inhibition occurring at similar IC\textsubscript{50}s for A and K (x and x respectively) and with K increasing the IC\textsubscript{50} for TNP-ATP more than A (x and x respectively).
+Measurements of TNP-ATP binding mirrored our observations for current inhibition by TNP-ATP, with mutation to both A and K resulting in an increased apparant binding EC\textsubscript{50}, with K having more of an effect than A (x and x respectively).
+Fitting the combined data to the MWC-type model, we found that both mutations resulted in a decreased $K_A$ estimate, with no apparent change in $L$.
+In addition, mutation to a K led to a $D$ value closer to unity than for E or A.
 
+We believe there are two possible ways to interpret these findings.
+The first is to accept the shift in $K_A$ at face value - a decrease in the apparent TNP-ATP binding affinity would suggest a role for residue E179 in forming the nucleotide binding pocket, and this function is abrogated by our mutations.
+Despite the distance of the residue from the bound ATP, there could be interactions between E179 and the sidechains of residues which do form the pocket (e.g. R54), such that mutation of E179 leads to alterations in the binding pocket which reduce nucleotide binding affinity and therefore our estimate of $K_A$.
+The additional effect on $D$ caused by mutating the residue to K suggests a dysregulation of the transduction of nucleotide binding to the channel pore, making nucleotides less selective for the close state.
 
-we measured TNP-ATP binding to W311*,E179A-GFP+SUR1 or W311*,E179K-GFP+SUR1 expressed in excised patches while simultaneously measuring current inhibition.
+The second interpretation is possible due to the simplification of the role of PIP\textsubscript{2} in our MWC model as discussed previously.
+Briefly, if there is an additional allosteric interaction between nucleotide and PIP\textsubscript{2} binding to Kir6.2 which is separate to the channels open/closed state, then changes in $K_A$ may reflect alterations in the affinity for PIP\textsubscript{2} binding in addition to or instead of alterations in the affinity for nucleotide binding.
+Thus, the decrease in $K_A$ upon mutation of E179 may reflect an increase in PIP\textsubscript{2} affinity and demonstrate the presence of local allostery between nucleotide and lipid.
 
-
+Distinguishing between these two interpretations is difficult given our current evidence, and essentially depends on the weight you place on the assumptions of each, but should be possible with one or two further experiments.
+Firstly, an increase in PIP\textsubscript{2} affinity should lead to an increase in channel open probability on excision (barring an effect on the relative preference of PIP\textsubscript{2} for the open state).
+Our inability to accurately determine the open probability of the macroscopic experiments described so far could be supplemented by single channel analysis of the mutants to test this directly.
+In addition, we could measure the affinity of PIP\textsubscript{2} directly in macroscopic patches.
+Finally, to definitively test the existence of local allostery between the nucleotide and PIP\textsubscript{2} binding sites, we could introduce PIP\textsubscript{2} binding mutants into the C166S background.
+C166S channels exhibit almost no nucleotide-dependent gating; i.e. nucleotide binding is uncoupled from gating of the channel pore.
+Thus, any changes observed in nucleotide binding in the C166S background when PIP\textsubscript{2} affinity is changed must be due to a local allosteric interaction which does not involve the pore.
 
 \subsection{Mutations at K39 alter both inhibition and binding}
 
