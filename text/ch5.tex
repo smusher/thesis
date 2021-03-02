@@ -4,6 +4,16 @@
 
 \minitoc
 
+\section{Introduction}
+
+Electrophysiological characterisation of K\ATP{} mutations tend to assign one of two roles to individual residues on Kir6.2.
+Firstly, if a change in the IC\textsubscript{50} value for nucleotide inhibition is observed in the absence of a change in intrinsic (or nucleotide-independent) gating, typically measured as a change in single channel open probability (although thorough studies also tend to examine the bursting characteristics of the channel), then the residue is assumed to form part of the inhibitory nucleotide binding site but not affect transduction of binding to the channel pore.
+Secondly, if a change in the IC\textsubscript{50} value for nucleotide inhibition is observed in addition to a change in intrinsic gating, the residue is assumed to regulate the relative stability of the closed and open states of the channel.
+The effects on nucleotide inhibition are taken to secondary to this main effect, due to the estalished preference of nucleotides for the closed state.
+Further interrogation of residues in this second category is very difficult using electrophysiological measures alone, as without measuirng binding of nucleotides directly it is impossible to truly separate effects on open probability from effects on binding and transduction.
+In this chapter, we aim to clarify the role of several residues implicated in regulating the inhibitory effect of nucleotides on Kir6.2 by measuring TNP-ATP
+binding directly to the inhibitory nucleotide binding site, where possible in conjunction with simultaneous current measurements.
+
 \section{Nucleotide binding}
 
 \subsection{G334D abolishes nucleotide binding}
@@ -130,6 +140,23 @@ However, we do see that even at concentrations of \SI{10}{\milli\Molar} ATP, W31
 The literature is divided on the existence of a current plateau for mutations at C166, although these experiments have been performed under a variety of different conditions and with various different Kir6.2 backgrounds.
 
 \subsection{Mutations at E179 alter both inhibition and binding}
+
+Residue E179 of Kir6.2 is located in the C-terminal region of Kir6.2 between the inhibitory nucleotide binding site and the proposed PIP\textsubscript{2} binding site.
+In some early homology models and predicted structures of Kir6.2, it was theorised that E179 would form part of the nucleotide binding pocket directly, potentially coordinating the adenine ring of ATP directly through hydrogen bonding.
+In another, it was hypothesised to form part of the PIP\textsubscript{2} binding pocket instead.
+Electrophysiological experiments painted a confusing picture of the residues role.
+Mutation to amino acids capable of forming hydrogen bonds (Q and N) resulted in no change in the IC\textsubscript{50} for nucleotide inhibition (although a separate study fpund that Q increased the IC\textsubscript{50}), while only one of two amino acids incapable of forming hydrogen bonds tested (M and L) resulted in an increased IC\textsubscript{50}.
+In addition, mutation of the residue to asparagine not only dramatically increased the nucleotide IC\textsubscript{50}, but increased the intrinsic open probability of the channel.
+
+The cryo-EM structures of K\ATP{} in complex with ATP revealed that bound ATP adopted a radically different conformation to that proposed in early models, and the E179 side chain actually lies over \SI{8}{\angstrom} away from bound ATP.
+Unfortunately, no structure has been resolved in the presence of PIP\textsubscript{2} to date.
+However, coarse-grained molecular dynamics simulations using the cryo-EM structures as a starting point indicate that E179 may form part of the PIP\textsubscript{2} binding pocket.
+In addition, mutation to E179K results in reduced inhibition of the channel by the sequestering agent neomycin - potentially due to an increased affinity of the mutated residue for PIP\textsubscript{2}.
+
+To attempt to resolve the precise role of E179 in nucleotide binding and inhibition, we first determined how ATP and TNP-ATP inhibiton of K\ATP{} channels was affected by mutation of E179 to A or K.
+
+
+we measured TNP-ATP binding to W311*,E179A-GFP+SUR1 or W311*,E179K-GFP+SUR1 expressed in excised patches while simultaneously measuring current inhibition.
 
 
 
