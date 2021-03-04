@@ -52,8 +52,8 @@ mwc_brms_formula <-
 	bf(
 		mwc_full_formula,
 		nl = TRUE,
-		logKa + logDa + logL ~ 1 + (1||unique_experiment_id),
-		sigma ~ (1||unique_experiment_id),
+		logKa + logDa + logL ~ 0 + construct + (construct||unique_experiment_id),
+		sigma ~ (1||construct),
 		family = gaussian()
 		)
 
@@ -61,9 +61,9 @@ mwc_brms_formula_restricted <-
 	bf(
 		mwc_full_formula,
 		nl = TRUE,
-		logKa + logDa ~ 1,
-		logL ~ 1 + (1||unique_experiment_id),
-		sigma ~ (1||unique_experiment_id),
+		logKa + logDa ~ 0 + construct,
+		logL ~ 0 + construct + (construct||unique_experiment_id),
+		sigma ~ (1||construct),
 		family = gaussian()
 		)
 
@@ -106,7 +106,7 @@ brms_seed <- 2021
 brm(
 	formula = mwc_brms_formula,
 	prior = mwc_brms_priors,
-	data = control_data,
+	data = concresp,
 	chains = brms_chains,
 	iter = brms_iter,
 	warmup = brms_warmup,
@@ -114,7 +114,7 @@ brm(
 	seed = brms_seed,
 	control = list(adapt_delta = 0.99, max_treedepth = 15),
 	cores = getOption("mc.cores", 4),
-	file = "data/mwc_fits_new_model/control_fit_230221_short",
+	file = "data/mwc_fits_new_model/full_fit_030321_short",
 	sample_prior = "yes",
 	save_all_pars = TRUE
 	) %>%
@@ -123,7 +123,7 @@ brm(
 brm(
 	formula = mwc_brms_formula_restricted,
 	prior = mwc_brms_priors_restricted,
-	data = control_data,
+	data = concresp,
 	chains = brms_chains,
 	iter = brms_iter,
 	warmup = brms_warmup,
@@ -131,7 +131,7 @@ brm(
 	seed = brms_seed,
 	control = list(adapt_delta = 0.99, max_treedepth = 15),
 	cores = getOption("mc.cores", 4),
-	file = "data/mwc_fits_new_model/control_fit_230221_short_restricted",
+	file = "data/mwc_fits_new_model/full_fit_030321_short_restricted",
 	sample_prior = "yes",
 	save_all_pars = TRUE
 	) %>%
