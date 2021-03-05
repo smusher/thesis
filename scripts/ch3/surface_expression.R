@@ -10,19 +10,19 @@ surface_expression <-
         read_csv("data/tmd0_surface_expression_one.csv"),
         read_csv("data/tmd0_surface_expression_two.csv")
         ) %>%
-    filter(sur_construct %in% c(NA, "SUR")) %>%
+    filter(chaperone != "TEA" | is.na(chaperone)) %>%
     mutate(
-        sur1_present = case_when(sur_construct == "SUR" ~ TRUE, is.na(sur_construct) ~ FALSE),
+        sur_construct = case_when(is.na(sur_construct) ~ "None", TRUE ~ sur_construct),
         ha_present = str_detect(kir_construct, "HA"),
         kir_construct = str_replace_all(kir_construct, "-HA", ""),
         log_counts = log10(counts)
         ) %>%
-    select(kir_construct, anap_present, sur1_present, ha_present, log_counts) %>%
+    select(kir_construct, anap_present, sur_construct, ha_present, log_counts) %>%
     drop_na()
 
 ggplot(surface_expression, aes(x = kir_construct, y = log_counts, fill = ha_present)) +
 geom_point(shape=21) +
-facet_grid(rows=vars(sur1_present), cols=vars(anap_present), labeller = label_both) +
+facet_grid(rows=vars(sur_construct), cols=vars(anap_present), labeller = label_both) +
 coord_flip()
 
 control <-
@@ -46,22 +46,23 @@ centered_prior_calc <-
 ggplot() +
 geom_point(data = centered, aes(x = kir_construct, y = centered_response, fill = ha_present), shape=21) +
 stat_dist_slab(data = centered_prior_calc, aes(dist = dist_normal(mu, sigma))) +
-facet_grid(rows=vars(sur1_present), cols=vars(anap_present), labeller = label_both) +
+facet_grid(rows=vars(sur_construct), cols=vars(anap_present), labeller = label_both) +
 coord_flip()
 
 priors <- c(
-    prior(normal(0.928, 0.753), class = Intercept),
-    prior(cauchy(0, 1), class = sd)
+    prior(normal(1, 0.7), class = b),
+    prior(cauchy(0, 1), dpar = sigma, class = Intercept),
+    prior(cauchy(0, 1), dpar = sigma, class = sd)
     )
 
-ranef_form_1 <-
+form_1 <-
     bf(
-        centered_response ~ 1 + (1 + anap_present * sur1_present * ha_present||kir_construct),
-        sigma ~ (1 + anap_present * sur1_present * ha_present||kir_construct)
+        centered_response ~ 0 + anap_present * sur_construct * ha_present * kir_construct,
+        sigma ~ (1|ha_present)
         )
 
 brm(
-    formula = ranef_form_1,
+    formula = form_1,
     family = gaussian(),
     data = centered,
     prior = priors,
@@ -69,27 +70,26 @@ brm(
     sample_prior = "yes",
     save_all_pars = TRUE,
     chains = 4,
-    iter = 10000,
-    warmup= 2000,
+    iter = 40000,
+    warmup= 20000,
     thin  = 10,
     control = list(adapt_delta = 0.99, max_treedepth = 15),
-    file = "/home/sam/thesis/data/other_fits/surface_expression_2.rds"
+    file = "/home/sam/thesis/data/other_fits/surface_expression_3.rds"
     ) -> model_1
 
 centered %>%
-expand(nesting(kir_construct, anap_present, sur1_present, ha_present)) %>%
+expand(nesting(kir_construct, anap_present, sur_construct, ha_present)) %>%
 add_predicted_draws(model_1) -> plot_1
 
 ggplot() +
-stat_slab(data = plot_1, aes(x = kir_construct, y = .prediction, colour = interaction(anap_present, ha_present)), fill = NA, size = 1) +
-geom_point(data = centered, position = position_dodge(width=0.2), aes(x = kir_construct, y = centered_response, fill = interaction(anap_present, ha_present)), shape=21, size = 2) +
-facet_grid(cols=vars(sur1_present), labeller = label_both) +
+stat_slab(data = plot_1 %>% filter(sur_construct != "TMD0_1363"), aes(x = kir_construct, y = .prediction, colour = interaction(anap_present, ha_present, sur_construct)), fill = NA, size = 1) +
+geom_point(data = centered %>% filter(sur_construct != "TMD0_1363"), position = position_dodge(width=0.2), aes(x = kir_construct, y = centered_response, fill = interaction(anap_present, ha_present, sur_construct)), shape=21, size = 2) +
 coord_flip() +
 scale_colour_brewer(palette = "Pastel1", aesthetics = c("fill", "colour"))
 
 nd_1 <-
     centered %>%
-    expand(kir_construct, ha_present, anap_present = TRUE, sur1_present = TRUE)
+    expand(kir_construct, ha_present, anap_present = TRUE, sur_construct = "SUR")
 
 predicted_draws(model_1, newdata = nd_1) %>%
 ungroup() %>%
@@ -106,7 +106,7 @@ scale_y_log10()
 
 nd_2 <-
     centered %>%
-    expand(kir_construct, ha_present, anap_present = FALSE, sur1_present = TRUE)
+    expand(kir_construct, ha_present, anap_present = FALSE, sur_construct = "SUR")
 
 predicted_draws(model_1, newdata = nd_2) %>%
 ungroup() %>%
@@ -123,7 +123,7 @@ scale_y_log10()
 
 nd_3 <-
     centered %>%
-    expand(kir_construct, anap_present, ha_present = TRUE, sur1_present = TRUE)
+    expand(kir_construct, anap_present, ha_present = TRUE, sur_construct = "SUR")
 
 predicted_draws(model_1, newdata = nd_3) %>%
 ungroup() %>%
@@ -137,3 +137,38 @@ coord_flip() +
 scale_fill_brewer(palette = "Blues", direction = -1, na.translate = FALSE) +
 labs(fill = "Interval", x = "Kir6.2 construct", y = "Fold increase in luminescence") +
 scale_y_log10()
+
+nd_4 <-
+    centered %>%
+    expand(nesting(sur_construct, anap_present = FALSE, kir_construct = "WT-GFP"), ha_present = TRUE)
+
+predicted_draws(model_1, newdata = nd_4) %>%
+ungroup() %>%
+select(kir_construct, sur_construct, .draw, .prediction) %>%
+pivot_wider(names_from = sur_construct, values_from = .prediction) %>%
+mutate(across(SUR:TMD0_232, ~.x - None, .names = "contrast_{.col}")) %>%
+select(kir_construct, .draw, starts_with("contrast")) %>%
+pivot_longer(starts_with("contrast"), names_to = "sur_construct", values_to = "contrast") -> sur_construct_contrasts_1
+
+nd_5 <-
+    centered %>%
+    expand(nesting(sur_construct, anap_present = TRUE, kir_construct = "W311*-GFP"), ha_present = TRUE)
+
+predicted_draws(model_1, newdata = nd_5) %>%
+ungroup() %>%
+select(kir_construct, sur_construct, .draw, .prediction) %>%
+pivot_wider(names_from = sur_construct, values_from = .prediction) %>%
+mutate(across(SUR:TMD0_232, ~.x - None, .names = "contrast_{.col}")) %>%
+select(kir_construct, .draw, starts_with("contrast")) %>%
+pivot_longer(starts_with("contrast"), names_to = "sur_construct", values_to = "contrast") -> sur_construct_contrasts_2
+
+sur_construct_contrasts <-
+    bind_rows(sur_construct_contrasts_1, sur_construct_contrasts_2)
+
+ggplot() +
+stat_slab(data =  sur_construct_contrasts %>% filter(sur_construct != "contrast_TMD0_1353"), aes(x = sur_construct, y = 10^contrast, fill = stat(cut_cdf_qi(cdf, .width = c(.5, .8, .95), labels = scales::percent_format())))) +
+coord_flip() +
+scale_fill_brewer(palette = "Blues", direction = -1, na.translate = FALSE) +
+labs(fill = "Interval", x = "SUR construct", y = "Fold increase in luminescence") +
+scale_y_log10() +
+facet_wrap(vars(kir_construct))

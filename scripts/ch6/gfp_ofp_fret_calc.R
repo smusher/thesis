@@ -1,5 +1,8 @@
 library(tidyverse)
 library(brms)
+library(tidybayes)
+library(ggdist)
+library(distributional)
 
 import <- function(directory, pattern) {
 
@@ -175,10 +178,11 @@ contrasts <-
     select(.draw, .prediction) %>%
     rename(contrast_ctrl = ".prediction") %>%
     left_join(plot_1 %>% filter(construct != "SUR_mOrange")) %>%
-    mutate(contrast = .prediction - contrast_ctrl)
+    mutate(contrast = .prediction)
 
 ggplot() +
 stat_slab(data = contrasts, aes(x = construct, y = exp(contrast), fill = stat(cut_cdf_qi(cdf, .width = c(.5, .8, .95), labels = scales::percent_format())))) +
+geom_point(data = mo_ratio_centered, position = position_dodge(width=0.2), aes(x = construct, y = exp(log_ratio_centered)), shape=21, size = 2) +
 coord_flip() +
 scale_fill_brewer(palette = "Blues", direction = -1, na.translate = FALSE) +
 labs(fill = "Interval", x = "Construct", y = "Fold increase in FRET") +

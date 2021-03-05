@@ -63,7 +63,6 @@ mwc_brms_formula_restricted <-
 		nl = TRUE,
 		logKa + logDa ~ 0 + construct,
 		logL ~ 0 + construct + (construct||unique_experiment_id),
-		sigma ~ (1||construct),
 		family = gaussian()
 		)
 
@@ -92,9 +91,7 @@ mwc_brms_priors_restricted <-
 		#test D prior
 		set_prior("normal(log(0.1), log(5))", nlpar = "logDa", class = "b"),
 		#standard cauchy prior for sigmas
-		set_prior("cauchy(0, 1)", nlpar = "logL", class = "sd"),
-		set_prior("cauchy(0, 1)", dpar = "sigma", class = "Intercept"),
-		set_prior("cauchy(0, 1)", dpar = "sigma", class = "sd")
+		set_prior("cauchy(0, 1)", nlpar = "logL", class = "sd")
 		)
 
 brms_iter <- 2000
@@ -112,7 +109,7 @@ brm(
 	warmup = brms_warmup,
 	thin  = brms_thin,
 	seed = brms_seed,
-	control = list(adapt_delta = 0.99, max_treedepth = 15),
+	control = list(adapt_delta = 0.95, max_treedepth = 10),
 	cores = getOption("mc.cores", 4),
 	file = "data/mwc_fits_new_model/full_fit_030321_short",
 	sample_prior = "yes",
@@ -129,7 +126,7 @@ brm(
 	warmup = brms_warmup,
 	thin  = brms_thin,
 	seed = brms_seed,
-	control = list(adapt_delta = 0.99, max_treedepth = 15),
+	control = list(adapt_delta = 0.95, max_treedepth = 10),
 	cores = getOption("mc.cores", 4),
 	file = "data/mwc_fits_new_model/full_fit_030321_short_restricted",
 	sample_prior = "yes",
