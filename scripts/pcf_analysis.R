@@ -134,107 +134,88 @@ brm(
 	) %>%
 	add_criterion("loo", moment_match=TRUE) -> test_run_2
 
-posterior <- as.array(test_run_2)
-dim(posterior)
-dimnames(posterior)
+concresp %>%
+mutate(response = case_when(measure == "fluorescence" ~ 1 - response, TRUE ~ response)) -> concresp_2
 
-mcmc_areas(
-  posterior, 
-  pars = c(
-  	"b_logKa_Intercept", "b_logDa_Intercept", "b_logL_Intercept", 
-  	"prior_b_logKa", "prior_b_logDa", "prior_b_logL"),
-  prob = 0.8, # 80% intervals
-  prob_outer = 0.99, # 99%
-  point_est = "median"
-)
-
-mcmc_pairs(
-	posterior,
-	pars = c("b_logKa_Intercept", "b_logDa_Intercept", "b_logL_Intercept"),
-    diag_fun="dens",
-    off_diag_args = list(size = 0.75, alpha = 0.2)
-    )
-
-mcmc_pairs(
-	posterior,
-	pars = c("b_logKa_Intercept", "b_logDa_Intercept", "b_logL_Intercept"),
-    diag_fun="dens",
-    off_diag_args = list(size = 0.75, alpha = 0.2),
-	transform = list(
-		b_logKa_Intercept = exp,
-		b_logDa_Intercept = exp,
-		b_logL_Intercept = exp
-		)
-    )
-
-control_data %>%
+concresp %>%
 ungroup() %>%
-expand(nesting(measure, binding_mask), concentration = 10^seq(-8, -2, length.out = 51)) %>%
+expand(nesting(construct, measure, binding_mask), concentration = 10^seq(-8, -2, length.out = 51)) %>%
 add_fitted_draws(test_run, re_formula = NA) %>%
-median_qi(.value, .width = .95) %>%
-mutate(model = "full") -> inferred_underlying_1
-
-control_data %>%
-ungroup() %>%
-expand(nesting(measure, binding_mask), concentration = 10^seq(-8, -2, length.out = 51)) %>%
-add_fitted_draws(test_run_2, re_formula = NA) %>%
-median_qi(.value, .width = .95) %>%
-mutate(model = "restricted") -> inferred_underlying_2
-
-inferred_underlying <-
-	bind_rows(inferred_underlying_1, inferred_underlying_2)
+mutate(.value = case_when(measure == "fluorescence" ~ 1 - .value, TRUE ~ .value)) %>%
+median_qi(.value, .width = .95) -> inferred_underlying
 
 ggplot() +
-geom_ribbon(data = inferred_underlying, aes(x = concentration, ymin = .lower, ymax = .upper, colour = measure, linetype = model), fill = NA) +
-geom_quasirandom(data = control_data, aes(x = concentration, y = response, fill = measure), size = 3, shape = 21, width=0.1) +
-scale_colour_brewer(aesthetics = c("colour", "fill"), palette = "Pastel1") +
-scale_x_log10()
-
-control_data %>%
-ungroup() %>%
-expand(nesting(measure, binding_mask, unique_experiment_id), concentration = 10^seq(-8, -2, length.out = 51)) %>%
-add_fitted_draws(test_run) %>%
-median_qi(.value, .width = .95) %>%
-mutate(model = "full") -> per_experiment_1
-
-control_data %>%
-ungroup() %>%
-expand(nesting(measure, binding_mask, unique_experiment_id), concentration = 10^seq(-8, -2, length.out = 51)) %>%
-add_fitted_draws(test_run_2) %>%
-median_qi(.value, .width = .95) %>%
-mutate(model = "restricted") -> per_experiment_2
-
-per_experiment <-
-	bind_rows(per_experiment_1, per_experiment_2)
-
-ggplot() +
-geom_ribbon(data = per_experiment, aes(x = concentration, ymin = .lower, ymax = .upper, colour = measure, linetype = model), fill = NA) +
-geom_point(data = control_data, aes(x = concentration, y = response, fill = measure), size = 3, shape = 21) +
+geom_ribbon(data = inferred_underlying %>% filter(construct != "W311*-GFP+SUR+MG"), aes(x = concentration, ymin = .lower, ymax = .upper, colour = measure, fill = measure), alpha = 0.5) +
+geom_quasirandom(data = concresp_2 %>% filter(construct != "W311*-GFP+SUR+MG"), aes(x = concentration, y = response, fill = measure), size = 3, shape = 21, width=0.1) +
 scale_colour_brewer(aesthetics = c("colour", "fill"), palette = "Pastel1") +
 scale_x_log10() +
-facet_wrap(vars(unique_experiment_id))
+facet_wrap(vars(construct)) +
+coord_cartesian(ylim = c(-0.1, 1.2))
+
+concresp %>%
+ungroup() %>%
+expand(nesting(construct, measure, binding_mask, unique_experiment_id), concentration = 10^seq(-8, -2, length.out = 51)) %>%
+add_fitted_draws(test_run) %>%
+mutate(.value = case_when(measure == "fluorescence" ~ 1 - .value, TRUE ~ .value)) %>%
+median_qi(.value, .width = .95) -> per_experiment
+
+ggplot() +
+geom_ribbon(data = per_experiment %>% filter(construct != "W311*-GFP+SUR+MG"), aes(x = concentration, ymin = .lower, ymax = .upper, colour = measure, fill = measure), alpha = 0.5) +
+geom_point(data = concresp_2 %>% filter(construct != "W311*-GFP+SUR+MG"), aes(x = concentration, y = response, fill = measure), size = 3, shape = 21) +
+scale_colour_brewer(aesthetics = c("colour", "fill"), palette = "Pastel1") +
+scale_x_log10() +
+facet_wrap(vars(construct, unique_experiment_id)) +
+coord_cartesian(ylim = c(-0.1, 1.2))
 
 test_run %>%
-gather_draws(`b_.*`, `sd_.*`, regex = TRUE) %>%
-mutate(model = "full") -> draws_1
-
-test_run_2 %>%
-gather_draws(`b_.*`, `sd_.*`, regex = TRUE) %>%
-mutate(model = "restricted") -> draws_2
-
-draws <-
-	bind_rows(draws_1, draws_2) %>%
-	mutate(.value = case_when(
-		.variable == "b_logL_Intercept" ~ exp(.value)/(1+exp(.value)),
-		TRUE ~ .value)
-	)
+gather_draws(`b_.*`, regex = TRUE) %>%
+separate(.variable, into = c(".variable", "construct"), sep = "_construct") %>%
+group_by(construct, .variable) -> draws_1
 
 ggplot() +
 stat_slab(
-    data = draws,
-    aes(y = model, x = .value, fill = model, fill_ramp = stat(cut_cdf_qi(cdf, .width = c(.5, .8, .95), labels = scales::percent_format())))
+    data = draws_1 %>% filter(!is.na(construct)),
+    aes(y = construct, x = exp(.value), fill = construct, fill_ramp = stat(cut_cdf_qi(cdf, .width = c(.5, .8, .95), labels = scales::percent_format())))
     ) +
-scale_fill_brewer(palette = "Pastel1", aesthetics = c("fill", "colour")) +
 scale_fill_ramp_discrete(range = c(1, 0.2), na.translate = FALSE) +
 labs(fill_ramp = "Interval") +
-facet_wrap(vars(.variable), scales = "free")
+facet_wrap(vars(.variable), scales = "free") +
+theme(legend.position = "none") +
+scale_x_log10()
+
+test_run %>%
+gather_draws(`sd_.*`, regex = TRUE) %>%
+separate(.variable, into = c(".variable", "construct"), sep = "_construct") %>%
+group_by(construct, .variable) -> draws_2
+
+ggplot() +
+stat_slab(
+    data = draws_2 %>% filter(!is.na(construct), construct != "__sigma_Intercept"),
+    aes(y = construct, x = exp(.value), fill = construct, fill_ramp = stat(cut_cdf_qi(cdf, .width = c(.5, .8, .95), labels = scales::percent_format())))
+    ) +
+scale_fill_ramp_discrete(range = c(1, 0.2), na.translate = FALSE) +
+labs(fill_ramp = "Interval") +
+facet_wrap(vars(.variable), scales = "free") +
+theme(legend.position = "none") +
+scale_x_log10() +
+coord_cartesian(xlim = c(1, 30))
+
+prior_samples(test_run) %>%
+as_tibble() %>%
+pivot_longer(everything(), names_to = ".variable", values_to = ".value") %>%
+mutate(construct = "prior") -> priors
+
+ggplot() +
+stat_slab(
+    data = priors,
+    aes(y = construct, x = exp(.value)), colour = "black", fill = NA, linetype = 2
+    ) +
+stat_slab(
+    data = draws_1 %>% filter(construct == "W311MUMGFPPSUR"),
+    aes(y = construct, x = exp(.value), fill = construct, fill_ramp = stat(cut_cdf_qi(cdf, .width = c(.5, .8, .95), labels = scales::percent_format())))
+    ) +
+scale_fill_ramp_discrete(range = c(1, 0.2), na.translate = FALSE) +
+labs(fill_ramp = "Interval") +
+facet_wrap(vars(.variable), scales = "free") +
+theme(legend.position = "none") +
+scale_x_log10()
