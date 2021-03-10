@@ -6,21 +6,37 @@
 
 \section{Designing a nucleotide binding assay}
 
-\subsection{Criteria for a useful assay}
+\subsection{Criteria for a useful assay for nucleotide binding to Kir6.2}
 
-Previous approaches to measuring nucleotide binding directly have relied on isolating binding to individual classes of site by disrupting protein function; either by introducing mutations which abolish binding to a particular site or by measuring binding to Kir6.2 or SUR1 alone.
-Traditionally, assays such as radioligand binding experiments require purifying the protein out of it's native membrane environment, thus rendering the channels nonfunctional.
+Previous approaches to measuring nucleotide binding directly to the different binding sites  of K\ATP{} have relied on isolating binding to individual classes of site by disrupting protein function; either by introducing mutations which abolish binding to a particular site, by measuring binding to Kir6.2 or SUR1 alone, or by measuring binding to fragments of the two subunits.
 
+Two key studies have attempted to measure nucleotide binding to the inhibitory site on Kir6.2 directly.
+The first relied on photoaffinity labelling of Kir6.2 by the radionucleotide 8-azido-[\textgreek{g}-\textsuperscript{32}P]-ATP \cite{tanabe_direct_1999}.
+In these experiments, Kir6.2 with an N-terminal FLAG-tag was expressed in COS-7 cells, and membranes were separated by centrifugation.
+After incubating the membrane fractions with 8-azido-[\textgreek{g}-\textsuperscript{32}P]-ATP, application of UV light results in a covalent linkage between the bound 8-azido-[\textgreek{g}-\textsuperscript{32}P]-ATP and Kir6.2.
+After separation of the membrane fraction proteins on a gel, the quantity of bound radionucleotide can then by quantified by counting the radioactivity of the band corresponding to Kir6.2.
+These experiments were able to definitively establish that the inhibitory nucleotide binding site of K\ATP{} was on Kir6.2, and suggested that the Kir6.2 binding site possessed a lower affinity toward the radionucleotide than the SUR1 binding sites.
+
+The second made use of a fluorescent congener for ATP, trinitrophenyl (TNP)-ATP.
+TNP-ATP had previously been used in binding measurements of purified proteins due to it's increased quantum yield (and thus increase in observed fluorescence) upon binding (need a ref).
+TNP-ATP is most commonly used as an antogonist of P2X receptors, which are also sensitive to endogenous ATP.
+The authors measured binding of TNP-ATP to the purified carboxyl terminal of Kir6.2 (residues 169 to 354) solubilised by linking it to mannose binding protein (MBP) \cite{vanoye_carboxyl_2002}.
+The increased fluoresence of TNP-ATP when bound to the Kir6.2-MBP construct could be measured in a spectrometer, and allowed for equlibrium measurements of nucleotide binding.
+These experiments were able to establish an initial estimate for the binding affinity of the Kir6.2 site for TNP-ATP at \SI{5}{\micro\Molar}.
+
+These studies were hampered by the need to isolate the Kir6.2 binding site from the two SUR1 binding sites, which leads to unphysiological experimental conditions.
 To improve on these methods, an ideal assay measuring nucleotide binding to the K\ATP{} channel neeeds to fulfill a number of criteria.
 
 \begin{enumerate}
 	\item We need sufficient spatial sensitivity to distinguish between different classes of binding site; i.e. the assay should be capable of distingushing binding to Kir6.2 from binding to NBS1 or NBS2.
-	\item We should be able to measure binding to a functional channel, for which we need to be able to measure binding in a membrane.
+	\item We should be able to measure binding to a channel which we know is functional, so our experimental conditions cannot be drastically different from those used to measure channel function.
 	\item There should be minimal perturbation of the channel in order for binding measurements to be physiologically relevant.
+	\item For accurate measures of affinity, binding should be at equilibrium so we cannot use covalent interactions or other forms of non-equilibrium labelling.
+	\item We should be able to achieve a higher temporal resolution.
 \end{enumerate}
 
 TO fulfill these criteria, we used an approach involving a fluorescent unnatural amino acid, ANAP.
-ANAP has been used increasing widely in the study of ion channel structure and function due to a few desirable qualities.
+ANAP has been used increasing widely in the study of ion channel structure and function due to several desirable qualities.
 
 \begin{enumerate}
 	\item It is smaller than traditional fluorescent labels such as fluorescent proteins or rhodamine derivatives.
@@ -28,6 +44,7 @@ ANAP has been used increasing widely in the study of ion channel structure and f
 	\item As it is an amino acid, it can be site-specifically inserted into any protein.
 	This avoids the issues of other small chemical dyes which are targeted to a site via post-translational covalent modifications, typically by reacting with a cysteine residue.
 	While this can be avoided in some proteins by mutating each cysteine residue to an alternative residue to avoid off-target labelling, there are functionally important cysteines in the K\ATP{} channel which cannot be mutated.
+	In addition, this does not solve the problem of off-target labelling of other membrane proteins
 	\item ANAP is environmentally sensitive, which has been used to great effect in other studies.
 	Notably, the peak emission ranges from \textasciitilde450nm to \textasciitilde490nm depending on the hydrophobicity of the surrounding environment.
 \end{enumerate}
@@ -36,8 +53,7 @@ Initially, we hoped that the environmental sensitivity of ANAP fluorescence migh
 Unfortunately, when we introduced ANAP directly into the Kir6.2 binding site in place of residues I182 or F183 we were not able to observe any functional K\ATP{} channels at the cell membrane.
 
 Instead, we turned to FRET as a reporter for ATP binding.
-As ATP itself is not fluorescent, and has no intrinsic fluorescence quenching, we identified trinitrophenyl (TNP) -ATP as a fluorescent congener (Figure \ref{ch3fig:chemical_structures}).
-TNP-ATP is most commonly used as an antogonist of P2X receptors, which are also sensitive to endogenous ATP.
+As ATP itself is not fluorescent, and has no intrinsic fluorescence quenching, we turned to TNP-ATP (Figure \ref{ch3fig:chemical_structures}).
 TNP-ATP is an excellent FRET partner of ANAP, as evidenced by the good overlap in the TNP emission spectra and the ANAP extinction spectra (Figure \ref{ch3fig:spectral_overlap}).
 This leads to a theoretical distance-dependency of FRET which is most sensitive between \SIrange{20}{60}{\angstrom} (Figure \ref{ch3fig:fret_efficiency}) with a calculated R0 of \SI{38.4}{\angstrom}.
 
@@ -85,10 +101,11 @@ Ideally, a residue should be chosen to maximise the following aims:
 	\item It also needs to be far enough from each other class of nucleotide binding site to avoid quenching by TNP-ATP bound to other sites.
 	\item In addition to avoiding interference from other classes of binding site, we also need to avoid cross-talk between nucleotide binding sites of the same class on different subunits, as this would lead to difficulty interpreting the measured quenching.
 	The ideal theoretical solution would be labelling only one nucleotide binding site per ion channel, but without using a concatemer this is not so easy in practise.
+	\item More practically, incorporation of ANAP should not lead to drastic changes in nucleotide binding or channel gating properties, and the complete K\ATP{} channel needs to be expressed on the membrane.
 \end{enumerate}
 
 To narrow down which residues could be candidates for ANAP incorporation to measure binding at Kir6.2, we took three cryo-EM structures of K\ATP{} with ATP bound and computationally docked TNP-ATP into the nucleotide binding pocket (Figure \ref{ch3fig:docking}).
-To assess the validity of computationally docking a ligand to each structure, we first attempted to dock ATP to check that the highest-scoring binding poses were similar to those observed in the cryo-EM structures.
+To assess the validity of computationally docking a ligand to each structure, we first attempted to dock ATP into the inhibitory binding pocket of Kir6.2 to check that the highest-scoring binding poses were similar to those observed in the cryo-EM structures.
 Docking ATP to both \#6C3P and \#6C3O yielded binding poses which were very similar to the pose found in the cryo-EM structures (Figures \ref{ch3fig:6c3p_docking}, \ref{ch3fig:6c3o_docking}).
 However, docking ATP to \#6BAA resulted in binding poses which were in a flipped orientation relative to the pose found in the cryo-EM structure (Figure \ref{ch3fig:6baa_docking}).
 
@@ -100,9 +117,9 @@ Based on the predicted TNP-ATP poses for \#6BAA and \#6C3P, we could narrow down
 In addition, we excluded residues which fell within \SI{45}{\angstrom} of NBS1 or NBS2, as this restricts the potential FRET between TNP-ATP bound at these sites and our chosen residue to roughly \SI{25}{\percent} or less.
 While we can exclude residues which fall too close to the NBS's of SUR1, the close proximity of the Kir6.2 nucleotide binding sites to each other means that we cannot exclude intersubunit FRET occuring; i.e. TNP-ATP binding to a neighbouring subunit will also be able to quench ANAP to a certain extent. However, this occurs in a predictable way that we can measure and account for.
 
-We targeted two residues which fulfilled these criteria; F183 and W311.
-In addition, they are both bulky hydrophobic residues similar to ANAP, and at which no mutations have been previously identified to alter K\ATP{} function.
-To determine the extent to which crosstalk between neighbouring subunits would affect the measure FRET efficiency at these sites, we simulated the expected FRET for a single K\ATP{} channel bound to 0-4 molecules of TNP-ATP in an idealised scenario with no crosstalk, and compared the observed fluorescence quenching to a scenario including the possibility of crosstalk (Figure \ref{ch3fig:exifret_out}).
+We ended up with one residue which fulfilled these criteria and for which membrane expression of the ANAP-incorporated channel could be detected: W311.
+It is a bulky hydrophobic residue similar to ANAP, and no mutations at this residue have been previously identified to alter K\ATP{} function.
+To determine the extent to which crosstalk between neighbouring subunits would affect the measure FRET efficiency when ANAP is incorporated at position 311, we simulated the expected FRET for a single K\ATP{} channel bound to 0-4 molecules of TNP-ATP in an idealised scenario with no crosstalk, and compared the observed fluorescence quenching to a scenario including the possibility of crosstalk (Figure \ref{ch3fig:exifret_out}).
 Due to the much shorter fluorescence lifetime of TNP-ATP compared to ANAP, we observe a deviation from the ideal scenario.
 We can correct for this systematic deviation by transforming our observed ANAP quenching ($F/F_{max}$) into $log_2(\frac{F}{F_{max} + 1})$.
 
@@ -390,6 +407,8 @@ We observed no change in the locations of those peaks in the presence of ATP or 
 Perfusing TNP-ATP results in a decrease in the peak corresponding to ANAP fluorescence, and a concomittant increase in a fluorescence peak which corresponds to the TNP-ATP (Figure \ref{ch3fig:unroofed_spectral_traces}).
 This phenomenon is the fresult of FRET between TNP-ATP bound to the channel at the Kir6.2 binding site.
 The decrease in ANAP fluorescence is almost directly correlated to an increase in bound nucleotide.
+We chose to measure the decrease in ANAP fluorescence rather than the increase in TNP-ATP fluorescence or the change in the ratio of ANAP:TNP-ATP fluorescence as we know that the ANAP fluorescence is specific to the Kir6.2 binding site.
+Increases in TNP-ATP fluorescence could in part be due to direct excitation of TNP-ATP bound to other membrane proteins.
 We can plot the quenching of ANAP fluorescence as a concentration-response curve as in Figure \ref{ch3fig:unroofed_intensities}.
 
 \begin{figure}[h]

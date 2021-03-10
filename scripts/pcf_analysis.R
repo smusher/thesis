@@ -25,6 +25,15 @@ concresp <-
     		)
     	)
 
+concresp %>%
+	group_by(construct, measure) %>%
+	mutate(
+		corrected_response = case_when(
+			measure == "fluorescence" ~ (log2(response + 1) - 0.1) / (max(mean(log2(response + 1))) - 0.1),
+			TRUE ~ response
+			)
+		)
+
 control_data <-
 	concresp %>%
 	filter(construct == "W311*-GFP+SUR")
