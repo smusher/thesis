@@ -9,10 +9,6 @@ source("scripts/ch4/mwc_modelling_functions.R")
 concresp <-
     read_csv("data/combined_drc_data.csv") %>%
     filter(concentration > 0, method == "pcf") %>%
-    mutate(
-        response = case_when(measure == "fluorescence" ~ 1 - response, TRUE ~ response),
-        binding_mask = case_when(measure == "fluorescence" ~ 1, TRUE ~ 0)
-    ) %>%
     group_by(unique_experiment_id) %>%
     mutate(observations = n()) %>%
     filter(observations >= 3) %>%
@@ -23,16 +19,17 @@ concresp <-
     		response > 1.1 ~ 1.1,
     		TRUE ~ response
     		)
-    	)
+    	) %>%
+    mutate(
+        response = case_when(measure == "fluorescence" ~ (1 - (log2(response + 1))) / 0.9, TRUE ~ response),
+        binding_mask = case_when(measure == "fluorescence" ~ 1, TRUE ~ 0)
+    )
 
-concresp %>%
-	group_by(construct, measure) %>%
-	mutate(
-		corrected_response = case_when(
-			measure == "fluorescence" ~ (log2(response + 1) - 0.1) / (max(mean(log2(response + 1))) - 0.1),
-			TRUE ~ response
-			)
-		)
+ggplot() +
+geom_point(data = concresp, aes(x = concentration, y = response, colour = unique_experiment_id)) +
+scale_color_viridis_c() +
+facet_wrap(vars(construct)) +
+scale_x_log10()
 
 control_data <-
 	concresp %>%
@@ -62,7 +59,7 @@ mwc_brms_formula <-
 		mwc_full_formula,
 		nl = TRUE,
 		logKa + logDa + logL ~ 0 + construct + (construct||unique_experiment_id),
-		sigma ~ (1||construct),
+		sigma ~ (1||construct:binding_mask),
 		family = gaussian()
 		)
 
@@ -72,6 +69,7 @@ mwc_brms_formula_restricted <-
 		nl = TRUE,
 		logKa + logDa ~ 0 + construct,
 		logL ~ 0 + construct + (construct||unique_experiment_id),
+		sigma ~ (1||construct:binding_mask),
 		family = gaussian()
 		)
 
@@ -100,7 +98,9 @@ mwc_brms_priors_restricted <-
 		#test D prior
 		set_prior("normal(log(0.1), log(5))", nlpar = "logDa", class = "b"),
 		#standard cauchy prior for sigmas
-		set_prior("cauchy(0, 1)", nlpar = "logL", class = "sd")
+		set_prior("cauchy(0, 1)", nlpar = "logL", class = "sd"),
+		set_prior("cauchy(0, 1)", dpar = "sigma", class = "Intercept"),
+		set_prior("cauchy(0, 1)", dpar = "sigma", class = "sd")
 		)
 
 brms_iter <- 2000
@@ -120,11 +120,10 @@ brm(
 	seed = brms_seed,
 	control = list(adapt_delta = 0.95, max_treedepth = 10),
 	cores = getOption("mc.cores", 4),
-	file = "data/mwc_fits_new_model/full_fit_030321_short",
+	file = "data/mwc_fits_new_model/full_fit_110321_short",
 	sample_prior = "yes",
 	save_all_pars = TRUE
-	) %>%
-	add_criterion("loo", moment_match=TRUE) -> test_run
+	) -> test_run
 
 brm(
 	formula = mwc_brms_formula_restricted,
@@ -137,11 +136,10 @@ brm(
 	seed = brms_seed,
 	control = list(adapt_delta = 0.95, max_treedepth = 10),
 	cores = getOption("mc.cores", 4),
-	file = "data/mwc_fits_new_model/full_fit_030321_short_restricted",
+	file = "data/mwc_fits_new_model/full_fit_110321_short_restricted",
 	sample_prior = "yes",
 	save_all_pars = TRUE
-	) %>%
-	add_criterion("loo", moment_match=TRUE) -> test_run_2
+	) -> test_run_2
 
 concresp %>%
 mutate(response = case_when(measure == "fluorescence" ~ 1 - response, TRUE ~ response)) -> concresp_2
