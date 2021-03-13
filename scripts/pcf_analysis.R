@@ -162,7 +162,7 @@ coord_cartesian(ylim = c(-0.1, 1.2))
 concresp %>%
 ungroup() %>%
 expand(nesting(construct, measure, binding_mask, unique_experiment_id), concentration = 10^seq(-8, -2, length.out = 51)) %>%
-add_fitted_draws(test_run) %>%
+add_fitted_draws(test_run, allow_new_levels=TRUE) %>%
 mutate(.value = case_when(measure == "fluorescence" ~ 1 - .value, TRUE ~ .value)) %>%
 median_qi(.value, .width = .95) -> per_experiment
 
