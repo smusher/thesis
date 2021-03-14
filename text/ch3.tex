@@ -370,27 +370,18 @@ This could potentially be due to extra contacts made by the TNP moiety with Kir6
 		\includegraphics[width=\textwidth]{tnpatp_inhibition_2.pdf}
 	\end{subfigure}
 	\vfill
-	\begin{subfigure}[t]{0.45\textwidth}
+	\begin{subfigure}[t]{0.6\textwidth}
 		\caption{}\label{ch3fig:ec50_fits_1}
 		\centering
 		\includegraphics[width=\textwidth]{ec50_fits_1.pdf}
 	\end{subfigure}
-	\hfill
-	\begin{subfigure}[t]{0.45\textwidth}
-		\caption{}\label{ch3fig:ec50_fits_2}
-		\centering
-		\includegraphics[width=\textwidth]{ec50_fits_2.pdf}
-	\end{subfigure}
-	\caption[WT-GFP and W311*-GFP electrophysology]{
+	\caption[WT-GFP and W311*-GFP electrophysiology]{
 	\subref{ch3fig:atp_inhibition_1},  \subref{ch3fig:tnpatp_inhibition_1}Inhibition of current by ATP (\subref{ch3fig:atp_inhibition_1}) or TNP-ATP (\subref{ch3fig:tnpatp_inhibition_1}) in excised patches expressing either WT-GFP+SUR1 (blue) or W311*-GFP+SUR1 (orange).
 	Each point represents an individual measurement normalised to the maximum current observed in that patch.
-	The smooth curve is a fit to equation \ref{eq:hill}, yielding the following paramter estimates:
-	WT-GFP+SUR1/ATP: $IC_{50} = \SI{32.4}{\micro\Molar}, hill = 1.36, I_{max} = 0.99$.
-	W311*-GFP+SUR1/ATP: $IC_{50} = \SI{95.5}{\micro\Molar}, hill = 1.36, I_{max} = 0.99$.
-	WT-GFP+SUR1/TNP-ATP: $IC_{50} = \SI{1.15}{\micro\Molar}, hill = 0.95, I_{max} = 1.00$.
-	W311*-GFP+SUR1/TNP-ATP: $IC_{50} = \SI{5.62}{\micro\Molar}, hill = 1.04, I_{max} = 0.93$.
-	\subref{ch3fig:atp_inhibition_2}, \subref{ch3fig:tnpatp_inhibition_2} Each experiment was individually fit to equation \ref{eq:hill} with the $hill$ and $I_{max}$ parameters fixed to their estimates from \subref{ch3fig:atp_inhibition_1} and  \subref{ch3fig:tnpatp_inhibition_1}.
-	\subref{ch3fig:ec50_fits_1}, \subref{ch3fig:ec50_fits_2} $IC_{50}$ values from fits to individual experiments are shown as points, and posterior probability distributions for the estimated population $IC_50$ value are shown coloured according to their intervals.
+	The smooth filled curves are the \SI{95}{\percent} intervals of the posterior probability distribution of fits to equation \ref{eq:hill} as described in the methods.
+	\subref{ch3fig:atp_inhibition_2}, \subref{ch3fig:tnpatp_inhibition_2} Data from each experiment is shown separately.
+	The smooth filled curves are the \SI{95}{\percent} intervals of the posterior predictions for each experiment.
+	\subref{ch3fig:ec50_fits_1} Posterior probability distributions for the population $IC_{50}$ values for inhibition by ATP (blue) or TNP-ATP (orange).
 	}
 \end{figure}
 
@@ -520,11 +511,11 @@ Notably, this EC\textsubscript{50} is somewhat right-shifted compared to the IC\
 	\subref{ch3fig:tnpatp_quenching_1} Fluorescence quenching of W311*-GP+SUR1 by TNP-ATP in unroofed membrane patches.
 	Each uncorrected point (white with dashed blue outline) represents an individual measurement normalised to the maximum current observed in that unroofed membrane.
 	Each corrected point (blue filled points) has been transformed to $log_2(\frac{F}{F_{max}}+1)$.
-	The smooth curves are fits to equation \ref{eq:hill}, yielding the following parameter estimates:
-	Uncorrected: $EC_{50} = \SI{25.7}{\micro\Molar}, hill = 0.82, E_{max} = 0.93$.
-	Corrected: $EC_{50} = \SI{36.3}{\micro\Molar}, hill = 0.82$, with  $E_{max}$ set to $0.1$.
-	\subref{ch3fig:ec50_fits_3} $EC_{50}$ values from fits to individual experiments shown in \subref{ch3fig:tnpatp_quenching_2} are shown as points, and posterior probability distributions for the estimated population $EC_50$ value are shown coloured according to their intervals.
-	Uncorrected values and their posterior probability distributions are shown as white points with a dashed blue outline and a dashed blue curve, respectively.
+	The smooth filled curves are the \SI{95}{\percent} intervals of the posterior probability distribution of fits to equation \ref{eq:hill} as described in the methods.
+	The dashed curve is the median of the fits to the uncorrected data.
+	\subref{ch3fig:ec50_fits_3} Posterior probability distribution for the population $EC_{50}$ values from fits to the corrected $F/F_{max}$ data.
+	\subref{ch3fig:tnpatp_quenching_2} Data from each experiment is shown separately.
+	The smooth filled curves are the \SI{95}{\percent} intervals of the posterior predictions for each experiment.
 	}
 \end{figure}
 

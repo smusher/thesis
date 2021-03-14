@@ -177,17 +177,26 @@ coord_cartesian(ylim = c(-0.1, 1.2))
 test_run %>%
 gather_draws(`b_.*`, regex = TRUE) %>%
 separate(.variable, into = c(".variable", "construct"), sep = "_construct") %>%
-group_by(construct, .variable) -> draws_1
+group_by(construct, .variable) %>%
+mutate(model = "full") -> draws_1
+
+test_run_2 %>%
+gather_draws(`b_.*`, regex = TRUE) %>%
+separate(.variable, into = c(".variable", "construct"), sep = "_construct") %>%
+group_by(construct, .variable) %>%
+mutate(model = "restricted") -> draws_2
+
+draws <- bind_rows(draws_1, draws_2)
 
 ggplot() +
 stat_slab(
-    data = draws_1 %>% filter(!is.na(construct)),
-    aes(y = construct, x = exp(.value), fill = construct, fill_ramp = stat(cut_cdf_qi(cdf, .width = c(.5, .8, .95), labels = scales::percent_format())))
+    data = draws %>% filter(!is.na(construct)),
+    position = position_dodge(0.2),
+    aes(y = construct, x = exp(.value), fill = model, fill_ramp = stat(cut_cdf_qi(cdf, .width = c(.5, .8, .95), labels = scales::percent_format())))
     ) +
 scale_fill_ramp_discrete(range = c(1, 0.2), na.translate = FALSE) +
 labs(fill_ramp = "Interval") +
 facet_wrap(vars(.variable), scales = "free") +
-theme(legend.position = "none") +
 scale_x_log10()
 
 test_run %>%

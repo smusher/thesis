@@ -270,7 +270,7 @@ median_qi(.value, .width = .95) -> inferred_underlying
 
 ggplot() +
 geom_ribbon(data = inferred_underlying, aes(x = 10^log_concentration, ymin = .lower, ymax = .upper, colour = construct_method, fill = construct_method), alpha = 0.5) +
-geom_quasirandom(data = fluorescence, aes(x = 10^log_concentration, y = response, fill = construct_method), size = 3, shape = 21, width=0.1) +
+geom_quasirandom(data = fluorescence, aes(x = 10^log_concentration, y = log2(response+1), fill = construct_method), size = 3, shape = 21, width=0.1) +
 scale_color_viridis_d(aesthetics = c("colour", "fill")) +
 scale_x_log10() +
 scale_y_continuous(breaks = c(0, 0.5, 1), minor_breaks = c(0.25, 0.75)) +
