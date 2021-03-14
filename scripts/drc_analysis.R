@@ -516,3 +516,21 @@ stat_slab(
     ) +
 scale_fill_brewer(palette = "Blues", direction = -1) +
 theme(legend.position = "none")
+
+c_draws_1 %>%
+group_by(.variable, construct_nucleotide) %>%
+median_qi(.value, .width = .95) %>%
+ungroup() %>%
+filter(.variable == "b_ec50") %>%
+select(construct_nucleotide, .value, .lower, .upper) %>%
+mutate(across(starts_with("."), ~(10^.x)*1e6)) %>%
+print(width=500, n=100)
+
+f_draws_1 %>%
+group_by(.variable, construct_method) %>%
+median_qi(.value, .width = .95) %>%
+ungroup() %>%
+filter(.variable == "b_ec50") %>%
+select(construct_method, .value, .lower, .upper) %>%
+mutate(across(starts_with("."), ~(10^.x)*1e6)) %>%
+print(width=500, n=100)

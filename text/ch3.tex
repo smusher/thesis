@@ -287,7 +287,7 @@ When ANAP is incorporated at either residue 183 or 311 (F183* and W311* respecti
 The presence of the C-terminal GFP tag increases luminescence further for both constructs, dramatically so for W311*.
 However, when F183* is transfected and ANAP is not present in the culture media we still see a similar increase in fluorescence over background when compared to the luminescence when ANAP is present (Figure \ref{ch3fig:surface_expression_1}, \ref{ch3fig:surface_expression_4}), suggesting that a large proportion of the protein reaching the membrane does not have ANAP incorporated.
 In contrast, when W311*-GFP is transfected with SUR1 in the presence of ANAP, we see a 10-fold increase in luminescence compared to when ANAP is not present, consitent with the majority of surface expressed protein incorporating ANAP.
-We also see a consistent increase in luminescence for all constructs aside from W311* due to cotransfection with SUR1 (Figure \ref{ch3fig:surface_expression_2}), suggesting that the incorporation of ANAP and the addition of a C-terminal GFP tag do not affect the role of SUR1 in froming the full K\ATP{} complex and trafficking to the membrane.
+We also see a consistent increase in luminescence for all constructs aside from W311* due to cotransfection with SUR1 (Figure \ref{ch3fig:surface_expression_2}), suggesting that the incorporation of ANAP and the addition of a C-terminal GFP tag do not affect the role of SUR1 in forming the full K\ATP{} complex and trafficking to the membrane.
 
 \begin{figure}[h]
 	\centering
@@ -329,18 +329,18 @@ To establish whether W311*-GFP formed K\ATP{} channels with similar function to 
 Excision was performed in Mg\textsuperscript{2+}-free solution to reduce rundown and to prevent activation of the channel by nucleotides.
 We observed similar magnitudes of current for both WT-GFP and W311*-GFP, and currents ran own at similar rates.
 
-We fit our full dataset with equation \ref{eq:hill} (Figure \ref{ch3fig:atp_inhibition_1}), and used the estimated $h$ and $I_{max}$ parameters to fit each individual experiment and determine an $IC_{50}$ value (plotted as points in Figure \ref{ch3fig:atp_inhibition_2}).
-The $IC_{50}$ values were fit with a random effects model with values grouped by construct and nucleotide.
-The posterior probability distributions of this model are also shown in Figure \ref{ch3fig:atp_inhibition_2}.
-These distributions reflect the variability of the observed data, not our uncertainty of the underlying $IC_{50}$ value; i.e. we would expect \SI{95}{\percent} of all future observations for a given construct and nucleotide to fall within the \SI{95}{\percent} intervals of the distributions.
-For all $IC_50$ and $EC_{50}$ values fitted this way, in the text we will report the \SI{95}{\percent} confidence intervals of the parameter estimate, which reflects only our uncertainty of the true value and not experimental variability.
+We fit our inhibition data with equation \ref{eq:hill} (Figure \ref{ch3fig:atp_inhibition_1}) as described in the methods.
+Briefly, our fitting procedure assumes that there is a population parameter for $IC_{50}$, $I_{max}$ and $h$, and an additional 'random' effect on $IC_{50}$ that can differ between experiments (shown in Figure \ref{ch3fig:atp_inhibition_2}).
+Our fits result in posterior probability distributions for the population $IC_{50}$ parameter shown in blue in Figure \ref{ch3fig:ec50_fits_1}.
+These distributions reflect our confidence in the population parameter for the $IC_{50}$, marginalising over the random effect of different experiments.
+For all $IC_50$ and $EC_{50}$ values fitted this way, in the text we will report the \SI{95}{\percent} intervals of the posterior probability distribution for the fitted population parameter.
 
-Perfusion of ATP resulted in current inhibition with an IC\textsubscript{50} of \SIrange{25}{45}{\micro\Molar} for WT-GFP and \SIrange{77}{130}{\micro\Molar} for W311*-GFP.
-Thus, despite the distance from the ATP binding site, the W311 mutation clearly affects some aspect of nucleotide inhibition.
+Perfusion of ATP resulted in current inhibition with an IC\textsubscript{50} of \SIrange{24}{45}{\micro\Molar} for WT-GFP+SUR1 and \SIrange{75}{124}{\micro\Molar} for W311*-GFP+SUR1.
+Thus, despite the distance from the ATP binding site, the incorporation of ANAP at W311 clearly affects some aspect of nucleotide inhibition.
 However, we assume that insights into the function of the ANAP-incorporating channel will still be applicable to wild-type channels despite the change in nucleotide inhibition.
 
-Next, we established that TNP-ATP inhibits K\ATP{} to a similar extent as ATP (Figure \ref{ch3fig:tnpatp_inhibition_1}, \ref{ch3fig:tnpatp_inhibition_2}).
-We observed current inhibition with an IC\textsubscript{50} of \SIrange{0.7}{1.8}{\micro\Molar} for WT-GFP and \SIrange{3.5}{10}{\micro\Molar} for W311*-GFP.
+Next, we established that TNP-ATP inhibits K\ATP{} (Figure \ref{ch3fig:tnpatp_inhibition_1}, \ref{ch3fig:tnpatp_inhibition_2}).
+We observed current inhibition with an IC\textsubscript{50} of \SIrange{0.7}{1.8}{\micro\Molar} for WT-GFP+SUR1 and \SIrange{2.9}{10}{\micro\Molar} for W311*-GFP+SUR1.
 K\ATP{} thus appears to be more sensitive to inhibition by TNP-ATP than by ATP.
 This could potentially be due to extra contacts made by the TNP moiety with Kir6.2, seen in our computational docking (Figure \ref{ch3fig:docking}).
 
@@ -443,7 +443,7 @@ We can plot the quenching of ANAP fluorescence as a concentration-response curve
 Before analysis, ANAP bleaching was corrected as shown in Figure \ref{ch3fig:bleaching_plots_2}.
 ANAP intensities of spectra imaged during bath perfusion in between applications of TNP-ATP were fit with Equation \ref{eq:bleaching}.
 We found that all unroofed experiments showed bleaching well described by the single exponential fit to equation \ref{eq:bleaching}.
-In each experiment, there was a reasonable proportion of ANAP fluorescence remaining by the last exposure (FIgure \ref{ch3fig:bleaching_terms_4}), maintaining a good signal-to-noise ratio for each spectra imaged.
+In each experiment, there was a mean proportion of \SI{49}{\percent} ANAP fluorescence remaining by the last exposure (Figure \ref{ch3fig:bleaching_terms_4}), maintaining a good signal-to-noise ratio for each spectra imaged.
 
 \begin{figure}[h]
 	\centering
@@ -485,8 +485,7 @@ We can then normalise our observed fluorescence data by this value.
 Overall, these two corrections do not dramatically alter our results (Figure \ref{ch3fig:tnpatp_quenching_1}), and we performed our analysis on both corrected and uncorrected results to ensure that there was no potential difference in interpration which derived from treating our data in this way.
 
 We observed quenching of ANAP fluorescence over a concentration range of TNP-ATP similar to the range in which we observed inhibition of current in W311*-GFP (Figure \ref{ch3fig:ec50_fits_3}, \ref{ch3fig:tnpatp_quenching_2}).
-When fit to a Hill equation, quenching was fit with an EC\textsubscript{50} of \SIrange{21}{31}{\micro\Molar}, while the corrected binding data gave an EC\textsubscript{50} of \SIrange{30}{46}{\micro\Molar}.
-Notably, this EC\textsubscript{50} is somewhat right-shifted compared to the IC\textsubscript{50} we observed in excised patches (\SIrange{3.5}{10}{\micro\Molar}).
+When fit to a Hill equation, quenching ($F/F_{max}$) was fit with an EC\textsubscript{50} of \SIrange{21}{31}{\micro\Molar}, while the corrected binding data (adjusted $F/F_{max}$) gave an EC\textsubscript{50} of \SIrange{30}{45}{\micro\Molar}.
 
 \begin{figure}[h]
 	\centering
@@ -508,7 +507,7 @@ Notably, this EC\textsubscript{50} is somewhat right-shifted compared to the IC\
 		\includegraphics[width=\textwidth]{tnpatp_quenching_2.pdf}
 	\end{subfigure}
 	\caption[W311*-GFP unroofed membrane binding]{
-	\subref{ch3fig:tnpatp_quenching_1} Fluorescence quenching of W311*-GP+SUR1 by TNP-ATP in unroofed membrane patches.
+	\subref{ch3fig:tnpatp_quenching_1} Fluorescence quenching of W311*-GFP+SUR1 by TNP-ATP in unroofed membrane patches.
 	Each uncorrected point (white with dashed blue outline) represents an individual measurement normalised to the maximum current observed in that unroofed membrane.
 	Each corrected point (blue filled points) has been transformed to $log_2(\frac{F}{F_{max}}+1)$.
 	The smooth filled curves are the \SI{95}{\percent} intervals of the posterior probability distribution of fits to equation \ref{eq:hill} as described in the methods.
@@ -521,7 +520,7 @@ Notably, this EC\textsubscript{50} is somewhat right-shifted compared to the IC\
 
 \subsection{Patch-clamp fluorometry of Kir6.2 constructs}
 
-To ensure that the ANAP fluorescence we observe in the unroofed membranes is emitted by functional channels, and thus the quenching by TNP-ATP reflects nucleotide binding to the same population of channels we are measuring inhibition from, we measured fluorescence quenching and current inhibition from the same excised patches (Figure \ref{ch3fig:atp_tnpatp_trace}, \ref{ch3fig:atp_tnpatp_spectra_1}, \ref{ch3fig:atp_tnpatp_spectra_2}).
+To ensure that the ANAP fluorescence we observe in the unroofed membranes is emitted by functional channels, we measured fluorescence quenching and current inhibition from the same excised patches (Figure \ref{ch3fig:atp_tnpatp_trace}, \ref{ch3fig:atp_tnpatp_spectra_1}, \ref{ch3fig:atp_tnpatp_spectra_2}).
 
 This experimental paradigm leads to two complications compared to performing the measurements separately.
 Firstly, the number of channels in an excised patch are far smaller than the number of channels in an unroofed membrane patch.
@@ -560,8 +559,8 @@ We were able to correct for ANAP bleaching in the same manner as we did for unro
 	}\label{ch3fig:pcf_bleaching}
 \end{figure}
 
-Our fluoresence measurements from excised patches agree reasonably well (albeit slightly right-shifted) with our measurements for unroofed membranes (Figure \ref{ch3fig:pcf_1}), with an $EC_{50}$ value of \SIrange{77}{140}{\micro\Molar}.
-Our finding that the EC\textsubscript{50} for TNP-ATP binding is right-shifted compared to the IC\textsubscript{50} for TNP-ATP inhibition is consistent between each experimental paradigm (Figure \ref{ch3fig:ec50_fits_3}, \ref{ch3fig:ec50_fits_4}).
+Our fluoresence measurements from excised patches are right-shifted when compared to our measurements for unroofed membranes (Figure \ref{ch3fig:pcf_1}), with an $EC_{50}$ value of \SIrange{76}{144}{\micro\Molar}.
+Our finding that the EC\textsubscript{50} for TNP-ATP binding is right-shifted compared to the IC\textsubscript{50} for TNP-ATP inhibition is consistent between each experimental paradigm (Figure \ref{ch3fig:ec50_fits_4}).
 This finding has implications for how exactly the binding of nucleotides to Kir6.2 leads to closure of the K\ATP{} channel pore.
 
 \begin{figure}[h]
@@ -601,12 +600,11 @@ This finding has implications for how exactly the binding of nucleotides to Kir6
 	\subref{ch3fig:atp_tnpatp_spectra_1} Spectra captured from the same patch during the nucleotide applications marked in \subref{ch3fig:atp_tnpatp_trace}, and during the washout periods between applications.
 	Each spectra was captured with a one second exposure and corrected for background fluorescence and bleaching as described elsewhere.
 	\subref{ch3fig:atp_tnpatp_spectra_2} Averaged traces of the spectra shown in \subref{ch3fig:atp_tnpatp_spectra_1}. The location of the peak ANAP fluorescence is marked by a grey box.
-	\subref{ch3fig:pcf_1} Current inhibition ($I/I_{max}$, blue points) and fluorescence quenching (Adjusted $F/F_{max}$, orange points) of W311*-GFP+SUR1 in excised membrane patches recorded simultaneously.
-	Smooth curves are fits to equation \ref{eq:hill}, yielding the following parameter estimates:
-	PCF $I/I_{max}$: data and fit replicated from Figure \ref{ch3fig:tnpatp_inhibition_1}.
-	PCF adjusted $F/F_{max}$: $EC_{50} = \SI{110}{\micro\Molar}, hill = 1.20$, with  $E_{max}$ set to $0.1$.
-	The dashed orange line is the fit to the adjusted $F/F_{max}$ in unroofed membranes reported in Figure \ref{ch3fig:tnpatp_quenching_1}.
-	\subref{ch3fig:ec50_fits_4} $EC_{50}$ and $IC_{50}$ values from fits to individual experiments are shown as points, and posterior probability distributions for the estimated population $EC_50$ and $IC_{50}$ values are shown coloured according to their intervals.
+	\subref{ch3fig:pcf_1} Current inhibition ($I/I_{max}$, orange points) and fluorescence quenching (Adjusted $F/F_{max}$, blue points) of W311*-GFP+SUR1 in excised membrane patches recorded simultaneously.
+	The smooth filled curves are the \SI{95}{\percent} intervals of the posterior probability distribution of fits to equation \ref{eq:hill} as described in the methods.
+	The dashed blue lines are the \SI{95}{\percent} intervals of the fits reported in Figure \ref{ch3fig:tnpatp_quenching_1}.
+	\subref{ch3fig:ec50_fits_4} Posterior probability distributions for the estimated population $EC_{50}$ and $IC_{50}$ values are shown coloured according to their intervals.
+	The dashed distribution is the posterior probability distribution reported in Figure \ref{ch3fig:ec50_fits_3}
 	}
 \end{figure}
 
@@ -623,5 +621,5 @@ As all of our binding experiments are performed in the W311* background by neces
 
 Secondly, K\ATP{} channels are more sensitive to inhibition by TNP-ATP than by ATP.
 Again, this means that any conclusions we draw from experiments measuring relative changes in binding and inhibition rely on those relative changes affecting ATP binding and inhibition to a similar extent.
-To try and ameliorate these caveats as best as we can, where possible we have performed control experiments in the WT background with ATP to ensure that introduced mutations result in similar relative effects on nucleotide binding and inhibition despite the background of the construct or the identitity of the nucleotide.
+To try and ameliorate these caveats as best as we can, where possible we have performed control experiments in the WT background with ATP to ensure that introduced mutations result in similar relative effects on nucleotide inhibition despite the background of the construct or the identitity of the nucleotide.
 As control experiments of this sort are not possible in unroofed membranes, where it is impossible to measure current inhibition, we have focused on patch-clamp fluorometry for constructs where expression is good enough to measure sufficient fluorescence.
