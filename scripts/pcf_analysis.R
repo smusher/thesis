@@ -120,7 +120,7 @@ brm(
 	seed = brms_seed,
 	control = list(adapt_delta = 0.95, max_treedepth = 10),
 	cores = getOption("mc.cores", 4),
-	file = "data/mwc_fits_new_model/full_fit_110321_short",
+	file = "data/mwc_fits_new_model/full_fit_140321_short",
 	sample_prior = "yes",
 	save_all_pars = TRUE
 	) -> test_run
