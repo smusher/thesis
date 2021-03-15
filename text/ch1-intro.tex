@@ -6,9 +6,7 @@
 
 \section{General introduction}
 
-\section{Structure and function of the pancreatic K\ATP{} channel}
-
-\subsection{Pancreatic islets and the \textgreek{b}-cell}
+\section{Pancreatic islets and the \textgreek{b}-cell}
 
 Pancreatic islets are endocrine cells which are responsible for maintaining glucose homeostasis.
 There are roughly one million islets in a human pancreas, constituting 1-2\% of the total pancreatic mass.
@@ -16,13 +14,12 @@ Islets consist of three principal cell types; insulin secreting \textgreek{b}-ce
 Islets respond to increases in blood glucose by releasing insulin, which acts on peripheral tissues to increase glucose uptake and reduce blood glucose levels.
 Conversely, decreases in blood glucose leads to the release of glucagon, which acts on those tissues to stimulate glucose production and increase blood glucose.
 
-\subsection{Glucose induced insulin secretion in \textgreek{b}-cells}
-
-\subsection{Architecture of the pancreatic K\ATP{} channel}
+\section{Architecture of the pancreatic K\ATP{} channel}
 
 ATP-sensitive potassium (K\ATP{}) channels are present in many tissues, where they couple the metabolic state of a cell to its electrical activity by regulating the flow of K\textsuperscript{+} across the membrane.
 K\ATP{} channels are an octameric complex, comprised of four inwardly-rectifying potassium channel subunits (Kir6.1 or Kir6.2), each of which is associated with a sulphonylurea receptor subunit (SUR1, SUR2A or SUR2B).
 In pancreatic \textgreek{b}-cells, the K\ATP{} channel isoform is composed of Kir6.2 and SUR1.
+Together, Kir6.2 and SUR1 form a complex nearly a megadalton in size and over 15 nanometres across (Figure \ref{ch1fig:katp_cartoon}, \ref{ch1fig:sur_topdown}).
 
 Inwardly-rectifying potassium channels are so named because they allow K\textsuperscript{+} to flow more easily into the cell than out of it (Figure \ref{ch1fig:rectification}).
 This phenomenon is a consequence of voltage-dependent pore blockade by intracellular divalent cations (especially Mg\textsuperscript{2+}) and polyamines.
@@ -32,7 +29,7 @@ In contrast, Kir6.2 is a weak rectifier, and allows substantial current to flow 
 
 In addition to voltage, Kir6.2 is regulated by two endogenous ligands; 
 phosphatidylinositol 4,5-bisphosphate (PIP\textsubscript{2}) and adenine nucleotides (Figure \ref{ch1fig:kir_struct}).
-The binding of adenine nucleotides to Kir6.2 leads to closure of the channel pore, while the binding of PIP2 promotes the opening of the pore (Figure \ref{ch1fig:shyng_trace}).
+The binding of adenine nucleotides to Kir6.2 leads to closure of the channel pore, while the binding of PIP\textsubscript{2} promotes the opening of the pore (Figure \ref{ch1fig:shyng_trace}).
 Activation by PIP\textsubscript{2} is a mechanism common to the whole Kir family, wherease inhibition by nucleotides is unique to the Kir6 subfamily.
 
 \begin{figure}[h]
@@ -81,8 +78,6 @@ The two domains come together to form an antiparallel dimer with two nucleotide 
 NBS2, also known as the consensus site as it is more similar in sequence to other ABC family members, is catalytically competent and able to hydrolyse ATP.
 In contrast, NBS1 is the degenerate site, with a less conserved sequence and an inability to catalyse hydrolysis of ATP.
 
-Sulphonylureas go here.
-
 \begin{figure}[h]
 	\centering
 	\begin{subfigure}[t]{0.4\textwidth}
@@ -107,11 +102,42 @@ Sulphonylureas go here.
 	}
 \end{figure}
 
-\subsection{Nucleotide regulation of the pancreatic K\ATP{} channel}
+\section{Ligand-independent regulation of the pancreatic K\ATP{} channel}
 
-Together, Kir6.2 and SUR1 form a complex nearly a megadalton in size and over 15 nanometres across (Figure \ref{ch1fig:katp_cartoon}, \ref{ch1fig:sur_topdown}).
-While the binding of adenine nucleotides to the Kir6.2 binding site leads to closure of the pore, binding of nucleotides to either of the two NBSs of SUR1 in the presence of Mg\textsuperscript{2+} activates the channel.
-The interplay between the action of nucleotides at these distinct sites (Figure \ref{ch1fig:sur_ctd}) determines the response of the K\ATP{} channel to metabolic changes, and therefore even subtle mutations or modifications to these sites can lead to diseases of insulin secretion.
+\subsection{Assembly and trafficking}
+
+Biogenesis of K\ATP{} channels occurs in the endoplasmic reticulum (ER), and is an important checkpoint in determining surface expression and channel stoichiometry \cite{zerangue_new_1999-1, martin_pharmacological_2013}.
+The precise nature of the events which occur between subunit translation and insertion of octameric K\ATP{} into the cell membrane are not fully mapped out, but studies have highlighted some important quality control steps in this process which regulate K\ATP{} channel expression.
+When Kir6.2 or SUR1 are expressed alone in heterologous systems, they are retained in the ER \cite{zerangue_new_1999-1}.
+This mechanism is achieved through the exposure of a three amino acid ER-retention motif (RKR) in the cytoplasmic domains of both Kir6.2 and SUR1.
+Only upon complete assembly of the channel complex are the RKR motifs masked, allowing forward trafficking of K\ATP{} to the cell surface.
+Deletion of the RKR motif \cite{tucker_truncation_1997}, or mutation of the motif to AAA \cite{zerangue_new_1999-1}, results in unregulated surface expression of individual subunits and/or partially assembled channel complexes.
+Addition of a GFP label to the C-terminus of Kir6.2 is also sufficient to allow trafficking of subunits to the cell surface in the absence of SUR1 \cite{john_sulphonylurea_1998-1}.
+
+In addition to the RKR motif, there are two N-linked glycosylation sites on SUR1 (N10 and N1050) which are required for cell surface expression \cite{conti_membrane_2002}.
+Mutation of these sites to glutamines results in retention in the ER and drastically reduced expression of K\ATP{} on the cell surface.
+This mechanism is thought to be separate to that for the ER-retention motif, as mutation of RKR to AAA is not sufficient to drive surface expression of the glycosylation mutants \cite{conti_membrane_2002}.
+
+A putatitive third site of trafficking regulation is in the C-terminus of SUR1.
+Mutation or deletion of a dileucine motif 16 amino acids distal to the C-terminal of SUR1 results in reduced surface expression of K\ATP{} channels in COSm6 cells \cite{sharma_c_1999}.
+This reduction in expression is not rescued by C-terminal truncation of Kir6.2, indicating that this result is not due to masking of the RKR retention motif.
+The dileucines are therefore suggested to promote forward trafficking of assembled channel complexes to the cell membrane \cite{sharma_c_1999}.
+Expression of K\ATP{} channels expressed in \textit{Xenopus} oocytes is also dramatically reduced by truncation of the C-terminal 42 amino acids of SUR1 \cite{vedovato_role_2018}.
+However, longer deletions of the SUR1 C-terminus did not reduce surface expression of channels in HEK293 cells \cite{giblin_cytoplasmic_2002}, and other modifications of the SUR1 C-terminus do not exhibit effects on surface expression \cite{schwappach_molecular_2000}.
+The precise role of the dileucine motif remains unclear, and is potentially confounded by the use of expression system \cite{giblin_cytoplasmic_2002, martin_pharmacological_2013}
+
+Failure of the channel complex to pass these three checkpoints results in ER-associated degradation (ERAD), a common pathway shared by most membrane and secretory proteins \cite{bonifacino_ubiquitin_1998, yan_role_2005}.
+Both SUR1 and Kir6.2 are substrates for polyubiquitination, both when heterologously expressed and in INS-1 cells \cite{yan_role_2005}.
+Application of proteasome inhibitors both reduces the rate of degradation for Kir6.2 and SUR1, and increases the surface expression of K\ATP{} channels by increasing their biogenesis efficiency \cite{yan_role_2005}.
+
+The surface expression of K\ATP{} channels is therefore controlled by a variety of different quality control mechanism to ensure that only correctly assembled octameric channel complex reach the cell membrane.
+Mutations which lead to defects in assembly and trafficking are therefore a common cause of congential hyperinsulinemia (HI).
+These mutations are found throughout both Kir6.2 and SUR1, although they are more commonly found in SUR1 \cite{martin_pharmacological_2013}.
+
+Interestingly, sulphonylureas are able to act as pharmacological chaperones and rescue surface expression of several mutations which would otherwise not traffic to the cell surface \cite{yan_sulfonylureas_2004, yan_sulfonylureas_2006, yan_congenital_2007, yan_congenital_2007-2, martin_pharmacological_2016}.
+Sulphonylureas bind directly to the channel during biogenesis, as mutation of residues in SUR1 which are critical for sulphonylurea binding abolished or reduced the effectiveness of expression rescue \cite{yan_sulfonylureas_2006}.
+Pharmacological chaperoning requires full assembly of the channel complex, as the presence of Kir6.2 was required to rescue expression of trafficking mutants even when the SUR1 RKR motif was mutated to AAA \cite{yan_sulfonylureas_2006}.
+In addition, reducing the temperature at which cells are cultured can rescue some trafficking defects \cite{yang_low_2005}.
 
 \begin{figure}[h]
 	\centering
@@ -141,9 +167,16 @@ The interplay between the action of nucleotides at these distinct sites (Figure 
 	}
 \end{figure}
 
-In addition to its nucleotide binding and sensitivity to sulphonylureas, SUR1 also has intrinsic effects on channel properties.
-The presence of SUR1 increases the open probability of the channel pore (Figure \ref{ch1fig:singles_sur}), and this increase is conferred by the TMD0 region (Figure \ref{ch1fig:singles_tmd0}).
-Furthermore, coexpression of SUR1 increases the sensitivity of Kir6.2 to inhibition by nucleotides (Figure \ref{ch1fig:sur_shift}).
+\subsection{Regulation of intrinsic gating}
+
+In the absence of nucleotides, K\ATP{} channels are spontaneously active.
+Single K\ATP{} channels exhibit bursts of brief openings, separated by long interburst closures \cite{alekseev_ligand-insensitive_1998, babenko_two_1999, li_open_2002, proks_modeling_2009}.
+The intrinsic gating of K\ATP{} can therefore be seperated into two separate 'gating' processes; fast (responsible for intraburst closures) and slow (responsible for interburst closures).
+While it is helpful to distinguish between fast and slow gating processes to characterise channel kinetics and regulation, doing so does not require the existence of seperate structural gates.
+When discussing channel gating 
+
+Fast gating is a property intrinsic to Kir6.2, and the intraburst mean closed time is unaffected by the presence of SUR1 \cite{fang_n-terminal_2006}.
+In addition, the presence of nucleotides \cite{alekseev_ligand-insensitive_1998, li_open_2002}, or the presence of PIP\textsubscript{2}
 
 \begin{figure}[h]
 	\centering
@@ -177,6 +210,34 @@ Furthermore, coexpression of SUR1 increases the sensitivity of Kir6.2 to inhibit
 	}
 \end{figure}
 
+\section{Ligand dependent regulation of the pancreatic K\ATP{} channel}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{regulation_diagram.pdf}
+	\caption[Modes of regulation of K\ATP{}]{
+	Adapted from \cite{puljung_cryo-electron_2018}.
+	The open-closed equilibrium of the K\ATP{} channel pore (denoted as $L$) is energetically coupled to three different ligand binding sites.
+	The four inhibitory nucleotide binding sites of Kir6.2 (labelled as NBS) bind either ATP or ADP (generalised to ANP) with an equilbrium binding constant $K_A$.
+	The four stimulatory PIP\textsubscript{2} binding sites of Kir6.2 bind PIP\textsubscript{2} with an equilbrium binding constant $K_B$.
+	The four stimulatory Mg-nucleotide binding site formed by the dimerisation of the NBDs of SUR1 (labelled as NBDs) bind either Mg-ATP or Mg-ADP (generalised to Mg-ANP) with an equilbrium binding constant $K_C$.
+	Each binding domain interacts with the channel pore according to the factors $D_A$, $D_B$, and $D_{NBD}$ respectively.
+	In addition, there is a potential coupling between the inhibitory nucleotide binding site of Kir6.2 and the stimulatory PIP\textsubscript{2} binding site of Kir6.2 described by the factor $C$.
+	}\label{ch1fig:regulation_diagram}
+\end{figure}
+
+\subsection{Nucleotide regulation of the pancreatic K\ATP{} channel}
+
+While the binding of adenine nucleotides to the Kir6.2 binding site leads to closure of the pore, binding of nucleotides to either of the two NBSs of SUR1 in the presence of Mg\textsuperscript{2+} activates the channel.
+The interplay between the action of nucleotides at these distinct sites (Figure \ref{ch1fig:sur_ctd}) determines the response of the K\ATP{} channel to metabolic changes, and therefore even subtle mutations or modifications to these sites can lead to diseases of insulin secretion.
+
+In addition to its nucleotide binding and sensitivity to sulphonylureas, SUR1 also has intrinsic effects on channel properties.
+The presence of SUR1 increases the open probability of the channel pore (Figure \ref{ch1fig:singles_sur}), and this increase is conferred by the TMD0 region (Figure \ref{ch1fig:singles_tmd0}).
+Furthermore, coexpression of SUR1 increases the sensitivity of Kir6.2 to inhibition by nucleotides (Figure \ref{ch1fig:sur_shift}).
+
+\subsection{PIP\textsubscript{2} regulation of the pancreatic K\ATP{} channel}
+
+\subsection{Sulphonylurea regulation of the pancreatic K\ATP{} channel}
 
 \section{Fluorescence methods in ion channel research}
 
