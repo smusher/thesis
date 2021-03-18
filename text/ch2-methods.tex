@@ -36,7 +36,7 @@ After washing with TBS-Tw, membranes were incubated for 30 minutes with a 1:20,0
 Detection was performed using the SuperSignal West Pico Chemiluminescent Substrate (Thermo Fisher) and a C-DiGit Blot Scanner (Licor Biosciences; Lincoln, NE).
 Analysis was performed using custom code written in Python.
 
-To confirm our ability to express full-length Kir6.2*-GFP, we performed western blots for HA-tagged Kir6.2 constructs in detergent-solubilized HEK-293T cells (Figure 1—Figure supplement 1C).
+To confirm our ability to express full-length W311*-GFP, we performed western blots for HA-tagged Kir6.2 constructs in detergent-solubilized HEK-293T cells (Figure 1—Figure supplement 1C).
 The HA tag plus a short linker (YAYMEKGITDLAYPYDVPDY) was inserted in the extracellular region following helix M1 of Kir6.2 between L100 and A101.
 Transfection of wild-type Kir6.2-HA or Kir6.2-HA-GFP resulted in two bands on the western blots.
 The upper bands were close to the expected sizes for full-length Kir6.2-HA and Kir6.2-HA-GFP (\SI{46}{\kilo\dalton} and \SI{77}{\kilo\dalton}, respectively).
@@ -46,9 +46,9 @@ This band must correspond to an N-terminally truncated Kir6.2 product, as the ap
 Based on the molecular weight, we predict that the truncated protein product initiated from a start codon in the first transmembrane domain.
 Therefore, we believe it is unlikely that this protein would form functional channels or traffic to the plasma membrane.
 When Kir6.2-W311\textsuperscript{TAG}-HA or Kir6.2-W311\textsuperscript{TAG}-HA-GFP were co-transfected with SUR1, pANAP, and eRF1-E55D, and cells were cultured in the presence of ANAP, the western blots were similar to wild-type Kir6.2-HA or Kir6.2-HA-GFP.
-Over 90\% full-length Kir6.2*-HA-GFP was produced under these conditions (Figure 1—Figure supplement 1D).
-We were unable to quantify the percentage of full-length Kir6.2*-HA produced as the C-terminally truncated band resulting from termination at the TAG codon was very similar in size to the N-terminally truncated band.
-Co-expression with SUR1 increased the percentage of full-length Kir6.2*-HA-GFP produced (Figure 1—Figure supplement 1D).
+Over 90\% full-length W311*-HA-GFP was produced under these conditions (Figure 1—Figure supplement 1D).
+We were unable to quantify the percentage of full-length W311*-HA produced as the C-terminally truncated band resulting from termination at the TAG codon was very similar in size to the N-terminally truncated band.
+Co-expression with SUR1 increased the percentage of full-length W311*-HA-GFP produced (Figure 1—Figure supplement 1D).
 In the absence of ANAP, we did not observe any full-length Kir6.2, indicating that there was no read-through of the amber (TAG) stop codon (Figure 1—Figure supplement 1D).
 
 \section{Confocal microscopy}
@@ -63,7 +63,7 @@ We examined the surface expression of our ANAP-labelled constructs using confoca
 When Kir6.2-W311\textsuperscript{TAG}-GFP was co-transfected with SUR1 along with pANAP and eRF1-E55D in the presence of ANAP, the ANAP and GFP fluorescence were co-localized at the plasma membrane.
 When wild-type Kir6.2-GFP was transfected under the same conditions, only GFP fluorescence was observed at the plasma membrane.
 ANAP fluorescence was diffuse and confined to the cytoplasm or intracellular structures.
-Thus, the plasma-membrane ANAP signal was specific for Kir6.2*-GFP.
+Thus, the plasma-membrane ANAP signal was specific for W311*-GFP.
 
 \section{Surface expression assays}
 We measured surface expression of HA-tagged Kir6.2 subunits using an approach outlined by Zerangue et al.
@@ -79,7 +79,7 @@ HEK-293T cells were transfected with Kir6.2 constructs with or without a TAG sto
 Cells were co-transfected with pANAP and eRF1-E55D in the presence or absence of SUR1 and cultured with or without ANAP.
 Wild-type Kir6.2-HA and Kir6.2-HA-GFP in the presence of SUR1 were included as positive controls.
 Kir6.2 constructs with no HA tag served as negative controls.
-In the presence of ANAP, we observed strong trafficking of Kir6.2*-HA-GFP to the plasma membrane, but much less trafficking of Kir6.2*-HA (Figure 1—Figure supplement 1E).
+In the presence of ANAP, we observed strong trafficking of W311*-HA-GFP to the plasma membrane, but much less trafficking of W311*-HA (Figure 1—Figure supplement 1E).
 When cells were cultured in the absence of ANAP, we observed little to no Kir6.2 surface expression from cells that were transfected with Kir6.2-W311\textsuperscript{TAG}-HA or Kir6.2-W311\textsuperscript{TAG}-HA-GFP, suggesting that prematurely truncated constructs did not traffic to the plasma membrane.
 In the absence of SUR1, surface expression was weak for both wild-type and tagged constructs, despite the reported ability of Kir6.2-GFP to traffic to the plasma membrane in the absence of SUR1.
 
@@ -97,29 +97,22 @@ Currents were low-pass filtered at \SI{5}{\kilo\hertz} and digitized at \SI{20}{
 The bath solution (intracellular) contained \SI{140}{\milli\Molar} KCl, \SI{10}{\milli\Molar} HEPES, \SI{1}{\milli\Molar} EDTA and \SI{1}{\milli\Molar} EGTA (pH 7.3 with KOH).
 The pipette solution (extracellular) contained \SI{140}{\milli\Molar} KCl, \SI{10}{\milli\Molar} HEPES and \SI{1}{\milli\Molar} EDTA (pH 7.4 with KOH).
 All experiments were carried out in Mg\textsuperscript{2+}-free conditions.
-Currents were leak corrected using the current remaining in bath solution containing \SI{5}{\milli\Molar} barium acetate at \SI{+60}{\milli\volt}, assuming a linear leak with a reversal potential of \SI{0}{\milli\volt}.
-Inhibition was calculated and corrected for rundown by alternating test concentrations of nucleotide solution with nucleotide-free solution, then expressing the test currents as a fraction of the average of the control currents before and after the test solution as described previously.
+Currents were leak corrected using the current remaining in bath solution containing \SI{5}{\milli\Molar} barium chloride at \SI{+60}{\milli\volt}, assuming a linear leak with a reversal potential of \SI{0}{\milli\volt}.
+Inhibition was calculated and corrected for rundown by alternating test concentrations of nucleotide solution with nucleotide-free solution, then expressing the test currents as a fraction of the average of the control currents before and after the test solution.
 
 \section{FRET calculations}
-We calculated the expected FRET efficiency between ANAP incorporated at amino acid position 311 and a docked TNP-ATP molecule as described previously.
+We calculated the expected FRET efficiency between ANAP incorporated at amino acid position 311 and a docked TNP-ATP molecule.
 The equivalency between FRET efficiency (measured as ANAP quenching) and nucleotide binding is based on two main assumptions.
 Firstly, we assume that the observed quenching from a bound nucleotide does not differ dramatically between open and closed states of the channel.
 As there is no open-state structure of K\textsubscript{ATP}, we do not know exactly how much relative movement would occur between a bound TNP-ATP and Kir6.2-W311.
 However, based on cryo-EM structures of apo and nucleotide-bound Kir6.2 we do not expect to see a change in the distance between these two positions.
 
-Secondly, we assume that the ANAP and TNP-ATP molecules on each subunit do not undergo energy transfer with those on other subunits to an extent which would dramatically change the observed quenching.
-At saturating TNP-ATP concentrations, where each ANAP-labelled site on Kir6.2 is occupied, FRET between ANAP and the closest acceptor will be kinetically favoured and the overall FRET efficiency will not be affected by cross-talk between neighbouring sites.
-In the limiting case, at low TNP-ATP concentrations, one would expect a large proportion of Kir6.2 tetramers (with four ANAP-labelled binding sites) bound to only a single TNP-ATP molecule.
-In this case, we expect a 4\% overestimation of nucleotide binding as calculated using a numerical method to simulate a single TNP-ATP acceptor with multiple ANAP donors based on the distances calculated from our docking.
-This may have resulted in our binding curves becoming artifically shallow at low concentrations.
-However, this difference is not significant in the context of our measurements as it is smaller than the observed error of our measurements at low TNP-ATP concentrations.
-
 \section{Unroofed binding measurements.}
-Unroofed membranes were prepared as described previously.
+Unroofed membranes were prepared as follows.
 A coverslip plated with transfected HEK-293T cells was removed from the culture media and rinsed with PBS.
 The coverslip was then briefly sonicated using a probe sonicator (Vibra-cell; Newtown, CT) leaving behind adherent plasma membrane fragments.
 Cells cultured on FluoroDishes were rinsed and sonicated directly in the dish.
-Unroofed membrane fragments were nearly invisible in bright-field images and identified by their GFP and ANAP fluorescence.
+Unroofed membrane fragments were nearly invisible in bright-field images and identified by the presence of GFP and ANAP fluorescence.
 Fluorescent TNP-nucleotides (Jena Bioscience; Jena, Germany) were diluted in bath solution and perfused onto unroofed membranes using a valve controlled microvolume superfusion system (\si{\micro}Flow, ALA Scientific Instruments; Farmingdale, NY).
 
 Fluorescence spectra were collected as described above.
@@ -147,17 +140,37 @@ Some experiments were excluded from further analysis due to low fluorescence int
 \section{Data processing and presentation.}
 Raw spectrographic images and current traces were pre-processed in Python and Clampfit (Axon) before analysis with R.
 Where applicable, all experimental data points are displayed in each figure.
-The number of experiments is reported in the figure legends and tables.
 To help visualise uncertainty and prevent some data points being hidden, they are arranged with a small amount of horizontal jitter; vertical position remains unaffected.
-Unless otherwise stated, summary statistics are overlaid as the mean with error bars representing the standard error of the mean.
-Where these error bars are not visible, they are smaller than the size of the point used for the mean.
 
-Hill fits to fluorescence quenching were nonlinear least-squares fits to the following equation:
+We fit our fluorescence quenching data with the following equation:
 \begin{equation} \label{eq:hill}
-    \frac{y}{y_{max}} = 1 - E_{max} + \frac{E_{max}}{1 + 10^{(EC_{50} - [TNPATP]) \cdot h}}
+    \frac{y}{y_{max}} = 1 - E_{max} + \frac{E_{max}}{1 + 10^{(EC_{50} - [TNPATP]) \cdot h}} + \sigma
 \end{equation}
-where $y$ represents normalised fluorescence intensity and $EC_{50}$ and $[TNPATP]$ are $\log_{10}$ values.
+where $y$ represents corrected fluorescence intensity and $EC_{50}$ and $[TNPATP]$ are $\log_{10}$ values.
 Current inhibition data were fit to the same equation but with $y$ representing normalised current magnitude, $IC_{50}$ instead of $EC_{50}$, and $I_{max}$ instead of $E_{max}$.
+
+We used the brms package in R to perform a non-linear fit to equation \ref{eq:hill}.
+The parameters in the equation were supplied as:
+
+\begin{minipage}{.5\textwidth}
+\centering
+\includegraphics[width=\textwidth]{drc_priors.pdf}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+\centering
+\begin{equation} \label{eq:drc_priors}
+\begin{split}
+E_{max} &\sim Uniform(0, 1) \\
+h &\sim Normal(1, 0.3) \\
+EC_{50} &= \beta + \delta_{experiment} \\
+\beta &\sim Normal(-4, 1) \\
+\delta_{experiment} &\sim Cauchy(0, 1) \\
+\sigma &\sim Cauchy(0, 1)
+\end{split}
+\end{equation}
+\end{minipage}
+
+Essentially, the $EC_{50}$ parameter was fit with a population parameter (\textgreek{b}) and an additional 'random' component that varied between experiments (\textgreek{delta}\textsubscript{experiment}).
 
 \section{Computational docking.}
 Computational docking of TNP-ATP into the nucleotide binding site of Kir6.2 was performed using AutoDock-Vina and Pymol (Schrödinger, LLC; New York, NY).
