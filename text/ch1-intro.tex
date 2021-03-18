@@ -10,7 +10,7 @@
 
 Pancreatic islets are endocrine cells which are responsible for maintaining glucose homeostasis.
 There are roughly one million islets in a human pancreas, constituting 1-2\% of the total pancreatic mass.
-Islets consist of three principal cell types; insulin secreting \textgreek{b}-cells, glucagon secreting \textgreek{a}-cells and somatostatin secreting \textgreek{d}-cells.
+Islets consist of three principal cell types; insulin secreting \textgreek{b}-cells, glucagon secreting \textgreek{a}-cells and somatostatin secreting \textgreek{D}-cells.
 Islets respond to increases in blood glucose by releasing insulin, which acts on peripheral tissues to increase glucose uptake and reduce blood glucose levels.
 Conversely, decreases in blood glucose leads to the release of glucagon, which acts on those tissues to stimulate glucose production and increase blood glucose.
 
@@ -124,14 +124,15 @@ This reduction in expression is not rescued by C-terminal truncation of Kir6.2, 
 The dileucines are therefore suggested to promote forward trafficking of assembled channel complexes to the cell membrane \cite{sharma_c_1999}.
 Expression of K\ATP{} channels expressed in \textit{Xenopus} oocytes is also dramatically reduced by truncation of the C-terminal 42 amino acids of SUR1 \cite{vedovato_role_2018}.
 However, longer deletions of the SUR1 C-terminus did not reduce surface expression of channels in HEK293 cells \cite{giblin_cytoplasmic_2002}, and other modifications of the SUR1 C-terminus do not exhibit effects on surface expression \cite{schwappach_molecular_2000}.
+In fact, a splice variant of SUR1 missing the entirety of the NBD2 domain (truncated at residue 1355) was found to successfully traffic to the membrane of insulin-secreting \textgreek{b}-cell line MIN6 cells \cite{sakura_altered_1999-1}.
 The precise role of the dileucine motif remains unclear, and is potentially confounded by the use of expression system \cite{giblin_cytoplasmic_2002, martin_pharmacological_2013}
 
 Failure of the channel complex to pass these three checkpoints results in ER-associated degradation (ERAD), a common pathway shared by most membrane and secretory proteins \cite{bonifacino_ubiquitin_1998, yan_role_2005}.
 Both SUR1 and Kir6.2 are substrates for polyubiquitination, both when heterologously expressed and in INS-1 cells \cite{yan_role_2005}.
 Application of proteasome inhibitors both reduces the rate of degradation for Kir6.2 and SUR1, and increases the surface expression of K\ATP{} channels by increasing their biogenesis efficiency \cite{yan_role_2005}.
 
-The surface expression of K\ATP{} channels is therefore controlled by a variety of different quality control mechanism to ensure that only correctly assembled octameric channel complex reach the cell membrane.
-Mutations which lead to defects in assembly and trafficking are therefore a common cause of congential hyperinsulinemia (HI).
+The surface expression of K\ATP{} channels is therefore controlled by a variety of different quality control mechanism to ensure that only correctly assembled octameric channel complexes reach the cell membrane.
+Mutations which lead to defects in assembly and trafficking are therefore a common cause of congenital hyperinsulinemia (HI).
 These mutations are found throughout both Kir6.2 and SUR1, although they are more commonly found in SUR1 \cite{martin_pharmacological_2013}.
 
 Interestingly, sulphonylureas are able to act as pharmacological chaperones and rescue surface expression of several mutations which would otherwise not traffic to the cell surface \cite{yan_sulfonylureas_2004, yan_sulfonylureas_2006, yan_congenital_2007, yan_congenital_2007-2, martin_pharmacological_2016}.
@@ -176,26 +177,34 @@ While this macroscopic time course is smooth and graded, it consists of hundreds
 The summed activity of these individual channels constitutes the large currents observed in macroscopic excised patches.
 
 Single K\ATP{} channels exhibit bursts of brief openings, separated by long interburst closures \cite{alekseev_ligand-insensitive_1998, babenko_two_1999, li_open_2002, proks_modeling_2009}.
-Thus, the open probability ($P_O$) of the channel is determined both by the kinetics of the bursting openings (open and closed durations within a burst) and the duration of the long interburst closures.
-The intrinsic gating of K\ATP{} can therefore be seperated into two separate 'gating' processes; fast (responsible for intraburst closures) and slow (responsible for interburst closures).
-While it is helpful to distinguish between fast and slow gating processes to characterise channel regulation, doing so does not require the existence of seperate structural gates \cite{proks_modeling_2009, hille_ionic_nodate}.
+Thus, the open probability ($P_O$) of the channel is determined both by the kinetics of the burst (open and closed durations within a burst) and the duration of the long interburst closures.
+The intrinsic gating of K\ATP{} can therefore be separated into two separate 'gating' processes; fast (responsible for intraburst closures) and slow (responsible for interburst closures).
+While it is helpful to distinguish between fast and slow gating processes to characterise channel regulation, doing so does not require the existence of separate structural gates \cite{proks_modeling_2009, hille_ionic_nodate}.
 
-Gating is a property intrinsic to Kir6.2, which is able to open and close in the absence of SUR1 \cite{tucker_truncation_1997, enkvetchakul_kinetic_2000-1} (Figure \ref{ch1fig:singles_sur}).
-The open and intraburst closed time of single channels is voltage dependent, with increasing hyperpolarisation decreasing the amount of time channels remain in the open state and increasing the amount of time channels remain in the closed state within bursts \cite{alekseev_burst_1997, trapp_molecular_1998-1}.
+Gating is a property intrinsic to Kir6.2, which is able to open and close in the absence of SUR1 \cite{tucker_truncation_1997, enkvetchakul_kinetic_2000-1} (Figure \ref{ch1fig:singles_sur}); albeit with very different kinetic properties which will be discussed later.
+The open and intraburst closed time of single channels is dependent on the electrochemical gradient across the cell membrane, otherwise called the K\textsuperscript{+} driving force \cite{benz_characterization_1998}.
+As the name implies, the electrochemical gradient depends on two things: the voltage across the membrane, and the K\textsuperscript{+} concentration gradient.
+Increasing hyperpolarisation decreases the amount of time channels remain in the open state and increases the amount of time channels remain in the closed state within bursts \cite{alekseev_burst_1997, trapp_molecular_1998-1}.
 This is a characteristic feature shared by other inwardly-rectifying K\textsuperscript{+} channels \cite{sakmann_voltage-dependent_1984, alekseev_burst_1997}.
-In addition, K\ATP{} fast gating is dependent on the K\textsuperscript{+} gradient across the membrane \cite{zilberter_gating_1988, benz_characterization_1998}.
-\citeauthor{benz_characterization_1998} unified these findings and proposed that it is the electrochemical gradient, or K\textsuperscript{+} driving force, which regulates the fast gating kinetics.
+In addition, altering the  K\textsuperscript{+} gradient across the membrane by changing the K\textsuperscript{+} concentration in the pipette or bath solution has the same effect on fast gating kinetics \cite{zilberter_gating_1988, benz_characterization_1998}.
+As the driving force for K\textsuperscript{+} increases, the open lifetime of the K\ATP{} channel decreases.
+This is in contrast to other K\textsuperscript{+} channels such as K\textsubscript{V}2.1, which exhibits the opposite relationship \cite{chapman_allosteric_2006}.
 
 There are a number of domains within Kir6.2 that regulate the intrinsic gating of the channel.
-Firstly, the P-loop is a conserved feature across K\textsubscript{+} channels (amongst others) \cite{kuang_structure_2015}.
-In Kir channels, the P-loop connects the two transmembrane domains, and dips into the plasma membrane to form the K\textsubscript{+} selectivity filter.
+Firstly, the P-loop is a conserved feature across K\textsuperscript{+} channels (amongst others) \cite{kuang_structure_2015}.
+In Kir channels, the P-loop connects the two transmembrane domains, and dips into the plasma membrane to form the K\textsuperscript{+} selectivity filter.
 While the P-loop is broadly conserved between Kir family members, there are key residues which differ.
-One particularly interesting residue is V127, which is unique to Kir6.1 and Kir6.2 - all other Kir channels posess a tyrosine at this location.
-Mutation of this residue to the conserved tyrosine (V127T) dramatically increases the open time of K\ATP{}, while also increasing the intraburst closed time \cite{proks_mutations_2001}.
+Notably, the K\textsuperscript{+} selectivity filter signature sequence (TxGYG) is identical across all other Kir subtypes (TIGYG), but in Kir6.2 the tyrosine is replaced by a phenylalanine at position 133 (TIGFG), a feature shared only by eag-like K\textsuperscript{+} channels \cite{heginbotham_mutations_1994}.
+Another particularly interesting residue is V127, which is unique to Kir6.1 and Kir6.2 within the Kir family - all other Kir channels posess a threonine at this location \cite{proks_mutations_2001}.
+
+\citeauthor{proks_mutations_2001} investigated a range of substitutions at these two residues.
+Mutation of V127 to the conserved threonine (V127T) dramatically increases the open time of K\ATP{}, while also increasing the intraburst closed time.
 There is also some suggestion of an additional open state existing in this mutant construct, evidenced by the appearance of a second peak in the open time histograms.
-In addition, substitutions at other residues in the P-loop of Kir6.2 lead to a range of effects on the intraburst kinetics of K\ATP{}.
+Mutation of F133 to the conserved tyrosine (F133Y) did not produce expression of functional channels; however combining the two mutations (V127T,F133Y) resulted in functional channels with a further increase in the open time when compared to the single mutant V127T.
+In addition, substitutions at other residues in the P-loop of Kir6.2 leads to a range of effects on the intraburst kinetics of K\ATP{}.
 Crucially, none of the substitutions affected the slow gating of the channel; i.e. burst duration and interburst closed times remained similar despite the varied alterations in the intraburst kinetics.
 \citeauthor{proks_mutations_2001} concluded that the P-loop is instrumental in regulating the fast gating of K\ATP{}, and suggested that the lack of correlation between perturbations of inter- and intra-burst kinetics is evidence for independence between the fast and slow gating processes.
+(I haven't mentioned the correlated decrease in conductance associated with these mutations - need to think more about how this ties in with the regulation of open time by driving force).
 
 Other domains of Kir6.2 are involved in the regulation of slow gating.
 The cytosolic end of the second transmembrane domain of Kir6.2 has been implicated in regulation of K\ATP{} slow gating by a number of mutational studies \cite{shyng_control_1997, tucker_molecular_1998, trapp_molecular_1998-1, loussouarn_structure_2000}.
@@ -203,31 +212,17 @@ Substitution of C166 with a more bulky or hydrophobic residue dramatically reduc
 However, no effect is seen on the length of the intraburst closed times, which is additional evidence for the independence of the fast and slow gating processes.
 Substitutions at N160 \cite{shyng_control_1997}, I167, and T171 \cite{tucker_molecular_1998} also increase channel open time and decrease the rate of entry into the interburst closed state, further implicating this region of Kir6.2 in modulating the slow gating of K\ATP{}.
 
+The slide-helix of Kir6.2 is the interface between the transmembrane domain and the cytoplasmic domain, and mutations in this region result in changes in the single channel kinetics and $P_O$ of K\ATP{} \cite{proks_molecular_2004, koster_dend_2008, mannikko_interaction_2010, li_decomposition_2013,cooper_conserved_2017}.
+Mutations examined at the single channel level show changes in burst duration \cite{proks_molecular_2004, koster_dend_2008, mannikko_interaction_2010} but unaltered intraburst kinetics.
+Interpretation of the mechanism underlying these single channel kinetics alterations is complicated by the proximity of this region of Kir6.2 to the putative PIP\textsubscript{2} binding site \cite{pipatpolkai_evaluating_2020}.
+Perturbations of this region could be affecting intrinsic gating directly, or indirectly by altering PIP\textsubscript{2} regulation, both of which would lead to changes in slow gating.
+
 While Kir6.2 is able to gate intrinsically when expressed alone, coassembly with SUR1 alters the intrinsic gating of the channel in a number of ways.
-Compared to single channel kinetics of Kir6.2\textgreek{d}C or Kir6.2-GFP alone, coexpression of Kir6.2 with SUR1 increases the open time of the channel within the bursting openings, and increases the duration of the bursts, while the intraburst closed times are unaffected \cite{trapp_molecular_1998-1, john_sulphonylurea_1998-1, chan_n-terminal_2003-1}.
+Compared to the single channel kinetics of Kir6.2\textgreek{D}C or Kir6.2-GFP alone, coexpression of Kir6.2 with SUR1 increases the open time of the channel within the bursts, and increases their duration, while the intraburst closed times are unaffected \cite{trapp_molecular_1998-1, john_sulphonylurea_1998-1, chan_n-terminal_2003-1}.
 This suggests that interactions of SUR1 with Kir6.2 serve to regulate the slow gating of the channel, rather than the fast gating.
 The mechanisms by which SUR1 regulates intrinsic gating of the K\ATP{} channel are complex and not yet fully understood.
 Structurally, the primary contacts between the two subunits are formed between the N-terminus and first transmembrane domain of Kir6.2 and TMD0 and L0 of SUR1 (Figure \ref{ch1fig:sur_struct}) \cite{martin_anti-diabetic_2017, lee_molecular_2017-1, li_structure_2017-1}.
 The contributions of the interactions of these regions have been studied in a variety of ways.
-
-\citeauthor{babenko_two_1999} constructed a series of SUR1/SUR2A chimeras and characterised the changes in single channel kinetics that resulted from swapping different domains between the two isoforms of SUR.
-They found that Kir6.2+SUR2A channels exhibited a far higher single channel $P_O$ than Kir6.2+SUR1 channels (0.91 and 0.64 respectively).
-This difference could be attributed to increased burst durations and decreased interburst periods, while fast gating is indistinguishable.
-They found that a chimerical construct replacing the N-terminal 291 amino acids of SUR1 with those of SUR2A was sufficient to recapitulate the single channel kinetics of full-length SUR2A, suggesting that this region is critical for specifying the intrinsic gating of K\ATP{}.
-
-Later work established that truncations of SUR1 to TMD0 or TMD0-L0 fragements allowed expression of "mini-K\ATP{}" channels at the cell membrane \cite{babenko_sur_2003, chan_n-terminal_2003, fang_n-terminal_2006}.
-The first two studies showed that expression of Kir6.2 with TMD0 alone (residues 1-195 or 1-196 of SUR1) essentially recapitulates the intrinsic gating characteristics of Kir6.2 expressed with full-length SUR1, restoring the increased open time duration and burst duration as compared to expression of Kir6.2 alone \cite{babenko_sur_2003, chan_n-terminal_2003}.
-\citeauthor{fang_n-terminal_2006} later found that in their hands, mini-K\ATP{} channels formed from Kir6.2\textgreek{d}C and SUR1-TMD0 were similar to full-length K\ATP{} but they consistently observed differences in the burst durations.
-This discrepency may be, at least in part, due to differences in the heterologous expression system (COSm6 cells in \cite{babenko_sur_2003}, \textit{Xenopus} oocytes in \cite{fang_n-terminal_2006}).
-Otherwise, the remaining difference between K\ATP{} and mini-K\ATP{} channels could either be due to differences in structural interactions due to the truncation, or could implicate a role for the ABC core domain in regulating slow gating \cite{fang_n-terminal_2006}.
-
-Increasing the length of the SUR1 fragment to include the first section of the L0 linker (residues 1-232 of SUR1) results in a nearly constitutively open channel, with dramatically increased open time duration and few observable interburst closures \cite{babenko_sur_2003}.
-The resulting $P_O$ of 0.93 reflects a near saturation of the slow gating process; as without changes to the fast gating there can be limited further increases in $P_O$ due to the flickery closure.
-Increasing the length of the L0 linker included in the SUR1 truncation fragment results in a progressive decrease in the open time duration, burst length and $P_O$, although it never regresses to the kinetics observed in Kir6.2 expressed alone \cite{babenko_sur_2003}.
-These findings suggest that while the TMD0 and the initial segment of L0 help to stabilise the open state of K\ATP{} channels, sections of the L0 linker act to destabilise the open state in some fashion \cite{babenko_sur_2003, puljung_cryo-electron_2018-1}.
-
-One hypothesis for this destablisation is that parts of the L0 linker interact with the N-terminus of Kir6.2 to regulate intrinsic gating of K\ATP{} channels \cite{koster_atp_1999, babenko_n-terminus_1999, reimann_involvement_1999-1, babenko_sur-dependent_2002}.
-
 
 \begin{figure}[h]
 	\centering
@@ -268,10 +263,45 @@ One hypothesis for this destablisation is that parts of the L0 linker interact w
 	}
 \end{figure}
 
+\citeauthor{babenko_two_1999} constructed a series of SUR1/SUR2A chimeras and characterised the changes in single channel kinetics that resulted from swapping different domains between the two isoforms of SUR.
+They found that Kir6.2+SUR2A channels exhibited a far higher single channel $P_O$ than Kir6.2+SUR1 channels (0.91 and 0.64 respectively).
+This difference could be attributed to increased burst durations and decreased interburst periods, while fast gating is indistinguishable.
+They found that a chimerical construct replacing the N-terminal 291 amino acids of SUR1 with those of SUR2A was sufficient to recapitulate the single channel kinetics of full-length SUR2A, suggesting that this region is critical for specifying the intrinsic gating of K\ATP{}.
+
+Later work established that truncations of SUR1 to TMD0 or TMD0-L0 fragments allowed expression of "mini-K\ATP{}" channels at the cell membrane \cite{babenko_sur_2003, chan_n-terminal_2003, fang_n-terminal_2006}.
+The first two studies showed that expression of Kir6.2 with TMD0 alone (residues 1-195 or 1-196 of SUR1) essentially recapitulates the intrinsic gating characteristics of Kir6.2 expressed with full-length SUR1, restoring the increased open time duration and burst duration as compared to expression of Kir6.2 alone \cite{babenko_sur_2003, chan_n-terminal_2003}.
+\citeauthor{fang_n-terminal_2006} later found that in their hands, mini-K\ATP{} channels formed from Kir6.2\textgreek{D}C and SUR1-TMD0 were similar to full-length K\ATP{} but they consistently observed differences in the burst durations.
+This discrepancy may be, at least in part, due to differences in the heterologous expression system (COSm6 cells in \cite{babenko_sur_2003}, \textit{Xenopus} oocytes in \cite{fang_n-terminal_2006}).
+Otherwise, the remaining difference between K\ATP{} and mini-K\ATP{} channels could either be due to differences in structural interactions due to the truncation, or could implicate a role for the ABC core domain in regulating slow gating \cite{fang_n-terminal_2006}.
+
+Increasing the length of the SUR1 fragment to include the first section of the L0 linker (residues 1-232 of SUR1) results in a nearly constitutively open channel, with dramatically increased open time duration and few observable interburst closures \cite{babenko_sur_2003}.
+The resulting $P_O$ of 0.93 reflects a near saturation of the slow gating process; as without changes to the fast gating there can be limited further increases in $P_O$ due to the flickery closure.
+Increasing the length of the L0 linker included in the SUR1 truncation fragment results in a progressive decrease in the open time duration, burst length and $P_O$, although it never regresses to the kinetics observed in Kir6.2 expressed alone \cite{babenko_sur_2003}.
+These findings suggest that while the TMD0 and the initial segment of L0 help to stabilise the open state of K\ATP{} channels, sections of the L0 linker act to destabilise the open state in some fashion \cite{babenko_sur_2003, puljung_cryo-electron_2018-1}.
+
+One hypothesis for this destabilisation is that parts of the L0 linker interact with the N-terminus of Kir6.2 to regulate intrinsic gating of K\ATP{} channels \cite{koster_atp_1999, babenko_n-terminus_1999, reimann_involvement_1999-1, babenko_sur-dependent_2002}.
+When Kir6.2\textgreek{D}C is expressed alone, deletion of the first 14 amino acids of the N-terminus of Kir6.2 does not affect single channel kinetics \cite{reimann_involvement_1999-1}.
+However, in the presence of SUR1, truncations of up to the first 44 amino acids of the N-terminus reduces the frequency of transitions to the long closed state, increasing the $P_O$ \cite{reimann_involvement_1999-1, koster_atp_1999, babenko_n-terminus_1999}.
+This effect increases with progressive truncations from \textgreek{D}N4 to \textgreek{D}N30, but increasing the truncation past this point does not appear to have additional effects.
+
+\citeauthor{cukras_role_2002-1} conducted an alanine scan of positively charged residues in the N-terminus of Kir6.2.
+They identified two residues in the proximal 30 amino acids which reduced $P_O$ when substituted (R4A, K5A) and two residues which increased $P_O$ when substituted (R16A, R27A).
+
+Application of a synthetic peptide which contains the first 33 amino acids of the N-terminus of Kir6.2 to full-length K\ATP{} channels decreases the frequency of transitions to the closed state, in a manner comparable to truncation of the N-terminus \cite{babenko_sur-dependent_2002}.
+This effect was dependent on the presence of SUR1, as with the N-terminal truncation experiments.
+This finding suggests that the synthetic peptide competes with the endogenous N-terminal of Kir6.2 for an interaction within the K\ATP{} channel complex.
+Together, these results provide evidence for interactions between SUR1 and the N-terminal of Kir6.2 which facilitate transitions to the long closed state of the channel \cite{babenko_sur_2003}.
+
+Of course, when measuring currents from hundreds or thousands of K\ATP{} channels, it is not possible to distinguish between perturbations which alter fast gating and perturbations which alter slow gating; the current measured reflects the sum of both of these processes.
+At a macroscopic level, anything which increases single channel open time or burst duration, or decreases the intraburst closed time or frequency of entering the interburst state will be indistinguishable.
+
 \section{Ligand dependent regulation of the pancreatic K\ATP{} channel}
 
-% Fast gating is a property intrinsic to Kir6.2, and the intraburst mean closed time is unaffected by the presence of SUR1 \cite{fang_n-terminal_2006}, the presence of nucleotides \cite{alekseev_ligand-insensitive_1998, li_open_2002}, and the presence of PIP\textsubscript{2}.
-% However, the intraburst mean open time is incrementally reduced by increasing concentrations of nucleotide.
+K\ATP{} channels are regulated by two classes of endogenous ligands (nucleotides and phosphoinositides) and a range of exogenous ligands (predominantly sulphonylureas and glinides) (Figure \ref{ch1fig:regulation_diagram}).
+Thus far, the action of each of these ligands appears to exclusively affect the slow gating of channel \cite{proks_modeling_2009}.
+While the binding of adenine nucleotides to the Kir6.2 binding site leads to closure of the pore, binding of nucleotides to the NBSs of SUR1 in the presence of Mg\textsuperscript{2+} activates the channel \cite{nichols_adenosine_1996-1, vedovato_nucleotide-binding_2015}.
+The interplay between the action of nucleotides at these distinct sites (Figure \ref{ch1fig:sur_ctd}) determines the response of the K\ATP{} channel to metabolic changes, and therefore even subtle mutations or modifications to these sites can lead to diseases of insulin secretion.
+In addition to allowing activation of the channel by Mg-nucleotides, proper assembly of Kir6.2 and SUR1 allows for highly sensitive inhibition of currents by sulphonylureas and glinides \cite{gribble_interaction_1997, ashcroft_new_2010}.
 
 \begin{figure}[h]
 	\centering
@@ -289,12 +319,16 @@ One hypothesis for this destablisation is that parts of the L0 linker interact w
 
 \subsection{Nucleotide regulation of the pancreatic K\ATP{} channel}
 
-While the binding of adenine nucleotides to the Kir6.2 binding site leads to closure of the pore, binding of nucleotides to either of the two NBSs of SUR1 in the presence of Mg\textsuperscript{2+} activates the channel.
-The interplay between the action of nucleotides at these distinct sites (Figure \ref{ch1fig:sur_ctd}) determines the response of the K\ATP{} channel to metabolic changes, and therefore even subtle mutations or modifications to these sites can lead to diseases of insulin secretion.
+The physiological regulation of channel activity by nucleotides is the summed contribution of activation by Mg-nucleotides binding to the NBSs of SUR1, and inhibition by nucleotides binding to Kir6.2.
+To study these contributions experimentally, most research to date has relied on electrophysiological recordings of K\ATP{} currents.
+Separating the contributions of the different classes of site has been achieved through a variety of methods.
+Firstly, activation of the channel by Mg-nucleotides can be eliminated by removing Mg\textsuperscript{2+} ions from the solutions used to perfuse excised patches by inclusion of high concentrations of chelators such as EGTA \cite{gribble_mgatp_1998-1, proks_activation_2010-1}.
+This experimental paradigm allows for the measurement of inhibition by nucleotides alone.
+Secondly, activation of the channel by Mg-nucleotides can be isolated by introducing mutations which abolish nucleotide binding to Kir6.2 \cite{gribble_mgatp_1998-1, proks_activation_2010-1}.
 
-In addition to its nucleotide binding and sensitivity to sulphonylureas, SUR1 also has intrinsic effects on channel properties.
-The presence of SUR1 increases the open probability of the channel pore (Figure \ref{ch1fig:singles_sur}), and this increase is conferred by the TMD0 region (Figure \ref{ch1fig:singles_tmd0}).
-Furthermore, coexpression of SUR1 increases the sensitivity of Kir6.2 to inhibition by nucleotides (Figure \ref{ch1fig:sur_shift}).
+Mutation of residues which are involved in nucleotide inhibition of the K\ATP{} channel can result in one of two functional effects.
+In the first category are residues which, when substituted, reduce the sensitivity of the channel to nucleotide inhibition (i.e. increase the IC\textsubscript{50} for nucleotide inhibition) while not perturbing the intrinsic gating of the channel.
+Mapping these residues to the Kir6.2 nucleotide binding site defined in the cryo-EM structures of ATP-bound K\ATP{} reveals that many
 
 \subsection{PIP\textsubscript{2} regulation of the pancreatic K\ATP{} channel}
 
@@ -307,9 +341,3 @@ Furthermore, coexpression of SUR1 increases the sensitivity of Kir6.2 to inhibit
 \subsection{Forster resonance energy transfer}
 
 \subsection{Unnatural amino acid incorporation}
-
-\section{Functional modelling of ion channels}
-
-\subsection{Why?}
-
-\subsection{A model that fits}
