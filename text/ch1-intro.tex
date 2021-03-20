@@ -317,6 +317,9 @@ The ability of the channel to open and close in the absence of ligand (i.e. afte
 One mechanism by which ligands are proposed to regulate the equilibrium of K\ATP{} channels (and macromolecules in general) is by being selective for particular conformations.
 For example, PIP\textsubscript{2} will exhibit a higher binding affinity for an open state of the channel that it will for a closed state; and thus the presence of PIP\textsubscript{2} will selectively stabilise the open state of K\ATP{} channels.
 This mechanism is the cornerstone of the MWC model of allostery \cite{monod_nature_1965-1, rubin_nature_1966, garcia_chapter_2011, marzen_statistical_2013}, and its assumptions and implications will be discussed in more detail in \ref{ch4}.
+In this framework, the link between ligand binding and channel gating, sometimes called transduction, is the factor by which a ligand preferentially stabilises a particular conformation.
+Figure \ref{ch1fig:regulation_diagram} is a simplified diagram of how ligands interact to regulate the K\ATP{} channel.
+Briefly, $L$ describes the unliganded equilibrium between open and closed, while ligands which bind with affinity constants $K_X$ preferentially stabilise the open state by a factor $D_X > 1$ or the closed state by a factor $D_X < 1$.
 
 \begin{figure}[h]
 	\centering
@@ -349,13 +352,19 @@ Well characterised mutations of residues in this region of the N-terminus (R50 \
 However, they are far less sensitive to inhibition by nucleotides.
 The simplest hypothesis to explain this data given the location of the residues in the structures is that mutations of these residues perturb interactions between K\ATP{} and nucleotides, reducing the direct binding affinity of nucleotides for the inhibitory binding site (i.e. a reduction of $K_A$ in Figure \ref{ch1fig:regulation_diagram}).
 
+Alternatively, mutations which do not affect intrinsic gating but reduce sensitivity to nucleotide inhibition may be affecting the relative selectivity of nucleotides for the closed state of the channel (i.e. $D_A$ approaches unity in Figure \ref{ch1fig:regulation_diagram}).
 R201 was hypothesised to form part of the binding site as a cysteine \cite{proks_molecular_2004, antcliff_functional_2005} or histidine \cite{tammaro_functional_2006} substitution at this site results in reduced inhibition of K\ATP{} channels by nucleotides, without any changes in intrinsic gating .
 Curiously, an alanine at this position results in K\ATP{} channels which exhibit both reduced sensitivity to ATP inhibition and reduced activation by PIP\textsubscript{2} \cite{shyng_structural_2000}.
 Examining the cryo-EM structures suggests that this residue does not form direct contacts with bound ATP, and would therefore have to alter the nucleotide binding site allosterically - potentially by stabilising the short helix containing the critical F333 and G334 residues \cite{puljung_cryo-electron_2018}.
-Another possibility proposed by \citeauthor{ribalet_molecular_2003, john_molecular_2003} is that mutating R201 to an alanine perturbs the preference of nucleotides for the closed state of the channel (this idea will be discussed in greater detail later on).
+\citeauthor{ribalet_molecular_2003, john_molecular_2003} proposed that mutating R201 to an alanine instead acts by perturbing the preference of nucleotides for the closed state of the channel, increasing $D_A$.
 
-The second category of residues are those which, when mutated, alter the intrinsic gating of the channel and also affect the sensitivity of the channel to nucleotide inhibition.
+The second category of residues are those which, when mutated, increase the $P_O$ of the channel and also affect the sensitivity of the channel to nucleotide inhibition.
 This category is far larger, and these residues are found across both Kir6.2 and SUR1 structures.
+Within the MWC framework in Figure \ref{ch1fig:regulation_diagram}, mutations which increase $L$ (and therefore increase the observed $P_O$) reduce the ability of nucleotides to inhibit the channel.
+By increasing the stability of the open state, the selectivity of nucleotides for the closed state ($D_A < 1$) results in a decreased probability of nucleotide binding, and thus reducing inhibition.
+Mutations within this category are difficult to fully characterise in the cell membrane environment due to the presence of phosphoinositides.
+An observed increase in $P_O$ in an excised patch may either stem from an increase in $L$, or from an increase in $K_B$ or $D_B$.
+
 
 \subsection{PIP\textsubscript{2} regulation of the pancreatic K\ATP{} channel}
 

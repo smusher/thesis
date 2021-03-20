@@ -120,9 +120,6 @@ While we can exclude residues which fall too close to the NBS's of SUR1, the clo
 
 We ended up with one residue which fulfilled these criteria and for which membrane expression of the ANAP-incorporated channel could be detected: W311.
 It is a bulky hydrophobic residue similar to ANAP, and no mutations at this residue have been previously identified to alter K\ATP{} function.
-To determine the extent to which crosstalk between neighbouring subunits would affect the measure FRET efficiency when ANAP is incorporated at position 311, we simulated the expected FRET for a single K\ATP{} channel bound to 0-4 molecules of TNP-ATP in an idealised scenario with no crosstalk, and compared the observed fluorescence quenching to a scenario including the possibility of crosstalk (Figure \ref{ch3fig:exifret_out}).
-Due to the much shorter fluorescence lifetime of TNP-ATP compared to ANAP, we observe a deviation from the ideal scenario.
-We can correct for this systematic deviation by transforming our observed ANAP quenching ($F/F_{max}$) into $log_2(\frac{F}{F_{max} + 1})$.
 
 \begin{figure}[h]
 	\centering
@@ -144,23 +141,18 @@ We can correct for this systematic deviation by transforming our observed ANAP q
 		\includegraphics[width=\textwidth]{6c3o_docking.pdf}
 	\end{subfigure}
 	\vfill
-	\begin{subfigure}[t]{0.3\textwidth}
+	\begin{subfigure}[t]{0.4\textwidth}
 		\caption{}\label{ch3fig:6c3p_bound}
 		\centering
 		\includegraphics[width=\textwidth]{6c3p_site_bound.png}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}[t]{0.3\textwidth}
+	\begin{subfigure}[t]{0.4\textwidth}
 		\caption{}\label{ch3fig:6c3p_docked}
 		\centering
 		\includegraphics[width=\textwidth]{6c3p_site_docked.png}
 	\end{subfigure}
-	\hfill
-	\begin{subfigure}[t]{0.3\textwidth}
-		\caption{}\label{ch3fig:exifret_out}
-		\centering
-		\includegraphics[width=\textwidth]{exifret_out.pdf}
-	\end{subfigure}
+	
 	\caption[TNP-nucleotides can bind with a similar pose to ATP]{
 	\subref{ch3fig:6baa_docking}, \subref{ch3fig:6c3p_docking}, \subref{ch3fig:6c3o_docking} Cryo-EM binding poses for ATP bound to Kir6.2 (white) overlayed with either the ten highest scoring computationally docked ATP poses (red) or the three highest scoring computationally docked TNP-nucleotide poses (orange).
 	Starting poses for ATP were generated from ten different random seeds based on the cryo-EM poses.
@@ -168,9 +160,6 @@ We can correct for this systematic deviation by transforming our observed ANAP q
 	The poses shown are from \#3B5J (X-ray diffraction structure of TNP-ADP bound to the NBD complex of a bacterial ABC transporter) and \#5SVQ (X-ray diffraction structure of TNP-ATP bound to the human P2X3 ion channel).
 	\subref{ch3fig:6c3p_bound} Cryo-EM structure of the nucleotide binding site in the presence of ATP from \#6C3P.
 	\subref{ch3fig:6c3p_docked} As \subref{ch3fig:6c3p_bound} but with the three top scoring binding poses for docked TNP-nucleotides.
-	\subref{ch3fig:exifret_out} Correcting measured FRET efficiency for crosstalk between adjacent subunits requires transforming measured fluorescence quenching as described in the main text.
-	Shown as a line is the idealised FRET efficiency for a single K\ATP{} channel bound to increasing numbers of TNP-ATP.
-	Observed (blue) and corrected (orange) observed FRET efficiencies at each ligand occupancy state are shown as points.
 	}\label{ch3fig:docking}
 \end{figure}
 
@@ -475,16 +464,64 @@ In each experiment, there was a mean proportion of \SI{49}{\percent} ANAP fluore
 	}
 \end{figure}
 
-To equivocate ANAP quenching and nucleotide binding, first we need to adjust for the FRET between adjacent subunits of Kir6.2.
-The difference between the ideal 1:1 subunit/ligand FRET efficiency and the simulated experimental FRET efficiency resulted in a correction factor of $log_2(\frac{F}{F_{max}} + 1)$.
+While our measurements of ANAP quenching are proportional to nucleotide binding to K\ATP{}, the raw $F/F_{max}$ observations are not directly equivalent to the unbound fraction of Kir6.2 subunits.
+This non-equivalence is due to two factors.
+Firstly, there is the potential for crosstalk between ANAP incorporated in one subunit and TNP-ATP bound to the adjacent subunits.
+To determine the extent to which this crosstalk would affect the measured FRET efficiency when ANAP is incorporated at position 311, we adapted a program described by \citeauthor{deplazes_exifret_2012} which uses a numerical method to model FRET in complex geometries.
+We implemented a simple version of this program in Python which uses a Monte Carlo simulation scheme to approximate the observed FRET efficiency for a given set of donor and acceptor fluorophores and coordinates.
+An overview of the program is shown in Figure \ref{ch3fig:exifret_program}.
+We did not measure the fluorescence lifetimes and quantum yields of ANAP and TNP-ATP directly, instead using previously determined values \cite{zagotta_measuring_2016-1, ye_spectroscopic_1999, ishikawa_single-molecule_2002}.
+The fluorescence lifetime of TNP-ATP differs when it is bound to proteins; we ran simulations using the fluorescence lifetime of TNP-ATP in solution and the fluorescence lifetime of bound TNP-ATP and saw no difference in the FRET efficiency.
+
+We simulated the expected FRET for a single K\ATP{} channel bound to 0-4 molecules of TNP-ATP in two different scenarios.
+In the idealised scenario, each ANAP molecule is only able to FRET with the TNP-ATP molecule bound at the closest inhibitory binding site (Figure \ref{ch3fig:exifret_coords}).
+In the actual scenario, which resembles the experimental paradigm, each ANAP molecule is able to FRET with any bound TNP-ATP molecule in a probabilistic manner dependent on the inter-fluorophore distance.
+We can observe that there is a systematic deviation in the FRET efficiency between these two scenarios (Figure \ref{ch3fig:exifret_out}), which we can correct by transforming the actual values ($F/F_{max}$) into adjusted values ($log_2(\frac{F}{F_{max} + 1})$).
 
 Secondly, we need to correct for incomplete FRET due to the distance between the donor and acceptor.
-Based on the computational docking, we predicted a maximal FRET efficiency of \SI{91}{\percent} when every Kir6.2 subunit is bound by TNP-ATP.
-Fitting our adjusted data to a Hill equation results in a maximum observed FRET efficiency of \SI{90}{\percent}, agreeing well with our prediction.
-We can then normalise our observed fluorescence data by this value.
+Based on the results of the computational docking, we predict a maximal FRET efficiency of \SI{91}{\percent} when every Kir6.2 subunit is bound by TNP-ATP.
+Fitting our adjusted data to a Hill equation results in a maximum observed FRET efficiency ($E_max$) of \SI{90}{\percent}, agreeing well with our prediction.
+We can then constrain our Hill fits so that $E_{max}$ is equal to this maximum FRET efficiency, so that the $EC_{50}$ parameter we obtain is equivalent to the $EC_{50}$ of TNP-ATP binding.
 
-Overall, these two corrections do not dramatically alter our results (Figure \ref{ch3fig:tnpatp_quenching_1}), and we performed our analysis on both corrected and uncorrected results to ensure that there was no potential difference in interpration which derived from treating our data in this way.
+\begin{figure}[h]
+	\centering
+	\begin{minipage}{0.35\textwidth}
+	\begin{subfigure}[t]{\textwidth}
+		\caption{}\label{ch3fig:exifret_program}
+		\centering
+		\includegraphics[width=\textwidth]{exifret_program.pdf}
+	\end{subfigure}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.55\textwidth}
+	\begin{subfigure}[t]{\textwidth}
+		\caption{}\label{ch3fig:exifret_coords}
+		\centering
+		\includegraphics[width=\textwidth]{exifret_coords.pdf}
+	\end{subfigure}
+	\vfill
+	\begin{subfigure}[t]{\textwidth}
+		\caption{}\label{ch3fig:exifret_out}
+		\centering
+		\includegraphics[width=\textwidth]{exifret_out.pdf}
+	\end{subfigure}
+	\end{minipage}
+	\caption[Numerical analysis of FRET efficiency in tetrameric Kir6.2]{
+	\subref{ch3fig:exifret_program} Schematic of the numerical simulation.
+	After the geometry and fluorophore types are assigned, an exciton schedule is generated from the photon flux determined by the irradiance and wavelength of the LED used to excite ANAP.
+	For each simulated photon (exciton), a relaxed donor is chosen at random.
+	The donor releases its energy either via fluorescence or FRET to an acceptor based on the relative probability of each process.
+	Donors and acceptors relax stochastically based on their fluorescence lifetimes (\SI{2}{\nano\second} for ANAP \cite{zagotta_measuring_2016-1} and \SI{0.05}{\nano\second} or \SI{2}{\nano\second} for TNP-ATP \cite{ye_spectroscopic_1999, ishikawa_single-molecule_2002}).
+	Once the full exciton schedule is played, the total number of fluorescence and FRET events are summed and the total FRET efficiency is calculated.
+	\subref{ch3fig:exifret_coords} Geometry of W311 and TNP-ATP molecules in tetrameric Kir6.2.
+	W311 residues are from PDB \#6C3P, and TNP-ATP is from the highest scoring docking pose in Figure \ref{ch3fig:6c3p_docked}.
+	Distances are measured from the centre of mass of the W311 sidechain to the centre of mass of each of the TNP moieties.
+	\subref{ch3fig:exifret_out} Shown as a line is the idealised FRET efficiency for a single K\ATP{} channel bound to increasing numbers of TNP-ATP.
+	Actual (blue) and corrected (orange) FRET efficiencies from the numerical simulation at each ligand occupancy state are shown as points.
+	}
+\end{figure}
 
+Overall, these two corrections do not dramatically alter our results (Figure \ref{ch3fig:tnpatp_quenching_1}).
 We observed quenching of ANAP fluorescence over a concentration range of TNP-ATP similar to the range in which we observed inhibition of current in W311*-GFP (Figure \ref{ch3fig:ec50_fits_3}, \ref{ch3fig:tnpatp_quenching_2}).
 When fit to a Hill equation, quenching ($F/F_{max}$) was fit with an EC\textsubscript{50} of \SIrange{21}{31}{\micro\Molar}, while the corrected binding data (adjusted $F/F_{max}$) gave an EC\textsubscript{50} of \SIrange{30}{45}{\micro\Molar}.
 
