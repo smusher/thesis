@@ -7,9 +7,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="63.324257mm"
+   width="82.482773mm"
    height="77.764938mm"
-   viewBox="0 0 63.324257 77.764938"
+   viewBox="0 0 82.482773 77.764938"
    version="1.1"
    id="svg1097"
    inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07, custom)"
@@ -51,8 +51,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="242.46249"
-     inkscape:cy="161.93395"
+     inkscape:cx="109.91714"
+     inkscape:cy="97.781071"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -70,7 +70,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -78,7 +78,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-14.38502,-9.2619664)">
+     transform="translate(-14.38502,-9.2619657)">
     <text
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
        x="-38.619751"
@@ -235,7 +235,7 @@
        id="line4767-3" />
     <polygon
        style="fill:#000000;stroke:none;stroke-width:0.732893;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
-       points="142.143,118.371 137.556,118.371 139.849,106.284 "
+       points="137.556,118.371 139.849,106.284 142.143,118.371 "
        id="polygon4769-0"
        transform="matrix(-0.36101214,0,0,-0.36101214,78.943719,58.918336)" />
     <line
@@ -708,7 +708,7 @@
     <polygon
        transform="matrix(0.33182974,0,0,0.33182974,14.498509,33.514712)"
        style="fill:#000000;stroke:none;stroke-width:0.797347;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
-       points="89.5708,104.143 75.3109,101.88 89.5708,99.6165 "
+       points="75.3109,101.88 89.5708,99.6165 89.5708,104.143 "
        id="polygon4365-8" />
     <line
        style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
@@ -727,7 +727,7 @@
     <polygon
        transform="matrix(0.33182974,0,0,0.33182974,14.498509,33.514712)"
        style="fill:#000000;stroke:none;stroke-width:0.797347;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
-       points="76.1337,89.8093 66.9889,90.405 74.733,85.5048 "
+       points="66.9889,90.405 74.733,85.5048 76.1337,89.8093 "
        id="polygon4371-4" />
     <line
        style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
@@ -907,7 +907,7 @@
     <polygon
        transform="matrix(0.33182974,0,0,0.33182974,14.498509,33.514712)"
        style="fill:#000000;stroke:none;stroke-width:0.797347;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
-       points="44.2916,95.4542 53.4334,94.8355 45.7034,99.7551 "
+       points="53.4334,94.8355 45.7034,99.7551 44.2916,95.4542 "
        id="polygon4423-2" />
     <line
        style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
@@ -926,7 +926,7 @@
     <polygon
        transform="matrix(0.33182974,0,0,0.33182974,14.498509,33.514712)"
        style="fill:#000000;stroke:none;stroke-width:0.797347;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
-       points="43.732,113.351 53.4948,109.01 46.4056,117.003 "
+       points="53.4948,109.01 46.4056,117.003 43.732,113.351 "
        id="polygon4429-5" />
     <line
        style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
@@ -1058,5 +1058,204 @@
          x="39.744896"
          id="tspan49916-9"
          sodipodi:role="line">TNP-ATP</tspan></text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="-72.866608"
+       y="-53.940193"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4731-9-4"
+       transform="scale(-1)">H</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="-69.715691"
+       y="-49.235424"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4733-1-7"
+       transform="scale(-1)">N</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="-59.552841"
+       y="-55.919312"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4735-3-1"
+       transform="scale(-1)">O</text>
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="-64.634079"
+       y="-64.720673"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4737-4-4"
+       transform="scale(-1)">O</text>
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="78.586151"
+       y1="57.297256"
+       x2="74.796944"
+       y2="59.484859"
+       id="line4763-9-9" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="74.796944"
+       y1="59.484859"
+       x2="69.715706"
+       y2="56.551071"
+       id="line4765-1-6" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="69.715706"
+       y1="56.551071"
+       x2="71.573822"
+       y2="55.478157"
+       id="line4767-3-7" />
+    <polygon
+       style="fill:#000000;stroke:none;stroke-width:0.732893;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       points="142.143,118.371 137.556,118.371 139.849,106.284 "
+       id="polygon4769-0-5"
+       transform="matrix(-0.36101213,0,0,-0.36101213,120.20289,94.92088)" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="69.715706"
+       y1="56.551071"
+       x2="64.634094"
+       y2="59.484859"
+       id="line4771-8-6" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="64.634094"
+       y1="59.484859"
+       x2="61.07814"
+       y2="57.431587"
+       id="line4773-0-4" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="64.132278"
+       y1="59.484859"
+       x2="64.132278"
+       y2="64.169151"
+       id="line4775-8-3" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="65.135902"
+       y1="59.484859"
+       x2="65.135902"
+       y2="64.169151"
+       id="line4777-8-0" />
+    <path
+       id="line4757-9-4-8-1"
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       d="m 80.767355,51.588015 4.954404,0.263605"
+       sodipodi:nodetypes="cc" />
+    <path
+       id="line4757-9-4-8-5"
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       d="m 87.411088,53.533843 1.051289,4.26533"
+       sodipodi:nodetypes="cc" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="83.341927"
+       y1="61.135967"
+       x2="78.586151"
+       y2="57.297256"
+       id="line4757-9-4-8-3" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="78.586143"
+       y1="57.297256"
+       x2="80.767357"
+       y2="51.588017"
+       id="line4757-9-4-8-51" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="89.129539"
+       y1="69.971512"
+       x2="83.661812"
+       y2="67.239388"
+       id="line4751-7-1" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="88.758049"
+       y1="68.663872"
+       x2="84.930618"
+       y2="66.751373"
+       id="line4753-6-5" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="83.661812"
+       y1="67.239388"
+       x2="83.341927"
+       y2="61.135967"
+       id="line4755-6-5" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="83.341927"
+       y1="61.135967"
+       x2="88.492989"
+       y2="57.846626"
+       id="line4757-9-4" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="84.654785"
+       y1="61.488495"
+       x2="88.260551"
+       y2="59.185905"
+       id="line4759-2-6" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="88.492989"
+       y1="57.846626"
+       x2="93.895905"
+       y2="60.704487"
+       id="line4779-5-0" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="93.895905"
+       y1="60.704487"
+       x2="94.074493"
+       y2="66.814072"
+       id="line4781-1-2" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="92.91935"
+       y1="61.65033"
+       x2="93.044426"
+       y2="65.926949"
+       id="line4783-4-5" />
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="89.129539"
+       y1="69.971512"
+       x2="94.074493"
+       y2="66.814072"
+       id="line4785-9-3" />
+    <text
+       id="text49914-1-7"
+       y="48.795818"
+       x="75.398445"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:4.9389px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:4.9389px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.264583"
+         y="48.795818"
+         x="75.398445"
+         id="tspan49912-1-3"
+         sodipodi:role="line">Tryptophan</tspan></text>
+    <line
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x1="79.852829"
+       y1="56.690094"
+       x2="81.402008"
+       y2="52.702175"
+       id="line4759-2-6-6" />
+    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.175px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+       x="-86.908279"
+       y="-50.877392"
+       font-size="6.4pt"
+       font-weight="bold"
+       id="text4733-1-7-0"
+       transform="scale(-1)">N</text>
   </g>
 </svg>
