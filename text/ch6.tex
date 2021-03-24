@@ -84,14 +84,32 @@ When we expressed WT-GFP alone, we saw no inhibition of currents by \SI{100}{\mi
 	}\label{ch6fig:no_sur}
 \end{figure}
 
-In addition, we labelled the C-terminus of SUR1 with the fluorophore mOrange (SUR1-mO), and measured FRET between the GFP on WT-GFP or W311*-GFP and the mOrange on SUR1 in unroofed membranes.
+While tolbutamide inhibition provides evidence for SUR1 association with our Kir6.2 constructs in excised patches, we cannot perform the same experiment to test for association in unroofed membranes.
+Instead, we labelled the C-terminus of SUR1 with the fluorophore mOrange (SUR1-mO), and measured FRET between the GFP attached to WT-GFP or W311*-GFP and the mOrange attached to SUR1.
 The cryo-EM structures suggest a distance between the C-termini of Kir6.2 and SUR1 of roughly \SI{60}{\angstrom}, while the GFP-mOrange FRET pair has a theoretical R0 of \SI{54}{\angstrom}.
-We would therefore expect to see FRET if our Kir6.2 and SUR1 contructs are coassembling.
-To measure FRET, we used an approach described in \cite{zheng_rod_2002} whereby FRET is measured as an increase in the emission of the acceptor fluorophore (mOrange) on excitation of the donor fluorophore (GFP) (Figure \ref{sur_assays}).
-We observed FRET between WT-GFP and SUR1-mO, consistent with the two subunits being in close proximity.
-Less FRET was observed when W311*-GFP was coexpressed with SUR1-mO (although still much higher than background).
-This is probably due to the reduced expression of W311*-GFP compared to WT-GFP, i.e. there is less donor fluorescence to transfer to mOrange.
-Correcting for the magnitude of the GFP peak results in observed ratios for WT-GFP and W311*-GFP that are very similar.
+We would therefore expect to see FRET between GFP and mOrange if our Kir6.2 and SUR1 contructs are coassembling.
+
+To measure FRET, we used an approach outlined by \citeauthor{clegg_18_1992} and \citeauthor{selvin_13_1995} whereby FRET is measured as an increase in the emission of the acceptor fluorophore (mOrange) on excitation of the donor fluorophore (GFP) (Figure \ref{sur_assays}).
+We can directly excite both GFP and mOrange with \SI{490}{\nano\metre} light.
+When WT-GFP is expressed alone we can measure the resulting emission spectrum as the donor fluorescence alone, and when SUR1-mO is expressed alone we can measure the resulting emission spectrum as the acceptor fluorescence alone (Figure \ref{ch6fig:gfp_mo_spectra_1}).
+In addition, we can excite mOrange directly with \SI{565}{\nano\metre} light and avoid excitation of GFP.
+However, in the experimental condition with both WT/W311*-GFP and SUR1-mO, excitation with \SI{490}{\nano\metre} light results in an emission spectrum which is a mixture of three components: the emission from the donor fluorophore GFP, emission from the acceptor fluorophore mOrange due to direct excitation, and emission from the acceptor fluorophore mOrange due to energy transfer from the donor GFP (Figure \ref{ch6fig:wt_gfp_mo_spectra_1}, \ref{ch6fig:w311_gfp_mo_spectra_1}).
+To extract the component we are interested in (emission due to energy transfer), we can first remove the contribution of the donor fluorescence to the emission spectrum by subtracting an idealised WT/W311*-GFP spectrum averaged from multiple cells expressing it alone (Figure \ref{ch6fig:wt_gfp_mo_spectra_2}, \ref{ch6fig:w311_gfp_mo_spectra_2}).
+We can then take the ratio of the fluorescence intensity of the acceptor mOrange after excitation by \SI{490}{\nano\metre} light (which contains both direct excitation of the acceptor and FRET) to the fluorescence intensity of the acceptor mOrange after excitation by \SI{565}{\nano\metre} light (which contains only direct excitation of the acceptor).
+Any increase in this ratio over that observed in cells expressing the acceptor alone is evidence for FRET between the fluorophores.
+
+We captured spectra from the membranes of whole cells to improve our signal-to-noise ratio.
+We observed an increase in the emission ratio when we coexpressed WT-GFP and SUR1-mO, consistent with the two subunits being in close proximity (Figure \ref{gfp_ofp_contrasts_1}.
+While we still observed an increase in the emission ratio when we coexpressed W311*-GFP and SUR1-mO, there is less strong evidence in this case; i.e. the posterior probability distribution for the emission ratio is not as different to one.
+This could result from three underlying mechanisms.
+Firstly, W311*-GFP and SUR1-mO may assemble differently to WT-GFP and SUR1-mO and the difference in FRET reflects a different distance between the C-termini of the two subunits.
+We consider this improbable.
+Secondly, we may be measuring fluorescence from a heterogenous population of channels; some with W311*-GFP and SUR1-mO coassembled, and some with W311*-GFP alone.
+This mixture would result in an intermediate value of FRET when measured from the total population.
+Finally, this method of calculating FRET is sensitive to the ratio of donor and acceptor fluorophores.
+If the acceptor fluorophore is present in excess (which we believe to be true as we transfect a molar excess of SUR1 constructs in all our experiments), a decrease in the amount of donor fluorophore present will decrease the proportion of acceptor fluorescence which comes from FRET, and will reduce the measure emission ratio.
+As our surface expression experiments suggest that W311*-GFP is present at the membrane in lower quantities than WT-GFP (Figure \ref{ch3fig:surface_expression_3}), this is our preferred hypothesis.
+However, as we cannot discount the possibility that there may be some W311*-GFP present alone in unroofed membranes even when we coexpress SUR1, our interpretations of binding data acquired from unroofed membranes must be more cautious.
 
 \begin{figure}[h]
 	\centering
@@ -146,14 +164,12 @@ i.e., our posterior probability distributions for the fold increase in expressio
 Indeed, when we attempted to excise patches coexpressing W311*-GFP and either TMD0 or TMD0-L0, we were unable to detect channel currents, while we were able to measure \si{\nano\ampere} currents from WT-GFP coexpressed with TMD0 or TMD0-L0.
 
 Despite being unable to detect channel currents, as with W311*-GFP expressed alone, we were able to detect ANAP and GFP fluorescence from unroofed membrane patches coexpressing W311*-GFP with either TMD0 or TMD0-L0.
-To determine whether this fluoresence was emitted from W311*-GFP coassembled with the truncated SUR1 constructs, we measured the emission ratio of TMD0-L0 labelled at the C-terminus with mOrange (TMD0-L0-mO) as described previously.
+To determine whether this fluoresence was emitted from W311*-GFP correctly coassembled with the truncated SUR1 constructs, we measured the emission ratio of TMD0-L0 labelled at the C-terminus with mOrange (TMD0-L0-mO) as described previously.
 We coexpressed either WT-GFP or W311*-GFP with TMD0-L0-mO and measured the emission ratio of directly excited mOrange to indirectly excited mOrange in whole cells (Figure \ref{ch6fig:gfp_ofp_contrasts_2}).
 For WT-GFP+TMD0-L0-mO, we observed an increase in emission ratio over TMD0-L0-mO of a similar magnitude for the increase observed for WT-GFP+SUR1-mO (Figure \ref{ch6fig:gfp_ofp_contrasts_1}).
 This is consistent with TMD0-L0-mO coassembling with WT-GFP in unroofed membanes, as an increase in emission ratio requires the two fluorophores to be in close proximity.
-However, 
-
-
-We coexpressed both TMD0 and TMD0-L0 separately in combination with W311*-GFP and measured TNP-ATP binding in unroofed membranes (Figure \ref{ch6fig:tmd0s_unroofed_1}).
+However, coexpression of W311*-GFP and TMD0-L0-mO resulted in an emission ratio with a posterior probability distribution which overlaps 1; i.e. there is little evidence to suggest there is an increase in the emission ratio.
+Again, this may be due to decreased expression of W311*-GFP compared to WT-GFP, but we cannot discount the possibility that we are measuring from a heterogenous population of W311*-GFP channels and W311*-GFP+TMD0-L0 channels.
 
 \begin{figure}[h]
 	\centering
@@ -191,6 +207,11 @@ We coexpressed both TMD0 and TMD0-L0 separately in combination with W311*-GFP an
 	Different intervals in the posterior probability distribution of the contrasts are shown in shades of blue.
 	}\label{ch6fig:tmd0_assays}
 \end{figure}
+
+We coexpressed either TMD0 or TMD0-L0 in combination with W311*-GFP and measured TNP-ATP binding in unroofed membranes (Figure \ref{ch6fig:tmd0s_unroofed_1}).
+We found that the data were not particularly distinguishable from that collected from TNP-ATP binding to W311*-GFP expressed alone; although this may be due to measuring from a mixed population of channels.
+To confirm that we could replicate the functional effects of TMD0-L0 on Kir6.2, we measured currents frome excised patches expressing WT-GFP+TMD0-L0 and measured inhibition by ATP (Figure \ref{ch6fig:tmd0_atp_trace}).
+Similarly to \citeauthor{babenko_sur_2003-1} and \citeauthor{chan_n-terminal_2003-1}, we observed a decrease in sensitivity to nucleotide inhibition in channels formed from WT-GFP and TMD0-L0 to channels formed from WT-GFP alone (Figure \ref{ch6fig:tmd0_atp_1}).
 
 \begin{figure}[h]
 	\centering

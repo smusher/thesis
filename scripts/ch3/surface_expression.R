@@ -39,6 +39,8 @@ centered <-
         kir_construct = fct_relevel(kir_construct, "WT", "WT-GFP", "F183*", "F183*-GFP", "W311*", "W311*-GFP")
         )
 
+write_csv(centered, "data/combined_surface_expression.csv")
+
 centered_prior_calc <-
     centered %>%
     summarise(mu =  mean(centered_response), sigma = sd(centered_response))

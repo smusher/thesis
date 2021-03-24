@@ -117,21 +117,23 @@ mo_ratio <-
         stdev = sd(ratio),
         ratio = mean(ratio)
         ) %>%
-    filter(construct != "WT-GFP+SUR", n!=3)
+    filter(construct != "WT-GFP+SUR", n!=3) %>%
+    mutate(
+        log_ratio = log(ratio)
+        )
 
 control <-
     mo_ratio %>%
     filter(construct == "SUR_mOrange") %>%
     summarise(
-        control_mean = mean(ratio)
+        control_mean = mean(ratio),
+        control_mean_log = mean(log_ratio)
         )
 
 mo_ratio_centered <-
     mo_ratio %>%
-    filter(construct != "SUR_mOrange") %>%
-    left_join(max_intensities) %>%
     mutate(
-        ratio_centered = (ratio - control %>% pull(control_mean)) / max_ratio,
+        ratio_centered = ratio - control %>% pull(control_mean),
         log_ratio_centered = log(ratio_centered)
         )
 
