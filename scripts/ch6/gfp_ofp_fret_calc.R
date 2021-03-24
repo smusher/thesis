@@ -50,6 +50,17 @@ gfp_peak <-
     group_by(n, construct) %>%
     summarise(gfp_intensity_max = mean(`490`))
 
+mo_peak <-
+    spectra %>%
+    filter(wavelength > 573, wavelength < 575) %>%
+    pivot_wider(names_from = excitation_wavelength, values_from = background_corrected_spectra) %>%
+    group_by(n, construct) %>%
+    summarise(mo_intensity_max = mean(`565`))
+
+max_intensities <-
+    left_join(gfp_peak, mo_peak) %>%
+    mutate(max_ratio = gfp_intensity_max / mo_intensity_max)
+
 spectra_summarised <-
     spectra %>%
     pivot_wider(names_from = excitation_wavelength, values_from = background_corrected_spectra) %>%
@@ -106,21 +117,22 @@ mo_ratio <-
         stdev = sd(ratio),
         ratio = mean(ratio)
         ) %>%
-    filter(construct != "WT-GFP+SUR", n!=3) %>%
-    mutate(
-        log_ratio = log(ratio)
-        )
+    filter(construct != "WT-GFP+SUR", n!=3)
 
 control <-
     mo_ratio %>%
     filter(construct == "SUR_mOrange") %>%
-    summarise(control_mean = mean(log_ratio))
+    summarise(
+        control_mean = mean(ratio)
+        )
 
 mo_ratio_centered <-
     mo_ratio %>%
+    filter(construct != "SUR_mOrange") %>%
+    left_join(max_intensities) %>%
     mutate(
-        log_ratio_centered = log_ratio - control %>% pull(control_mean),
-        control = case_when(construct == "SUR_mOrange" ~ TRUE, TRUE ~ FALSE)
+        ratio_centered = (ratio - control %>% pull(control_mean)) / max_ratio,
+        log_ratio_centered = log(ratio_centered)
         )
 
 centered_prior_calc <-

@@ -23,7 +23,7 @@ Increasing the fraction of L0 (up to residue number 256 or 288) attenuates this 
 
 \section{Intrinsic effects of SUR1}
 
-\subsection{SUR1 alters nucleotide inhibition, but not binding}
+\subsection{SUR1 dramatically alters nucleotide inhibition, but only subtly effects nucleotide binding}
 Expressing WT-GFP alone without SUR1 results in smaller, noisier currents than when coexpressed with SUR1.
 Currents are less sensitive to ATP and TNP-ATP by an order of magnitude (x and x).
 Our surface expression assay suggested that while WT-GFP was able to reach the membrane in the absence of SUR1, W311*-GFP was not, and when we excised patches from cells expressing W311*-GFP alone, we were not able to resolve any currents.
@@ -69,13 +69,14 @@ When we expressed WT-GFP alone, we saw no inhibition of currents by \SI{100}{\mi
 		\centering
 		\includegraphics[width=\textwidth]{nosur_ec50s.pdf}
 	\end{subfigure}
-	\caption[SUR1 alters inhibition but not binding at Kir6.2]{
+	\caption[SUR1 dramatically alters inhibition but only subtly alters binding at Kir6.2]{
 	\subref{ch6fig:nosur_atp}, \subref{ch6fig:nosur_tnpatp} Current inhibition of WT-GFP expressed alone in excised patches by ATP (\subref{ch6fig:nosur_atp}) or TNP-ATP (\subref{ch6fig:nosur_tnpatp}) is shown in orange.
 	The smooth filled curves are the \SI{95}{\percent} intervals of the posterior probability distribution of fits to equation \ref{eq:hill} as described in the methods.
 	The blue curve is the fit to the WT-GFP+SUR1 current inhibition by ATP (\subref{ch6fig:nosur_atp}) or TNP-ATP (\subref{ch6fig:nosur_tnpatp}) and is shown for comparison.
-	\subref{ch6fig:nosur_unroofed} Fluorescence quenching of W311*,C166S-GFP+SUR1 by TNP-ATP in unroofed membrane patches.
+	\subref{ch6fig:nosur_unroofed} Fluorescence quenching of W311*-GFP expressed alone by TNP-ATP in unroofed membrane patches.
 	Each point represents an individual experiment.
 	The smooth filled curves are the \SI{95}{\percent} intervals of the posterior probability distribution of fits to equation \ref{eq:hill} as described in the methods.
+	The blue curve is the fit to the W311*-GFP+SUR1 fluorescence quenching by TNP-ATP and is shown for comparison.
 	\subref{ch6fig:tolb_inhibition_1} Inhibition by \SI{100}{\micro\Molar} tolbutamide of currents from WT-GFP expressed alone (grey) or with SUR1 (blue) or from W311*-GFP expressed with SUR1 (orange).
 	Each point represents an individual patch.
 	\subref{ch6fig:nosur_ec50s} Posterior probability distributions for the estimated population $IC_{50}$ or $EC_{50}$ values are shown in purple ($IC_{50}$ for ATP inhibition), orange ($IC_{50}$ for TNP-ATP inhibition), or blue ($EC_{50}$ for TNP-ATP binding in unroofed membranes).
@@ -133,7 +134,26 @@ Correcting for the magnitude of the GFP peak results in observed ratios for WT-G
 	}\label{ch6fig:sur_assays}
 \end{figure}
 
-\subsection{Presence of SUR1-TMD0 alone does not alter apparent nucleotide binding}
+\subsection{Presence of SUR1-TMD0 alone does not dramatically alter nucleotide binding}
+
+We sought to clarify the role of the TMD0 and L0 regions of SUR1 in binding to the inhibitory nucleotide binding site of Kir6.2.
+We used two SUR1 truncation constructs; TMD0 consisting of the N-terminal 1-195 residues of SUR1, and TMD0-L0 consisting of the N-terminal 1-232 residues of SUR1.
+Firstly, we established whether these constructs were capable of supporting trafficking and expression at the cell membrane as previously reported \ref{babenko_sur_2003-1, chan_n-terminal_2003-1}.
+In our luminesence based cell-surface expression assay, we found that TMD0 and TMD0-L0 increased the expression of WT-GFP approximately 3-fold over the expression of WT-GFP alone (Figure \ref{ch6fig:tmd0s_surface_expression_1}, \ref{ch6fig:tmd0s_surface_expression_2}).
+This level of expression is somewhat less than observed for full-length SUR1.
+However, when we coexpressed either TMD0 or TMD0-L0 with W311*-GFP, we found less evidence to suggest an increase of surface expression when compared to expression of W311*-GFP alone (Figure \ref{ch6fig:tmd0s_surface_expression_1}, \ref{ch6fig:tmd0s_surface_expression_3});
+i.e., our posterior probability distributions for the fold increase in expression overlapped 1.
+Indeed, when we attempted to excise patches coexpressing W311*-GFP and either TMD0 or TMD0-L0, we were unable to detect channel currents, while we were able to measure \si{\nano\ampere} currents from WT-GFP coexpressed with TMD0 or TMD0-L0.
+
+Despite being unable to detect channel currents, as with W311*-GFP expressed alone, we were able to detect ANAP and GFP fluorescence from unroofed membrane patches coexpressing W311*-GFP with either TMD0 or TMD0-L0.
+To determine whether this fluoresence was emitted from W311*-GFP coassembled with the truncated SUR1 constructs, we measured the emission ratio of TMD0-L0 labelled at the C-terminus with mOrange (TMD0-L0-mO) as described previously.
+We coexpressed either WT-GFP or W311*-GFP with TMD0-L0-mO and measured the emission ratio of directly excited mOrange to indirectly excited mOrange in whole cells (Figure \ref{ch6fig:gfp_ofp_contrasts_2}).
+For WT-GFP+TMD0-L0-mO, we observed an increase in emission ratio over TMD0-L0-mO of a similar magnitude for the increase observed for WT-GFP+SUR1-mO (Figure \ref{ch6fig:gfp_ofp_contrasts_1}).
+This is consistent with TMD0-L0-mO coassembling with WT-GFP in unroofed membanes, as an increase in emission ratio requires the two fluorophores to be in close proximity.
+However, 
+
+
+We coexpressed both TMD0 and TMD0-L0 separately in combination with W311*-GFP and measured TNP-ATP binding in unroofed membranes (Figure \ref{ch6fig:tmd0s_unroofed_1}).
 
 \begin{figure}[h]
 	\centering
@@ -170,6 +190,47 @@ Correcting for the magnitude of the GFP peak results in observed ratios for WT-G
 	Contrasts are expressed as a fold increase in emision ratio, so that a value of 1 means the ratio is the same as the emission ratio of TMD0-L0-mO expressed alone.
 	Different intervals in the posterior probability distribution of the contrasts are shown in shades of blue.
 	}\label{ch6fig:tmd0_assays}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[t]{0.45\textwidth}
+		\caption{}\label{ch6fig:tmd0s_unroofed_1}
+		\centering
+		\includegraphics[width=\textwidth]{tmd0s_unroofed_1.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.22\textwidth}
+		\caption{}\label{ch6fig:tmd0_atp_trace}
+		\centering
+		\includegraphics[width=\textwidth]{tmd0_atp_trace.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.22\textwidth}
+		\caption{}\label{ch6fig:tmd0_atp_1}
+		\centering
+		\includegraphics[width=\textwidth]{tmd0_atp_1.pdf}
+	\end{subfigure}
+	\vfill
+	\begin{subfigure}[t]{0.9\textwidth}
+		\caption{}\label{ch6fig:tmd0s_ec50s}
+		\centering
+		\includegraphics[width=\textwidth]{tmd0s_ec50s.pdf}
+	\end{subfigure}
+	\caption[TMD0 and TMD0-LO subtly alter binding to Kir6.2]{
+	\subref{ch6fig:tmd0s_unroofed_1} Fluorescence quenching of W311*-GFP expressed with TMD0 (left) or TMD0-L0 (right) by TNP-ATP in unroofed membrane patches is shown in orange.
+	Each point represents an individual experiment.
+	The smooth filled curves are the \SI{95}{\percent} intervals of the posterior probability distribution of fits to equation \ref{eq:hill} as described in the methods.
+	The blue curve is the fit to the W311*-GFP expressed alone fluorescence quenching by TNP-ATP and is shown for comparison.
+	\subref{ch6fig:tmd0_atp_trace} Current inhibition by ATP from an excised patch expressing WT-GFP+TMD0-L0.
+	The concentration of ATP perfused is shown by colour.
+	The zero-current level is indicated as a dotted line.
+	\subref{ch6fig:tmd0_atp_1} Current inhibition of WT-GFP+TMD0-L0 in excised patches by ATP is shown in orange.
+	The smooth filled curves are the \SI{95}{\percent} intervals of the posterior probability distribution of fits to equation \ref{eq:hill} as described in the methods.
+	The blue curve is the fit to the WT-GFP expressed alone current inhibition by ATP and is shown for comparison.
+	\subref{ch6fig:tmd0s_ec50s} Posterior probability distributions for the estimated population $IC_{50}$ or $EC_{50}$ values are shown in purple ($IC_{50}$ for ATP inhibition of WT-GFP) or blue ($EC_{50}$ for TNP-ATP binding to W311*-GFP in unroofed membranes).
+	Each distribution is shaded with respect to its intervals.
+	}\label{ch6fig:tmd0_binding}
 \end{figure}
 
 \section{SUR1 and nucleotide regulation}
