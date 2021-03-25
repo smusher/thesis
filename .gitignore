@@ -15,6 +15,7 @@ data/other_fits/
 *.fot
 *.cb
 *.cb2
+*.mtc*
 
 ## Intermediate documents:
 *.dvi
