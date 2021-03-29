@@ -176,7 +176,8 @@ stat_dist_slab(aes(y = 0, dist = dist_normal(-4, 1)))
 ggplot() +
 geom_point(data = concresp, aes(x = log_concentration, y = response, colour = unique_experiment_id)) +
 scale_color_viridis_c() +
-facet_wrap(vars(construct,method,measure,nucleotide), labeller = label_wrap_gen(multi_line = FALSE))
+facet_wrap(vars(construct,method,measure,nucleotide), labeller = label_wrap_gen(multi_line = FALSE)) +
+scale_y_continuous(limits = c(-0.1, 1.1))
 
 fixed_brms_formula <-
     bf(

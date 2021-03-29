@@ -79,11 +79,11 @@ This leads to a theoretical distance-dependency of FRET which is most sensitive 
 		\includegraphics[width=\textwidth]{fret_efficiency.pdf}
 	\end{subfigure}
 	}
-	\caption[Anap and TNP-nucleotides as FRET pairs]{
-		\subref{ch3fig:chemical_structures} Chemical structures of Anap and TNP-ATP shown with the fluorescent moieties highlighted in blue (Anap) ot ornage (TNP-ATP).
-		\subref{ch3fig:spectral_overlap} Normalised emission spectra (solid lines) of Anap (blue) and TNP-nucleotides (orange) overlayed on the normalised extinction spectra of Anap (filled light blue area).
-		Extinction spectra were measured from Anap and TNP-nucleotides alone in aqueous solution.
-		Anap emission is the averaged spectra from Kir6.2* + SUR1 expressed in unroofed membranes.
+	\caption[ANAP and TNP-nucleotides as FRET pairs]{
+		\subref{ch3fig:chemical_structures} Chemical structures of ANAP and TNP-ATP shown with the fluorescent moieties highlighted in blue (ANAP) or orange (TNP-ATP).
+		\subref{ch3fig:spectral_overlap} Normalised emission spectra (solid lines) of ANAP (blue) and TNP-nucleotides (orange) overlayed on the normalised extinction spectra of ANAP (filled light blue area).
+		Extinction spectra were measured from ANAP and TNP-nucleotides separately in aqueous solution.
+		ANAP emission is the averaged spectra from W311*+SUR1 expressed in unroofed membranes.
 		\subref{ch3fig:fret_efficiency} Theoretical FRET efficiency displayed as a function of the distance between donor and acceptor fluorophores.
 		The curve was calculated as a function of the overlap shown in \subref{ch3fig:spectral_overlap}.
 		The full formula is discussed in Chapter \ref{ch:2-methods}.
@@ -123,7 +123,7 @@ It is a bulky hydrophobic residue similar to ANAP, and no mutations at this resi
 
 \begin{figure}[h]
 	\centering
-	\begin{subfigure}[t]{0.28\textwidth}
+	\begin{subfigure}[t]{0.30\textwidth}
 		\caption{}\label{ch3fig:6baa_docking}
 		\centering
 		\includegraphics[width=\textwidth]{6baa_docking.pdf}
@@ -135,7 +135,7 @@ It is a bulky hydrophobic residue similar to ANAP, and no mutations at this resi
 		\includegraphics[width=\textwidth]{6c3p_docking.pdf}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}[t]{0.34\textwidth}
+	\begin{subfigure}[t]{0.30\textwidth}
 		\caption{}\label{ch3fig:6c3o_docking}
 		\centering
 		\includegraphics[width=\textwidth]{6c3o_docking.pdf}
@@ -167,10 +167,22 @@ It is a bulky hydrophobic residue similar to ANAP, and no mutations at this resi
 
 \subsection{Amber stop codon expression system}
 
-ANAP can be introduced into a protein of interest by essentially expanding the genetic code to incorporate a noncanconical amino acid.
-The amber stop codon (TAG) is the least frequently occuring stop codon in eukaryotic cells, and can be repurposed to encode ANAP.
-An orthologous set of tRNA and its aminoacyl-tRNA synthetase are mutated and screened through directed evolution in order to charge the tRNA which recognises the amber stop codon with ANAP.
-Thus, in cells expressing the ANAP charged tRNA, the amber stop codon introduced into the protein of interest is suppressed and ANAP is translated instead (Figure \ref{ch3fig:amber_codon}).
+ANAP can be introduced into a protein of interest by essentially expanding the genetic code to incorporate a noncanconical amino acid \cite{chin_expanding_2017}.
+The amber stop codon (TAG) is the least frequently occuring stop codon in eukaryotic cells \cite{cridge_eukaryotic_2018}, and can be repurposed to encode ANAP.
+This requires the introduction of a transfer RNA (tRNA) which recognises the TAG codon, and an aminoacyl-tRNA synthetase (aaRS) which selectively aminoacylates the tRNA with ANAP into the heterologous expression system , without crossreacting with the existing translational machinery \cite{lee_genetic_2009, chatterjee_genetically_2013}.
+
+\citeauthor{lee_genetic_2009} used directed evolution to develop a tRNA/aaRS pair to encode ANAP in \textit{Saccharomyces cerevisiae} \cite{lee_genetic_2009}.
+Briefly, they altered the specificity of \textit{Escherichia coli} leucyl-tRNA synthetase so that it was able to aminoacylate the leucyl-tRNA with ANAP, and not endogenous amino acids.
+The coevolved tRNA/aaRS pair were built into an expression plasmid pANAP (Figure \ref{ch3fig:amber_codon}) which is capable of driving expression in mammalian cells \cite{chatterjee_genetically_2013}.
+HEK293 cells transfected with pANAP and a plasmid encoding GFP with an amber stop codon at residue position 40 (40TAG) exhibited green fluorescence only when incubated in the presence of ANAP in the culture media \cite{chatterjee_genetically_2013}, demonstrating that ANAP can be selectively incorporated into proteins in mammalian cells.
+
+As far as we are aware, only two other studies have incorporated unnatural amino acids into Kir6.2 \cite{zhang_conserved_2015, devaraneni_structurally_2015}.
+\citeauthor{zhang_conserved_2015} incorporated three unnatural tryptophan variants at position W68 to highlight the necessity of a planar amino acid side-chain at this location to maintain physiological K\ATP{} channel function \cite{zhang_conserved_2015}.
+However, in this study \textit{Xenopus} oocytes were the heterologous expression system, so rather than transfecting a combination of plasmids, the authors injected a combination of transcribed mRNAs.
+
+\citeauthor{devaraneni_structurally_2015} incorporated azidophenylalanine (AzF) at three different positions on the N-terminus of Kir6.2 (residue numbers 12, 18 and 52) \cite{devaraneni_structurally_2015}.
+AzF is photocross-linkable upon exposure to UV light, and the authors used this phenomenon to investigate the extent of physical interactions between the N-terminus of Kir6.2 and SUR1, and how these interactions are mediated by pharmacological chaperones.
+In this study, COSm6 cells were the heterologous expression system, and expression of AzF containing constructs was found to be dramatically reduced when compared to wild-type channels.
 
 \subsection{ANAP incorporation into amber stop codon containing constructs}
 
@@ -215,7 +227,7 @@ The nature of the amber stop codon suppression system requires a number of caref
 	Instead of incorporating ANAP, it is possible that the translation machinery can insert endogenous amino acids instead, leading to production of full length,unlabelled Kir6.2.
 	However, we found that cells transfected with W311TAG constructs and pANAP which were not cultured in the presence of ANAP did not produce full length Kir6.2 (Figure \ref{ch3fig:western_1}, \ref{ch3fig:western_2}), suggesting there is minimal read-through of the stop codon in our experiments.
 	\item Introducing a stop codon creates a risk that truncated Kir6.2 will be produced instead of ANAP labelled Kir6.2.
-	This risk can be reduced by transfecting a dominant negative engineered version of eukaryotic translation termination factor 1(eRF1-E55D), which does not efficiently terminate protein synthesis in response to the amber stop codon (but leaves opal and ochre stop codons nearly unaffected) and thus increases the incorporation of ANAP.
+	This risk can be reduced by transfecting a dominant negative engineered version of eukaryotic translation termination factor 1(eRF1-E55D), which does not efficiently terminate protein synthesis in response to the amber stop codon (but leaves opal and ochre stop codons nearly unaffected) and thus increases the incorporation of ANAP \cite{schmied_efficient_2014}.
 	We found that transfection of W311TAG constructs with a C-terminal GFP tag produced minimal truncated Kir6.2 (less than \SI{10}{\percent} of the total density observed in Figure \ref{ch3fig:western_2}).
 	\item Despite being the least frequent eukaryotic stop codon, the amber stop codon is still present in a significant number of proetin sequences.
 	We must be careful that ANAP is not incorporated into a protein which localises to the plasma membrane to an extent which would affect our ability to assign ANAP fluorescence to Kir6.2.
@@ -661,5 +673,5 @@ Secondly, K\ATP{} channels are more sensitive to inhibition by TNP-ATP than by A
 Again, this means that any conclusions we draw from experiments measuring relative changes in binding and inhibition rely on those relative changes affecting ATP binding and inhibition to a similar extent.
 To try and ameliorate these caveats as best as we can, where possible we have performed control experiments in the WT background with ATP to ensure that introduced mutations result in similar relative effects on nucleotide inhibition despite the background of the construct or the identitity of the nucleotide.
 As control experiments of this sort are not possible in unroofed membranes, where it is impossible to measure current inhibition, we have focused on patch-clamp fluorometry for constructs where expression is good enough to measure sufficient fluorescence.
-We can model nucleotide binding using this method.
-This is a novel binding method - can be applied to other channels.
+
+This methodology should be readily adaptable to the study of other nucleotide-regulated channels, such as the P2X receptor family or CFTR.

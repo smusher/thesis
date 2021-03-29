@@ -90,8 +90,11 @@ The location of the ANAP peak and the bleaching characteristics were also identi
 We found that ANAP fluorescence from W311*,G334D-GFP+SUR1 was barely quenched by even \SI{1}{\milli\Molar} TNP-ATP (Figure \ref{ch5fig:g334d_popfits}, \ref{ch5fig:g334d_indfits}), reducing the apparant binding EC\textsubscript{50} from \SIrange{30}{45}{\micro\Molar} to at least \SI{2.8}{\milli\Molar} (Figure \ref{ch5fig:g334d_params}).
 We cannot be sure of the upper bound of the apparent binding EC\textsubscript{50} given how little quenching we were able to achieve even with \SI{1}{\milli\Molar} TNP-ATP.
 Unfortunately, we were unable to resolve macroscopic currents from W311*,G334D-GFP+SUR1 in excised patches despite seeing fluorescence in unroofed membranes.
-Thus, we were unable to measure nucleotide inhibition of this construct to determine whether the G334D substitution affected transduction in addition to this binding effect.
-However, given that in electrophysiological experiments on G334D channels other authors have observed 
+Thus, we were unable to measure nucleotide inhibition of this construct ourselves.
+In electrophysiological experiments on K\ATP{} channels containing the G334D mutation, other studies have found that currents are insensitive to inhibition by ATP even up to \SI{10}{\Molar} \cite{drain_katp_1998, masia_atp-binding_2007-1}.
+In the framework of our MWC model, the only explanation for a dramatic decrease in both nucleotide binding and inhibition is a decrease in $K_A$, the microscopic binding affinity.
+However, as we were unable to measure TNP-ATP inhibition ourselves, we were unable to determine whether the G334D substitution affected transduction in addition to this binding effect.
+
 \section{Channel gating}
 
 \subsection{C166S alters inhibition without affecting binding}
@@ -104,8 +107,7 @@ Electrophysiological measurements alone are not sufficient to distinguish betwee
 We measured TNP-ATP binding to W311*,C166S-GFP+SUR1 in unroofed membranes to determine the how mutations at C166 reduce sensitivity to nucleotide inhibition (Figure \ref{ch5fig:c166s_unroofed}).
 We observed no real change in binding of TNP-ATP to the channel, with an EC\textsubscript{50} of \SIrange{44}{74}{\micro\Molar}.
 If the C166S mutation solely increases the $P_O$ of the channel, we would expect an increase in the apparent EC\textsubscript{50} of nucleotide binding due to the preference of nucleotides for the closed state of the channel.
-This finding suggested a role for C166 in the transduction of nucleotide binding
-to the channel pore.
+This finding therefore suggests a role for C166 in the transduction of nucleotide binding to the channel pore.
 
 \begin{figure}[h]
 	\centering
@@ -146,9 +148,9 @@ to the channel pore.
 	}\label{ch5fig:c166s_1}
 \end{figure}
 
-To investigate this further, we excised patches expressing W311*,C166S-GFP+SUR1 and measure current inhibition and fluorescence quenching by TNP-ATP simultaneously (Figure \ref{ch5fig:c166s_traces}).
+To investigate this further, we excised patches expressing W311*,C166S-GFP+SUR1 and measured current inhibition and fluorescence quenching by TNP-ATP simultaneously (Figure \ref{ch5fig:c166s_traces}).
 We found that the apprent affinity for nucleotide binding was indistinguishable from that for W311*-GFP+SUR1, and similar to our observations in unroofed membranes (Figure \ref{ch5fig:c166s_popfits_2}, EC\textsubscript{50} of \SIrange{26}{218}{\micro\Molar}).
-Consistent with the literature, we did observe a large reduction in the apparent sensitivity of W311*,C166S-GFP+SUR1 currents to inhibition by TNP-ATP (Figure \ref{ch5fig:c166s_popfits_3}IC\textsubscript{50} of at least \SI{155}{\micro\Molar}.
+Consistent with the literature, we did observe a large reduction in the apparent sensitivity of W311*,C166S-GFP+SUR1 currents to inhibition by TNP-ATP (Figure \ref{ch5fig:c166s_popfits_3}, IC\textsubscript{50} of at least \SI{155}{\micro\Molar}).
 Intuitively, a change in nucleotide-dependent channel gating which is not accompanied by a change in nucleotide binding must be due (at least in part) to a change in the transduction of nucleotide binding to channel gating.
 
 \begin{figure}[h]
@@ -198,10 +200,10 @@ Intuitively, a change in nucleotide-dependent channel gating which is not accomp
 	}\label{ch5fig:c166s_2}
 \end{figure}
 
-Fitting our data to the MWC-type model described previously, we found that in addition to the effects of the C166S mutation on the intrinsic open probability of K\ATP{}, there is a striking shift in $D$ (Figure \ref{ch5fig:c166s_3}).
+Fitting our data to the MWC-type model described previously (Figure \ref{ch5fig:c166s_mwc_fit_1}, \ref{ch5fig:c166s_mwc_fit_2}), we found that in addition to the effects of the C166S mutation on the intrinsic open probability of K\ATP{}, there is a striking shift in $D_A$ (Figure \ref{ch5fig:c166s_mwc_params_1}).
 This shift to a value much closer to unity indicates that binding of TNP-ATP to W311*,C166S-GFP+SUR1 favours the closed state far less than binding of TNP-ATP to W311*-GFP+SUR1.
 Equivalently, binding of TNP-ATP to the mutant channel is less able to induce closure of the pore.
-Thus, even at millimolar concentrations of TNP-ATP when all of the Kir6.2 subunits are predicted to be bound, the K\ATP{} channels are still able to open.
+Thus, even at millimolar concentrations of TNP-ATP when all of the Kir6.2 subunits are predicted to be bound by nucleotide, the mutant K\ATP{} channels are still able to open.
 
 \begin{figure}[h]
 	\centering
@@ -224,19 +226,24 @@ Thus, even at millimolar concentrations of TNP-ATP when all of the Kir6.2 subuni
 	\end{subfigure}
 	\caption[C166S alters transduction of nucleotide binding to Kir6.2]{
 	\subref{ch5fig:c166s_mwc_fit_1}, \subref{ch5fig:c166s_mwc_fit_2} Nucleotide binding (\subref{ch5fig:c166s_mwc_fit_1}) and current inhibition (\subref{ch5fig:c166s_mwc_fit_2}) of W311*,C166S-GFP+SUR1 by TNP-ATP in excised patches, data the same as in Figure \subref{ch5fig:c166s_popfits_2}, \subref{ch5fig:c166s_popfits_3}.
-	The solid lines are the \SI{95}{\percent} intervals of the posterior probability distribution of fits to the MWC model paramterised in equation x.
+	The solid lines are the \SI{95}{\percent} intervals of the posterior probability distribution of fits to the MWC model paramaterised in equation x.
 	The dotted lines are the equivalent intervals for MWC fits to the W311*-GFP+SUR1 construct as shown in Figure x.
+	White circles are the inhibition of current by \SI{10}{\milli\Molar} ATP in separate experiments.
 	\subref{ch5fig:c166s_mwc_params_1} Posterior probability distributions for the estimated population $L$, $D_A$ and $K_A$ values are shown shaded according to their intervals.
 	}\label{ch5fig:c166s_3}
 \end{figure}
 
-This finding makes the prediction that nucleotide inhibition of K\ATP{} channels with the C166S mutation will exhibit a plateau of inhibition.
-Unfortunately, we were not able to test this directly with higher concentrations of TNP-ATP due to its purification as a TEA\textsuperscript{+} salt.
+Notably, the MWC fit to the current inhibition data has wide \SI{95}{\percent} posterior probability intervals (Figure \ref{ch5fig:c166s_mwc_fit_2}).
+Unfortunately, we were not able to use higher concentrations of TNP-ATP due to its purification as a TEA\textsuperscript{+} salt.
 High \si{\milli\Molar} concentrations of TEA\textsuperscript{+} inhibit K\ATP{} channels, and we determined that for W311*-GFP+SUR1 and W311*,C166S-GFP+SUR1 concentrations of above \SI{1}{\milli\Molar} TEA\textsuperscript{+} began to inhibit currents to an extent that would interfere with our measurements (Figure \ref{ch5fig:tea_trace}, \ref{ch5fig:tea_drc}).
 The precise ratio of TEA\textsuperscript{+} to TNP-ATP in our solutions is unknown, but is assumed to be between 1:1 and 3:1.
 Any additional inhibition observed at TNP-ATP concentrations greater than \SI{1}{\milli\Molar} for W311*,C166S-GFP+SUR1 will therefore be (at least in part) due to the presence of TEA\textsuperscript{+}.
-However, we do see that even at concentrations of \SI{10}{\milli\Molar} ATP, W311*,C166S-GFP+SUR1 is not fully inhibited (Figure \ref{ch5fig:c166s_mwc_fit_1}, open circle).
-The literature is divided on the existence of a current plateau for mutations at C166, although these experiments have been performed under a variety of different conditions and with various different Kir6.2 backgrounds.
+However, we do see that even at concentrations of \SI{10}{\milli\Molar} ATP, W311*,C166S-GFP+SUR1 is not fully inhibited (Figure \ref{ch5fig:c166s_mwc_fit_2}, open circle).
+
+Curiously, despite the wide posterior probability intervals for the MWC fit to the observed current inhibiton data in Figure \ref{ch5fig:c166s_mwc_fit_2}, the probability distributions for the underlying parameter values for W311*,C166S-GFP+SUR1 are not much wider than those observed for W311*-GFP+SUR1 (Figure \ref{ch5fig:c166s_mwc_params_1}).
+Thus, the variability of current inhibition observed for \SI{1}{\milli\Molar} TNP-ATP is not due to increased uncertainty in our MWC parameter estimates.
+Instead, the variability may reflect that the C166S substitution alters the nucleotide regulation of the K\ATP{} channel such that small changes in the energetics of the underlying gating mechanism result in large changes in the observed current.
+This may help to explain the differences in inhibition of K\ATP{} channels with substitutions at C166 by high nucleotide concentrations observed across multiple electrophysiological studies \cite{trapp_mechanism_1998, enkvetchakul_atp_2001-1, ribalet_atp-sensitive_2006-1, yang_palmitoylation_2020}.
 
 \begin{figure}[h]
 	\centering
@@ -264,6 +271,13 @@ The literature is divided on the existence of a current plateau for mutations at
 		\includegraphics[width=\textwidth]{c166s_param_sim_2.pdf}
 	\end{subfigure}
 	\caption[TEA\textsubscript{+} inhibits K\ATP{} channels at high concentrations]{
+	\subref{ch5fig:tea_trace} Representative current trace from an excised patch expressing W311*,C166S-GFP+SUR1.
+	Applications of different concentrations of TEA\textsubscript{+} are indicated by bars shaded red, and application of \SI{10}{\milli\Molar} ATP is indicated in black.
+	The zero-current level is marked with a dotted line.
+	\subref{ch5fig:tea_drc} Concentration-response data for W311*-GFP+SUR1 (blue) and W311*,C166S-GFP+SUR1 (green) current inhibition by TEA\textsubscript{+}.
+	The lines are fits to equation \ref{eq:hill} with $I_{max}$ fixed to 0.
+	\subref{ch5fig:l_d_sim_1}, \subref{ch5fig:l_d_sim_2} Simulated data from the MWC model with $K_A$ fixed to $10^{-4}$ and $L$ and $D_A$ varied as described in the legend.
+	The size of the nucleotide inhibition-resistant plateau varies according to the combination of $L$ and $D_A$.
 	}\label{ch5fig:c166s_4}
 \end{figure}
 
@@ -334,7 +348,7 @@ ATP inhibition did not seem to be influenced by the identity of the replacement 
 Introducing the mutations into the ANAP-labelled construct did not affect the relative changes in inhibition by either nucleotide, with ATP inhibition occurring at similar IC\textsubscript{50}s for A and K (x and x respectively) and with K increasing the IC\textsubscript{50} for TNP-ATP more than A (x and x respectively).
 Measurements of TNP-ATP binding mirrored our observations for current inhibition by TNP-ATP, with mutation to both A and K resulting in an increased apparant binding EC\textsubscript{50}, with K having more of an effect than A (x and x respectively).
 Fitting the combined data to the MWC-type model, we found that both mutations resulted in a decreased $K_A$ estimate, with no apparent change in $L$.
-In addition, mutation to a K led to a $D$ value closer to unity than for E or A.
+In addition, mutation to a K led to a $D_A$ value closer to unity than for E or A.
 
 \begin{figure}[h]
 	\centering
@@ -361,7 +375,7 @@ In addition, mutation to a K led to a $D$ value closer to unity than for E or A.
 We believe there are two possible ways to interpret these findings.
 The first is to accept the shift in $K_A$ at face value - a decrease in the apparent TNP-ATP binding affinity would suggest a role for residue E179 in forming the nucleotide binding pocket, and this function is abrogated by our mutations.
 Despite the distance of the residue from the bound ATP, there could be interactions between E179 and the sidechains of residues which do form the pocket (e.g. R54), such that mutation of E179 leads to alterations in the binding pocket which reduce nucleotide binding affinity and therefore our estimate of $K_A$.
-The additional effect on $D$ caused by mutating the residue to K suggests a dysregulation of the transduction of nucleotide binding to the channel pore, making nucleotides less selective for the close state.
+The additional effect on $D_A$ caused by mutating the residue to K suggests a dysregulation of the transduction of nucleotide binding to the channel pore, making nucleotides less selective for the close state.
 
 The second interpretation is possible due to the simplification of the role of PIP\textsubscript{2} in our MWC model as discussed previously.
 Briefly, if there is an additional allosteric interaction between nucleotide and PIP\textsubscript{2} binding to Kir6.2 which is separate to the channels open/closed state, then changes in $K_A$ may reflect alterations in the affinity for PIP\textsubscript{2} binding in addition to or instead of alterations in the affinity for nucleotide binding.
@@ -441,10 +455,10 @@ Our docked conformation for TNP-ATP suggests that the TNP-moiety of the nucleoti
 Measurements of TNP-ATP binding showed increases in the EC\textsubscript{50} estimates for each of the three mutations (x for each).
 
 Fits of the combined data to the MWC model gave parameter estimates for $K_A$ that decreased from K>R>E>A.
-In addition, mutation to an E or an A resulted in $D$ values closer to unity.
+In addition, mutation to an E or an A resulted in $D_A$ values closer to unity.
 Interpretation of these parameters for the R and A mutations is frustrated by the differences in inhibition between TNP-ATP and ATP; we cannot be sure that these differences in binding and inhibition are due to the identity of the nucleotide rather than the identity of the residue.
 However, the K39E mutation displayed similar inhibition for both TNP-ATP and ATP.
-The increase in our estimate for $D$ when K39 is mutated to an A or an E, but not for R, may indicate a positive charge at the sidechain of this residue being important for transduction of nucleotide binding to the channel pore.
+The increase in our estimate for $D_A$ when K39 is mutated to an A or an E, but not for R, may indicate a positive charge at the sidechain of this residue being important for transduction of nucleotide binding to the channel pore.
 
 \begin{figure}[h]
 	\centering

@@ -23,7 +23,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -40,13 +40,14 @@
      inkscape:window-height="768"
      id="namedview428"
      showgrid="false"
-     inkscape:zoom="0.79600372"
+     inkscape:zoom="0.39800186"
      inkscape:cx="215.23974"
      inkscape:cy="113.19743"
      inkscape:window-x="0"
      inkscape:window-y="0"
-     inkscape:window-maximized="0"
-     inkscape:current-layer="svg426" />
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg426"
+     inkscape:document-rotation="0" />
   <defs
      id="defs139">
     <rect
@@ -496,7 +497,7 @@
     </pattern>
   </defs>
   <path
-     style="fill:#e3f2fd;stroke:none;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:1;stroke-dasharray:none;stroke-opacity:1"
+     style="fill:#90caf9;stroke:none;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:1;stroke-dasharray:none;stroke-opacity:1"
      d="m 57.170561,127.73829 0.706268,-0.10737 0.703883,-0.30541 0.706268,-0.41756 0.706269,-0.66809 0.703883,-1.08088 0.706268,-0.94487 0.706269,-1.45549 0.706268,-1.42446 0.703882,-1.35528 0.706269,-1.70125 0.706268,-2.47194 0.703883,-3.01834 0.706269,-3.4884 0.706268,-3.95605 0.703883,-3.33569 0.706268,-3.662568 0.706269,-2.6342 0.706269,-2.154595 0.703882,-1.720333 0.706269,-1.348113 0.706268,-2.419449 0.703883,-1.999505 0.706269,-1.799074 0.706268,-1.95894 0.706269,-2.071088 0.703882,-2.958693 0.706268,-2.500572 0.706269,-3.502707 0.703882,-2.049612 0.706269,-2.918127 0.706269,-2.567385 0.706268,-3.2307 0.703883,-1.973258 0.706268,-2.066311 0.70627,-2.541137 0.70388,-3.001641 0.706268,-2.190388 0.706269,-1.608192 0.706268,-2.314461 0.703887,-2.366954 0.706268,-3.373864 0.706269,-1.932695 0.70388,-2.03768 0.706269,-1.665458 0.706268,-1.846796 0.70388,-1.641597 0.706269,-2.467168 0.706269,-1.259831 0.706268,-1.162003 0.703886,-1.424467 0.706269,-2.24288 0.706269,-2.083015 0.70388,-0.983049 0.706268,-1.266989 0.706269,-1.531839 0.706268,-1.512751 0.703887,-1.765671 0.706268,-1.596263 0.706263,-1.276532 0.703886,-0.415172 0.706264,-0.613213 0.70627,-0.925784 0.70627,0.305413 0.70388,0.150321 0.70627,-0.22906 0.70627,0.775464 0.70388,0.720585 0.70627,0.715812 0.70627,0.873292 0.70627,-0.722971 0.70388,0.963961 0.70627,1.391063 0.70627,0.460506 0.70388,0.05011 0.70627,1.028384 0.70627,1.009296 0.70626,1.195408 0.70389,1.22404 0.70627,0.668092 0.70627,0.966347 0.70388,2.383656 0.70627,1.369588 0.70626,0.67525 0.70388,1.529453 0.70627,2.071085 0.70627,0.823185 0.70627,2.15221 0.70389,1.3505 0.70627,1.519909 0.70626,1.099966 0.70388,1.348114 0.70627,1.892132 0.70627,1.321867 0.70627,1.689318 0.70388,1.758513 0.70627,1.622509 0.70627,1.744197 0.70388,1.729881 0.70627,1.498434 0.70627,2.054383 0.70627,0.978277 0.70388,3.166277 0.70626,0.749222 0.70627,1.298007 0.70389,2.409901 0.70627,1.309937 0.70627,1.758515 0.70626,1.209725 0.70389,1.462643 0.70626,2.140276 0.70627,1.803851 0.70388,0.987823 0.70627,1.653527 0.70627,1.584332 0.70389,1.684544 0.70626,0.269619 0.70627,1.913611 0.70627,1.080876 0.70388,1.362431 0.70627,1.612962 0.70627,1.138142 0.70389,0.959193 0.70626,2.109259 0.70627,1.238353 0.70627,0.582198 0.70388,1.438784 0.70627,1.438784 0.70627,0.866135 0.70388,1.352883 0.70627,1.0594 0.70627,1.014062 0.70626,1.18109 0.70389,0.71582 0.70627,0.8041 0.70627,0.84465 0.70388,1.63205 0.70627,0.20282 0.70626,1.014068 0.70627,1.15485 0.70388,1.3314 0.70627,0.0501 0.70627,1.20495 0.70389,0.66571 0.70627,1.13337 0.70626,1.33141 0.70627,0.0429 0.70388,0.45812 0.70627,0.65378 0.70627,0.60128 0.70389,1.35528 0.70627,0.22906 0.70626,0.63468 0.70388,0.18373 0.70627,1.84202 0.70627,0.13123 0.70627,0.8566 0.70388,0.82557 0.70627,-0.73491 0.70627,1.40777 0.70388,0.0453 0.70627,1.10474 0.70627,0.19088 0.70627,0.58459 0.70388,0.2887 0.70627,0.79217 0.70627,0.62992 0.70388,0.52254 0.70626,0.19088 0.70627,0.10976 0.70627,-0.25531 0.70389,1.30517 0.70627,0.59174 0.70627,0.29348 0.70388,0.13601 0.70626,0.14077 0.70627,-0.0286 0.70627,0.7349 0.70389,0.3579 0.70627,1.12383 0.70626,-0.74921 0.70389,0.12168 0.70626,0.62037 0.70627,0.42233 0.70388,0.12646 0.70627,0.36984 0.70627,0.0811 0.70627,0.52016 0.70388,-0.0954 0.70627,0.34836 0.70627,0.31734 0.70388,-0.56549 0.70627,0.0954 0.70627,0.64662"
      id="path151" />
   <path
@@ -646,7 +647,7 @@
   <text
      xml:space="preserve"
      id="text3642"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:12px;line-height:1.25;font-family:'IBM Plex Sans Condensed';-inkscape-font-specification:'IBM Plex Sans Condensed, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;white-space:pre;shape-inside:url(#rect3644);fill:#000000;fill-opacity:1;stroke:none"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:12px;line-height:1.25;font-family:'IBM Plex Sans Condensed';-inkscape-font-specification:'IBM Plex Sans Condensed, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;white-space:pre;shape-inside:url(#rect3644);fill:#000000;fill-opacity:1;stroke:none;"
      transform="translate(20.773904,-6.199778)" />
   <text
      xml:space="preserve"
@@ -686,7 +687,7 @@
      d="m 198.09725,15.242313 h 15"
      id="path3683" />
   <rect
-     style="fill:#e3f2fd;fill-opacity:1;stroke:none;stroke-width:2.293;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0"
+     style="fill:#90caf9;fill-opacity:1;stroke:none;stroke-width:2.293;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0"
      id="rect3685"
      width="15"
      height="15"
