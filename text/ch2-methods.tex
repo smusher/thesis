@@ -126,7 +126,7 @@ Firstly, we assume that the observed quenching from a bound nucleotide does not 
 As there is no open-state structure of K\textsubscript{ATP}, we do not know exactly how much relative movement would occur between a bound TNP-ATP and Kir6.2-W311.
 However, based on cryo-EM structures of apo and nucleotide-bound Kir6.2 we do not expect to see a change in the distance between these two positions.
 Secondly, we assume that the orientation of the ANAP and TNP-ATP dipoles can be well described by a $\kappa^2$ value of $\frac{2}{3}$.
-This assumption is commonly made in FRET assays, and reference \cite{stryer_fluorescence_1978} shows that uncertainty introduced by this assumption is relatively small (typically less than \SI{20}{\percent}).
+This assumption is commonly made in FRET assays, and reference \cite{stryer_fluorescence_1978} shows that uncertainty introduced by this assumption is relatively small (typically less than \SI{20}{\percent}). Empirically, our results showing FRET occurs to a similar extent as predicted by formula \ref{eq:forster_fret} supports this assumption as reasonable.
 
 \section{Unroofed binding measurements.}
 Unroofed membranes were prepared as follows.
@@ -167,10 +167,11 @@ We fit our fluorescence quenching data with the following equation:
 \begin{equation} \label{eq:hill}
     \frac{y}{y_{max}} = 1 - E_{max} + \frac{E_{max}}{1 + 10^{(EC_{50} - [TNPATP]) \cdot h}} + \sigma
 \end{equation}
-where $y$ represents corrected fluorescence intensity and $EC_{50}$ and $[TNPATP]$ are $\log_{10}$ values.
+where $y$ represents corrected fluorescence intensity, $EC_{50}$ and $[TNPATP]$ are $\log_{10}$ values, and $\sigma$ is the remaining variance.
+For the fluorescence quenching data, $E_{max}$ was fixed to the value obtained from W311*-GFP+SUR1 unroofed experiments (0.1) as explained in more detail in chapter \ref{ch4}.
 Current inhibition data were fit to the same equation but with $y$ representing normalised current magnitude, $IC_{50}$ instead of $EC_{50}$, and $I_{max}$ instead of $E_{max}$.
 
-We used the brms package in R to perform a non-linear fit to equation \ref{eq:hill}.
+We used the brms package in R to perform a non-linear fit to equation \ref{eq:hill} reformulated as a multilevel (or hierarchical) model.
 The parameters in the equation were supplied as:
 
 \begin{minipage}{.5\textwidth}
@@ -191,7 +192,12 @@ EC_{50} &= \beta + \delta_{experiment} \\
 \end{equation}
 \end{minipage}
 
-Essentially, the $EC_{50}$ parameter was fit with a population parameter (\textgreek{b}) and an additional 'random' component that varied between experiments (\textgreek{d}\textsubscript{experiment}).
+Essentially, the $EC_{50}$ (or $IC_{50}$) parameter for each concentration-response experiment can be described as the combination of a population parameter that is an estimate of the construct-specific value (\textgreek{b}), and an additional 'random' component that varies between experiments on the same construct (\textgreek{d}\textsubscript{experiment}).
+
+Multilevel models seek to describe datasets which consist of clusters or groups of measurements that may differ from one another \cite{andrew_gelman_bayesian_2014, mcelreath_statistical_2020}.
+In this case, each cluster of measurements is the set of current inhibition or fluorescence quenching values obtained from a single excised patch or unroofed membrane.
+As opposed to fitting each cluster individually, the multilevel model laid out in equation \ref{eq:drc_priors} allows for 'pooling' of information between clusters, so that the parameters for each experiment are influenced by all other experiments on the same construct.
+This pooling tends to improve estimates about each cluster.
 
 \section{Computational docking.}
 Computational docking of TNP-ATP into the nucleotide binding site of Kir6.2 was performed using AutoDock-Vina and Pymol (Schrödinger, LLC; New York, NY).
