@@ -162,3 +162,11 @@ mwc_formula_string <-
         "))",
         sep = ""
     )
+
+single_formula_string <-
+	mwc_formula_string %>%
+	str_replace_all(c(
+		"Da\\^2" = "Da",
+		"Da\\^3" = "Da",
+		"Da\\^4" = "Da"
+		))

@@ -46,10 +46,10 @@ This band must correspond to an N-terminally truncated Kir6.2 product, as the ap
 Based on the molecular weight, we predict that the truncated protein product initiated from a start codon in the first transmembrane domain.
 Therefore, we believe it is unlikely that this protein would form functional channels or traffic to the plasma membrane.
 When Kir6.2-W311\textsuperscript{TAG}-HA or Kir6.2-W311\textsuperscript{TAG}-HA-GFP were co-transfected with SUR1, pANAP, and eRF1-E55D, and cells were cultured in the presence of ANAP, the western blots were similar to wild-type Kir6.2-HA or Kir6.2-HA-GFP.
-Over 90\% full-length W311*-HA-GFP was produced under these conditions (Figure 1—Figure supplement 1D).
+Over 90\% full-length W311*-HA-GFP was produced under these conditions.
 We were unable to quantify the percentage of full-length W311*-HA produced as the C-terminally truncated band resulting from termination at the TAG codon was very similar in size to the N-terminally truncated band.
-Co-expression with SUR1 increased the percentage of full-length W311*-HA-GFP produced (Figure 1—Figure supplement 1D).
-In the absence of ANAP, we did not observe any full-length Kir6.2, indicating that there was no read-through of the amber (TAG) stop codon (Figure 1—Figure supplement 1D).
+Co-expression with SUR1 increased the percentage of full-length W311*-HA-GFP produced.
+In the absence of ANAP, we did not observe any full-length Kir6.2, indicating that there was no read-through of the amber (TAG) stop codon.
 
 \section{Confocal microscopy}
 Confocal imaging was performed using a spinning-disk system (Ultra-VIEW VoX, PerkinElmer; Waltham, MA) mounted on an IX81 microscope (Olympus; Southend-on-Sea, UK) with a Plan Apo 60x oil immersion objective (NA = 1.4), provided by the Micron Advanced Bioimaging Unit, Oxford.
@@ -59,7 +59,7 @@ GFP and CellMask were excited with an argon laser at \SI{488}{\nano\Molar} and \
 Images were captured on an EMCCD camera (ImagEM; Hamamatsu Photonics; Welwyn Garden City, UK) binned at 2 x 2 pixels and analysed using Python.
 A median filter with a box size of 32 x 32 pixels was applied to improve the signal-to-noise ratio by reducing background fluorescence.
 
-We examined the surface expression of our ANAP-labelled constructs using confocal microscopy (Figure 1—Figure supplement 1A,B).
+We examined the surface expression of our ANAP-labelled constructs using confocal microscopy.
 When Kir6.2-W311\textsuperscript{TAG}-GFP was co-transfected with SUR1 along with pANAP and eRF1-E55D in the presence of ANAP, the ANAP and GFP fluorescence were co-localized at the plasma membrane.
 When wild-type Kir6.2-GFP was transfected under the same conditions, only GFP fluorescence was observed at the plasma membrane.
 ANAP fluorescence was diffuse and confined to the cytoplasm or intracellular structures.
@@ -102,10 +102,31 @@ Inhibition was calculated and corrected for rundown by alternating test concentr
 
 \section{FRET calculations}
 We calculated the expected FRET efficiency between ANAP incorporated at amino acid position 311 and a docked TNP-ATP molecule.
+The efficiency of energy transfer is exquisitely distance-dependent, and can be calculated with the following formula:
+\begin{equation} \label{eq:forster_fret}
+E = \frac{1}{1 + \frac{R^6}{R_0^6}}
+\end{equation}
+where $R$ is the distance between donor and acceptor fluorophores and $R_O$ is a characteristic distance at which \SI{50}{\percent} of the energy is transferred.
+We calculated the R0 of the ANAP:TNP-ATP FRET pair using the following equations from \citeauthor{selvin_13_1995}:
+\begin{equation} \label{eq:selvin_fret}
+\begin{split}
+R_0 &= (8.79 \times 10^{-5} J q_D n^{-4} \kappa^2)^{1/6}\\
+J &= \frac{\int \epsilon_A (\lambda) f_D (\lambda) \lambda^4 d \lambda}{\int f_D (\lambda) d \lambda}
+\end{split}
+\end{equation}
+where $J$ (in \si{\per\Molar\per\centi\metre\nano\metre}\textsuperscript{4}) is the normalised spectral overlap of the donor emission ($f_D$) and acceptor extinction ($\epsilon_A$), $q_D$ is the quantum efficiency of the donor measured in the absence of the acceptor, $n$ is the refractive index for the medium the experiment is performed in, and $\kappa^2$ is a geometric factor related to the relative orientation of the two transition dipoles of donor and acceptor that can take values between 0 and 4.
+
+For our purposes, we measured the overlap between donor emission measured from the averaged spectra from multiple unroofed membranes containing W311* without the C-terminal GFP tag, and acceptor extinction spectra measured from TNP-ATP in solution using a Beckman Coulter DU800 spectrophotometer (Pasadena, CA).
+We did not measure the $q_D$ of ANAP ourselves, instead using the quantum yield of 0.22 measured by \citeauthor{zagotta_measuring_2016}.
+As our experiments were performed in a water-based medium, we used the refractive index of water ($n = 1.33$).
+We used a $\kappa^2$ value of $\frac{2}{3}$, which is the case when the orientation of dipoles of donor and acceptor are able to rotate freely within the excited state donor lifetime.
+
 The equivalency between FRET efficiency (measured as ANAP quenching) and nucleotide binding is based on two main assumptions.
 Firstly, we assume that the observed quenching from a bound nucleotide does not differ dramatically between open and closed states of the channel.
 As there is no open-state structure of K\textsubscript{ATP}, we do not know exactly how much relative movement would occur between a bound TNP-ATP and Kir6.2-W311.
 However, based on cryo-EM structures of apo and nucleotide-bound Kir6.2 we do not expect to see a change in the distance between these two positions.
+Secondly, we assume that the orientation of the ANAP and TNP-ATP dipoles can be well described by a $\kappa^2$ value of $\frac{2}{3}$.
+This assumption is commonly made in FRET assays, and reference \cite{stryer_fluorescence_1978} shows that uncertainty introduced by this assumption is relatively small (typically less than \SI{20}{\percent}).
 
 \section{Unroofed binding measurements.}
 Unroofed membranes were prepared as follows.
@@ -170,7 +191,7 @@ EC_{50} &= \beta + \delta_{experiment} \\
 \end{equation}
 \end{minipage}
 
-Essentially, the $EC_{50}$ parameter was fit with a population parameter (\textgreek{b}) and an additional 'random' component that varied between experiments (\textgreek{delta}\textsubscript{experiment}).
+Essentially, the $EC_{50}$ parameter was fit with a population parameter (\textgreek{b}) and an additional 'random' component that varied between experiments (\textgreek{d}\textsubscript{experiment}).
 
 \section{Computational docking.}
 Computational docking of TNP-ATP into the nucleotide binding site of Kir6.2 was performed using AutoDock-Vina and Pymol (Schrödinger, LLC; New York, NY).

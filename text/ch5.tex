@@ -146,8 +146,8 @@ to the channel pore.
 \end{figure}
 
 To investigate this further, we excised patches expressing W311*,C166S-GFP+SUR1 and measure current inhibition and fluorescence quenching by TNP-ATP simultaneously (Figure \ref{ch5fig:c166s_traces}).
-We found that the apprent affinity for nucleotide binding was indistinguishable from that for W311*-GFP+SUR1, and similar to our observations in unroofed membranes (Figure \ref{ch5fig:c166s_mwc_fit_1}, EC\textsubscript{50} of \SIrange{26}{218}{\micro\Molar}).
-Consistent with the literature, we did observe a large reduction in the apparent sensitivity of W311*,C166S-GFP+SUR1 currents to inhibition by TNP-ATP (IC\textsubscript{50} of at least \SI{155}{\micro\Molar}.
+We found that the apprent affinity for nucleotide binding was indistinguishable from that for W311*-GFP+SUR1, and similar to our observations in unroofed membranes (Figure \ref{ch5fig:c166s_popfits_2}, EC\textsubscript{50} of \SIrange{26}{218}{\micro\Molar}).
+Consistent with the literature, we did observe a large reduction in the apparent sensitivity of W311*,C166S-GFP+SUR1 currents to inhibition by TNP-ATP (Figure \ref{ch5fig:c166s_popfits_3}IC\textsubscript{50} of at least \SI{155}{\micro\Molar}.
 Intuitively, a change in nucleotide-dependent channel gating which is not accompanied by a change in nucleotide binding must be due (at least in part) to a change in the transduction of nucleotide binding to channel gating.
 
 \begin{figure}[h]
@@ -197,7 +197,7 @@ Intuitively, a change in nucleotide-dependent channel gating which is not accomp
 	}\label{ch5fig:c166s_2}
 \end{figure}
 
-Fitting our data to the MWC-type model described previously, we found that in addition to the effects of the C166S mutation on the intrinsic open probability of K\ATP{}, there is a striking shift in $D$ (Figure \ref{ch5fig:c166s_mwc_params_1}).
+Fitting our data to the MWC-type model described previously, we found that in addition to the effects of the C166S mutation on the intrinsic open probability of K\ATP{}, there is a striking shift in $D$ (Figure \ref{ch5fig:c166s_3}).
 This shift to a value much closer to unity indicates that binding of TNP-ATP to W311*,C166S-GFP+SUR1 favours the closed state far less than binding of TNP-ATP to W311*-GFP+SUR1.
 Equivalently, binding of TNP-ATP to the mutant channel is less able to induce closure of the pore.
 Thus, even at millimolar concentrations of TNP-ATP when all of the Kir6.2 subunits are predicted to be bound, the K\ATP{} channels are still able to open.
@@ -209,13 +209,36 @@ Thus, even at millimolar concentrations of TNP-ATP when all of the Kir6.2 subuni
 		\centering
 		\includegraphics[width=\textwidth]{mwc_c166s_1.pdf}
 	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.45\textwidth}
+		\caption{}\label{ch5fig:c166s_mwc_fit_2}
+		\centering
+		\includegraphics[width=\textwidth]{mwc_c166s_3.pdf}
+	\end{subfigure}
 	\vfill
 	\begin{subfigure}[t]{0.9\textwidth}
 		\caption{}\label{ch5fig:c166s_mwc_params_1}
 		\centering
 		\includegraphics[width=\textwidth]{mwc_c166s_2.pdf}
 	\end{subfigure}
-	\vfill
+	\caption[C166S alters transduction of nucleotide binding to Kir6.2]{
+	\subref{ch5fig:c166s_mwc_fit_1}, \subref{ch5fig:c166s_mwc_fit_2} Nucleotide binding (\subref{ch5fig:c166s_mwc_fit_1}) and current inhibition (\subref{ch5fig:c166s_mwc_fit_2}) of W311*,C166S-GFP+SUR1 by TNP-ATP in excised patches, data the same as in Figure \subref{ch5fig:c166s_popfits_2}, \subref{ch5fig:c166s_popfits_3}.
+	The solid lines are the \SI{95}{\percent} intervals of the posterior probability distribution of fits to the MWC model paramterised in equation x.
+	The dotted lines are the equivalent intervals for MWC fits to the W311*-GFP+SUR1 construct as shown in Figure x.
+	\subref{ch5fig:c166s_mwc_params_1} Posterior probability distributions for the estimated population $L$, $D_A$ and $K_A$ values are shown shaded according to their intervals.
+	}\label{ch5fig:c166s_3}
+\end{figure}
+
+This finding makes the prediction that nucleotide inhibition of K\ATP{} channels with the C166S mutation will exhibit a plateau of inhibition.
+Unfortunately, we were not able to test this directly with higher concentrations of TNP-ATP due to its purification as a TEA\textsuperscript{+} salt.
+High \si{\milli\Molar} concentrations of TEA\textsuperscript{+} inhibit K\ATP{} channels, and we determined that for W311*-GFP+SUR1 and W311*,C166S-GFP+SUR1 concentrations of above \SI{1}{\milli\Molar} TEA\textsuperscript{+} began to inhibit currents to an extent that would interfere with our measurements (Figure \ref{ch5fig:tea_trace}, \ref{ch5fig:tea_drc}).
+The precise ratio of TEA\textsuperscript{+} to TNP-ATP in our solutions is unknown, but is assumed to be between 1:1 and 3:1.
+Any additional inhibition observed at TNP-ATP concentrations greater than \SI{1}{\milli\Molar} for W311*,C166S-GFP+SUR1 will therefore be (at least in part) due to the presence of TEA\textsuperscript{+}.
+However, we do see that even at concentrations of \SI{10}{\milli\Molar} ATP, W311*,C166S-GFP+SUR1 is not fully inhibited (Figure \ref{ch5fig:c166s_mwc_fit_1}, open circle).
+The literature is divided on the existence of a current plateau for mutations at C166, although these experiments have been performed under a variety of different conditions and with various different Kir6.2 backgrounds.
+
+\begin{figure}[h]
+	\centering
 	\begin{subfigure}[t]{0.45\textwidth}
 		\caption{}\label{ch5fig:tea_trace}
 		\centering
@@ -227,28 +250,21 @@ Thus, even at millimolar concentrations of TNP-ATP when all of the Kir6.2 subuni
 		\centering
 		\includegraphics[width=\textwidth]{tea_drc.pdf}
 	\end{subfigure}
-	\hfill
+	\vfill
 	\begin{subfigure}[t]{0.45\textwidth}
 		\caption{}\label{ch5fig:l_d_sim_1}
 		\centering
 		\includegraphics[width=\textwidth]{c166s_param_sim_1.pdf}
 	\end{subfigure}
+	\hfill
 	\begin{subfigure}[t]{0.45\textwidth}
 		\caption{}\label{ch5fig:l_d_sim_2}
 		\centering
 		\includegraphics[width=\textwidth]{c166s_param_sim_2.pdf}
 	\end{subfigure}
-	\caption[C166S alters transduction of nucleotide binding to Kir6.2]{
-	}\label{ch5fig:c166s_3}
+	\caption[TEA\textsubscript{+} inhibits K\ATP{} channels at high concentrations]{
+	}\label{ch5fig:c166s_4}
 \end{figure}
-
-This finding makes the prediction that nucleotide inhibition of K\ATP{} channels with the C166S mutation will exhibit a plateau of inhibition.
-Unfortunately, we were not able to test this directly with higher concentrations of TNP-ATP due to its purification as a TEA\textsuperscript{+} salt.
-High \si{\milli\Molar} concentrations of TEA\textsuperscript{+} inhibit K\ATP{} channels, and we determined that for W311*-GFP+SUR1 and W311*,C166S-GFP+SUR1 concentrations of above \SI{1}{\milli\Molar} TEA\textsuperscript{+} began to inhibit currents to an extent that would interfere with our measurements (Figure \ref{ch5fig:tea_trace}, \ref{ch5fig:tea_drc}).
-The precise ratio of TEA\textsuperscript{+} to TNP-ATP in our solutions is unknown, but is assumed to be between 1:1 and 3:1.
-Any additional inhibition observed at TNP-ATP concentrations greater than \SI{1}{\milli\Molar} for W311*,C166S-GFP+SUR1 will therefore be (at least in part) due to the presence of TEA\textsuperscript{+}.
-However, we do see that even at concentrations of \SI{10}{\milli\Molar} ATP, W311*,C166S-GFP+SUR1 is not fully inhibited (Figure \ref{ch5fig:c166s_mwc_fit_1}, open circle).
-The literature is divided on the existence of a current plateau for mutations at C166, although these experiments have been performed under a variety of different conditions and with various different Kir6.2 backgrounds.
 
 \subsection{Mutations at E179 alter both inhibition and binding}
 

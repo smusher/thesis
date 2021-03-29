@@ -33,10 +33,29 @@ scale_x_log10()
 
 control_data <-
 	concresp %>%
-	filter(construct == "W311*-GFP+SUR")
+	filter(construct %in% c("W311*-GFP+SUR", "W311*,C166S-GFP+SUR"))
 
 mwc_full_formula <-
 	mwc_formula_string %>%
+	str_replace_all(c(
+		"1/2" = "0.5",
+		"1/3" = "0.333",
+		"2/3" = "0.666",
+		"3/2" = "1.5",
+		"1/4" = "0.25",
+		"Fa" = "concentration",
+		"Ka" = "exp(logKa)",
+		"L" = "exp(logL)",
+		"Da" = "exp(logDa)",
+		"Fb" = "0",
+		"Kb" = "1",
+		"Db" = "1",
+		"C" = "1"
+		)) %>%
+	as.formula()
+
+single_full_formula <-
+	single_formula_string %>%
 	str_replace_all(c(
 		"1/2" = "0.5",
 		"1/3" = "0.333",
@@ -73,6 +92,15 @@ mwc_brms_formula_restricted <-
 		family = gaussian()
 		)
 
+single_brms_formula <-
+	bf(
+		single_full_formula,
+		nl = TRUE,
+		logKa + logDa + logL ~ 0 + construct + (construct||unique_experiment_id),
+		sigma ~ (1||construct:binding_mask),
+		family = gaussian()
+		)
+
 mwc_brms_priors <-
 	c(
 		#posterior probability distribution of ec50s from pcf fluorescence
@@ -103,11 +131,43 @@ mwc_brms_priors_restricted <-
 		set_prior("cauchy(0, 1)", dpar = "sigma", class = "sd")
 		)
 
-brms_iter <- 2000
+brms_iter <- 11000
 brms_warmup <- 1000
 brms_chains <- 4
 brms_thin <- 1
 brms_seed <- 2021
+
+brm(
+	formula = mwc_brms_formula,
+	prior = mwc_brms_priors,
+	data = control_data,
+	chains = brms_chains,
+	iter = brms_iter,
+	warmup = brms_warmup,
+	thin  = brms_thin,
+	seed = brms_seed,
+	control = list(adapt_delta = 0.95, max_treedepth = 10),
+	cores = getOption("mc.cores", 4),
+	file = "data/mwc_fits_new_model/control_mwc_fit_270321",
+	sample_prior = "yes",
+	save_all_pars = TRUE
+	) -> control_run
+
+brm(
+	formula = single_brms_formula,
+	prior = mwc_brms_priors,
+	data = control_data,
+	chains = brms_chains,
+	iter = brms_iter,
+	warmup = brms_warmup,
+	thin  = brms_thin,
+	seed = brms_seed,
+	control = list(adapt_delta = 0.95, max_treedepth = 10),
+	cores = getOption("mc.cores", 4),
+	file = "data/mwc_fits_new_model/control_single_fit_270321",
+	sample_prior = "yes",
+	save_all_pars = TRUE
+	) -> control_run_2
 
 brm(
 	formula = mwc_brms_formula,
@@ -140,6 +200,22 @@ brm(
 	sample_prior = "yes",
 	save_all_pars = TRUE
 	) -> test_run_2
+
+brm(
+	formula = single_brms_formula,
+	prior = mwc_brms_priors,
+	data = concresp,
+	chains = brms_chains,
+	iter = brms_iter,
+	warmup = brms_warmup,
+	thin  = brms_thin,
+	seed = brms_seed,
+	control = list(adapt_delta = 0.95, max_treedepth = 10),
+	cores = getOption("mc.cores", 4),
+	file = "data/mwc_fits_new_model/single_fit_250321_short",
+	sample_prior = "yes",
+	save_all_pars = TRUE
+	) -> test_run_3
 
 concresp %>%
 mutate(response = case_when(measure == "fluorescence" ~ 1 - response, TRUE ~ response)) -> concresp_2
@@ -186,7 +262,13 @@ separate(.variable, into = c(".variable", "construct"), sep = "_construct") %>%
 group_by(construct, .variable) %>%
 mutate(model = "restricted") -> draws_2
 
-draws <- bind_rows(draws_1, draws_2)
+test_run_3 %>%
+gather_draws(`b_.*`, regex = TRUE) %>%
+separate(.variable, into = c(".variable", "construct"), sep = "_construct") %>%
+group_by(construct, .variable) %>%
+mutate(model = "single") -> draws_3
+
+draws <- bind_rows(draws_1, draws_2, draws_3)
 
 ggplot() +
 stat_slab(
