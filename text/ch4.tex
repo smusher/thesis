@@ -48,22 +48,194 @@ Here, we hope to apply our correlated measurements of nucleotide binding and cha
 
 \subsection{Restricting the subset of possible models}
 
-The two classes of models which have been proposed to describe K\ATP{} channel inhibition can be categorised into two groups; models in which each Kir6.2 subunit is able to change between open and closed conformations independently, and models in which opening and closing take place via a concerted mechanism of all four subunits \cite{enkvetchakul_kinetic_2000-1, enkvetchakul_atp_2001, fang_n-terminal_2006, wang_subunit-stoichiometric_2007, craig_how_2008-1, proks_modeling_2009, vedovato_nucleotide-binding_2015}.
+The two classes of models which have been proposed to describe K\ATP{} channel inhibition can be categorised into two groups; models in which each Kir6.2 subunit is able to change between open and closed conformations independently, and models in which opening and closing take place via a concerted mechanism of all four subunits \cite{enkvetchakul_kinetic_2000-1, enkvetchakul_atp_2001, drain_concerted_2004, fang_n-terminal_2006, wang_subunit-stoichiometric_2007, craig_how_2008-1, proks_modeling_2009, vedovato_nucleotide-binding_2015}.
 The independent class of models are often referred to as Hodgkin and Huxley (HH)-like models, after the original model proposed to describe voltage-gated ion channels \cite{hodgkin_quantitative_1952}.
 The concerted class of models are often referred to as Monod-Wyman-Changeaux (MWC)-like models, after the allosteric model formulated by Monod, Wyman and Changeaux to describe hemoglobin \cite{monod_nature_1965}.
+
 Conceptually, an MWC-like model is easier to reconcile with the structure of K\ATP{} given that each inhibitory nucleotide binding site is composed of domains from two adjacent subunits; it is hard to imagine how nucleotide binding could lead to an indepedent conformational change in one subunit alone \cite{craig_how_2008-1}.
 Empirically, the two types of model make testable predictions about channel behaviour and nucleotide binding.
-In a concerted model, each nuclotide binding event contributes the same amount of energy towards closure of the pore, such that each subunit binding a nucleotide will have an additive effect on the probabiility of the channel closing.
-In an independent model, one nucleotide binding event is sufficient to induce channel closure.
+In a concerted model, each nucleotide binding event contributes the same amount of energy towards closure of the pore, such that each subunit binding a nucleotide will have an additive effect on the probability of the channel closing.
+In an independent model, as each subunit is free to change its conformation independently, the stochiometry of nucleotide binding is less clear.
+Most formulations of an independent model have suggested that K\ATP{} channel behaviour is most consistent with a single nucleotide binding event being sufficient to drive closure of the channel \cite{trapp_molecular_1998, markworth_atp4-_2000, li_open_2002, fang_n-terminal_2006-1}.
+
+A number of studies have examined the kinetics of single K\ATP{} channels to determine which model best describes nucleotide inhibition \cite{drain_concerted_2004, fang_n-terminal_2006-1, wang_subunit-stoichiometric_2007, craig_how_2008-1}.
+\cite{drain_concerted_2004} examined single channel currents in patches excised from \textit{Xenopus} oocytes injected with a mixture of Kir6.2\textgreek{D}C and Kir6.2\textgreek{D}C-N160D,T171A subunits.
+The T171A mutation appears to eliminate the interburst closures of the Kir6.2\textgreek{D}C by dramatically slowing the rate at which the ATP-sensitive inhibition gate closes.
+The authors classified the single channel stoichiometry by assessing the sensitivity of currents to inhibition by spermine, which is provided to a subunit by the N160D mutation.
+An exponential relationship between the mean burst time of the channel and the number of mutant subunits incorporated into it fit the predictions made by a concerted model of inhibition.
+
+\citeauthor{wang_subunit-stoichiometric_2007} and \citeauthor{craig_how_2008-1} constructed tetrameric concatemers of Kir6.2 subunits to precisely control the stochiometry of the resulting channels.
+The authors introduced mutations which affected either nucleotide binding (K185E \cite{wang_subunit-stoichiometric_2007, craig_how_2008-1}) or mutations which altered intrinsic gating (C166S, T171Y \cite{wang_subunit-stoichiometric_2007}) into a fixed proportion of Kir6.2 subunits in the concatemerised channels.
+This selective disruption of individual subunits resulted in changes in ATP-dependent inhibition which could only be explained by a concerted model of K\ATP{} channel inhibition.
+However, as these experiments relied on introducing an additional physical linker between Kir6.2 subunits, the observed concerted gating behaviour may in part be due to the concatemerisation.
+
+\section{Implementing an MWC model}
+
+\subsection{A simple case}
+
+The simplest case of an allosteric MWC model for an ion channel is shown as Scheme I in Figure \ref{ch4fig:mwc_model_diagrams}.
+This simple case assumes a channel composed of a single monomer with a single binding site for ligand $A$.
+The channel is restricted to two functional states, open and closed.
+These two states exist in an equilibrium described by L, which is equivalent to $\frac{[open]}{[closed]}$.
+Ligand $A$ binds to the protein with a microscopic affinity constant $K_A$.
+The ligand $A$ differentially stabilises the open and closed states by a constant $D_A$.
+When $D_A$ is unity, the ligand $A$ binds equally to both states and so does not influence the conformational changes of the channel.
+When $D_A>1$, the ligand $A$ preferentially stabilises the open state, while when $D_A<1$ the ligand instead preferentially stabilises the closed state.
+$D_A$ therefore represents \textit{transduction} of nucleotide binding to channel gating, and vice versa.
+
+For K\ATP{} inhibition, each monomer in Scheme I represents a subunit of Kir6.2, and in our case the ligand $A$ is TNP-ATP.
+Expansion of Scheme I to account for four identical subunits is shown in \ref{ch2-methods}.
+Importantly, in an MWC model, cooperativity between subunits is not due to the incorporation of an additional paramater, but a phenomenon which arises naturally due to the energetic coupling between ligand binding and channel gating described by the transduction paramater $D_A$.
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[t]{0.9\textwidth}
+		\caption{}\label{ch4fig:mwc_model_diagrams}
+		\centering
+		\includegraphics[width=\textwidth]{mwc_model_diagrams.pdf}
+	\end{subfigure}
+	\vfill
+	\begin{subfigure}[t]{0.3\textwidth}
+		\caption{}\label{ch4fig:mwc_scheme_1_fits}
+		\centering
+		\includegraphics[width=\textwidth]{mwc_scheme_1_fits.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.3\textwidth}
+		\caption{}\label{ch4fig:mwc_scheme_2_fits}
+		\centering
+		\includegraphics[width=\textwidth]{mwc_scheme_2_fits.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.3\textwidth}
+		\caption{}\label{ch4fig:mwc_scheme_3_fits}
+		\centering
+		\includegraphics[width=\textwidth]{mwc_scheme_3_fits.pdf}
+	\end{subfigure}
+	\vfill
+	\begin{subfigure}[t]{0.9\textwidth}
+		\caption{}\label{ch4fig:mwc_params_1}
+		\centering
+		\includegraphics[width=\textwidth]{mwc_scheme_param_fits.pdf}
+	\end{subfigure}
+	\caption[Generating data from MWC model schemes]{
+	\subref{ch4fig:mwc_model_diagrams} Equilibrium diagrams for the three MWC schemes considered.
+	For each scheme, only the parameters newly relevant for that scheme are shown explicitly.
+	\subref{ch4fig:mwc_scheme_1_fits}, \subref{ch4fig:mwc_scheme_2_fits}, \subref{ch4fig:mwc_scheme_3_fits} Data generated from Scheme I (\subref{ch4fig:mwc_scheme_1_fits}), Scheme II (\subref{ch4fig:mwc_scheme_2_fits}) or Scheme III (\subref{ch4fig:mwc_scheme_3_fits}) all fit to Scheme I.
+	The input parameters are shown above each panel.
+	$L$ differs between \subref{ch4fig:mwc_scheme_1_fits} and \subref{ch4fig:mwc_scheme_2_fits}, \subref{ch4fig:mwc_scheme_3_fits} due to the introduction of a resting PIP\textsubscript{2} concentration, which in Scheme I is implicitly incorporated into $L$.
+	\subref{ch4fig:mwc_params_1} Parameter estimates for the Scheme I model fit to the data generated by all three schemes.
+	The input parameter value is marked as a black vertical line for each panel.
+	}\label{ch4fig:mwc_models}
+\end{figure}
+
+\subsection{The role of PIP\textsubscript{2}}
+
+Of course, nucleotide inhibition is not the only ligand regulation of K\ATP{} channels.
+If we assume that activation of K\ATP{} currents by Mg-nucleotides binding at the NBDs of SUR1 or by PIP\textsubscript{2} binding to Kir6.2 are independent processes, the effects of these ligands on nucleotide inhibition can be incorporated implicitly through their effects on $L$.
+Mg-nucleotide activation of K\ATP{} channel currents is well described by assuming independence from nucleotide inhibition; i.e. there is no evidence to suggest that there is a direct interaction between binding of Mg-nucleotides to SUR1 and the ability of nucleotides to bind to Kir6.2 \cite{proks_activation_2010-1, vedovato_nucleotide-binding_2015}.
+However, there is some evidence to suggest that there is a direct interaction between the nucleotide and PIP\textsubscript{2} binding sites \cite{fan_phosphoinositides_1999, macgregor_nucleotides_2002, proks_modeling_2009, haider_identification_2007}.
+The existence of a direct interaction, either by competition for an overlapping binding site or through allosteric rearrangements of the two binding sites, may make it difficult to incorporate regulation by PIP\textsubscript{2} implicitly as an effect on $L$.
+We investigated how the existence of direct interaction between the two ligand binding sites may manifest in our observations by simulating data from three progressively expanded MWC-like schemes (Figure \ref{ch4fig:mwc_model_diagrams}).
+
+If we consider introducing a second ligand $B$ which binds to a distinct site on the same monomer and does not directly interact with ligand $A$, we introduce the states shown in Scheme II of Figure \ref{ch4fig:mwc_model_diagrams}.
+Each ligand has its own microscopic association constant ($K_A$ or $K_B$) and its transduction factor ($D_A$ or $D_B$).
+Importantly, there is no interaction term between ligand $A$ and ligand $B$; the only way the binding of the ligands can impact each other is through effects on $L$.
+Scheme II is therefore a restricted form of scheme III, which explicity introduces a term for direct interaction ($C$) between binding sites for ligands $A$ and $B$ on the same monomer.
+When $C$ is unity, Scheme III becomes Scheme II.
+When $C<1$, binding of one ligand reduces the ability of the other ligand to bind on the same monomer.
+When $C>1$, binding of one ligand enhances the ability of the other ligand to bind on the same monomer.
+
+Under Scheme II, in which there is no direct interaction between ligands, changes in the parameters describing ligand $B$ (perturbations of PIP\textsubscript{2} regulation) should manifest in the data in the same way as if there was a change in $L$ in Scheme I \cite{rubin_nature_1966}.
+It is unclear whether under Scheme III, with the introduction of the direct interaction $C$, the same assumption is true - and if not, how much it would affect channel behaviour.
+To determine whether this approximation is appropriate, we generated data using each of the three schemes in Figure \ref{ch4fig:mwc_model_diagrams} as the underlying model of channel function and then fit the generated observations to Scheme I (Figure \ref{ch4fig:mwc_scheme_1_fits}, \ref{ch4fig:mwc_scheme_2_fits}, \ref{ch4fig:mwc_scheme_3_fits}).
+Ten individual sets of observations were generated using the inputs shown above each figure panel as the centre of a lognormal distribution with a standard deviation of 0.25.
+These observations were then fit to Scheme I and the values of the three free parameters ($K_A$, $D_A$ and $L$) were estimated (Figure \ref{ch4fig:mwc_params_1}).
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[t]{0.3\textwidth}
+		\caption{}\label{ch4fig:scheme_1_ka_shift}
+		\centering
+		\includegraphics[width=\textwidth]{mwc_scheme_1_ka_shift.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.3\textwidth}
+		\caption{}\label{ch4fig:scheme_1_da_shift}
+		\centering
+		\includegraphics[width=\textwidth]{mwc_scheme_1_da_shift.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.3\textwidth}
+		\caption{}\label{ch4fig:scheme_1_l_shift}
+		\centering
+		\includegraphics[width=\textwidth]{mwc_scheme_1_l_shift.pdf}
+	\end{subfigure}
+	\vfill
+	\begin{subfigure}[t]{0.9\textwidth}
+		\caption{}\label{ch4fig:mwc_params_2}
+		\centering
+		\includegraphics[width=\textwidth]{mwc_scheme_param_fits_2.pdf}
+	\end{subfigure}
+	\caption[Parameter retrieval from MWC models]{
+	\subref{ch4fig:scheme_1_ka_shift}, \subref{ch4fig:scheme_1_da_shift}, \subref{ch4fig:scheme_1_l_shift} Data generated from Scheme I with \subref{ch4fig:scheme_1_ka_shift} $K_A$ shifted from $10^4$ to $10^3$, \subref{ch4fig:scheme_1_da_shift} $D_A$ shifted from $0.1$ to $0.8$, or \subref{ch4fig:scheme_1_l_shift} $L$ shifted from $1$ to $10$.
+	\subref{ch4fig:mwc_params_2} Parameter estimates from each of the model fits.
+	In each case, the modified parameter is retrieved accurately and no other parameters are affected.
+	}\label{ch4fig:scheme_1_shifts}
+\end{figure}
+
+We can show that when Scheme II or Scheme III are the underlying data generating model, with ligand $B$ representing PIP\textsubscript{2}, we are still able to extract the true values of $K_A$ and $D_A$ by fitting the generated data to Scheme I (Figure \ref{ch4fig:mwc_models}).
+Parameter choices for Scheme II and III are such that the open probability of the channel at 0 [ATP] is still 50\%, equivalent to $L=1$ in Scheme I.
+
+We can also show that when Scheme I is the underlying data generating model, changes in any of the three parameters are easily identified and retrieved by fitting the observed data to Scheme I (Figure \ref{ch4fig:scheme_1_shifts}).
+This suggests that introducing mutations or perturbing nucleotide inhibition in any other way which directly affects any of the three parameters of this model would be easily identifiable if Scheme I was the true underlying model.
+
+What if Scheme II or III were the underlying model?
+We would still expect changes in the three parameters which exist in Scheme I to be identifiable ($L$, $K_A$ and $D_A$), although $L$ would not represent the true unliganded open/closed equilibrium as we would be estimating an $L$ modified by the resting PIP\textsubscript{2} concentration, $K_B$, $D_B$ and $C$ - in this case, the estimated $L$ parameter in fact represents the ATP-unbound open/closed equilibrium.
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[t]{0.45\textwidth}
+		\caption{}\label{ch4fig:scheme_2_kb_shift}
+		\centering
+		\includegraphics[width=\textwidth]{mwc_scheme_2_kb_shift.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.45\textwidth}
+		\caption{}\label{ch4fig:scheme_3_kb_shift}
+		\centering
+		\includegraphics[width=\textwidth]{mwc_scheme_3_kb_shift.pdf}
+	\end{subfigure}
+	\vfill
+	\begin{subfigure}[t]{0.9\textwidth}
+		\caption{}\label{ch4fig:mwc_params_3}
+		\centering
+		\includegraphics[width=\textwidth]{mwc_scheme_param_fits_3.pdf}
+	\end{subfigure}
+	\caption[Parameter retrieval from MWC models]{
+	\subref{ch4fig:scheme_2_kb_shift}, \subref{ch4fig:scheme_3_kb_shift} Data generated from \subref{ch4fig:scheme_2_kb_shift} Scheme II  or \subref{ch4fig:scheme_3_kb_shift} with $K_B$ shifted from $10^5$ to $10^6$.
+	}\label{ch4fig:scheme_2_3_shifts}
+\end{figure}
+
+However, it is unclear how changes in parameters which are not explicitly modelled in Scheme I will affect the generated data and the parameter estimates obtained by fitting the data to Scheme I.
+Figure \ref{ch4fig:scheme_2_3_shifts} shows the results of increasing $K_B$ by tenfold on data generated from Scheme II (Figure \ref{ch4fig:scheme_2_kb_shift}) or Scheme III (Figure \ref{ch4fig:scheme_3_kb_shift}).
+The first observation of note is that the generated data closely resemble those generated from Scheme I when $L$ is increased (Figure \ref{ch4fig:scheme_1_l_shift}), and indeed when the $L$ parameter estimates for a tenfold shift in $K_B$ in Scheme II/III and tenfold shift in $L$ for Scheme I are compared (Figure \ref{ch4fig:mwc_params_3}, right panel) are compared they appear to be similar.
+So far so good, as an observed increase in $L$ when fit with Scheme I would lead us to draw the correct inferences about changes in the underlying model (i.e. the open probability of the channel has indeed increased).
+
+However, changes in $K_B$ under Scheme III are not perfectly captured by changes in $L$ when fit to scheme I.
+Notably, if a direct interaction exists between the nucleotide and PIP\textsubscript{2} binding site - if Scheme III is the true underlying model - then fitting the observed data to Scheme I would lead us to estimate an incorrect value for $K_A$ (Figure \ref{ch4fig:scheme_2_kb_shift}).
+Thus, if there is a direct interaction between the sites, then a mutation which induces an increase in the binding affinity for PIP\textsubscript{2} would not just increase our estimate of $L$ (which would lead to a correct inference) but it would also decrease our estimate of $K_A$ by a not-insignificant amount.
+This could lead to the incorrect inference that a mutation is causing a direct change in nucleotide binding when it is in fact causing a direct change in PIP\textsubscript{2} binding, which is influencing our estimates of $K_A$ through a direct interaction with the inhibitory nucleotide binding site.
 
 \subsection{Determining open probability}
-Noise analysis - you can get a correct answer the wrong way (Puljung).
 
+As $L$ represents the fraction of channels in the open state, it is directly measurable by determining the channel open probability.
+Ideally then, to fit an MWC model to our data we would like to establish the open proability of the channels in our experiments.
 Measuring the open probability of an ion channel is most accurately accomplished by single-channel electrophysiological recordings, which allows direct measurement of the time a channel spends in an open state.
-This approach does not allow for the determination of the open probability of a population of channels great than 2/3 at a time, as it becomes increasingly difficult to separate the openings of different channels in the population.
+Measuring open probability directly is not possible in macroscopic patches, which consist of hundreds or thousands of individual channels.
 Thus it would not be possible to determine single channel open probability simultaneously with nucleotide binding, as the fluorescence signal from a small number of channels would be impossible to resolve.
 
-Another approach is noise analysis of currents from large populations of channels.
+Another approach is noise analysis of currents from large populations of channels \cite{heinemann_7_1992, alvarez_counting_2002}.
 The 'noise' in noise analysis refers to current fluctuations which occur when recording from a population of ion channels due to the stochastic channel gating of individual channels.
 If there are a constant number of channels ($N$) which are gated independently from each other and share a homogenous open probability ($P_O$) and a single open conductance level ($i$), the observed macroscopic current level $I$ can be described by equation \ref{eq:inpo}:
 \begin{equation}\label{eq:inpo}
@@ -87,19 +259,19 @@ Once $i$ and $N$ have been determined for a given experiment, the observed curre
 
 Equation \ref{eq:bin_2} can be fit to experimental data by calculating the variance of observed current at different current magnitudes.
 This calculation is not exactly trivial, and has been accomplished a number of different ways for different purposes.
-For channels with fast inactivation such as the Na\textsubscript{V} family, non-stationary noise analysis involves repeating a stimulus multiple times and measuring variance as the squared sum of deviations from the mean of the current magnitude calculated at the same time point across multiple stimuli, referred to in the literature as an 'isochrone'.
+For channels with fast inactivation such as the Na\textsubscript{V} family, non-stationary noise analysis involves repeating a stimulus multiple times and measuring variance as the squared sum of deviations from the mean of the current magnitude calculated at the same time point across multiple stimuli, referred to in the literature as an 'isochrone' \cite{sigworth_variance_1980}.
 For channels which do not inactivate, stationary noise analysis is possible, and variance can be measured as the squared sum of deviations from the mean current magnitude over a period of time for which $I$ is 'stationary'(Figure \ref{ch4fig:noise_example_1}, \ref{ch4fig:noise_example_2}, \ref{ch4fig:noise_example_3}).
 
-Stationary noise analysis has been described for K\ATP{} channels before by a number of different researchers (Shyng, Paolo, Peter).
+Stationary noise analysis has been performed for K\ATP{} channels before by a number of different researchers \cite{shyng_control_1997, cukras_role_2002, babenko_sur-dependent_2002, tammaro_mutation_2007, pratt_sulfonylurea_2009, proks_activation_2010-1, pratt_engineered_2012-1}.
 Unfortunately, in most of the published research the exact procedure for extracting the parameters in equation \ref{eq:bin_1} is described in the methods section, but the quality of the fits and the value of the fitted parameters besides the final calculated $P_O$ is not discussed.
-A notable exception to this rule is (Paolo), in which two findings are discussed.
+A notable exception to this rule is in reference \cite{tammaro_mutation_2007}, in which two findings are discussed.
 Firstly, fitting equation \ref{eq:bin_2} to the mean and variance of \SI{200}{\milli\second} sections of macroscopic currents from wild-type Kir6.2+SUR2A resulted in a systematic underestimation of the single channel current $i$.
 From single channel experiments, the single channel current was determined to be \SI{4}{\pico\ampere}, while the value obtained from fitting macroscopic currents was only \SI{2}{\pico\ampere}.
-In the case of WT-GFP+SUR1, we see a similar understimation of single channel current (Figure \ref{ch4fig:noise_example_fits_1}, \ref{ch4fig:noise_example_fits_2}, \ref{ch4fig:noise_example_fits_3}), with fits yielding estimates of \SIrange{1.66}{2.64}{\pico\ampere}, while measured single channel currents are at least \SI{4}{\pico\ampere}.
+In the case of WT-GFP+SUR1, we see a similar understimation of single channel current (Figure \ref{ch4fig:noise_example_fits_1}, \ref{ch4fig:noise_example_fits_2}, \ref{ch4fig:noise_example_fits_3}), with fits yielding estimates of \SIrange{1.66}{2.64}{\pico\ampere}, while measured single channel currents are at least \SI{4}{\pico\ampere} at a holding potential of \SI{-60}{\milli\volt} \cite{shyng_control_1997, proks_mutations_2001}.
 This underestimate of $i$ is most likely due to an underestimate of channel current variance as $P_O$ increases, which could be due to two main reasons.
 
 Firstly, the process of filtering and digitising channel currents can lead to underestimates of variance depending on the relationship between the open time of the measured channel and the cut-off frequency of the filter used.
-It is unlikely that this phenomenon is responsible for our findings, as the K\ATP{} mean open time duration is close to \SI{1}{\milli\second} and filtering at \SI{5}{\kilo\hertz} would lead to less than a \SI{5}{\percent} underestimation of $i$.
+It is unlikely that this phenomenon is responsible for our findings, as the K\ATP{} mean open time duration is close to \SI{1}{\milli\second} and therefore filtering at \SI{5}{\kilo\hertz} would lead to less than a \SI{5}{\percent} underestimation of $i$.
 Even if the mean open time of WT-GFP+SUR1 was closer to \SI{0.1}{\milli\second}, we would expect a \SI{20}{\percent} reduction rather than the \SI{50}{\percent} we actually observe.
 Empirically, we can use the frequency power spectrum of our measured current fluctuations to determine whether there may be high frequency channel openings we are missing (Figure \ref{ch4fig:spectra_converge}).
 For WT-GFP+SUR1, we observe that at frequencies approaching our filter cut-off at \SI{5}{\kilo\hertz} there is very little observed amplitude in active channels when compared to fully inhibited channels, suggesting we are not missing high frequency current fluctuations.
@@ -169,8 +341,8 @@ This assumption is far harder to justify for our experimental condition, in whic
 
 An extreme case in which channels transition between two states, one where $0 < P_O < 1$ and one where $P_O \approx 0$ can be approximated by equation \ref{eq:bin_1}, with a channel transitioning to the $P_O \approx 0$ state essentially considered to be no longer available to open, thus reducing $N$.
 Thus, fitting the observed current-variance data with \ref{eq:bin_1} would yield a straight line where the slope of the line is equal to $i \cdot (1 - P_O)$.
-This formulation of equation \ref{eq:bin_1} has been used successfully in the analysis of currents from CRAC channels, VSOA channels, and in the analysis of a specific cardiac K\ATP{} channel mutation.
-Unfortunately, in our case channel rundown does not render the K\ATP{} channel completely unable to open, with fully rundown channels displaying single channel open probabilities in the range of \numrange{0.05}{0.25}.
+This formulation of equation \ref{eq:bin_1} has been used successfully in the analysis of currents from CRAC channels \cite{prakriya_regulation_2006}, VSOA channels \cite{jackson_single-channel_1995, jackson_single_1996}, and in the analysis of a specific cardiac K\ATP{} channel mutation \cite{tammaro_mutation_2007}.
+Unfortunately, in our case channel rundown does not render the K\ATP{} channel completely unable to open, with fully rundown channels still displaying openings.
 Instead of each current measurement being a draw from a single binomial distribution, we are instead drawing from a mixture of binomial distributions with different $P_O$s.
 We can demonstrate how this leads to an underestimation of $i$ by simulating a simple case where there are two populations of channels, $a$ and $b$, one with a tenfold lower $P_O$ than the other.
 
@@ -227,151 +399,3 @@ We can demonstrate how this leads to an underestimation of $i$ by simulating a s
 	To visualise the spread, normal distributions are plotted alongside the point estimates, limited to $0 < x < 1$.
 	}\label{ch4fig:all_noise_fits}
 \end{figure}
-
-\section{Implementing an MWC model}
-
-\subsection{A simple case}
-
-The simplest case of an allosteric MWC model for an ion channel is shown as Scheme I in Figure \ref{ch4fig:mwc_model_diagrams}.
-This simple case assumes a channel composed of a single monomer with a single binding site for ligand $A$.
-The channel is restricted to two states, open and closed.
-These two states exist in an equilibrium described by L, which is equivalent to $\frac{[open]}{[closed]}$.
-Ligand $A$ binds to the protein with a microscopic affinity constant $K_A$.
-The ligand $A$ differentially stabilises the open and closed states by a constant $D$.
-When $D$ is unity, the ligand $A$ binds equally to both states and so does not influence the conformational changes of the channel.
-When $D>1$, the ligand $A$ preferentially stabilises the open state, while when $D<1$ the ligand instead preferentially stabilises the closed state.
-
-\begin{figure}[h]
-	\centering
-	\begin{subfigure}[t]{0.9\textwidth}
-		\caption{}\label{ch4fig:mwc_model_diagrams}
-		\centering
-		\includegraphics[width=\textwidth]{mwc_model_diagrams.pdf}
-	\end{subfigure}
-	\vfill
-	\begin{subfigure}[t]{0.3\textwidth}
-		\caption{}\label{ch4fig:mwc_scheme_1_fits}
-		\centering
-		\includegraphics[width=\textwidth]{mwc_scheme_1_fits.pdf}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[t]{0.3\textwidth}
-		\caption{}\label{ch4fig:mwc_scheme_2_fits}
-		\centering
-		\includegraphics[width=\textwidth]{mwc_scheme_2_fits.pdf}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[t]{0.3\textwidth}
-		\caption{}\label{ch4fig:mwc_scheme_3_fits}
-		\centering
-		\includegraphics[width=\textwidth]{mwc_scheme_3_fits.pdf}
-	\end{subfigure}
-	\vfill
-	\begin{subfigure}[t]{0.9\textwidth}
-		\caption{}\label{ch4fig:mwc_params_1}
-		\centering
-		\includegraphics[width=\textwidth]{mwc_scheme_param_fits.pdf}
-	\end{subfigure}
-	\caption[Generating data from MWC model schemes]{
-	\subref{ch4fig:mwc_model_diagrams} Equilibrium diagrams for the three MWC schemes considered.
-	For each scheme, only the parameters newly relevant for that scheme are shown explicitly.
-	\subref{ch4fig:mwc_scheme_1_fits}, \subref{ch4fig:mwc_scheme_2_fits}, \subref{ch4fig:mwc_scheme_3_fits} Data generated from Scheme I (\subref{ch4fig:mwc_scheme_1_fits}), Scheme II (\subref{ch4fig:mwc_scheme_2_fits}) or Scheme III (\subref{ch4fig:mwc_scheme_3_fits}) all fit to Scheme I.
-	The input parameters are shown above each panel.
-	$L$ differs between \subref{ch4fig:mwc_scheme_1_fits} and \subref{ch4fig:mwc_scheme_2_fits}, \subref{ch4fig:mwc_scheme_3_fits} due to the introduction of a resting PIP\textsubscript{2} concentration, which in Scheme I is implicitly incorporated into $L$.
-	\subref{ch4fig:mwc_params_1} Parameter estimates for the Scheme I model fit to the data generated by all three schemes.
-	The input parameter value is marked as a black vertical line for each panel.
-	}\label{ch4fig:mwc_models}
-\end{figure}
-
-\subsection{The role of PIP\textsubscript{2}}
-
-If we consider introducing a second ligand B which binds to a distinct site on the same monomer and does not directly interact with ligand A, we introduce the states shown in Scheme II of Figure \ref{ch4fig:mwc_model_diagrams}.
-Each ligand has its own microscopic association constant ($K_A$ or $K_B$) and its own preference for the open or closed states ($D_A$ or $D_B$).
-Importantly, there is no interaction term between ligand $A$ and ligand $B$; the only way the binding of the ligands can impact each other is through effects on $L$.
-Scheme II is therefore a restricted form of scheme III, which explicity introduces a term for local interaction ($C$) between binding sites for ligands $A$ and $B$ on the same monomer.
-When $C$ is unity, Scheme III becomes Scheme II.
-When $C<1$, binding of one ligand reduces the ability of the other ligand to bind on the same monomer.
-When $C>1$, binding of one ligand enhances the ability of the other ligand to bind on the same monomer.
-
-To study nucleotide binding to Kir6.2, I have used Scheme I (expanded to incorporate four identical monomers) as an approximation of the K\ATP{} channel, with ligand $A$ representing nucleotides.
-To determine whether this approximation is appropriate, I generated data using each of the three schemes as the underlying model of channel function and then fit the generated observations to Scheme I (Figure \ref{ch4fig:mwc_scheme_1_fits}, \ref{ch4fig:mwc_scheme_2_fits}, \ref{ch4fig:mwc_scheme_3_fits}).
-Ten individual sets of observations were generated using the inputs shown above each figure panel as the centre of a lognormal distribution with a standard deviation of 0.25.
-These observations were then fit to Scheme I (as done previously throughout the thesis) and the values of the three free parameters ($K_A$, $D_A$ and $L$) were estimated (Figure \ref{ch4fig:mwc_params_1}).
-
-\begin{figure}[h]
-	\centering
-	\begin{subfigure}[t]{0.3\textwidth}
-		\caption{}\label{ch4fig:scheme_1_ka_shift}
-		\centering
-		\includegraphics[width=\textwidth]{mwc_scheme_1_ka_shift.pdf}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[t]{0.3\textwidth}
-		\caption{}\label{ch4fig:scheme_1_da_shift}
-		\centering
-		\includegraphics[width=\textwidth]{mwc_scheme_1_da_shift.pdf}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[t]{0.3\textwidth}
-		\caption{}\label{ch4fig:scheme_1_l_shift}
-		\centering
-		\includegraphics[width=\textwidth]{mwc_scheme_1_l_shift.pdf}
-	\end{subfigure}
-	\vfill
-	\begin{subfigure}[t]{0.9\textwidth}
-		\caption{}\label{ch4fig:mwc_params_2}
-		\centering
-		\includegraphics[width=\textwidth]{mwc_scheme_param_fits_2.pdf}
-	\end{subfigure}
-	\caption[Parameter retrieval from MWC models]{
-	\subref{ch4fig:scheme_1_ka_shift}, \subref{ch4fig:scheme_1_da_shift}, \subref{ch4fig:scheme_1_l_shift} Data generated from Scheme I with \subref{ch4fig:scheme_1_ka_shift} $K_A$ shifted from $10^4$ to $10^3$, \subref{ch4fig:scheme_1_da_shift} $D_A$ shifted from $0.1$ to $0.8$, or \subref{ch4fig:scheme_1_l_shift} $L$ shifted from $1$ to $10$.
-	\subref{ch4fig:mwc_params_} Parameter estimates from each of the model fits.
-	In each case, the modified parameter is retrieved accurately and no other parameters are affected.
-	}\label{ch4fig:scheme_1_shifts}
-\end{figure}
-
-We know that Scheme I is only an approximation of nucleotide binding as it does not explicitly include PIP\textsubscript{2}.
-The question is, if the underlying data generating model is Scheme II which explicitly includes a second ligand, are we still able to extract meaningful parameter estimates by fitting the observed data to Scheme I?
-In addition,to date it remains unclear whether there is local allostery between the nucleotide and PIP\textsubscript{2} binding sites.
-The existence of local allostery would mean that Scheme III, which includes an explicit term for this interaction, would best represent the true data generating model.
-We can show that even when Scheme II or Scheme III are the underlying data generating model, with ligand $B$ representing PIP\textsubscript{2}, we are still able to extract the true values of $K_A$ and $D_A$ by fitting the generated data to Scheme I (Figure \ref{ch4fig:mwc_models}).
-Parameter choices for Scheme II and III are such that the open probability of the channel at 0 [ATP] is still 50\%, equivalent to $L=1$ in Scheme I.
-I really need to redo this with the true $L$ set to $0.01$ instead of $0.1$ as that is closer to post rundown open proability...
-
-We can also show that when Scheme I is the underlying data generating model, changes in any of the three parameters are easily identified and retrieved by fitting the observed data to Scheme I (Figure \ref{ch4fig:scheme_1_shifts}).
-This suggests that introducing mutations which directly effect any of the three parameters of this model would be easily identifiable if Scheme I was the true underlying model.
-
-What if Scheme II or III were the underlying model?
-We would still expect changes in the three parameters which exist in Scheme I to be identifiable (I should probably check this), although $L$ would not represent the true unliganded open/closed equilibrium as we would be estimating an $L$ modified by the resting PIP\textsubscript{2} concentration, $K_B$, $D_B$ and $C$ - in this case, the estimated $L$ parameter in fact represents the ATP-unbound open/closed equilibrium.
-
-\begin{figure}[h]
-	\centering
-	\begin{subfigure}[t]{0.45\textwidth}
-		\caption{}\label{ch4fig:scheme_2_kb_shift}
-		\centering
-		\includegraphics[width=\textwidth]{mwc_scheme_2_kb_shift.pdf}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[t]{0.45\textwidth}
-		\caption{}\label{ch4fig:scheme_3_kb_shift}
-		\centering
-		\includegraphics[width=\textwidth]{mwc_scheme_3_kb_shift.pdf}
-	\end{subfigure}
-	\vfill
-	\begin{subfigure}[t]{0.9\textwidth}
-		\caption{}\label{ch4fig:mwc_params_3}
-		\centering
-		\includegraphics[width=\textwidth]{mwc_scheme_param_fits_3.pdf}
-	\end{subfigure}
-	\caption[Parameter retrieval from MWC models]{
-	\subref{ch4fig:scheme_2_kb_shift}, \subref{ch4fig:scheme_3_kb_shift} Data generated from \subref{ch4fig:scheme_2_kb_shift} Scheme II  or \subref{ch4fig:scheme_3_kb_shift} with $K_B$ shifted from $10^5$ to $10^6$.
-	}\label{ch4fig:scheme_2_3_shifts}
-\end{figure}
-
-However, it is unclear how changes in parameters which are not explicitly modelled in Scheme I will affect the generated data and the parameter estimates obtained by fitting the data to Scheme I.
-Figure \ref{ch4fig:scheme_2_3_shifts} shows the results of increasing $K_B$ by tenfold on data generated from Scheme II (Figure \ref{ch4fig:scheme_2_kb_shift}) or Scheme III (Figure \ref{ch4fig:scheme_3_kb_shift}).
-The first observation of note is that the generated data closely resemble those generated from Scheme I when $L$ is increased (Figure \ref{ch4fig:scheme_1_l_shift}), and indeed when the $L$ parameter estimates for a tenfold shift in $K_B$ in Scheme II/III and tenfold shift in $L$ for Scheme I are compared (Figure \ref{ch4fig:mwc_params_3}, right panel) are compared they appear to be similar.
-So far so good, as an observed increase in $L$ when fit with Scheme I would lead us to draw the correct inferences about changes in the underlying model (i.e. the open probability of the cnall has indeed increased).
-However, changes in $K_B$ are not perfectly captured by changes in $L$ when fit to scheme I.
-Notably, if local allostery exists between the nucleotide and PIP\textsubscript{2} binding site - if Scheme III is the true underlying model - then fitting the observed data to Scheme I would lead us to estimate an incorrect value for $K_A$ (Figure \ref{ch4fig:scheme_2_kb_shift}).
-Thus, if there is local allostery between the sites, then a mutation which induces an increase in the binding affinity for PIP\textsubscript{2} would not just increase our estimate of $L$ (which would lead to a correct inference) but it would also decrease our estimate of $K_A$ by a not-insignificant amount, which could lead to the incorrect inference that a mutation is causing a direct change in nucleotide binding when it is in fact causing a direct change in PIP\textsubscript{2} binding, which through local allostery is influencing our estimates of $K_A$.
