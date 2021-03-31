@@ -26,8 +26,8 @@ concresp <-
     )
 
 ggplot() +
-geom_point(data = concresp, aes(x = concentration, y = response, colour = unique_experiment_id)) +
-scale_color_viridis_c() +
+geom_point(data = concresp, aes(x = concentration, y = response, colour = measure)) +
+scale_color_viridis_d() +
 facet_wrap(vars(construct)) +
 scale_x_log10()
 
@@ -316,4 +316,76 @@ scale_fill_ramp_discrete(range = c(1, 0.2), na.translate = FALSE) +
 labs(fill_ramp = "Interval") +
 facet_wrap(vars(.variable), scales = "free") +
 theme(legend.position = "none") +
+scale_x_log10()
+
+control_data %>%
+mutate(response = case_when(measure == "fluorescence" ~ 1 - response, TRUE ~ response)) -> control_data_2
+
+control_data %>%
+ungroup() %>%
+expand(nesting(construct, measure, binding_mask), concentration = 10^seq(-8, -2, length.out = 51)) %>%
+add_fitted_draws(control_run, re_formula = NA) %>%
+mutate(.value = case_when(measure == "fluorescence" ~ 1 - .value, TRUE ~ .value)) %>%
+median_qi(.value, .width = .95) -> inferred_underlying
+
+control_data %>%
+ungroup() %>%
+expand(nesting(construct, measure, binding_mask), concentration = 10^seq(-8, -2, length.out = 51)) %>%
+add_fitted_draws(control_run_2, re_formula = NA) %>%
+mutate(.value = case_when(measure == "fluorescence" ~ 1 - .value, TRUE ~ .value)) %>%
+median_qi(.value, .width = .95) -> inferred_underlying_2
+
+ggplot() +
+geom_ribbon(data = inferred_underlying_2, aes(x = concentration, ymin = .lower, ymax = .upper, colour = measure, fill = measure), alpha = 0.5) +
+geom_quasirandom(data = control_data_2, aes(x = concentration, y = response, fill = measure), size = 3, shape = 21, width=0.1) +
+scale_colour_brewer(aesthetics = c("colour", "fill"), palette = "Pastel1") +
+scale_x_log10() +
+facet_wrap(vars(construct)) +
+coord_cartesian(ylim = c(-0.1, 1.2))
+
+control_data %>%
+ungroup() %>%
+expand(nesting(construct, measure, binding_mask, unique_experiment_id), concentration = 10^seq(-8, -2, length.out = 51)) %>%
+add_fitted_draws(control_run, allow_new_levels=TRUE) %>%
+mutate(.value = case_when(measure == "fluorescence" ~ 1 - .value, TRUE ~ .value)) %>%
+median_qi(.value, .width = .95) -> per_experiment
+
+control_data %>%
+ungroup() %>%
+expand(nesting(construct, measure, binding_mask, unique_experiment_id), concentration = 10^seq(-8, -2, length.out = 51)) %>%
+add_fitted_draws(control_run_2, allow_new_levels=TRUE) %>%
+mutate(.value = case_when(measure == "fluorescence" ~ 1 - .value, TRUE ~ .value)) %>%
+median_qi(.value, .width = .95) -> per_experiment_2
+
+ggplot() +
+geom_ribbon(data = per_experiment_2, aes(x = concentration, ymin = .lower, ymax = .upper, colour = measure, fill = measure), alpha = 0.5) +
+geom_point(data = control_data_2, aes(x = concentration, y = response, fill = measure), size = 3, shape = 21) +
+scale_colour_brewer(aesthetics = c("colour", "fill"), palette = "Pastel1") +
+scale_x_log10() +
+facet_wrap(vars(construct, unique_experiment_id)) +
+coord_cartesian(ylim = c(-0.1, 1.2))
+
+control_run %>%
+gather_draws(`b_.*`, regex = TRUE) %>%
+separate(.variable, into = c(".variable", "construct"), sep = "_construct") %>%
+group_by(construct, .variable) %>%
+mutate(model = "mwc") -> draws_1
+
+control_run_2 %>%
+gather_draws(`b_.*`, regex = TRUE) %>%
+separate(.variable, into = c(".variable", "construct"), sep = "_construct") %>%
+group_by(construct, .variable) %>%
+mutate(model = "single") -> draws_2
+
+draws <- bind_rows(draws_1, draws_2)
+
+ggplot() +
+stat_slab(
+    data = draws %>% filter(!is.na(construct)),
+    position = position_dodge(0.2),
+    aes(y = construct, x = exp(.value), fill = model, fill_ramp = stat(cut_cdf_qi(cdf, .width = c(.5, .8, .95), labels = scales::percent_format())))
+    ) +
+scale_fill_ramp_discrete(range = c(1, 0.2), na.translate = FALSE) +
+labs(fill_ramp = "Interval") +
+facet_wrap(vars(.variable), scales = "free") +
 scale_x_log10()
