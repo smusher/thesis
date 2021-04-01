@@ -15,11 +15,11 @@ All constructs were confirmed by DNA sequencing (DNA Sequencing and Services, Un
 HEK-293T cells were obtained from and verified/tested for mycoplasma by LGC standards (ATTC CRL-3216, Middlesex, UK).
 Our working stock tested negative for mycoplasma contamination using the MycoAlert Mycoplasma Detection Kit (Lonza Bioscience; Burton on Trent, UK).
 Cells were plated onto either poly-L-lysine coated borosilicate glass coverslips (VWR International; Radnor, PA) or poly-D-lysine coated glass-bottomed FluoroDishes (FD35-PDL-100, World Precision Instruments).
-ANAP-tagged Kir6.2 constructs were labelled using amber stop codon suppression as described by Chatterjee et al.
+ANAP-tagged Kir6.2 constructs were labelled using amber stop codon suppression as described in reference \cite{chatterjee_genetically_2013}.
 Transfections were carried out 24 hours after plating using TransIT-LT1 (Mirus Bio LLC; Madison, WI) at a ratio of 3 \si{\micro\litre} per \si{\micro\gram} of DNA.
 Unless specified otherwise, all transfections included a Kir6.2 construct with an amber stop codon (TAG) at position 311 (Kir6.2-W311\textsuperscript{TAG}), SUR1, pANAP and eRF1-E55D in the ratio 0.5:1.5:1:1.
 Transfected cells cultured in Dulbecco’s Modified Eagle Medium (Sigma; St. Louis, MO) + 10\% foetal bovine serum, \SI{100}{\Unit\per\milli\litre} penicillin and \SI{100}{\micro\gram\per\milli\litre} streptomycin (Thermo Fisher Scientific; Waltham, MA) supplemented with \SI{20}{\milli\Molar} ANAP (free acid, AsisChem; Waltham, MA).
-Cells were incubated at \SI{33}{\degreeCelsius} and in the presence of \SI{300}{\micro\Molar} tolbutamide to enhance protein expression and channel trafficking to the plasma membrane.
+Cells were incubated at \SI{33}{\degreeCelsius} and in the presence of \SI{300}{\micro\Molar} tolbutamide to enhance protein expression and channel trafficking to the plasma membrane \cite{yan_sulfonylureas_2004, martin_pharmacological_2013}.
 eRF1-E55D was included to increase efficiency of ANAP incorporation.
 Experiments were carried out 2-4 days after transfection.
 We also expressed constructs labelled with ANAP at positions I182, F183, F198, and I210.
@@ -198,6 +198,67 @@ Multilevel models seek to describe datasets which consist of clusters or groups 
 In this case, each cluster of measurements is the set of current inhibition or fluorescence quenching values obtained from a single excised patch or unroofed membrane.
 As opposed to fitting each cluster individually, the multilevel model laid out in equation \ref{eq:drc_priors} allows for 'pooling' of information between clusters, so that the parameters for each experiment are influenced by all other experiments on the same construct.
 This pooling tends to improve estimates about each cluster.
+
+\section{Model equations and fitting}
+
+The concerted MWC-type model fitted to the patch-clamp fluorometry data was formulated as follows:
+\begin{equation} \label{eq:mwc_binding}
+\frac{F}{F_{max}} = \frac
+    {K_A[TNPATP](1+K_A[TNPATP])^3+LDK_A[TNPATP](1+DK_A[TNPATP])^3}
+    {(1+K_A[TNPATP])^4+L(1+DK_A[TNPATP])^4} + \sigma
+\end{equation}
+
+\begin{equation} \label{eq:mwc_gating}
+\frac{\text{open channels}}{\text{total channels}} = \frac
+    {L(1+DK_A[TNPATP])^4}
+    {(1+K_A[TNPATP])^4+L(1+DK_A[TNPATP])^4} + \sigma
+\end{equation}
+
+When no ligand is present (i.e. when $[TNPATP] = 0$), equation \ref{eq:mwc_gating} becomes:
+\begin{equation} \label{eq:intrinsic_po}
+\frac{\text{open channels}}{\text{total channels}} = \frac
+    {L}
+    {1+L} + \sigma
+\end{equation}
+
+We can use this to normalise the predicted changes in the open fraction to an observed change in current:
+\begin{equation} \label{eq:normalised_po}
+\frac{I}{I_{max}} = \frac
+    {L(1+DK_A[TNPATP])^4}
+    {(1+K_A[TNPATP])^4+L(1+DK_A[TNPATP])^4}\cdot
+   \frac
+    {1+L}
+    {L} + \sigma
+\end{equation}
+
+We used the brms package in R to fit a multilevel model to equations \label{eq:mwc_binding} and \label{eq:normalised_po}.
+First, we normalised the fluorescence quenching data by the $E_{max}$ determined from W311*-GFP+SUR1 unroofed experiments (0.1).
+
+The parameters in the equation were supplied as:
+
+\begin{minipage}{.5\textwidth}
+\centering
+\includegraphics[width=\textwidth]{mwc_priors.pdf}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+\centering
+\begin{equation} \label{eq:mwc_priors}
+\begin{split}
+log(K_A) &\sim \beta_{K_A} + \delta_{experiment} \\
+log(D_A) &\sim \beta_{D_A} + \delta_{experiment} \\
+log(L) &\sim \beta_{L} + \delta_{experiment} \\
+\beta_{K_A} &\sim Normal(log(10^4), log(5)) \\
+\beta_{D_A} &\sim Normal(log(0.1), log(5)) \\
+\beta_{L} &\sim Normal(log(1), log(5)) \\
+\delta_{experiment} &\sim Cauchy(0, 1) \\
+\sigma &\sim Cauchy(0, 1)
+\end{split}
+\end{equation}
+\end{minipage}
+
+Each of the three parameters was modelled as a combination of a population parameter $\beta_x$ and an additional random component $\delta_{experiment}$.
+Each combined set of current inhibition and nucleotide binding measurements from one excised patch was grouped as one experiment.
+The remaining variance $\sigma$ was allowed to vary between fluorescence and current data.
 
 \section{Computational docking.}
 Computational docking of TNP-ATP into the nucleotide binding site of Kir6.2 was performed using AutoDock-Vina and Pymol (Schrödinger, LLC; New York, NY).

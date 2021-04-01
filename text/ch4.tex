@@ -399,3 +399,48 @@ We can demonstrate how this leads to an underestimation of $i$ by simulating a s
 	To visualise the spread, normal distributions are plotted alongside the point estimates, limited to $0 < x < 1$.
 	}\label{ch4fig:all_noise_fits}
 \end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[t]{0.45\textwidth}
+		\caption{}\label{ch4fig:w311_mwc_fit_1}
+		\centering
+		\includegraphics[width=\textwidth]{w311_mwc_fit_1.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.45\textwidth}
+		\caption{}\label{ch4fig:w311_mwc_fit_2}
+		\centering
+		\includegraphics[width=\textwidth]{w311_mwc_fit_2.pdf}
+	\end{subfigure}
+	\vfill
+	\begin{subfigure}[t]{0.45\textwidth}
+		\caption{}\label{ch4fig:w311_single_fit_1}
+		\centering
+		\includegraphics[width=\textwidth]{w311_single_fit_1.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.45\textwidth}
+		\caption{}\label{ch4fig:w311_single_fit_2}
+		\centering
+		\includegraphics[width=\textwidth]{w311_single_fit_2.pdf}
+	\end{subfigure}
+	\vfill
+	\begin{subfigure}[t]{0.9\textwidth}
+		\caption{}\label{ch4fig:w311_mwc_fit_3}
+		\centering
+		\includegraphics[width=\textwidth]{w311_mwc_fit_3.pdf}
+	\end{subfigure}
+	\caption[A concerted model explains the data better than an independent model]{
+	\subref{ch4fig:w311_mwc_fit_1} Current inhibition (orange) and fluorescence quenching (blue) by TNP-ATP of W311*-GFP+SUR1 in excised patches, data the same as Figure \ref{ch3fig:pcf_1}.
+	Fitted curves are the \SI{95}{\percent} intervals of the posterior probability distribution of fits to the MWC model paramaterised in equation x, not including the $\delta_{experiment}$
+	\subref{ch4fig:w311_mwc_fit_2} Each experiment from \subref{ch4fig:w311_mwc_fit_1} is plotted separately.
+	The fitted curves represent the \SI{95}{\percent} intervals of the posterior probability distribution including the $\delta_{experiment}$.
+	\subref{ch4fig:w311_single_fit_1} Current inhibition (orange) and fluorescence quenching (blue) by TNP-ATP of W311*-GFP+SUR1 in excised patches, data the same as Figure \ref{ch3fig:pcf_1}.
+	Fitted curves are the \SI{95}{\percent} intervals of the posterior probability distribution of fits to the single binding model paramaterised in equation x, not including the $\delta_{experiment}$
+	\subref{ch4fig:w311_single_fit_2} Each experiment from \subref{ch4fig:w311_single_fit_1} is plotted separately.
+	The fitted curves represent the \SI{95}{\percent} intervals of the posterior probability distribution including the $\delta_{experiment}$.
+	\subref{ch4fig:w311_mwc_fit_3} Posterior probability distributions for each of the three free parameters estimated from fits to equation x (blue) or equation x (orange) are shown shaded according to their intervals.
+	The prior distributions for each of the parameters are shown as a dashed line.
+	}\label{ch4fig:w311_model_comparison}
+\end{figure}
