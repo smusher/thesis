@@ -142,7 +142,10 @@ replace_na(list(ba_pA = 0, ba_variance = 0)) %>%
 mutate(corrected_pA = pA - ba_pA, corrected_variance = variance - ba_variance) %>%
 filter(corrected_pA >= 0) %>%
 group_by(construct, n) %>%
-mutate(linear = case_when(corrected_pA <= mean(corrected_pA) & corrected_pA <= 2000 ~ TRUE, TRUE ~ FALSE)) -> cleaned_data
+mutate(
+    linear = case_when(corrected_pA <= mean(corrected_pA) & corrected_pA <= 2000 ~ TRUE, TRUE ~ FALSE),
+    second_chunks = second_chunks - min(second_chunks)
+    ) -> cleaned_data
 
 ggplot(cleaned_data) +
 geom_point(aes(x = corrected_pA, y = corrected_variance, colour = linear)) +
@@ -260,139 +263,63 @@ geom_point(data = tidy_fits_2, aes(x = construct, y = estimate, colour = model))
 facet_grid(rows = vars(term), cols = vars(model), scales = "free") +
 stat_dist_slab(data = tidy_fits_3, aes(x = construct, dist = dist, colour = model), fill = NA)
 
+brms_data <-
+    cleaned_data %>%
+    select(n, construct, second_chunks, corrected_pA, corrected_variance) %>%
+    unite("construct_n", c(construct, n)) %>%
+    mutate(construct_n = factor(construct_n))
+
 noise_formula <-
     bf(
-        corrected_variance ~ (i * corrected_pA) - ((corrected_pA ^ 2) / nchannels),
-        i ~ 1 + (1||n),
-        nchannels ~ 0 + n,
-        sigma ~ (1||n),
+        corrected_variance ~ (4 * corrected_pA) - ((corrected_pA ^ 2) / exp(nchannels)),
+        nchannels ~ 0 + Intercept + second_chunks + (1 + second_chunks||construct_n),
+        family = gaussian(),
         nl = TRUE
         )
 
 noise_priors <-
     c(
-        #prior for single channel current given -60mV and 72 pS
-        set_prior("normal(4, 1)", nlpar = "i"),
-        #prior for number of channels given above current and observed max current
-        set_prior("uniform(0, 100000)", nlpar = "nchannels", lb = "0", ub="100000"),
-        set_prior("cauchy(0, 1)", nlpar = "i", class = "sd"),
-        set_prior("cauchy(0, 1)", dpar = "sigma", class = "Intercept"),
-        set_prior("cauchy(0, 1)", dpar = "sigma", class = "sd")
+        prior(normal(7, 2), nlpar = nchannels, class = b, coef = Intercept),
+        #prior for change in n over time
+        prior(normal(-2, 1), nlpar = nchannels, class = b, coef = second_chunks)
     )
-
-noise_formula_2 <-
-    bf(
-        corrected_variance ~ (4 * corrected_pA) - ((corrected_pA ^ 2) / nchannels),
-        nchannels ~ 0 + n,
-        sigma ~ (1||n),
-        nl = TRUE
-        )
-
-noise_priors_2 <-
-    c(
-        #prior for number of channels given above current and observed max current
-        set_prior("uniform(0, 100000)", nlpar = "nchannels", lb = "0", ub="100000"),
-        set_prior("cauchy(0, 1)", dpar = "sigma", class = "Intercept"),
-        set_prior("cauchy(0, 1)", dpar = "sigma", class = "sd")
-    )
-
-noise_formula_3 <-
-    bf(
-        corrected_variance ~ 0 + corrected_pA + (corrected_pA||n)
-        )
-
-noise_priors_3 <-
-    c(
-        #prior for number of channels given above current and observed max current
-        set_prior("normal(2, 1)", class = "b", lb = "0", ub = "4"),
-        set_prior("cauchy(0, 1)", class = "sigma"),
-        set_prior("cauchy(0, 1)", class = "sd")
-    )
-
-brms_iter <- 2000
-brms_warmup <- 1000
-brms_chains <- 4
-brms_thin <- 1
-brms_seed <- 2021
 
 brm(
     formula = noise_formula,
     prior = noise_priors,
-    data = cleaned_data,
-    chains = brms_chains,
-    iter = brms_iter,
-    warmup = brms_warmup,
-    thin  = brms_thin,
-    seed = brms_seed,
+    data = brms_data %>% filter(construct_n %in% c("WT-GFP+SUR_1", "WT-GFP+SUR_2", "WT-GFP+SUR_3", "WT-GFP+SUR_4", "WT-GFP+SUR_5")),
+    chains = 1,
+    iter = 2e3,
+    warmup = 1e3,
+    thin  = 1,
+    # seed = brms_seed,
     control = list(adapt_delta = 0.99, max_treedepth = 15),
-    cores = getOption("mc.cores", 4),
-    file = "data/other_fits/control_noise_analysis",
+    # cores = getOption("mc.cores", 4),
+    # file = "data/other_fits/mixed_noise_analysis",
     sample_prior = "yes",
     save_all_pars = TRUE
-    ) -> fit_i
+    ) -> fit_both
 
-brm(
-    formula = noise_formula_2,
-    prior = noise_priors_2,
-    data = cleaned_data,
-    chains = brms_chains,
-    iter = brms_iter,
-    warmup = brms_warmup,
-    thin  = brms_thin,
-    seed = brms_seed,
-    control = list(adapt_delta = 0.99, max_treedepth = 15),
-    cores = getOption("mc.cores", 4),
-    file = "data/other_fits/control_noise_analysis_fixed",
-    sample_prior = "yes",
-    save_all_pars = TRUE
-    ) -> fit_fixed
+brms_data %>%
+filter(construct_n %in% c("WT-GFP+SUR_1")) %>%
+mutate(construct_n = factor(construct_n)) %>%
+expand(
+    nesting(construct_n, second_chunks),
+    corrected_pA = seq(min(corrected_pA), max(corrected_pA), length.out = 21)
+    ) %>%
+add_fitted_draws(fit_both, n = 5) -> fitted_draws_1
 
-brm(
-    formula = noise_formula_3,
-    prior = noise_priors_3,
-    data = cleaned_data,
-    chains = brms_chains,
-    iter = brms_iter,
-    warmup = brms_warmup,
-    thin  = brms_thin,
-    seed = brms_seed,
-    control = list(adapt_delta = 0.99, max_treedepth = 15),
-    cores = getOption("mc.cores", 4),
-    file = "data/other_fits/control_noise_analysis_popen",
-    sample_prior = "yes",
-    save_all_pars = TRUE
-    ) -> fit_popen
-
-cleaned_data %>%
-ungroup() %>%
-expand(nesting(n), corrected_pA = seq(min(corrected_pA), max(corrected_pA), length.out = 51)) %>%
-add_fitted_draws(fit_fixed, re_formula = NA) %>%
-median_qi(.value, .width = .95) %>%
-mutate(model = "fixed") -> inferred_underlying_1
-
-cleaned_data %>%
-ungroup() %>%
-expand(nesting(n), corrected_pA = seq(min(corrected_pA), max(corrected_pA), length.out = 51)) %>%
-add_fitted_draws(fit_i, re_formula = NA) %>%
-median_qi(.value, .width = .95) %>%
-mutate(model = "free_i") -> inferred_underlying_2
-
-cleaned_data %>%
-ungroup() %>%
-expand(nesting(n), corrected_pA = seq(min(corrected_pA), max(corrected_pA), length.out = 51)) %>%
-add_fitted_draws(fit_popen) %>%
-median_qi(.value, .width = .95) %>%
-mutate(model = "popen") -> inferred_underlying_3
-
-inferred_underlying <-
-    bind_rows(inferred_underlying_1, inferred_underlying_2, inferred_underlying_3)
+brms_data %>%
+filter(construct_n %in% c("WT-GFP+SUR_1")) %>%
+mutate(
+    construct_n = factor(construct_n)
+    ) -> plot_data
 
 ggplot() +
-geom_ribbon(data = inferred_underlying, aes(x = corrected_pA, ymin = .lower, ymax = .upper, colour = model), fill = NA) +
-geom_point(data = cleaned_data, aes(x = corrected_pA, y = corrected_variance)) +
-facet_wrap(vars(n)) +
-coord_cartesian(ylim = c(0, 12000))
-
+geom_line(data = fitted_draws_1, aes(x = corrected_pA, y = .value, colour = second_chunks, group = interaction(second_chunks, .draw)), size = 0.1) +
+geom_point(data = plot_data, aes(x = corrected_pA, y = corrected_variance, colour = second_chunks)) +
+coord_cartesian(ylim = c(-1000, 10000)) +
+scale_colour_distiller(palette = "PuOr")
 
 abf_1 <-
     readABF::readABF("/home/sam/data/patch_fluorometry_raw/201123/WT-GFP+SUR1/20n23001.abf") %>%
@@ -666,7 +593,14 @@ nls(
     start = list(nchannels = 1000)
     ) -> fit_4
 
+
+lm(
+    formula = variance ~ 0 + pA,
+    data = test_grid_2_summarised %>% filter(pA < 500),
+    ) -> fit_5
+
 ggplot() +
 geom_point(data = test_grid_2_summarised, aes(x = pA, y = variance)) +
 geom_line(data = fit_3 %>% broom::augment(newdata = tibble(pA = seq(0, 4000, length.out = 51))), aes(x = pA, y = .fitted)) +
-geom_line(data = fit_4 %>% broom::augment(newdata = tibble(pA = seq(0, 4000, length.out = 51))), aes(x = pA, y = .fitted), linetype = 2)
+geom_line(data = fit_4 %>% broom::augment(newdata = tibble(pA = seq(0, 4000, length.out = 51))), aes(x = pA, y = .fitted), linetype = 2) +
+geom_line(data = fit_5 %>% broom::augment(newdata = tibble(pA = seq(0, 2000, length.out = 51))), aes(x = pA, y = .fitted), linetype = 3)

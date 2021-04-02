@@ -268,10 +268,11 @@ A notable exception to this rule is in reference \cite{tammaro_mutation_2007}, i
 Firstly, fitting equation \ref{eq:bin_2} to the mean and variance of \SI{200}{\milli\second} sections of macroscopic currents from wild-type Kir6.2+SUR2A resulted in a systematic underestimation of the single channel current $i$.
 From single channel experiments, the single channel current was determined to be \SI{4}{\pico\ampere}, while the value obtained from fitting macroscopic currents was only \SI{2}{\pico\ampere}.
 In the case of WT-GFP+SUR1, we see a similar understimation of single channel current (Figure \ref{ch4fig:noise_example_fits_1}, \ref{ch4fig:noise_example_fits_2}, \ref{ch4fig:noise_example_fits_3}), with fits yielding estimates of \SIrange{1.66}{2.64}{\pico\ampere}, while measured single channel currents are at least \SI{4}{\pico\ampere} at a holding potential of \SI{-60}{\milli\volt} \cite{shyng_control_1997, proks_mutations_2001}.
-This underestimate of $i$ is most likely due to an underestimate of channel current variance as $P_O$ increases, which could be due to two main reasons.
+This underestimate of $i$ is most likely due to a reduction in observed channel current variance when compared to the predictions of equation \ref{eq:bin_2}. 
 
+There are two possible explanations for this reduction.
 Firstly, the process of filtering and digitising channel currents can lead to underestimates of variance depending on the relationship between the open time of the measured channel and the cut-off frequency of the filter used.
-It is unlikely that this phenomenon is responsible for our findings, as the K\ATP{} mean open time duration is close to \SI{1}{\milli\second} and therefore filtering at \SI{5}{\kilo\hertz} would lead to less than a \SI{5}{\percent} underestimation of $i$.
+It is unlikely that this phenomenon is responsible for our findings, as the K\ATP{} mean open time duration is close to \SI{1}{\milli\second} and therefore filtering at \SI{5}{\kilo\hertz} would lead to less than a \SI{5}{\percent} underestimation of $i$ \cite{}.
 Even if the mean open time of WT-GFP+SUR1 was closer to \SI{0.1}{\milli\second}, we would expect a \SI{20}{\percent} reduction rather than the \SI{50}{\percent} we actually observe.
 Empirically, we can use the frequency power spectrum of our measured current fluctuations to determine whether there may be high frequency channel openings we are missing (Figure \ref{ch4fig:spectra_converge}).
 For WT-GFP+SUR1, we observe that at frequencies approaching our filter cut-off at \SI{5}{\kilo\hertz} there is very little observed amplitude in active channels when compared to fully inhibited channels, suggesting we are not missing high frequency current fluctuations.
@@ -334,25 +335,33 @@ For WT-GFP+SUR1, we observe that at frequencies approaching our filter cut-off a
 
 Secondly, an underestimation of $i$ could occur due to violations in the underlying assumptions of the binomial distribution.
 The first two assumptions are that $N$ and $i$ are constant throughout a recording.
-We know that $i$ does not change on nucleotide inhibition of K\ATP{} channels, noris it affected by PIP\textsubscript{2} and rundown.
-Additionally, in excised patches it is improbable that there will be any change in $N$ during the course of a recording.
-The third assumption is that the channels in a patch share a homogenous $P_O$, which exhibits graded changes in response to stimuli (in our case, application of nucleotide).
-This assumption is far harder to justify for our experimental condition, in which channel rundown due to loss of PIP\textsubscript{2} results in a complicated mixture of channel populations with different $P_O$s.
+We know that $i$ is unaffected by nucleotide inhibition of K\ATP{} channels, nor is it affected by PIP\textsubscript{2} or channel rundown.
+Given that we are recording from excised patches, it is unlikely that there will be any change in the number of channels present in the membrane ($N$) during the short time course of a recording.
+The third assumption in using equation \ref{eq:bin_2} is that the channels in a patch share a homogenous $P_O$, which can be perturbed to a similar extent by a stimulus (in our case, application of nucleotide).
+This assumption is far harder to justify for our experimental condition, in which channel rundown due to loss of PIP\textsubscript{2} results in a complicated mixture of channel populations with different $P_O$s, which respond differently to nucleotide inhibition.
 
-An extreme case in which channels transition between two states, one where $0 < P_O < 1$ and one where $P_O \approx 0$ can be approximated by equation \ref{eq:bin_1}, with a channel transitioning to the $P_O \approx 0$ state essentially considered to be no longer available to open, thus reducing $N$.
+An extreme case in which channels transition between two states, one where $0 < P_O < 1$ and one where $P_O \approx 0$ can be approximated by equation \ref{eq:bin_1}, with a channel transitioning to the $P_O \approx 0$ state essentially considered to be no longer available to open, reducing $N$.
 Thus, fitting the observed current-variance data with \ref{eq:bin_1} would yield a straight line where the slope of the line is equal to $i \cdot (1 - P_O)$.
 This formulation of equation \ref{eq:bin_1} has been used successfully in the analysis of currents from CRAC channels \cite{prakriya_regulation_2006}, VSOA channels \cite{jackson_single-channel_1995, jackson_single_1996}, and in the analysis of a specific cardiac K\ATP{} channel mutation \cite{tammaro_mutation_2007}.
 Unfortunately, in our case channel rundown does not render the K\ATP{} channel completely unable to open, with fully rundown channels still displaying openings.
-Instead of each current measurement being a draw from a single binomial distribution, we are instead drawing from a mixture of binomial distributions with different $P_O$s.
-We can demonstrate how this leads to an underestimation of $i$ by simulating a simple case where there are two populations of channels, $a$ and $b$, one with a tenfold lower $P_O$ than the other.
+Instead of each current measurement being a draw from a single binomial distribution, we are instead drawing from a mixture of binomial distributions with different $P_O$.
+We can demonstrate how this could lead to an underestimation of $i$ by simulating a simple case where there are two populations of channels, $a$ and $b$, with a shared single channel conductance $i$ but one with a tenfold lower $P_O$ than the other:
 
 \begin{equation}\label{eq:bibi_sim}
 \begin{split}
-	N_a + N_b &= 1000 \\
+	N &= 1000 \\
+	N &= N_a + N_b \\
 	0 < P_{O_{a}} &< 1 \\
-	P_{O_{b}} &= \frac{P_{O_{a}}}{10}
+	P_{O_{b}} &= \frac{P_{O_{a}}}{10} \\
+	i &= 4 \\
+	I &= i * Binomial(N_a, P_{O_{a}}) + Binomial(N_b, P_{O_{b}})
 \end{split}
 \end{equation}
+
+where population $a$ consists of $N_a$ channels with an open probability $P_{O_{a}}$, and population $b$ consists of $N_b$ channels with an open probability $P_{O_{b}}$.
+
+Comparing the mean current/variance relationship of simulated currents from a single binomial (Figure \ref{ch4fig:simulated_noise_1}, \ref{ch4fig:simulated_noise_2}) to that of simulated currents from the mixture of binomials in equation \ref{eq:bibi_sim} (Figure \ref{ch4fig:simulated_noise_3}) reveals that equation \ref{eq:bin_1} is no longer able to retrieve the true values of $i$ and $N$ when the data generating process is not a single binomial distribution.
+In fact, the underestimation of $i$ from fitting to data simulated in this way is very similar to the underestimation of $i$ we see when fitting to our measure data (Figure \ref{ch4fig:noise_manual}).
 
 \begin{figure}[h]
 	\centering
@@ -374,8 +383,20 @@ We can demonstrate how this leads to an underestimation of $i$ by simulating a s
 		\includegraphics[width=\textwidth]{simulated_noise_3.pdf}
 	\end{subfigure}
 	\caption[Simulated multibinomial currents]{
+	\subref{ch4fig:simulated_noise_1} 5 second segments of simulated channel currents drawn from a single binomial distribution.
+	All segments share a common single channel conductance $i$ and number of channels $N$, but the $P_O$ is varied.
+	\subref{ch4fig:simulated_noise_2} Fits of equation \ref{eq:bin_2} to the simulated currents in \subref{ch4fig:simulated_noise_1} successfully retrieve an estimate of $i$ which is approximately correct.
+	\subref{ch4fig:simulated_noise_3} Fits of equation \ref{eq:bin_2} to segments of currents simulated by drawing from a mixture of two binomial distributions with different baseline $P_O$s.
+	The estimate for $i$ retrieved by letting the parameter vary is much lower than the actual value for $i$.
+	Fixing $i$ to the correct value results in a fit which underestimates the number of channels $N$.
 	}\label{ch4fig:noise_sim}
 \end{figure}
+
+We considered whether the underestimation of $i$ and the poor fits to equation \ref{eq:bin_2} when $i$ was fixed to \SI{4.32}{\pico\ampere} (Figure \ref{ch4fig:noise_manual}) may be due to the low number of data points when selecting segments of current manually.
+We took our full current records from each excised patch from cells expressing WT-GFP+SUR1 or W311*-GFP+SUR1, divided them into 1 second segments, and plotted the mean current/variance relationship for each segment (Figure \ref{ch4fig:noise_fits_1}).
+We fit the data to equation \ref{eq:bin_2} either with $i$ allowed to vary freely, or with $i$ fixed to \SI{4.32}{\pico\ampere}.
+Our estimates for $i$ when it was allowed to vary freely were similar to our estimates from Figure \ref{ch4fig:noise_manual}, with no patch yielding a value above \SI{3}{\pico\ampere} (Figure \ref{ch4fig:noise_fits_2}).
+The fits with $i$ fixed to \SI{4.32}{\pico\ampere} clearly fit the data less well, and the resulting estimate for the open probability on patch excision exceeded 1 for nearly every patch, which is of course not possible.
 
 \begin{figure}[h]
 	\centering
@@ -393,12 +414,51 @@ We can demonstrate how this leads to an underestimation of $i$ by simulating a s
 	\caption[Estimating open probability from stationary noise analysis]{
 	\subref{ch4fig:noise_fits_1} Plots of the mean current and variance for 1 second extracts from recordings of WT-GFP+SUR1 (blue) or W311*-GFP+SUR1 (orange).
 	Fits to equation x are shown as a solid line when $i$ is allowed to vary freely, and as a dashed line when $i$ is fixed to \SI{4.32}{\pico\ampere}.
-	The straight, finer dashed lines are fits to equation y only using the linear portion of the data, which are shown as solid filled points outlined in black.
 	\subref{ch4fig:noise_fits_2} Parameter estimates from fits in \subref{ch4fig:noise_fits_1} are shown as separate points for each experiment.
-	For fits to equation x, open probability is calculated from the intial current on patch excision.
-	To visualise the spread, normal distributions are plotted alongside the point estimates, limited to $0 < x < 1$.
+	For fits to equation \ref{eq:bin_2}, open probability is calculated from the intial current on patch excision.
 	}\label{ch4fig:all_noise_fits}
 \end{figure}
+
+Given these results, we chose not to use noise analysis to calculate the $P_O$ directly for each patch.
+In addition, \citeauthor{cukras_role_2002} compared the $P_O$ calculated from noise analysis and the $P_O$ calculated by application of saturating concentrations of PIP\textsubscript{2} of a variety of K\ATP{} channel mutants, and found only a weak correlation between the two methods \cite{cukras_role_2002}.
+
+\subsection{Comparing models}
+
+We expanded Scheme I from Figure \ref{ch4fig:mwc_model_diagrams} to account for the four inhibitory nucleotide binding sites of K\ATP{} (Figure \ref{ch4fig:model_expansion_1}).
+In addition, we considered an alternate model in which only the first nucleotide binding event contributes towards closure of the channel, and thus there is no cooperativity between subunits (Figure \ref{ch4fig:model_expansion_2}).
+We then fit our observed TNP-ATP binding and current inhibition data from excised patches expressing W311*-GFP+SUR1 to equations \ref{eq:mwc_binding} and \ref{eq:normalised_po} respectively.
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[t]{0.9\textwidth}
+		\caption{}\label{ch4fig:model_expansion_1}
+		\centering
+		\includegraphics[width=\textwidth]{mwc_scheme_1_expansion.pdf}
+	\end{subfigure}
+	\vfill
+	\begin{subfigure}[t]{0.9\textwidth}
+		\caption{}\label{ch4fig:model_expansion_2}
+		\centering
+		\includegraphics[width=\textwidth]{mwc_scheme_1_expansion_2.pdf}
+	\end{subfigure}
+	\caption[Full model diagrams]{
+	Equilibrium diagrams for the two models considered.
+	\subref{ch4fig:model_expansion_1} is the concerted MWC model in which each nucleotide binding event contributes towards closing (described by the $D_A$ term modifying each binding event).
+	\subref{ch4fig:model_expansion_1} is an alternate single binding model in which only the first nucleotide binding event contributes towards closing.
+	}\label{ch4fig:model_compare}
+\end{figure}
+
+Both models fit our data reasonably well (Figure \ref{ch4fig:w311_model_comparison}), although the posterior distributions of the fits to the MWC model (Figure \ref{ch4fig:w311_mwc_fit_1}, \ref{ch4fig:w311_mwc_fit_2}) are narrower than those for the single binding model (Figure \ref{ch4fig:w311_single_fit_1}, \ref{ch4fig:w311_single_fit_2}).
+Examining the posterior distributions for the three parameters, both models yield similar estimates, with much narrow distributions for $K_A$ than for $D_A$ and $L$ (Figure \ref{ch4fig:w311_mwc_fit_3}).
+We compared the ability of the two models to explain the data with two complimentary methods.
+First, we used bridge sampling to calculate a Bayes factor of \num{1.1e4} in favor of the MWC model over the single binding model \cite{gronau_bridgesampling_2020}.
+The Bayes factor can be interpreted as the weight of evidence in favour of one model over another \cite{wagenmakers_practical_2007}.
+Specifically, the observed data are \num{1.1e4} more likely to have occured under the MWC model than they are under the single binding model.
+In addition, we performed leave-one-out cross-validation (LOO-CV), which approximates the out-of-sample predictive accuracy of each of the fitted models \cite{vehtari_practical_2017}.
+The MWC model fit has a higher expected predictive accuracy than the single binding model (elpd difference of \num{27.3 (63)}).
+Together, the Bayes factor and LOO-CV scores favour a concerted MWC binding model.
+
+The \SI{95}{\percent} intervals for the $K_A$ are \SIrange{9e3}{1.7e4}{\per\Molar} for the MWC model, corresponding to a $K_d$ of \SIrange{56}{110}{\micro\Molar}.
 
 \begin{figure}[h]
 	\centering
@@ -433,14 +493,14 @@ We can demonstrate how this leads to an underestimation of $i$ by simulating a s
 	\end{subfigure}
 	\caption[A concerted model explains the data better than an independent model]{
 	\subref{ch4fig:w311_mwc_fit_1} Current inhibition (orange) and fluorescence quenching (blue) by TNP-ATP of W311*-GFP+SUR1 in excised patches, data the same as Figure \ref{ch3fig:pcf_1}.
-	Fitted curves are the \SI{95}{\percent} intervals of the posterior probability distribution of fits to the MWC model paramaterised in equation x, not including the $\delta_{experiment}$
+	Fitted curves are the \SI{95}{\percent} intervals of the posterior probability distribution of fits to the MWC model paramaterised in equations \ref{eq:mwc_binding} and \ref{eq:normalised_po}, not including the $\delta_{experiment}$
 	\subref{ch4fig:w311_mwc_fit_2} Each experiment from \subref{ch4fig:w311_mwc_fit_1} is plotted separately.
 	The fitted curves represent the \SI{95}{\percent} intervals of the posterior probability distribution including the $\delta_{experiment}$.
 	\subref{ch4fig:w311_single_fit_1} Current inhibition (orange) and fluorescence quenching (blue) by TNP-ATP of W311*-GFP+SUR1 in excised patches, data the same as Figure \ref{ch3fig:pcf_1}.
 	Fitted curves are the \SI{95}{\percent} intervals of the posterior probability distribution of fits to the single binding model paramaterised in equation x, not including the $\delta_{experiment}$
 	\subref{ch4fig:w311_single_fit_2} Each experiment from \subref{ch4fig:w311_single_fit_1} is plotted separately.
 	The fitted curves represent the \SI{95}{\percent} intervals of the posterior probability distribution including the $\delta_{experiment}$.
-	\subref{ch4fig:w311_mwc_fit_3} Posterior probability distributions for each of the three free parameters estimated from fits to equation x (blue) or equation x (orange) are shown shaded according to their intervals.
+	\subref{ch4fig:w311_mwc_fit_3} Posterior probability distributions for each of the three free parameters estimated from fits to the MWC model (blue) or the single binding model (orange) are shown shaded according to their intervals.
 	The prior distributions for each of the parameters are shown as a dashed line.
 	}\label{ch4fig:w311_model_comparison}
 \end{figure}
