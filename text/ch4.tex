@@ -458,8 +458,6 @@ In addition, we performed leave-one-out cross-validation (LOO-CV), which approxi
 The MWC model fit has a higher expected predictive accuracy than the single binding model (elpd difference of \num{27.3 (63)}).
 Together, the Bayes factor and LOO-CV scores favour a concerted MWC binding model.
 
-The \SI{95}{\percent} intervals for the $K_A$ are \SIrange{9e3}{1.7e4}{\per\Molar} for the MWC model, corresponding to a $K_d$ of \SIrange{56}{110}{\micro\Molar}.
-
 \begin{figure}[h]
 	\centering
 	\begin{subfigure}[t]{0.45\textwidth}
@@ -504,3 +502,45 @@ The \SI{95}{\percent} intervals for the $K_A$ are \SIrange{9e3}{1.7e4}{\per\Mola
 	The prior distributions for each of the parameters are shown as a dashed line.
 	}\label{ch4fig:w311_model_comparison}
 \end{figure}
+
+The \SI{95}{\percent} intervals for $K_A$ are \SIrange{9e3}{1.7e4}{\per\Molar} for the MWC model, corresponding to a $K_d$ of \SIrange{56}{110}{\micro\Molar}.
+The \SI{95}{\percent} intervals for $L$ are \numrange{.007}{.254}, which is equivalent to an unliganded $P_O$ of \numrange{<0.01}{0.2}.
+This is a broad range of predicted $P_O$, which may reflect the variability of PIP\textsubscript{2} concentrations in the excised patches.
+The \SI{95}{\percent} intervals for $D_A$ are \numrange{.002}{.096}.
+This low range for $D_A$ indicates very strong coupling between TNP-ATP binding to Kir6.2 and K\ATP{} channel closure.
+Based on the fits to the data, we can illustrate how these models couple nucleotide binding to the functional state of the channel by predicting the occupancy of the different states of the K\ATP{} channel defined in Figure \ref{ch4fig:model_compare}.
+Figure \ref{ch4fig:w311_model_comparison} shows the weighted occupancy of each of the ten states across a range of TNP-ATP concentrations as predicted by our fits to an MWC or single binding model.
+Qualitatively, the models make similar predictions; as nucleotide binding is so tightly coupled to pore closure, there is a vanishingly small proportion of K\ATP{} channels which exist in the open state with two or more TNP-ATP molecules bound to Kir6.2 subunits under the MWC model.
+Crucially however, for the single binding model to explain the data in Figure \ref{ch4fig:model_compare}, it predicts that even at saturating nucleotide concentrations a reasonable fraction of K\ATP{} channels (up to \SI{1}{\percent}) will be open even with all four Kir6.2 subunits bound to nucleotide.
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[t]{0.45\textwidth}
+		\caption{}\label{ch4fig:w311_states_weights_1}
+		\centering
+		\includegraphics[width=\textwidth]{weighted_states.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.45\textwidth}
+		\caption{}\label{ch4fig:w311_states_weights_2}
+		\centering
+		\includegraphics[width=\textwidth]{weighted_states_2.pdf}
+	\end{subfigure}
+	\caption[Comparing the states and weights of concerted and independent models]{
+	\subref{ch4fig:w311_states_weights_1}, \subref{ch4fig:w311_states_weights_2} Weighted occupancy of the different states of W311*-GFP+SUR1 predicted by the fits to the data in Figure \ref{ch4fig:w311_model_comparison} as the concentration of TNP-ATP increases.
+	\subref{ch4fig:w311_states_weights_1} shows the occupancy on a linear scale, while \subref{ch4fig:w311_states_weights_2} shows the occupancy on a logarithmic scale.
+	The weighted occupancies are shown as the \SI{95}{\percent} posterior proability distributions from the fits to the parameters shown in Figure \ref{ch4fig:w311_mwc_fit_3}.
+	}\label{ch4fig:w311_model_comparison}
+\end{figure}
+
+\subsection{Discussion}
+
+Measuring binding of TNP-ATP to K\ATP{} channels concurrently with measuring inhibition of channel currents has allowed us to test the predictions of prior studies about the stochiometry of nucleotide binding, and the suitability of an MWC model to describe inhibition of the channel.
+We have established that a simple MWC model is capable of describing both inhibition of K\ATP{} channel currents as well as the binding of nucleotides to the Kir6.2 subunit.
+There has been some debate over the stochiometry of nucleotide inhibition of the K\ATP{} channel, with some research indicating that a single Kir6.2 subunit binding to ATP is sufficient to close the channel, while other studies have suggested that further subunit binding events contribute additively to pore closure.
+Our data suggest that these findings can be reconciled with the observation that even within the framework of a concerted MWC model, where each nucleotide binding event is energetically coupled to the pore, the proportion of K\ATP{} channels which are in the open state with more than Kir6.2 subunit bound by TNP-ATP is essentially nil.
+This is of course caveated by our assumption that TNP-ATP, while exhibiting a higher affinity for the channel than by ATP, does not alter transduction of binding to inhibition.
+
+However, a model capable of describing K\ATP{} channel function should also be able to explain how mutations or other perturbations disrupt the regulation of channel function by nucleotide inhibition.
+In the following chapters, we will explore whether this method and model are capable of discerning between alterations of nucleotide binding, K\ATP{} channel gating, and transduction of nucleotide binding to the pore.
+In addition, these experiments should allow us to test the ability of a simple MWC model to explain the variety of functional changes we observe.

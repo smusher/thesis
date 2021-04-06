@@ -377,15 +377,74 @@ separate(.variable, into = c(".variable", "construct"), sep = "_construct") %>%
 group_by(construct, .variable) %>%
 mutate(model = "single") -> draws_2
 
-draws <- bind_rows(draws_1, draws_2)
+draws <-
+	bind_rows(draws_1, draws_2) %>%
+	ungroup() %>%
+	select(construct, model, .draw, .variable, .value) %>%
+	filter(!is.na(construct)) %>%
+mutate(
+	.variable = str_replace_all(.variable, "b_log", ""),
+	.value = exp(.value)
+	) %>%
+pivot_wider(names_from = .variable, values_from = .value) %>%
+left_join(tibble(expand.grid(construct = c("W311MUMGFPPSUR","W311MUC166SMGFPPSUR") , Fa = 10^seq(-7, -2, length.out = 51))))
 
-ggplot() +
-stat_slab(
-    data = draws %>% filter(!is.na(construct)),
-    position = position_dodge(0.2),
-    aes(y = construct, x = exp(.value), fill = model, fill_ramp = stat(cut_cdf_qi(cdf, .width = c(.5, .8, .95), labels = scales::percent_format())))
-    ) +
-scale_fill_ramp_discrete(range = c(1, 0.2), na.translate = FALSE) +
-labs(fill_ramp = "Interval") +
-facet_wrap(vars(.variable), scales = "free") +
-scale_x_log10()
+draws %>%
+filter(model == "mwc") %>%
+mutate(
+	c0 = 1,
+	c1 = 4*Ka*Fa*c0,
+	c2 = 3/2*Ka*Fa*c1,
+	c3 = 2/3*Ka*Fa*c2,
+	c4 = 1/4*Ka*Fa*c3,
+	o0 = L * c0,
+	o1 = Da*L*c1,
+	o2 = Da^2*L*c2,
+	o3 = Da^3*L*c3,
+	o4 = Da^4*L*c4
+	) %>%
+rowwise() %>%
+mutate(
+	all_states = sum(c_across(c0:o4)),
+	across(c0:o4, ~ .x / all_states)
+	) %>%
+pivot_longer(c0:o4, names_to = "state", values_to = "weight") %>%
+group_by(construct, model, state, Fa) %>%
+median_qi(weight, .width = .95)  -> sw_1
+
+draws %>%
+filter(model == "single") %>%
+mutate(
+	c0 = 1,
+	c1 = 4*Ka*Fa*c0,
+	c2 = 3/2*Ka*Fa*c1,
+	c3 = 2/3*Ka*Fa*c2,
+	c4 = 1/4*Ka*Fa*c3,
+	o0 = L * c0,
+	o1 = Da*L*c1,
+	o2 = Da*L*c2,
+	o3 = Da*L*c3,
+	o4 = Da*L*c4
+	) %>%
+rowwise() %>%
+mutate(
+	all_states = sum(c_across(c0:o4)),
+	across(c0:o4, ~ .x / all_states)
+	) %>%
+pivot_longer(c0:o4, names_to = "state", values_to = "weight") %>%
+group_by(construct, model, state, Fa) %>%
+median_qi(weight, .width = .95) -> sw_2
+
+bind_rows(sw_1, sw_2) %>%
+mutate(
+	conformation = case_when(str_detect(state, "o") == TRUE ~ "open", TRUE ~ "closed"),
+	state = as.numeric(str_replace_all(state, c("o" = "", "c" = "")))
+	) -> states_weights
+
+ggplot(states_weights %>% filter(construct == "W311MUMGFPPSUR"), aes(x = Fa, ymin = .lower, ymax = .upper, colour = factor(state), fill = factor(state))) +
+geom_ribbon(alpha = 0.5) +
+facet_grid(rows = vars(conformation), cols = vars(model), scales = "free") +
+scale_fill_brewer(palette = "Blues", aesthetics = c("colour", "fill")) +
+scale_x_log10() +
+scale_y_log10()
+
