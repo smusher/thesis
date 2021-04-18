@@ -441,7 +441,7 @@ mutate(
 	state = as.numeric(str_replace_all(state, c("o" = "", "c" = "")))
 	) -> states_weights
 
-ggplot(states_weights %>% filter(construct == "W311MUMGFPPSUR"), aes(x = Fa, ymin = .lower, ymax = .upper, colour = factor(state), fill = factor(state))) +
+ggplot(states_weights, aes(x = Fa, ymin = .lower, ymax = .upper, colour = factor(state), fill = factor(state))) +
 geom_ribbon(alpha = 0.5) +
 facet_grid(rows = vars(conformation), cols = vars(model), scales = "free") +
 scale_fill_brewer(palette = "Blues", aesthetics = c("colour", "fill")) +

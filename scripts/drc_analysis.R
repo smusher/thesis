@@ -302,8 +302,8 @@ add_fitted_draws(test_run) %>%
 median_qi(.value, .width = .95) -> per_experiment
 
 ggplot() +
-geom_ribbon(data = per_experiment, aes(x = 10^log_concentration, ymin = .lower, ymax = .upper, colour = construct_method, fill = construct_method), alpha = 0.5) +
-geom_point(data = fluorescence, aes(x = 10^log_concentration, y = response, fill = construct_method), size = 1.5, shape = 21) +
+geom_ribbon(data = per_experiment %>% filter(construct_method == "W311*,C166S-GFP+SUR_unroofed"), aes(x = 10^log_concentration, ymin = .lower, ymax = .upper, colour = construct_method, fill = construct_method), alpha = 0.5) +
+geom_point(data = fluorescence %>% filter(construct_method == "W311*,C166S-GFP+SUR_unroofed"), aes(x = 10^log_concentration, y = log2(response+1), fill = construct_method), size = 1.5, shape = 21) +
 scale_color_viridis_d(aesthetics = c("colour", "fill")) +
 scale_x_log10() +
 scale_y_continuous(breaks = c(0, 0.5, 1), minor_breaks = c(0.25, 0.75)) +
