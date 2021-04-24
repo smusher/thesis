@@ -380,7 +380,7 @@ These effects are somewhat contradictory, as mutations which reduce open probabi
 In each of the cryo-EM structures of K\ATP{}, the K39 side chain appears to coordinate the bound ATP molecule \cite{lee_molecular_2017, martin_anti-diabetic_2017, li_structure_2017, puljung_cryo-electron_2018-1}.
 These structures are presumed to represent the closed state of the channel, and no PIP\textsubscript{2} bound structure of the channel has yet been solved.
 However, molecular dynamics simulations using the ATP-bound structure as a starting point and introducing PIP\textsubscript{2} suggest that the K39 residue is able to contact both ligands (in press).
-This suggests a role for K39 in the binding sites of both ATP and PIP\textsubscript{2}, which may explain the contradictory findings on open probability and nucleotide inhibition changes when the residue is mutated.
+This suggests a potential role for K39 in the binding sites of both ATP and PIP\textsubscript{2}, which may explain the contradictory findings of open probability and nucleotide inhibition changes when the residue is mutated.
 
 \begin{figure}[h]
 	\centering
@@ -499,6 +499,34 @@ Finally, to definitively test the existence of local allostery between the nucle
 C166S channels exhibit almost no nucleotide-dependent gating; i.e. nucleotide binding is uncoupled from gating of the channel pore.
 Thus, any changes observed in nucleotide binding in the C166S background when PIP\textsubscript{2} affinity is changed would have to be due to a local allosteric interaction which does not involve the pore.
 
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[t]{0.45\textwidth}
+		\caption{}\label{ch5fig:k39_clash_atp}
+		\centering
+		\includegraphics[width=\textwidth]{k39_clash_atp.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.45\textwidth}
+		\caption{}\label{ch5fig:k39_clash_tnpatp}
+		\centering
+		\includegraphics[width=\textwidth]{k39_clash_tnpatp.pdf}
+	\end{subfigure}
+	\caption[K39 is in close proximity to the TNP moiety of bound TNP-ATP]{
+	\subref{ch5fig:k39_clash_atp}, \subref{ch5fig:k39_clash_tnpatp} Cryo-EM structure of ATP-bound K\ATP{} (PDB \# 6C3P) with residue K39 highlighted in purple.
+	SHown as sticks is either the ATP molecule resolved in the cryo-EM structure (\subref{ch5fig:k39_clash_atp}, red) or a docked TNP-ATP molecule (\subref{ch5fig:k39_clash_tnpatp}, orange).
+	}\label{ch5fig:k39_3}
+\end{figure}
+
 K39 is a residue which may be involved in both nucleotide and PIP\textsubscript{2} binding to Kir6.2, which may explain how mutation to an alanine at this residue appears to reduce both $P_O$ and sensitivity to nucleotide inhibiton \cite{cukras_role_2002, tucker_molecular_1998}.
 We aimed to elucidate whether K39 was directly involved in nucleotide binding by making three different substitutions with different sidechain charges - alanine, lysine, or glutamic acid - and directly measuring TNP-ATP binding.
 Unfortunately, we observed differences in the relative changes in inhibition by ATP and TNP-ATP in the three different constructs, such that the substitution which had the largest effect on ATP inhibition (K39R) had the smallest effect on TNP-ATP inhibition.
+On examination of the cryo-EM structure of K\ATP{}, K39 is in close proximity to the ribose ring of bound ATP (Figure \ref{h5fig:k39_clash_atp}).
+The computational docking of TNP-ATP predicts that the TNP moiety will therefore be in close proximity of K39 (Figure \ref{h5fig:k39_clash_tnpatp}).
+Given this proximity, it is possible that there are extra contacts made between TNP-ATP and the K39 residue, which may go some way towards explaining the incresed sensitivity of inhibition of K\ATP{} to TNP-ATP.
+It may also explain why we do not observe consistent relative changes in inhibition by ATP and TNP-ATP for different mutations of the residue.
+
+However, given that substitutions of K39 decrease the sensitivity of K\ATP{} channels to ATP inhibition, and decrease both the sensitivity to TNP-ATP inhibition and the apparent TNP-ATP binding affinity, we can still conclude that K39 is involved in nucleotide binding to Kir6.2.
+For TNP-ATP, this involvement manifests mostly as a reduction in the microscopic binding affinity ($K_A$), although substitution with a glutamic acid which has an oppositely-charged side chain also reduces the transduction of TNP-ATP binding to channel closure ($D_A$).
+Despite the previously observed reduction in open probability for the K39A mutation \cite{cukras_role_2002, tucker_molecular_1998}, we did not observe any large changes in our estimates for $L$ for any of the mutations tested (Figure \ref{ch5fig:mwc_k39_2}).
+There is some evidence to suggest that the identity of the amino acid at position 39 affects $P_O$, with K39A exhibiting an estimated $P_O$ range of \numrange{0.005}{0.15} compared to \numrange{0.017}{0.51} for K39E (Figure \ref{ch5fig:mwc_k39_2}); but given the uncertainty inherent in our data due to patch-to-patch differences in PIP\textsubscript{2} concentrations, run-down over the course of experiments, and having to normalise our data, we cannot confidently suggest there is an effect.
