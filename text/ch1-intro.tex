@@ -16,7 +16,9 @@ Conversely, decreases in blood glucose leads to the release of glucagon, which a
 
 Insulin secretion in beta cells - and indeed in all three cell types of pancreatic islets - is induced by the firing of action potentials, which leads to the influx of Ca\textsuperscript{2+} ions and the activation of secretory granule exocytosis (Figure \ref{ch1fig:beta_cells}) \cite{ashcroft_katp_2013}.
 This electrical excitability is controlled by the ATP-sensitive (K\ATP{}) potassium channel.
-Glucose metabolism in beta cells increases the ATP:ADP ratio, closing K\ATP{} channels and releasing their hyperpolarising clamp on the membrane potential.
+At rest, K\ATP{} channel activity results in a leak current of K\textsuperscript{+} ions out of the cell, hyperpolarising the membrane.
+Glucose metabolism in beta cells increases the ATP:ADP ratio, closing K\ATP{} channels and releasing their hyperpolarising clamp on the membrane potential \cite{ashcroft_glucose_1984-1, rorsman_glucose_1985-1}.
+When K\ATP{} channels are closed and membrane resistance is high, even small currents are sufficient to induce large membrane potential depolarisations and action potential initiation (Figure \ref{ch1fig:beta_cells_firing}).
 
 \begin{figure}[h]
 	\centering
@@ -34,7 +36,7 @@ Glucose metabolism in beta cells increases the ATP:ADP ratio, closing K\ATP{} ch
 	\caption[Electrical excitability of pancreatic beta cells]{
 		\subref{ch1fig:beta_cells} When the ATP:ADP ratio is low, K\ATP{} channels are open, allowing K\textsuperscript{+} ions to flow out of the pancreatic beta cell and maintain a hyperpolarised membrane potential.
 		When the ATP:ADP ratio is high, K\ATP{} channels close, allowing depolarisation of the membrane potential and insulin secretion.
-		\subref{ch1fig:beta_cells_firing} Current record of a cell-attached patch of an isolated pancreatic beta cell, reproduced from \cite{rorsman_glucose_1985-1} and reversed. 
+		\subref{ch1fig:beta_cells_firing} Current record of a cell-attached patch of an isolated pancreatic beta cell, reproduced from \cite{rorsman_calcium_1986} and reversed. 
 		Perfusion of glucose leads to depolarisation and action potential firing.
 	}
 	\label{ch1fig:beta_cells_overview}
@@ -42,21 +44,21 @@ Glucose metabolism in beta cells increases the ATP:ADP ratio, closing K\ATP{} ch
 
 \section{Architecture of the pancreatic K\ATP{} channel}
 
-K\ATP{} channels are present in many tissues, where they couple the metabolic state of a cell to its electrical activity by regulating the flow of K\textsuperscript{+} across the membrane.
-K\ATP{} channels are an octameric complex, comprised of four inwardly-rectifying potassium channel subunits (Kir6.1 or Kir6.2), each of which is associated with a sulphonylurea receptor subunit (SUR1, SUR2A or SUR2B).
-In pancreatic \textgreek{b}-cells, the K\ATP{} channel isoform is composed of Kir6.2 and SUR1.
+K\ATP{} channels are present in many tissues, where they couple the metabolic state of a cell to its electrical activity by regulating the flow of K\textsuperscript{+} across the membrane \cite{nichols_k_2006}.
+K\ATP{} channels are an octameric complex, comprised of four inwardly-rectifying potassium channel subunits (Kir6.1 or Kir6.2), each of which is associated with a sulphonylurea receptor subunit (SUR1, SUR2A or SUR2B) \cite{inagaki_family_1996, yamada_sulphonylurea_1997, shyng_octameric_1997, clement_association_1997}.
+In pancreatic \textgreek{b}-cells, the K\ATP{} channel isoform is composed of Kir6.2 and SUR1 \cite{inagaki_reconstitution_1995}.
 Together, Kir6.2 and SUR1 form a complex nearly a megadalton in size and over 15 nanometres across (Figure \ref{ch1fig:katp_cartoon}, \ref{ch1fig:sur_topdown}).
 
-Inwardly-rectifying potassium channels are so named because they allow K\textsuperscript{+} to flow more easily into the cell than out of it (Figure \ref{ch1fig:rectification}).
+Inwardly-rectifying potassium channels are so named because they allow K\textsuperscript{+} to flow more easily into the cell than out of it (Figure \ref{ch1fig:rectification}) \cite{hille_ion_2001, zheng_handbook_2015}.
 This phenomenon is a consequence of voltage-dependent pore blockade by intracellular divalent cations (especially Mg\textsuperscript{2+}) and polyamines.
 At depolarising membrane potentials, blockers are driven into the pore and K\textsuperscript{+} current is blocked, while at hyperpolarising potentials the blockers and cleared and K\textsuperscript{+} current can flow.
 Strongly rectifying Kir channels display drastically reduced conductance at potentials more positive than the K\textsuperscript{+} reversal potential.
 In contrast, Kir6.2 is a weak rectifier, and allows substantial current to flow at more positive potentials.
 
 In addition to voltage, Kir6.2 is regulated by two endogenous ligands; 
-phosphatidylinositol 4,5-bisphosphate (PIP\textsubscript{2}) and adenine nucleotides (Figure \ref{ch1fig:kir_struct}).
+phosphatidylinositol 4,5-bisphosphate (PIP\textsubscript{2}) and adenine nucleotides (Figure \ref{ch1fig:kir_struct}) \cite{baukrowitz_pip2_1998, shyng_membrane_1998}.
 The binding of adenine nucleotides to Kir6.2 leads to closure of the channel pore, while the binding of PIP\textsubscript{2} promotes the opening of the pore (Figure \ref{ch1fig:shyng_trace}).
-Activation by PIP\textsubscript{2} is a mechanism common to the whole Kir family, whereas inhibition by nucleotides is unique to the Kir6 subfamily.
+Activation by PIP\textsubscript{2} is a mechanism common to the whole Kir family, whereas inhibition by nucleotides is unique to the Kir6 subfamily \cite{enkvetchakul_direct_2005}.
 
 \begin{figure}[h]
 	\centering
@@ -81,7 +83,7 @@ Activation by PIP\textsubscript{2} is a mechanism common to the whole Kir family
 		\subref{ch1fig:rectification} Current-voltage plot demonstrating inward rectification of Kir channels.
 		Here, the reversal potential of potassium (\textit{E\textsubscript{K}}) is set to zero, i.e. there is an equal concentration of K\textsuperscript{+} on each side of the membrane.
 		Weak rectifiers such as Kir6.2 exhibit only a weak voltage dependent decline in conductance (visualised as a departure from the dashed line of an ideal conductor).
-		(Adapted from \ref{zheng_handbook_2015}).
+		(Adapted from \cite{zheng_handbook_2015}).
 		\subref{ch1fig:kir_struct} Cryo-EM structure of Kir6.2 (PDB \#6BAA) captured with ATP bound (red) and with the proposed binding position of PIP\textsubscript{2} visualised by alignment of the channel with the X-ray structure of Kir2.2 solved in compex with a short-chain dioctanoyl (diC8) PIP\textsubscript{2} (PDB \#6C3I).
 		The plasma membrane is shown in pink.
 		(Adapted from \cite{puljung_cryo-electron_2018}).
@@ -92,17 +94,17 @@ Activation by PIP\textsubscript{2} is a mechanism common to the whole Kir family
 \end{figure}
 
 SUR1 is a member of the ATP-binding cassette (ABC) family of transporters.
-While other ABC proteins transport substrate across the membrane, SUR1 does not appear to do so; instead it acts to modulate the function of its associated ion channel.
-The cystic fibrosis transmembrane conductance regulator (CFTR) is another member of the ABC family, and is an ion channel in its own right, capable of conducting chloride across the membrane.
-Like other ABC proteins, SUR1 contains two sets of transmembrane domains (TMD1 and TMD2) and two cytosolic nucleotide binding domains (NBD1 and NBD2).
-Unique to SUR is the presence of an additional transmembrane domain (TMD0) N-terminal to the core of the protein, and this domain forms the primary contact between SUR1 and Kir6.2.
+While other ABC proteins transport substrate across the membrane, SUR1 does not appear to do so; instead it acts to modulate the function of its associated ion channel \cite{aguilar-bryan_cloning_1995, tusnady_membrane_1997}.
+The cystic fibrosis transmembrane conductance regulator (CFTR) is another member of the ABC family, and is an ion channel in its own right, capable of conducting chloride across the membrane \cite{vergani_cftr_2005}.
+Like other ABC proteins, SUR1 contains two sets of transmembrane domains (TMD1 and TMD2) and two cytosolic nucleotide binding domains (NBD1 and NBD2) \cite{aguilar-bryan_cloning_1995, ter_beek_structural_2014}.
+Unique to SUR is the presence of an additional transmembrane domain (TMD0) N-terminal to the core of the protein, and this domain forms the primary contact between SUR1 and Kir6.2 \cite{lee_molecular_2017, martin_anti-diabetic_2017-1, li_structure_2017-1, martin_mechanism_2019-1}.
 
-The NBDs of ABC transporters are highly conserved, and consist of two subdomains: a larger RecA-like subdomain found in other P-loop ATPases, and a smaller \textgreek{a}-helical subdomain which is unique to ABC transporters.
+The NBDs of ABC transporters are highly conserved, and consist of two subdomains: a larger RecA-like subdomain found in other P-loop ATPases, and a smaller \textgreek{a}-helical subdomain which is unique to ABC transporters \ref{ter_beek_structural_2014, puljung_cryo-electron_2018}.
 There are three key structural motifs present in these subdomains: the RecA-like subdomain contains the Walker A (W\textsubscript{A}) and B (W\textsubscript{B}) motifs, while the \textgreek{a}-helical subdomain contains the ABC signature motif (typically LSGGQ).
 
 The two domains come together to form an antiparallel dimer with two nucleotide binding sites (NBS1 and NBS2) at the interface, such that NBS1 is formed from the W\textsubscript{A} and W\textsubscript{B} motifs of NBD1 and the signature motif from NBD2, whereas NBS2 is formed from the W\textsubscript{A} and W\textsubscript{B} motifs of NBD2 and the signature motif from NBD1.
-NBS2, also known as the consensus site as it is more similar in sequence to other ABC family members, is catalytically competent and able to hydrolyse ATP.
-In contrast, NBS1 is the degenerate site, with a less conserved sequence and an inability to catalyse hydrolysis of ATP.
+NBS2, also known as the consensus site as it is more similar in sequence to other ABC family members, is catalytically competent and able to hydrolyse ATP \ref{matsuo_atp_1999, zingman_signaling_2001, de_wet_studies_2007}.
+In contrast, NBS1 is the degenerate site, with a less conserved sequence and an inability to catalyse hydrolysis of ATP \ref{ter_beek_structural_2014, puljung_cryo-electron_2018}.
 
 \begin{figure}[h]
 	\centering
@@ -252,39 +254,39 @@ The contributions of the interactions of these regions have been studied in a va
 \begin{figure}[h]
 	\centering
 	\begin{subfigure}[t]{0.45\textwidth}
+		\caption{}\label{ch1fig:singles_ploop}
+		\centering
+		\includegraphics[width=\textwidth]{single_traces_ploop.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.45\textwidth}
 		\caption{}\label{ch1fig:singles_sur}
 		\centering
 		\includegraphics[width=\textwidth]{single_traces_sur.pdf}
 	\end{subfigure}
-	\hfill
-	\begin{subfigure}[t]{0.45\textwidth}
-		\caption{}\label{ch1fig:singles_tmd0}
-		\centering
-		\includegraphics[width=\textwidth]{single_traces_tmd0.pdf}
-	\end{subfigure}
 	\vfill
-	\begin{subfigure}[t]{0.45\textwidth}
-		\caption{}\label{ch1fig:intrinsic_diagram}
-		\centering
-		\includegraphics[width=\textwidth]{regulation_diagram_2.pdf}
-	\end{subfigure}
-	\hfill
 	\begin{subfigure}[t]{0.45\textwidth}
 		\caption{}\label{ch1fig:sur_shift}
 		\centering
 		\includegraphics[width=\textwidth]{tucker_sur_shift.pdf}
 	\end{subfigure}
-	\caption[SUR1 modulates Kir6.2 gating]{
-		\subref{ch1fig:singles_sur} Single channel recordings of excised patches from cultured cells either expressing Kir6.2 alone with the C-terminal 36 amino acids truncated (Kir6.2\textgreek{D}C36) or coexpressing wild-type Kir6.2 with SUR1.
-		Adapted from (Enkvetchakul/Nichols, 2000).
-		\subref{ch1fig:singles_tmd0} Single channel recordings of excised patches from cultured cells either expressing Kir6.2\textgreek{D}C36 alone or coexpressing Kir6.2\textgreek{D}C36 with the TMD0 region of SUR1.
-		Adapted from (Pratt/Shyng, 2011).
-		In both panels, currents were recorded in symmetrical 140 mM K\textsuperscript{+} at a membrane potential of -50 mV and openings are displayed as upward deflections.
+	\hfill
+	\begin{subfigure}[t]{0.45\textwidth}
+		\caption{}\label{ch1fig:intrinsic_diagram}
+		\centering
+		\includegraphics[width=\textwidth]{regulation_diagram_2.pdf}
+	\end{subfigure}
+	\caption[Intrinsic regulation of Kir6.2 gating]{
+		\subref{ch1fig:singles_ploop} Single channel recordings of excised patches from oocytes either expressing SUR1 with either Kir6.2 or Kir6.2-V127T in symmetrical 140 mM K\textsuperscript{+} at a membrane potential of -60 mV.
+		Adapted from \cite{proks_mutations_2001}.
+		\subref{ch1fig:singles_sur} Single channel recordings of excised patches from cultured cells either expressing Kir6.2 alone with the C-terminal 36 amino acids truncated (Kir6.2\textgreek{D}C36) or coexpressing wild-type Kir6.2 with SUR1 in symmetrical 140 mM K\textsuperscript{+} at a membrane potential of -50 mV
+		Adapted from \cite{enkvetchakul_kinetic_2000-1}.
+		In both panels, openings are displayed as upward deflections.
 		Note that the timescales differ slightly between panels as traces are from two separate papers.
 		\subref{ch1fig:intrinsic_diagram} The intrinsic open-closed equilibrium of the pancreatic K\ATP{} channel pore is regulated by the K\textsuperscript{+} driving force and by the presence of different SUR1 domains.
 		\subref{ch1fig:sur_shift} Concentration-response relationship of ATP from macroscopic currents excised from \textit{Xenopus} oocytes injected with either Kir6.2\textgreek{D}C26 mRNA alone (open circles), or a mixture of Kir6.2\textgreek{D}C26 and SUR1 mRNAs (closed circles).
 		Response is given as the fraction of the slope conductance (G) remaining during exposure to ATP.
-		Adapted from (Tucker/Ashcroft, 1997).
+		Adapted from \cite{tucker_truncation_1997}.
 	}
 \end{figure}
 
