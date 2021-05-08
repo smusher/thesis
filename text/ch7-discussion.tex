@@ -34,4 +34,13 @@ Substitution at W311, the most tolerant residue tested, still leads to altered n
 
 Approaching the same question from a different angle and reaching the same answer.
 
-Secondly, 
+Secondly, formulating the MWC model in a Bayesian fashion allows us to determine whether the parameters in the models we fit are practically identifiable.
+In other words, are the parameters we estimate uniquely constrained by the data we can collect?
+The problem of parameter identifiability has been discussed in much greater detail elsewhere \cite{calderhead_bayesian_2013, hines_determination_2014-1, hines_primer_2015, middendorf_structural_2016}.
+Briefly, even seemingly simple binding or inhibition curves may often be fit arbitrarily well by many combinations of parameter values.
+This is further complicated by the inescapable noise present in experimental data.
+
+Here, we address this issue in two ways.
+Firstly, collecting simultaneous binding and inhibition data allows us to constrain the parameters of a more complex model than would be possible based on either alone.
+Secondly, the Bayesian MCMC fitting procedure allows us to visualise the full posterior probability distribution of parameter estimates for fits to a given model.
+It is then trivial to determine whether parameter estimates are unique by visually inspecting the cross-correlation plots of paired parameters \cite{hines_determination_2014-1}.
