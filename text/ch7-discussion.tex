@@ -48,3 +48,26 @@ Secondly, the Bayesian MCMC fitting procedure allows us to visualise the full po
 It is then trivial to determine whether parameter estimates are unique by visually inspecting the cross-correlation plots of paired parameters \cite{hines_determination_2014-1}.
 
 Applying this approach to a series of residue substitutions in Kir6.2 shows that we are able to discriminate not only between effects on binding and effects on conformational change, but that we can further distinguish between effects on intrinsic and ligand-dependent regulation of conformational change.
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[t]{0.9\textwidth}
+		\caption{}\label{ch7fig:activation_fit_1}
+		\centering
+		\includegraphics[width=\textwidth]{activation_fit_1.pdf}
+	\end{subfigure}
+	\vfill
+	\begin{subfigure}[t]{0.9\textwidth}
+		\caption{}\label{ch7fig:activation_params_1}
+		\centering
+		\includegraphics[width=\textwidth]{activation_params_1.pdf}
+	\end{subfigure}
+	\caption[TNP-ATP inhibits K\ATP{} more strongly than MgTNP-ADP activates it]{
+	\subref{ch7fig:activation_fit_1} Current regulation (orange) and fluorescence quenching (blue) of G334D + SUR1-T1397* by MgTNP-ADP (left) or W311*-GFP + SUR1 by TNP-ATP (right).
+	Filled blue circles represent fluorescence quenching obtained from unroofed membranes, open circles are from excised patches.
+	Activation data are reproduced from \citeauthor{puljung_activation_2019-1}, inhibition data from Figure \ref{ch3fig:pcf_1}.
+	Fitted curves are the \SI{95}{\percent} intervals of the posterior probability distribution of fits to the MWC model paramaterised in equations \ref{eq:mwc_binding} and \ref{eq:normalised_po}, not including the $\delta_{experiment}$.
+	\subref{ch4fig:w311_mwc_fit_3} Posterior probability distributions for each of the five free parameters estimated from fits to the MWC model are shown shaded according to their intervals.
+	$1/D_{NBD}$ is plotted to aid comparison with $D_A$.
+	}\label{ch7fig:activation_fits}
+\end{figure}

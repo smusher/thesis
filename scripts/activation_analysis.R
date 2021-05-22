@@ -25,7 +25,7 @@ concresp_1 <-
     drop_na() %>%
     filter(construct == "W311*-GFP+SUR", nucleotide == "TNP-ATP") %>%
     mutate(
-        response = case_when(measure == "fluorescence" ~ 1 - response, TRUE ~ response),
+        response = case_when(measure == "fluorescence" ~ (1 - (log2(response + 1))) / 0.9, TRUE ~ response),
         inhibition_mask = 1
         )
 
@@ -115,6 +115,15 @@ full_formula <-
         family = gaussian()
         )
 
+reduced_formula <-
+    bf(
+        combined_formula,
+        nl = TRUE,
+        logKa + logKb + logD + logE ~ 1,
+        logL ~ 1 + method,
+        family = gaussian()
+        )
+
 full_priors <-
     c(
         #posterior probability distribution of ec50s from pcf fluorescence
@@ -151,7 +160,7 @@ brm(
     seed = brms_seed,
     control = list(adapt_delta = 0.95, max_treedepth = 10),
     cores = getOption("mc.cores", 4),
-    file = "data/mwc_fits_new_model/activation_combined_fit_bounded_090521",
+    file = "data/mwc_fits_new_model/activation_combined_fit_bounded_corrected_220521",
     sample_prior = "yes",
     save_all_pars = TRUE
     ) -> test_run
@@ -159,13 +168,34 @@ brm(
 concresp %>%
 ungroup() %>%
 expand(nesting(method, measure, inhibition_mask, binding_mask), concentration = 10^seq(-8, -2, length.out = 51)) %>%
-add_fitted_draws(test_run, re_formula = NA) %>%
+add_fitted_draws(test_run, re_formula = reduced_formula) %>%
 median_qi(.value, .width = .95) -> inferred_underlying
 
 ggplot() +
-geom_ribbon(data = inferred_underlying, aes(x = concentration, ymin = .lower, ymax = .upper, colour = measure, fill = measure), alpha = 0.5) +
-geom_quasirandom(data = concresp, aes(x = concentration, y = response, fill = measure), size = 3, shape = 21, width=0.1) +
+geom_ribbon(data = inferred_underlying, aes(x = concentration, ymin = .lower, ymax = .upper, colour = interaction(method, measure), fill = interaction(method, measure)), alpha = 0.5) +
+geom_quasirandom(data = concresp, aes(x = concentration, y = response, fill = interaction(method, measure)), size = 3, shape = 21, width=0.1) +
 scale_colour_brewer(aesthetics = c("colour", "fill"), palette = "Pastel1") +
 scale_x_log10() +
 facet_wrap(vars(inhibition_mask)) +
 coord_cartesian(ylim = c(-0.1, 1.2))
+
+test_run %>%
+gather_draws(`b_.*`, regex = TRUE) %>%
+separate(.variable, into = c("discard", ".variable", "type"), sep = "_") %>%
+mutate(
+    .value = case_when(.variable == "logE" ~ log(1/exp(.value)), TRUE ~ .value),
+    measure = case_when(.variable %in% c("logD", "logKa") ~ "inhibition", .variable %in% c("logE", "logKb") ~ "activation"),
+    .variable = case_when(.variable == "logE" ~ "logD", .variable == "logKb" ~ "logKa", TRUE ~ .variable)
+    ) %>%
+filter(type == "Intercept") -> draws
+
+ggplot() +
+stat_slab(
+    data = draws,
+    position = position_dodge(0.2),
+    aes(y = .variable, x = exp(.value), fill = measure, fill_ramp = stat(cut_cdf_qi(cdf, .width = c(.5, .8, .95), labels = scales::percent_format())))
+    ) +
+scale_fill_ramp_discrete(range = c(1, 0.2), na.translate = FALSE) +
+labs(fill_ramp = "Interval") +
+facet_wrap(vars(.variable), scales = "free") +
+scale_x_log10()
