@@ -48,6 +48,34 @@ Secondly, the Bayesian MCMC fitting procedure allows us to visualise the full po
 It is then trivial to determine whether parameter estimates are unique by visually inspecting the cross-correlation plots of paired parameters \cite{hines_determination_2014-1}.
 
 Applying this approach to a series of residue substitutions in Kir6.2 shows that we are able to discriminate not only between effects on binding and effects on conformational change, but that we can further distinguish between effects on intrinsic and ligand-dependent regulation of conformational change.
+We have demonstrated this for a number of different substitutions at residues on Kir6.2; C166, E179 and K39.
+In addition, while our attempts to measure TNP-ATP binding to Kir6.2 in the absence of SUR1 (or in the presence of truncated forms of SUR1) were limited in their success, we were able to identify K205 as a residue in L0 which directly contributes to binding of nucleotides to Kir6.2, and plays a role in the transduction of binding to channel closure.
+
+\section{Inhibition in the context of K\ATP{} regulation}
+
+Nucleotide inhibition of the K\ATP{} channel does not occur in isolation in the physiological context, and must be considered in the context of regulation by nucleotide stimulation at SUR1 and PIP\textsubscript{2} (Figure \ref{ch7fig:regulation_diagram}, duplicated from Figure \ref{ch1fig:regulation_diagram} for ease of reference).
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{regulation_diagram.pdf}
+	\caption[Modes of regulation of K\ATP{} - reprinted]{
+	Adapted from \cite{puljung_cryo-electron_2018}, duplicated from Figure \ref{ch1fig:regulation_diagram}
+	The open-closed equilibrium of the K\ATP{} channel pore (denoted as $L$) is energetically coupled to three different ligand binding sites.
+	The four inhibitory nucleotide binding sites of Kir6.2 (labelled as NBS) bind either ATP or ADP (generalised to ANP) with an equilbrium binding constant $K_A$.
+	The four stimulatory PIP\textsubscript{2} binding sites of Kir6.2 bind PIP\textsubscript{2} with an equilbrium binding constant $K_B$.
+	The four stimulatory Mg-nucleotide binding site formed by the dimerisation of the NBDs of SUR1 (labelled as NBDs) bind either Mg-ATP or Mg-ADP (generalised to Mg-ANP) with an equilbrium binding constant $K_C$.
+	Each binding domain interacts with the channel pore according to the factors $D_A$, $D_B$, and $D_{NBD}$ respectively.
+	In addition, there is a potential coupling between the inhibitory nucleotide binding site of Kir6.2 and the stimulatory PIP\textsubscript{2} binding site of Kir6.2 described by the factor $C$.
+	}\label{ch7fig:regulation_diagram}
+\end{figure}
+
+How does inhibitory nucleotide binding to Kir6.2 interplay with the stimulatory nucleotide binding to the NBDs of SUR1?
+In parallel work published in \citeauthor{puljung_activation_2019}, we established a similar experimental paradigm to measure MgTNP-ADP binding to NBS2 of SUR1 in unroofed membranes.
+While we were unable to measure current activation and nucleotide binding simultaneously, we collected data separately for the two processes.
+Here we refit that data in combination with the inhibition data presented in Figure \ref{ch3fig:pcf_1}to an MWC model which comprises both inhibition at Kir6.2 by TNP-ATP and activation at SUR1 by MgTNP-ADP with a shared open probability (Figure \ref{ch7fig:activation_fits}).
+Comparison of the binding association constants for TNP-nucleotides at Kir6.2 and NBS2 shows that MgTNP-ADP binds more readily to NBS2 than TNP-ATP binds to Kir6.2 (Figure \ref{ch7fig:activation_params_1}).
+In contrast, the transduction of binding is far stronger for TNP-ATP bound to Kir6.2 than for MgTNP-ADP bound to NBS2.
+In terms of free energy, binding to Kir6.2 contributes \SIrange{32.7}{68.0}{\kilo\joule\per\Molar} to the closed state of the channel(slightly higher than the \SIrange{23.0}{63.4}{\kilo\joule\per\Molar} estimated from fitting the inhibition data alone), whereas binding to NBS2 contributes \SIrange{0.6}{33.9}{\kilo\joule\per\Molar} to the open state of the channel.
 
 \begin{figure}[h]
 	\centering
@@ -65,9 +93,24 @@ Applying this approach to a series of residue substitutions in Kir6.2 shows that
 	\caption[TNP-ATP inhibits K\ATP{} more strongly than MgTNP-ADP activates it]{
 	\subref{ch7fig:activation_fit_1} Current regulation (orange) and fluorescence quenching (blue) of G334D + SUR1-T1397* by MgTNP-ADP (left) or W311*-GFP + SUR1 by TNP-ATP (right).
 	Filled blue circles represent fluorescence quenching obtained from unroofed membranes, open circles are from excised patches.
-	Activation data are reproduced from \citeauthor{puljung_activation_2019-1}, inhibition data from Figure \ref{ch3fig:pcf_1}.
+	Activation data are reproduced from \citeauthor{puljung_activation_2019}, inhibition data from Figure \ref{ch3fig:pcf_1}.
 	Fitted curves are the \SI{95}{\percent} intervals of the posterior probability distribution of fits to the MWC model paramaterised in equations \ref{eq:mwc_binding} and \ref{eq:normalised_po}, not including the $\delta_{experiment}$.
 	\subref{ch4fig:w311_mwc_fit_3} Posterior probability distributions for each of the five free parameters estimated from fits to the MWC model are shown shaded according to their intervals.
 	$1/D_{NBD}$ is plotted to aid comparison with $D_A$.
 	}\label{ch7fig:activation_fits}
 \end{figure}
+
+Assuming that the excitatory and inhibitory processes are independent, inhibition would be expected to dominate under conditions at which all the nucleotide binding sites of K\ATP{} are occupied.
+This is consistent with published measurements of wild-type KATP in the presence of Mg\textsuperscript{2+} \cite{proks_activation_2010}.
+The ability of MgADP to increase K\ATP{} currents in the presence of ATP \cite{gribble_mgatp_1998-1} and the bell-shaped MgADP concentration response curve for K\ATP{} \cite{proks_activation_2010, vedovato_nucleotide-binding_2015} can then be explained by the higher binding affinity of NBS2 resulting in an increase in current at low nucleotide concentrations, followed by inhibition at higher concentrations due to stronger transduction from nucleotides binding to Kir6.2.
+
+Of course, this interpretation relies on data which has been obtained from different constructs and under different conditions.
+Ideally, we would explore this further by carrying out patch-clamp fluorometry experiments under conditions where all three nucleotide binding sites simultaneously affect channel gating (in the presence of Mg\textsuperscript{2+}).
+Our initial attempts to do so were limited by the rapid rate of rundown of K\ATP{} currents in the presence of divalent ions, which made it difficult to collect useable data with simultaneous current and fluorescence recordings.
+Introducing mutations which slow the rate of rundown may be one method to ameliorate this problem and synthesise a more complete model of K\ATP{} function.
+
+How does inhibitory nucleotide binding to Kir6.2 interplay with PIP\textsubscript{2} regulation of the K\ATP{} channel?
+As descibed in Chapter \ref{ch1-intro}, directly measuring or varying the PIP\textsubscript{2} concentration in the membrane is challenging, and in the experiments presented here we have tried as far as possible to keep PIP\textsubscript{2} constant.
+An open question is whether PIP\textsubscript{2} binding to Kir6.2 only affects the channel through increasing the open probability (Figure \ref{ch7fig:regulation_diagram}, $D_B$) or whether there is a mechanism which directly couples the PIP\textsubscript{2} binding site to the inhibitory nucleotide binding site (Figure \ref{ch7fig:regulation_diagram}, $C$).
+Our experiments with substitutions at E179 on Kir6.2, predicted to be in the PIP\textsubscript{2} binding pocket, does not rule the existence of a direct coupling.
+However, it is only circumstantial evidence as it may also be explained by the two substitutions examined (E179A and E179K) altering the nucleotide binding pocket instead.

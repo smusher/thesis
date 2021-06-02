@@ -28,15 +28,15 @@ Mutations at I182 are known to produce profound effects on nucleotide inhibition
 Thus, we did not consider this site for further experimentation.
 
 \section{Western blots}
-Transfected HEK-293T cells grown in 6-well plates were harvested in cold PBS (Life Technologies Limited; Paisley, UK), pelleted at 0.2 x g for 2.5 minutes and resuspended in lysis buffer containing 0.5\% Triton X-100, \SI{100}{\milli\Molar} potassium acetate, and a cOmplete protease inhibitor tablet (1 tablet/\SI{50}{\milli\litre}, Roche; Basel, Switzerland), buffered to pH 7.4.
-After a 30-minute benzonase (Sigma) treatment at room temperature, samples were mixed with a DTT containing reducing agent and loading buffer (NuPAGE, Invitrogen; Carlsbad, CA) and run on a precast Bis-Tris 4-12\% poly-acrylamide gel at \SI{200}{\volt} for 40 minutes.
-Proteins were wet transferred overnight onto polyvinylidene difluoride (PVDF) membranes (Immobilon P, Merck Millipore; Burlington, VT) in \SI{25}{\milli\Molar} Tris, \SI{192}{\milli\Molar} glycine, 20\% methanol, and 0.1\% SDS at \SI{10}{\volt} on ice.
-Membranes were blocked with 5\% milk in TBS-Tw (\SI{150}{\milli\Molar} NaCl, 0.05\% Tween 20, \SI{25}{\milli\Molar} Tris, pH 7.2) before staining for 30 minutes with a 1:1000 dilution of rat anti-HA monoclonal antibody in TBS-Tw (clone 3F10, Roche).
+Transfected HEK-293T cells grown in 6-well plates were harvested in cold PBS (Life Technologies Limited; Paisley, UK), pelleted at 0.2 x g for 2.5 minutes and resuspended in lysis buffer containing \SI{0.5}{\percent} Triton X-100, \SI{100}{\milli\Molar} potassium acetate, and a cOmplete protease inhibitor tablet (1 tablet/\SI{50}{\milli\litre}, Roche; Basel, Switzerland), buffered to pH 7.4.
+After a 30-minute benzonase (Sigma) treatment at room temperature, samples were mixed with a DTT containing reducing agent and loading buffer (NuPAGE, Invitrogen; Carlsbad, CA) and run on a precast Bis-Tris \SIrange{4}{12}{\percent} poly-acrylamide gel at \SI{200}{\volt} for 40 minutes.
+Proteins were wet transferred overnight onto polyvinylidene difluoride (PVDF) membranes (Immobilon P, Merck Millipore; Burlington, VT) in \SI{25}{\milli\Molar} Tris, \SI{192}{\milli\Molar} glycine, \SI{20}{\percent} methanol, and \SI{0.1}{\percent} SDS at \SI{10}{\volt} on ice.
+Membranes were blocked with \SI{5}{\percent} milk in TBS-Tw (\SI{150}{\milli\Molar} NaCl, \SI{0.05}{\percent} Tween 20, \SI{25}{\milli\Molar} Tris, pH 7.2) before staining for 30 minutes with a 1:1000 dilution of rat anti-HA monoclonal antibody in TBS-Tw (clone 3F10, Roche).
 After washing with TBS-Tw, membranes were incubated for 30 minutes with a 1:20,000 dilution of HRP-conjugated goat anti-rat polyclonal antibodies in TBS-Tw (Jackson ImmunoResearch; Ely, UK).
 Detection was performed using the SuperSignal West Pico Chemiluminescent Substrate (Thermo Fisher) and a C-DiGit Blot Scanner (Licor Biosciences; Lincoln, NE).
 Analysis was performed using custom code written in Python.
 
-To confirm our ability to express full-length W311*-GFP, we performed western blots for HA-tagged Kir6.2 constructs in detergent-solubilized HEK-293T cells (Figure 1—Figure supplement 1C).
+To confirm our ability to express full-length W311*-GFP, we performed western blots for HA-tagged Kir6.2 constructs in detergent-solubilized HEK-293T cells (Figure \ref{ch3fig:western_1}).
 The HA tag plus a short linker (YAYMEKGITDLAYPYDVPDY) was inserted in the extracellular region following helix M1 of Kir6.2 between L100 and A101.
 Transfection of wild-type Kir6.2-HA or Kir6.2-HA-GFP resulted in two bands on the western blots.
 The upper bands were close to the expected sizes for full-length Kir6.2-HA and Kir6.2-HA-GFP (\SI{46}{\kilo\dalton} and \SI{77}{\kilo\dalton}, respectively).
@@ -46,7 +46,7 @@ This band must correspond to an N-terminally truncated Kir6.2 product, as the ap
 Based on the molecular weight, we predict that the truncated protein product initiated from a start codon in the first transmembrane domain.
 Therefore, we believe it is unlikely that this protein would form functional channels or traffic to the plasma membrane.
 When Kir6.2-W311\textsuperscript{TAG}-HA or Kir6.2-W311\textsuperscript{TAG}-HA-GFP were co-transfected with SUR1, pANAP, and eRF1-E55D, and cells were cultured in the presence of ANAP, the western blots were similar to wild-type Kir6.2-HA or Kir6.2-HA-GFP.
-Over 90\% full-length W311*-HA-GFP was produced under these conditions.
+Over \SI{90}{\percent} full-length W311*-HA-GFP was produced under these conditions.
 We were unable to quantify the percentage of full-length W311*-HA produced as the C-terminally truncated band resulting from termination at the TAG codon was very similar in size to the N-terminally truncated band.
 Co-expression with SUR1 increased the percentage of full-length W311*-HA-GFP produced.
 In the absence of ANAP, we did not observe any full-length Kir6.2, indicating that there was no read-through of the amber (TAG) stop codon.
@@ -68,10 +68,10 @@ Thus, the plasma-membrane ANAP signal was specific for W311*-GFP.
 \section{Surface expression assays}
 We measured surface expression of HA-tagged Kir6.2 subunits using an approach outlined by Zerangue et al.
 Cells were plated on \SI{19}{\milli\metre} coverslips coated with poly-L-lysine and transfected as described above.
-Following incubation, cells were rinsed with PBS before fixation with 10\% formalin for 30 minutes at room temperature.
-After washing again, cells were blocked with 1\% BSA in PBS for 30 minutes at \SI{4}{\degreeCelsius} before a 1-hour incubation at \SI{4}{\degreeCelsius} with a 1:1000 dilution (in PBS) of rat anti-HA monoclonal antibodies.
-Cells were then washed 5 times on ice with 1\% BSA in PBS followed by a 30-minute incubation at \SI{4}{\degreeCelsius} with a 1:2000 dilution of HRP-conjugated goat anti-rat polyclonal antibodies.
-Cells were washed 5 times in PBS + 1\% BSA and 4 times in PBS.
+Following incubation, cells were rinsed with PBS before fixation with \SI{10}{\percent} formalin for 30 minutes at room temperature.
+After washing again, cells were blocked with \SI{1}{\percent} BSA in PBS for 30 minutes at \SI{4}{\degreeCelsius} before a 1-hour incubation at \SI{4}{\degreeCelsius} with a 1:1000 dilution (in PBS) of rat anti-HA monoclonal antibodies.
+Cells were then washed 5 times on ice with \SI{1}{\percent} BSA in PBS followed by a 30-minute incubation at \SI{4}{\degreeCelsius} with a 1:2000 dilution of HRP-conjugated goat anti-rat polyclonal antibodies.
+Cells were washed 5 times in PBS + \SI{1}{\percent} BSA and 4 times in PBS.
 Coverslips were removed from the culture dishes and placed in clean, untreated dishes for measurement.
 \SI{300}{\micro\litre} of SuperSignal ELISA Femto Maximum Sensitivity Substrate (Thermo Fisher) was added to each sample and the luminescence was measured using a Glomax 20/20 Luminometer (Promega; Madison, WI) after a 10 second incubation.
 
@@ -204,14 +204,14 @@ This pooling tends to improve estimates about each cluster.
 The concerted MWC-type model fitted to the patch-clamp fluorometry data was formulated as follows:
 \begin{equation} \label{eq:mwc_binding}
 \frac{F}{F_{max}} = \frac
-    {K_A[TNPATP](1+K_A[TNPATP])^3+LDK_A[TNPATP](1+DK_A[TNPATP])^3}
-    {(1+K_A[TNPATP])^4+L(1+DK_A[TNPATP])^4} + \sigma
+    {K_A[TNPATP](1+K_A[TNPATP])^3+LD_AK_A[TNPATP](1+D_AK_A[TNPATP])^3}
+    {(1+K_A[TNPATP])^4+L(1+D_AK_A[TNPATP])^4} + \sigma
 \end{equation}
 
 \begin{equation} \label{eq:mwc_gating}
 \frac{\text{open channels}}{\text{total channels}} = \frac
-    {L(1+DK_A[TNPATP])^4}
-    {(1+K_A[TNPATP])^4+L(1+DK_A[TNPATP])^4} + \sigma
+    {L(1+D_AK_A[TNPATP])^4}
+    {(1+K_A[TNPATP])^4+L(1+D_AK_A[TNPATP])^4} + \sigma
 \end{equation}
 
 When no ligand is present (i.e. when $[TNPATP] = 0$), equation \ref{eq:mwc_gating} becomes:
@@ -224,15 +224,16 @@ When no ligand is present (i.e. when $[TNPATP] = 0$), equation \ref{eq:mwc_gatin
 We can use this to normalise the predicted changes in the open fraction to an observed change in current:
 \begin{equation} \label{eq:normalised_po}
 \frac{I}{I_{max}} = \frac
-    {L(1+DK_A[TNPATP])^4}
-    {(1+K_A[TNPATP])^4+L(1+DK_A[TNPATP])^4}\cdot
+    {L(1+D_AK_A[TNPATP])^4}
+    {(1+K_A[TNPATP])^4+L(1+D_AK_A[TNPATP])^4}\cdot
    \frac
     {1+L}
     {L} + \sigma
 \end{equation}
 
-We used the brms package in R to fit a multilevel model to equations \label{eq:mwc_binding} and \label{eq:normalised_po}.
+We used the brms package in R to fit a multilevel model to equations \ref{eq:mwc_binding} and \ref{eq:normalised_po}.
 First, we normalised the fluorescence quenching data by the $E_{max}$ determined from W311*-GFP+SUR1 unroofed experiments (0.1).
+We then corrected it by transforming each data point as $log_2(\frac{F}{F_{max} + 1})$ as described in more detail in Chapter \ref{ch3}.
 
 The parameters in the equation were supplied as:
 
@@ -260,12 +261,35 @@ Each of the three parameters was modelled as a combination of a population param
 Each combined set of current inhibition and nucleotide binding measurements from one excised patch was grouped as one experiment.
 The remaining variance $\sigma$ was allowed to vary between fluorescence and current data.
 
+The alternate single-binding model was formulated as follows:
+
+{\tiny
+\begin{equation} \label{eq:single_binding}
+\frac{F}{F_{max}} = \frac
+{LD_AK_A[TNPATP](1+3K_A[TNPATP]+3K_A^2[TNPATP]^2+K_A^3[TNPATP]^3)+K_A[TNPATP](1+K_A[TNPATP])^3}
+{L(1+4D_AK_A[TNPATP]+6D_AK_A^2[TNPATP]^2+4D_AK_A^3[TNPATP]^3+D_AK_A^4[TNPATP]^4)+(1+K_A[TNPATP])^4}
+\end{equation}
+
+\begin{equation} \label{eq:single_gating}
+\frac{I}{I_{max}} = \frac
+{L(1+4D_AK_A[TNPATP]+6D_AK_A^2[TNPATP]^2+4D_AK_A^3[TNPATP]^3+D_AK_A^4[TNPATP]^4}
+{L(1+4D_AK_A[TNPATP]+6D_AK_A^2[TNPATP]^2+4D_AK_A^3[TNPATP]^3+D_AK_A^4[TNPATP]^4)+(1+K_A[TNPATP])^4}\cdot\frac
+{1+L}
+{L}
+\end{equation}
+}
+
+The extra length of these formulas when compared to equations \ref{eq:mwc_binding} and \ref{eq:normalised_po} do not represent any additional complexity; just an unfortunate consequence of the lack of exponents of $D_A$ which make it impossible to simplify further.
+Parameters were supplied and fitted as in equation \ref{eq:mwc_priors}.
+
+
+
 \section{Computational docking.}
 Computational docking of TNP-ATP into the nucleotide binding site of Kir6.2 was performed using AutoDock-Vina and Pymol (Schrödinger, LLC; New York, NY).
 11 TNP-ATP structures from the Protein Data Bank (PDB accession \#s 1I5D, 3AR7, 5NCQ, 5SVQ, 5XW6, 2GVD, 5A3S, 2PMK, and 3B5J) were used as starting poses and a 15x11.25x15 \si{\angstrom} box was centred on the ATP bound to Kir6.2 in PDB accession \#6BAA.
 Protonation states for each residue were assigned using PDB2PQR and PROPKA 3.0.
 The modal highest-scoring pose from the docking run was selected (PDB accession \#5XW6) and distances were measured from a pseudo atom at the centre of the fluorescent moiety.
-TNP-ATP (PDB \#3AR7) was positioned into the first nucleotide binding domain of SUR1 (PDB \#6PZI) using the alignment tool in Pymol.
+TNP-ATP (PDB \#3AR7) was positioned into the first nucleotide binding site of SUR1 (PDB \#6PZI) using the alignment tool in Pymol.
 
 \section{Chemicals and stock solutions.}
 Unless otherwise noted, all chemicals were obtained from Sigma.
