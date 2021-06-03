@@ -21,12 +21,14 @@ This increase in sensitivity has been suggested to be not due to the L0 linker, 
 Expression of TMD0-L0 (residues 1 - 232) with Kir6.2 increases the $P_O$ to nearly saturating, and reduces ATP inhibition even further \cite{babenko_sur_2003-1}.
 Increasing the fraction of L0 (up to residue number 256 or 288) attenuates this increase in $P_O$, but there is not the dramatic increase in ATP sensitivity observed from expression of full-length SUR1, implicating a role for the core region of SUR1 in regulating nuclelotide binding and inhibition \cite{puljung_cryo-electron_2018}.
 
+In this chapter, we aim to clarify the role of SUR1 in regulating the inhibitory effect of nucleotides on K\ATP{} channel function.
+
 \section{Intrinsic effects of SUR1}
 
 \subsection{SUR1 dramatically alters nucleotide inhibition, but only subtly effects nucleotide binding}
 Expressing WT-GFP alone without SUR1 results in smaller, noisier currents than when coexpressed with SUR1.
-Currents are less sensitive to ATP and TNP-ATP by an order of magnitude (x and x).
-Our surface expression assay suggested that while WT-GFP was able to reach the membrane in the absence of SUR1, W311*-GFP was not, and when we excised patches from cells expressing W311*-GFP alone, we were not able to resolve any currents.
+Currents are less sensitive to ATP and TNP-ATP by an order of magnitude (Figure \ref{ch6fig:nosur_atp}, \ref{ch6fig:nosur_tnpatp}.
+Our surface expression assay suggested that while WT-GFP was able to reach the membrane in the absence of SUR1, W311*-GFP was not, and when we excised patches from cells expressing W311*-GFP alone, we were not able to resolve any currents (Figure \ref{ch3fig:surface_expression_2}).
 We were still able to resolved fluorescence in unroofed membranes expressing W311*-GFP alone, and so we measured binding of TNP-ATP to W311*-GFP alone in unroofed membranes.
 We observed very minimal differences in the EC\textsubscript{50} for binding.
 However, given that we did not observe currents under these experimental conditions, we cannot determine the functional state of these channels and so this finding may not be representative for K\ATP{} channels physiologically.
@@ -40,19 +42,19 @@ When we expressed WT-GFP alone, we saw no inhibition of currents by \SI{100}{\mi
 
 \begin{figure}[h]
 	\centering
-	\begin{subfigure}[t]{0.45\textwidth}
+	\begin{subfigure}[t]{0.35\textwidth}
 		\caption{}\label{ch6fig:nosur_atp}
 		\centering
 		\includegraphics[width=\textwidth]{nosur_atp.pdf}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}[t]{0.45\textwidth}
+	\begin{subfigure}[t]{0.35\textwidth}
 		\caption{}\label{ch6fig:nosur_tnpatp}
 		\centering
 		\includegraphics[width=\textwidth]{nosur_tnpatp.pdf}
 	\end{subfigure}
 	\vfill
-	\begin{subfigure}[t]{0.45\textwidth}
+	\begin{subfigure}[t]{0.35\textwidth}
 		\caption{}\label{ch6fig:nosur_unroofed}
 		\centering
 		\includegraphics[width=\textwidth]{nosur_unroofed.pdf}
@@ -342,8 +344,8 @@ Thus, the reduced sensitivity to nucleotide inhibition is due to a combination o
 	\end{subfigure}
 	\caption[K205 mutations affect gating and nucleotide binding]{
 	\subref{ch6fig:mwc_k205_1} Current inhibition (orange) and fluorescence quenching (blue) from excised patches expressing W311*-GFP+SUR1-K205A (left) or W311*-GFP+SUR1-K205E (right).
-	The smooth filled curves are the \SI{95}{\percent} intervals of the posterior probability distribution of fits to equation x (the MWC-type model).
-	Dashed curves are for comparison, and indicate the \SI{95}{\percent} intervals of the posterior probability distribution of fits to equation x of the W311*-GFP+SUR1 data.
+	The smooth filled curves are the \SI{95}{\percent} intervals of the posterior probability distribution of fits to equations \ref{eq:mwc_binding} and \ref{eq:normalised_po}.
+	Dashed curves are for comparison, and indicate the \SI{95}{\percent} intervals of the posterior probability distribution of fits to equations \ref{eq:mwc_binding} and \ref{eq:normalised_po} for the W311*-GFP+SUR1 data.
 	\subref{ch6fig:mwc_k205_2} Posterior probability distributions for the estimated population $L$, $D$ and $K_A$ parameters from the fits in panel \subref{ch6fig:mwc_k205_1}.
 	Each distribution is shaded with respect to its intervals.
 	}\label{ch6fig:k205_fig2}
@@ -355,27 +357,20 @@ Expression of W311*-GFP in the absence of SUR1 reduces the apparent nucleotide b
 This is in contrast to the dramatic 10-fold reduction in sensitivity to inhibition by ATP observed when WT-GFP is expressed in the absence of SUR1.
 We also found that coexpression of W311*-GFP with TMD0 or TMD0-L0 did not result in an increase in apparent nucleotide binding affinity, although this finding is caveated by the possible mixture of correctly complexed mini-K\ATP{} channels and W311*-GFP subunits alone in the unroofed membranes.
 
-Despite these somewhat inconclusive findings, we saw a clear effect of residue K205 in the L0 loop of SUR1.
+Despite these somewhat inconclusive findings, we saw a clear effect of mutating residue K205 in the L0 loop of SUR1.
 Similar to the findings of \citeauthor{ding_structural_2019}, we observed a marked reduction in sensitivity to TNP-ATP inhibition when the residue was mutated to an alanine, and a further reduction when it was mutated to glutamic acid.
 Fitting the data to the MWC model reveals that the reduction in sensitivity is due to both a reduction in the microscopic binding affinity for TNP-ATP, and a decrease in the transduction of nucleotide binding to channel closure.
 
 The structure of K205 resolved by \citeauthor{ding_structural_2019} suggested that the long, positively charged side chain directly coordinates the \textgreek{b}- and \textgreek{g}-phosphates of bound ATP \cite{ding_structural_2019}.
-Our results are consistent with the hypothesis that mutation to an alanine directly disrupts nucleotide binding.
+Our results are consistent with the hypothesis that mutation to an alanine, thus removing the positive charge, directly disrupts nucleotide binding.
 We also observe a further reduction in the microscopic binding affinity upon substitution by glutamic acid, which has a long and negatively charged side chain.
 Again, this is consistent with the idea that K205 directly coordinates the negatively charged phosphates of ATP, and explains the reduction in sensitivity to ATP inhibition observed by \citeauthor{pratt_engineered_2012} when they made the same mutation.
 
 Our MWC fits also suggest that mutation of K205 reduces the ability of nucleotides to close the channel.
 As we calculated for the C166S mutation in Kir6.2, we can express this reduction in terms of the free energy contributed to the conformational change of closure.
 For the SUR1-K205A construct, the free energy is \SIrange{5.6}{18.3}{\kilo\joule\per\Molar},and for the SUR1-K205E construct, the free energy is \SIrange{3.3}{13.9}{\kilo\joule\per\Molar}, much reduced from that of wild-type SUR1 which is \SIrange{23.0}{63.4}{\kilo\joule\per\Molar}.
+This suggests that the positive charge K205 contributes to the inhibitory binding site is important for transduction of nucleotide binding to channel closure.
 
-
-Coexpression of TMD0-L0 with WT-GFP decreased sensitivity to nucleotide inhibition, as seen in previous studies \cite{babenko_sur_2003, chan_n-terminal_2003-1, pratt_n-terminal_2011}.
-So why do mutations in L0 reduce sensitivity to nucleotide inhibition and cause neonatal diabetes?
-Measuring binding directly allows us to address this problem.
-We found that K205, a residue in L0, does in fact contribute to the nucleotide binding site.
-This alone is not enough to explain the change in nucleotide inhibition.
-Our novel finding is that mutating this residue alters the ability of TNP-ATP to close the channel.
-This is consistent with the hypothesis that L0 plays a key role in tuning the modulatory function of nucleotides on Kir6.2.
-The wild-type residue K205 is at least partly responsible for the strong coupling of nucleotide binding to channel inhibition.
-But this does not explain why TMD0-L0 expression is not enough to restore full-length SUR1 like nucleotide inhibition.
-Future experiments - residue E128 potentially plays a similar role for PIP2.
+This finding does not explain why TMD0-L0 expression alone is not enough to restore full-length SUR1 like nucleotide inhibition.
+Coexpression of TMD0-L0 with WT-GFP exhibits decreased sensitivity to nucleotide inhibition when compared to full length SUR1, as seen in previous studies \cite{babenko_sur_2003, chan_n-terminal_2003-1, pratt_n-terminal_2011}.
+Our findings are consistent with the hypothesis that the elements of the L0 linker which enhance the binding affinity of nucleotides for Kir6.2 and which increase the intrinsic open probability of the K\ATP{} channel are separate; and also suggest that the linker plays an active role in transducing binding to closure.

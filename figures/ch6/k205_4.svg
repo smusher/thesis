@@ -29993,9 +29993,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="248.178"
-     inkscape:cy="93.342697"
+     inkscape:zoom="1.979899"
+     inkscape:cx="147.16275"
+     inkscape:cy="12.530493"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -30014,7 +30014,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -30375,42 +30375,6 @@
        clip-path="none"
        id="polyline9048"
        transform="matrix(0.21863629,0,0,0.16318706,132.79533,102.94995)" />
-    <polyline
-       points="583.11,128.67 714.52,128.67 "
-       style="stroke:#ffffff;stroke-width:0.5;stroke-linecap:butt;stroke-miterlimit:10;stroke-dasharray:none"
-       clip-path="none"
-       id="polyline9486"
-       transform="matrix(0.21863625,0,0,0.16318706,137.35652,102.94995)" />
-    <polyline
-       points="583.11,76.32 714.52,76.32 "
-       style="stroke:#ffffff;stroke-width:0.5;stroke-linecap:butt;stroke-miterlimit:10;stroke-dasharray:none"
-       clip-path="none"
-       id="polyline9488"
-       transform="matrix(0.21863625,0,0,0.16318706,137.35652,102.94995)" />
-    <polyline
-       points="589.09,172.13 589.09,22.40 "
-       style="stroke:#ffffff;stroke-width:0.5;stroke-linecap:butt;stroke-miterlimit:10;stroke-dasharray:none"
-       clip-path="none"
-       id="polyline9490"
-       transform="matrix(0.21863625,0,0,0.16318706,137.35652,102.94995)" />
-    <polyline
-       points="628.91,172.13 628.91,22.40 "
-       style="stroke:#ffffff;stroke-width:0.5;stroke-linecap:butt;stroke-miterlimit:10;stroke-dasharray:none"
-       clip-path="none"
-       id="polyline9492"
-       transform="matrix(0.21863625,0,0,0.16318706,137.35652,102.94995)" />
-    <polyline
-       points="668.73,172.13 668.73,22.40 "
-       style="stroke:#ffffff;stroke-width:0.5;stroke-linecap:butt;stroke-miterlimit:10;stroke-dasharray:none"
-       clip-path="none"
-       id="polyline9494"
-       transform="matrix(0.21863625,0,0,0.16318706,137.35652,102.94995)" />
-    <polyline
-       points="708.55,172.13 708.55,22.40 "
-       style="stroke:#ffffff;stroke-width:0.5;stroke-linecap:butt;stroke-miterlimit:10;stroke-dasharray:none"
-       clip-path="none"
-       id="polyline9496"
-       transform="matrix(0.21863625,0,0,0.16318706,137.35652,102.94995)" />
     <polygon
        points="706.16,141.2 703.77,140.34 701.38,139.25 698.99,137.89 696.6,136.25 694.21,134.3 691.82,131.9 689.43,129 687.04,125.66 684.66,121.87 682.27,117.41 679.88,112.48 677.49,107.3 675.1,101.88 672.71,96.38 670.32,90.91 667.93,85.62 665.54,80.76 663.15,76.23 660.76,72.23 658.37,68.64 655.99,65.63 653.6,62.92 651.21,60.64 648.82,58.7 646.43,57.09 644.04,55.82 641.65,54.76 639.26,53.91 636.87,53.22 634.48,52.64 632.09,52.15 629.7,51.77 627.31,51.46 624.93,51.21 622.54,51.01 620.15,50.84 617.76,50.71 615.37,50.6 612.98,50.52 610.59,50.45 608.2,50.39 605.81,50.34 603.42,50.31 601.03,50.28 598.64,50.25 596.26,50.23 593.87,50.22 591.48,50.2 589.09,50.19 589.09,50.15 591.48,50.15 593.87,50.15 596.26,50.15 598.64,50.15 601.03,50.15 603.42,50.16 605.81,50.16 608.2,50.16 610.59,50.17 612.98,50.18 615.37,50.19 617.76,50.2 620.15,50.22 622.54,50.24 624.93,50.27 627.31,50.3 629.7,50.35 632.09,50.41 634.48,50.49 636.87,50.59 639.26,50.73 641.65,50.9 644.04,51.13 646.43,51.42 648.82,51.8 651.21,52.29 653.6,52.87 655.99,53.65 658.37,54.59 660.76,55.81 663.15,57.37 665.54,59.19 667.93,61.4 670.32,64.08 672.71,67.32 675.1,70.98 677.49,75.19 679.88,80 682.27,84.97 684.66,90.19 687.04,95.92 689.43,101.41 691.82,106.68 694.21,111.55 696.6,116.19 698.99,120.38 701.38,124.36 703.77,127.74 706.16,130.5 708.55,132.89 708.55,141.91 "
        style="fill:#fb8c00;fill-opacity:0.5;stroke:none;stroke-width:0"

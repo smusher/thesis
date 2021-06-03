@@ -158,7 +158,7 @@ However, this over-subtraction does not affect the size of the ANAP peak, which 
 
 Some experiments were excluded from further analysis due to low fluorescence intensity, as we were concerned about a low signal to noise ratio influencing our results.
 
-\section{Data processing and presentation.}
+\section{Concentration response processing and presentation}
 Raw spectrographic images and current traces were pre-processed in Python and Clampfit (Axon) before analysis with R.
 Where applicable, all experimental data points are displayed in each figure.
 To help visualise uncertainty and prevent some data points being hidden, they are arranged with a small amount of horizontal jitter; vertical position remains unaffected.
@@ -192,14 +192,14 @@ EC_{50} &= \beta + \delta_{experiment} \\
 \end{equation}
 \end{minipage}
 
-Essentially, the $EC_{50}$ (or $IC_{50}$) parameter for each concentration-response experiment can be described as the combination of a population parameter that is an estimate of the construct-specific value (\textgreek{b}), and an additional 'random' component that varies between experiments on the same construct (\textgreek{d}\textsubscript{experiment}).
-
 Multilevel models seek to describe datasets which consist of clusters or groups of measurements that may differ from one another \cite{andrew_gelman_bayesian_2014, mcelreath_statistical_2020}.
 In this case, each cluster of measurements is the set of current inhibition or fluorescence quenching values obtained from a single excised patch or unroofed membrane.
 As opposed to fitting each cluster individually, the multilevel model laid out in equation \ref{eq:drc_priors} allows for 'pooling' of information between clusters, so that the parameters for each experiment are influenced by all other experiments on the same construct.
 This pooling tends to improve estimates about each cluster.
 
-\section{Model equations and fitting}
+Essentially, the $EC_{50}$ (or $IC_{50}$) parameter for each concentration-response experiment can be described as the combination of a population parameter that is an estimate of the construct-specific value (\textgreek{b}), and an additional 'random' component that varies between experiments on the same construct (\textgreek{d}\textsubscript{experiment}).
+
+\section{MWC model equations and fitting}
 
 The concerted MWC-type model fitted to the patch-clamp fluorometry data was formulated as follows:
 \begin{equation} \label{eq:mwc_binding}
