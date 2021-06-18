@@ -6,6 +6,7 @@ library(tidybayes)
 library(ggbeeswarm)
 library(ggdist)
 library(distributional)
+library(bayesplot)
 
 concresp_1 <-
     read_csv("data/combined_drc_data.csv") %>%
@@ -199,3 +200,7 @@ scale_fill_ramp_discrete(range = c(1, 0.2), na.translate = FALSE) +
 labs(fill_ramp = "Interval") +
 facet_wrap(vars(.variable), scales = "free") +
 scale_x_log10()
+
+post <- posterior_samples(test_run, add_chain = T)
+
+mcmc_hex(post)

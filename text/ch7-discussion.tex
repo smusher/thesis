@@ -39,7 +39,7 @@ This is further complicated by the inescapable noise present in experimental dat
 Here, we address this issue in two ways.
 Firstly, collecting simultaneous binding and inhibition data allows us to constrain the parameters of a more complex model than would be possible based on either alone.
 Secondly, the Bayesian MCMC fitting procedure allows us to visualise the full posterior probability distribution of parameter estimates for fits to a given model.
-It is then trivial to determine whether parameter estimates are unique by visually inspecting the cross-correlation plots of paired parameters \cite{hines_determination_2014-1}.
+It is then trivial to determine whether parameter estimates are unique by visually inspecting the cross-correlation plots of paired parameters \cite{hines_determination_2014-1}, which for all the constructs tested yield well bounded ellipses (Figure \ref{apxfig:inhibition_crosscorr}).
 
 Applying this approach to a series of residue substitutions in Kir6.2 shows that we are able to discriminate not only between effects on binding and effects on conformational change, but that we can further distinguish between effects on intrinsic and ligand-dependent regulation of conformational change.
 We have demonstrated this for a number of different substitutions at residues on Kir6.2; C166, E179 and K39.
@@ -104,9 +104,10 @@ Our initial attempts to do so were limited by the rapid rate of rundown of K\ATP
 Introducing mutations which slow the rate of rundown may be one method to ameliorate this problem and synthesise a more complete model of K\ATP{} function.
 
 How does inhibitory nucleotide binding to Kir6.2 interplay with PIP\textsubscript{2} regulation of the K\ATP{} channel?
-As descibed in Chapter \ref{ch1-intro}, directly measuring or varying the PIP\textsubscript{2} concentration in the membrane is challenging, and in the experiments presented here we have tried as far as possible to keep PIP\textsubscript{2} constant.
+As descibed in Chapter \ref{ch:1-intro}, directly measuring or varying the PIP\textsubscript{2} concentration in the membrane is challenging, and in the experiments presented here we have tried as far as possible to keep PIP\textsubscript{2} constant.
 Our simplifying assumption which assumes PIP\textsubscript{2} acts solely on the open probability of the channel and does not vary significantly in our recordings seem sufficient to explain the variety of effects we see from the mutations studied in Kir6.2 and SUR1.
 
 However, it remains an open question is whether PIP\textsubscript{2} binding to Kir6.2 only affects the channel through increasing the open probability (Figure \ref{ch7fig:regulation_diagram}, $D_B$) or whether there is a mechanism which directly couples the PIP\textsubscript{2} binding site to the inhibitory nucleotide binding site (Figure \ref{ch7fig:regulation_diagram}, $C$).
 Our experiments with substitutions at E179 on Kir6.2, predicted to be in the PIP\textsubscript{2} binding pocket, do not rule out the existence of a direct coupling.
 However, the observed reduction in the binding affinity for TNP-ATP is only circumstantial evidence as it may also be explained by the two substitutions examined (E179A and E179K) altering the nucleotide binding pocket instead.
+Experiments to directly test for the existence of direct coupling would need to involve manipulation and measurement of PIP\textsubscript{2} levels, which as described in Chapter \ref{ch:1-intro} is difficult to achieve.
