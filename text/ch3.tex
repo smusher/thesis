@@ -53,7 +53,7 @@ ANAP has been used increasing widely in the study of ion channel structure and f
 Initially, we hoped that the environmental sensitivity of ANAP fluorescence might be sufficient for the peak of the emission spectrum of an ANAP residue inserted into an ATP binding site to measureably change when ATP was bound.
 Unfortunately, when we introduced ANAP directly into the Kir6.2 binding site in place of residues I182 or F183 we were not able to observe any functional K\ATP{} channels at the cell membrane.
 
-Instead, we turned to FRET as a reporter for ATP binding.
+Instead, we turned to F\"{o}rster resonance energy transfer (FRET) as a reporter for ATP binding.
 As ATP itself is not fluorescent, and has no intrinsic fluorescence quenching, we turned to TNP-ATP (Figure \ref{ch3fig:chemical_structures}).
 TNP-ATP is an excellent FRET partner of ANAP, as evidenced by the good overlap in the TNP emission spectra and the ANAP extinction spectra (Figure \ref{ch3fig:spectral_overlap}).
 This leads to a theoretical distance-dependency of FRET which is most sensitive between \SIrange{20}{60}{\angstrom} (Figure \ref{ch3fig:fret_efficiency}) with a calculated R0 of \SI{38.4}{\angstrom}.
@@ -171,16 +171,16 @@ ANAP can be introduced into a protein of interest by essentially expanding the g
 The amber stop codon (TAG) is the least frequently occuring stop codon in eukaryotic cells \cite{cridge_eukaryotic_2018}, and can be repurposed to encode ANAP.
 This requires the introduction of a transfer RNA (tRNA) which recognises the TAG codon, and an aminoacyl-tRNA synthetase (aaRS) which selectively aminoacylates the tRNA with ANAP into the heterologous expression system, without crossreacting with the existing translational machinery \cite{lee_genetic_2009, chatterjee_genetically_2013}.
 
-\citeauthor{lee_genetic_2009} used directed evolution to develop a tRNA/aaRS pair to encode ANAP in \textit{Saccharomyces cerevisiae} \cite{lee_genetic_2009}.
+\textcite{lee_genetic_2009} used directed evolution to develop a tRNA/aaRS pair to encode ANAP in \textit{Saccharomyces cerevisiae} \cite{lee_genetic_2009}.
 Briefly, they altered the specificity of \textit{Escherichia coli} leucyl-tRNA synthetase so that it was able to aminoacylate the leucyl-tRNA with ANAP, and not endogenous amino acids.
 The coevolved tRNA/aaRS pair were built into an expression plasmid pANAP (Figure \ref{ch3fig:amber_codon}) which is capable of driving expression in mammalian cells \cite{chatterjee_genetically_2013}.
 HEK293 cells transfected with pANAP and a plasmid encoding GFP with an amber stop codon at residue position 40 (40TAG) exhibited green fluorescence only when incubated in the presence of ANAP in the culture media \cite{chatterjee_genetically_2013}, demonstrating that ANAP can be selectively incorporated into proteins in mammalian cells.
 
 As far as we are aware, only two other studies have incorporated unnatural amino acids into Kir6.2 \cite{zhang_conserved_2015, devaraneni_structurally_2015}.
-\citeauthor{zhang_conserved_2015} incorporated three unnatural tryptophan variants at position W68 to highlight the necessity of a planar amino acid side-chain at this location to maintain physiological K\ATP{} channel function \cite{zhang_conserved_2015}.
+\textcite{zhang_conserved_2015} incorporated three unnatural tryptophan variants at position W68 to highlight the necessity of a planar amino acid side-chain at this location to maintain physiological K\ATP{} channel function \cite{zhang_conserved_2015}.
 However, in this study \textit{Xenopus} oocytes were the heterologous expression system, so rather than transfecting a combination of plasmids, the authors injected a combination of transcribed mRNAs.
 
-\citeauthor{devaraneni_structurally_2015} incorporated azidophenylalanine (AzF) at three different positions on the N-terminus of Kir6.2 (residue numbers 12, 18 and 52) \cite{devaraneni_structurally_2015}.
+\textcite{devaraneni_structurally_2015} incorporated azidophenylalanine (AzF) at three different positions on the N-terminus of Kir6.2 (residue numbers 12, 18 and 52) \cite{devaraneni_structurally_2015}.
 AzF is photocross-linkable upon exposure to UV light, and the authors used this phenomenon to investigate the extent of physical interactions between the N-terminus of Kir6.2 and SUR1, and how these interactions are mediated by pharmacological chaperones.
 In this study, COSm6 cells were the heterologous expression system, and expression of AzF containing constructs was found to be dramatically reduced when compared to wild-type channels.
 
@@ -479,7 +479,7 @@ In each experiment, there was a mean proportion of \SI{49}{\percent} ANAP fluore
 While our measurements of ANAP quenching are proportional to nucleotide binding to K\ATP{}, the raw $F/F_{max}$ observations are not directly equivalent to the unbound fraction of Kir6.2 subunits.
 This non-equivalence is due to two factors.
 Firstly, there is the potential for crosstalk between ANAP incorporated in one subunit and TNP-ATP bound to the adjacent subunits.
-To determine the extent to which this crosstalk would affect the measured FRET efficiency when ANAP is incorporated at position 311, we adapted a program described by \citeauthor{deplazes_exifret_2012} which uses a numerical method to model FRET in complex geometries.
+To determine the extent to which this crosstalk would affect the measured FRET efficiency when ANAP is incorporated at position 311, we adapted a program described by \textcite{deplazes_exifret_2012} which uses a numerical method to model FRET in complex geometries.
 We implemented a simple version of this program in Python which uses a Monte Carlo simulation scheme to approximate the observed FRET efficiency for a given set of donor and acceptor fluorophores and coordinates.
 An overview of the program is shown in Figure \ref{ch3fig:exifret_program}.
 We did not measure the fluorescence lifetimes and quantum yields of ANAP and TNP-ATP directly, instead using previously determined values \cite{zagotta_measuring_2016-1, ye_spectroscopic_1999, ishikawa_single-molecule_2002}.

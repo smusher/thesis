@@ -1,14 +1,10 @@
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.1}Molecular biology.}{\reset@font\mtcSfont 27}{section.2.1}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.2}Cell culture and channel expression}{\reset@font\mtcSfont 28}{section.2.2}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.3}Western blots}{\reset@font\mtcSfont 29}{section.2.3}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.4}Confocal microscopy}{\reset@font\mtcSfont 30}{section.2.4}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.5}Surface expression assays}{\reset@font\mtcSfont 31}{section.2.5}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.6}Epifluorescence imaging and spectroscopy}{\reset@font\mtcSfont 32}{section.2.6}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.7}Electrophysiology.}{\reset@font\mtcSfont 32}{section.2.7}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.8}FRET calculations}{\reset@font\mtcSfont 33}{section.2.8}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.9}Unroofed binding measurements.}{\reset@font\mtcSfont 34}{section.2.9}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.10}Patch-clamp fluorometry.}{\reset@font\mtcSfont 35}{section.2.10}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.11}Concentration response processing and presentation}{\reset@font\mtcSfont 36}{section.2.11}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.12}MWC model equations and fitting}{\reset@font\mtcSfont 37}{section.2.12}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.13}Computational docking.}{\reset@font\mtcSfont 38}{section.2.13}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.14}Chemicals and stock solutions.}{\reset@font\mtcSfont 39}{section.2.14}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {1.1}Pancreatic islets and the \textgreek {b}-cell}{\reset@font\mtcSfont 1}{section.1.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {1.2}Architecture of the pancreatic K\textsubscript {ATP}{} channel}{\reset@font\mtcSfont 3}{section.1.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {1.3}Ligand-independent regulation of the pancreatic K\textsubscript {ATP}{} channel}{\reset@font\mtcSfont 6}{section.1.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {1.3.1}Assembly and trafficking}{\reset@font\mtcSSfont 6}{subsection.1.3.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {1.3.2}Regulation of intrinsic gating}{\reset@font\mtcSSfont 9}{subsection.1.3.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {1.4}Ligand dependent regulation of the pancreatic K\textsubscript {ATP}{} channel}{\reset@font\mtcSfont 15}{section.1.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {1.4.1}Nucleotide regulation of the pancreatic K\textsubscript {ATP}{} channel}{\reset@font\mtcSSfont 17}{subsection.1.4.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {1.4.2}PIP\textsubscript {2} regulation of the pancreatic K\textsubscript {ATP}{} channel}{\reset@font\mtcSSfont 20}{subsection.1.4.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {1.5}Fluorescence applications for ion channels}{\reset@font\mtcSfont 22}{section.1.5}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {1.5.1}Labelling techniques}{\reset@font\mtcSSfont 24}{subsection.1.5.1}}

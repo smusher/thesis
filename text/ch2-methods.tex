@@ -4,7 +4,7 @@
 
 \minitoc 
 
-\section{Molecular biology.}
+\section{Molecular biology}
 Human Kir6.2 and SUR1 were subcloned into pcDNA4/TO and pCGFP\_EU vectors for expression of wild-type and GFP-tagged constructs, respectively.
 pcDNA4/TO and pANAP were obtained from Addgene.
 peRF1-E55D and pCGFP\_EU were kind gifts from the Chin Laboratory (MRC Laboratory of Molecular Biology, Cambridge, UK) and the Gouaux Laboratory (Vollum Institute, Oregon, USA) respectively.
@@ -24,7 +24,7 @@ eRF1-E55D was included to increase efficiency of ANAP incorporation.
 Experiments were carried out 2-4 days after transfection.
 We also expressed constructs labelled with ANAP at positions I182, F183, F198, and I210.
 Kir6.2-F183*, Kir6.2-F198*, and Kir6.2-I210* co-expressed with SUR1 did not produce sufficient currents for subsequent experimentation.
-Mutations at I182 are known to produce profound effects on nucleotide inhibition of K\textsubscript{ATP}.
+Mutations at I182 are known to produce profound effects on nucleotide inhibition of K\ATP{}.
 Thus, we did not consider this site for further experimentation.
 
 \section{Western blots}
@@ -36,16 +36,16 @@ After washing with TBS-Tw, membranes were incubated for 30 minutes with a 1:20,0
 Detection was performed using the SuperSignal West Pico Chemiluminescent Substrate (Thermo Fisher) and a C-DiGit Blot Scanner (Licor Biosciences; Lincoln, NE).
 Analysis was performed using custom code written in Python.
 
-To confirm our ability to express full-length W311*-GFP, we performed western blots for HA-tagged Kir6.2 constructs in detergent-solubilized HEK-293T cells (Figure \ref{ch3fig:western_1}).
+To confirm our ability to express full-length W311*-GFP, we performed Western blots for HA-tagged Kir6.2 constructs in detergent-solubilized HEK-293T cells (Figure \ref{ch3fig:Western_1}).
 The HA tag plus a short linker (YAYMEKGITDLAYPYDVPDY) was inserted in the extracellular region following helix M1 of Kir6.2 between L100 and A101.
-Transfection of wild-type Kir6.2-HA or Kir6.2-HA-GFP resulted in two bands on the western blots.
+Transfection of wild-type Kir6.2-HA or Kir6.2-HA-GFP resulted in two bands on the Western blots.
 The upper bands were close to the expected sizes for full-length Kir6.2-HA and Kir6.2-HA-GFP (\SI{46}{\kilo\dalton} and \SI{77}{\kilo\dalton}, respectively).
 
 We consistently observed a lower molecular weight band as well.
 This band must correspond to an N-terminally truncated Kir6.2 product, as the apparent molecular weight shifted with addition of the C-terminal GFP tag.
 Based on the molecular weight, we predict that the truncated protein product initiated from a start codon in the first transmembrane domain.
 Therefore, we believe it is unlikely that this protein would form functional channels or traffic to the plasma membrane.
-When Kir6.2-W311\textsuperscript{TAG}-HA or Kir6.2-W311\textsuperscript{TAG}-HA-GFP were co-transfected with SUR1, pANAP, and eRF1-E55D, and cells were cultured in the presence of ANAP, the western blots were similar to wild-type Kir6.2-HA or Kir6.2-HA-GFP.
+When Kir6.2-W311\textsuperscript{TAG}-HA or Kir6.2-W311\textsuperscript{TAG}-HA-GFP were co-transfected with SUR1, pANAP, and eRF1-E55D, and cells were cultured in the presence of ANAP, the Western blots were similar to wild-type Kir6.2-HA or Kir6.2-HA-GFP.
 Over \SI{90}{\percent} full-length W311*-HA-GFP was produced under these conditions.
 We were unable to quantify the percentage of full-length W311*-HA produced as the C-terminally truncated band resulting from termination at the TAG codon was very similar in size to the N-terminally truncated band.
 Co-expression with SUR1 increased the percentage of full-length W311*-HA-GFP produced.
@@ -54,8 +54,8 @@ In the absence of ANAP, we did not observe any full-length Kir6.2, indicating th
 \section{Confocal microscopy}
 Confocal imaging was performed using a spinning-disk system (Ultra-VIEW VoX, PerkinElmer; Waltham, MA) mounted on an IX81 microscope (Olympus; Southend-on-Sea, UK) with a Plan Apo 60x oil immersion objective (NA = 1.4), provided by the Micron Advanced Bioimaging Unit, Oxford.
 Transfected HEK-293T cells were incubated for 15 minutes with \SI{1}{\nano\Molar} CellMask Deep Red (Thermo Fisher) to stain plasma membranes before washing with PBS and imaging.
-ANAP was excited with a solid-state laser at \SI{405}{\nano\Molar}.
-GFP and CellMask were excited with an argon laser at \SI{488}{\nano\Molar} and \SI{633}{\nano\Molar} respectively.
+ANAP was excited with a solid-state laser at \SI{405}{\nano\metre}.
+GFP and CellMask were excited with an argon laser at \SI{488}{\nano\metre} and \SI{633}{\nano\metre} respectively.
 Images were captured on an EMCCD camera (ImagEM; Hamamatsu Photonics; Welwyn Garden City, UK) binned at 2 x 2 pixels and analysed using Python.
 A median filter with a box size of 32 x 32 pixels was applied to improve the signal-to-noise ratio by reducing background fluorescence.
 
@@ -66,7 +66,7 @@ ANAP fluorescence was diffuse and confined to the cytoplasm or intracellular str
 Thus, the plasma-membrane ANAP signal was specific for W311*-GFP.
 
 \section{Surface expression assays}
-We measured surface expression of HA-tagged Kir6.2 subunits using an approach outlined by Zerangue et al.
+We measured surface expression of HA-tagged Kir6.2 subunits using an approach outlined by \textcite{zerangue_new_1999}.
 Cells were plated on \SI{19}{\milli\metre} coverslips coated with poly-L-lysine and transfected as described above.
 Following incubation, cells were rinsed with PBS before fixation with \SI{10}{\percent} formalin for 30 minutes at room temperature.
 After washing again, cells were blocked with \SI{1}{\percent} BSA in PBS for 30 minutes at \SI{4}{\degreeCelsius} before a 1-hour incubation at \SI{4}{\degreeCelsius} with a 1:1000 dilution (in PBS) of rat anti-HA monoclonal antibodies.
@@ -81,7 +81,7 @@ Wild-type Kir6.2-HA and Kir6.2-HA-GFP in the presence of SUR1 were included as p
 Kir6.2 constructs with no HA tag served as negative controls.
 In the presence of ANAP, we observed strong trafficking of W311*-HA-GFP to the plasma membrane, but much less trafficking of W311*-HA (Figure 1—Figure supplement 1E).
 When cells were cultured in the absence of ANAP, we observed little to no Kir6.2 surface expression from cells that were transfected with Kir6.2-W311\textsuperscript{TAG}-HA or Kir6.2-W311\textsuperscript{TAG}-HA-GFP, suggesting that prematurely truncated constructs did not traffic to the plasma membrane.
-In the absence of SUR1, surface expression was weak for both wild-type and tagged constructs, despite the reported ability of Kir6.2-GFP to traffic to the plasma membrane in the absence of SUR1.
+In the absence of SUR1, surface expression was weak for both wild-type and tagged constructs, despite the reported ability of Kir6.2-GFP to traffic to the plasma membrane in the absence of SUR1 \cite{john_sulphonylurea_1998-1}.
 
 \section{Epifluorescence imaging and spectroscopy}
 Epifluorescence imaging and spectroscopy were performed using a Nikon Eclipse TE2000-U microscope with a 60x water immersion objective (Plan Apo VC, NA = 1.2, Nikon; Kingston upon Thames, UK) or a 100x oil immersion objective (Nikon, Apo TIRF, NA = 1.49).
@@ -107,7 +107,7 @@ The efficiency of energy transfer is exquisitely distance-dependent, and can be 
 E = \frac{1}{1 + \frac{R^6}{R_0^6}}
 \end{equation}
 where $R$ is the distance between donor and acceptor fluorophores and $R_O$ is a characteristic distance at which \SI{50}{\percent} of the energy is transferred.
-We calculated the R0 of the ANAP:TNP-ATP FRET pair using the following equations from \citeauthor{selvin_13_1995}:
+We calculated the R0 of the ANAP:TNP-ATP FRET pair using the following equations from \textcite{selvin_13_1995}:
 \begin{equation} \label{eq:selvin_fret}
 \begin{split}
 R_0 &= (8.79 \times 10^{-5} J q_D n^{-4} \kappa^2)^{1/6}\\
@@ -117,7 +117,7 @@ J &= \frac{\int \epsilon_A (\lambda) f_D (\lambda) \lambda^4 d \lambda}{\int f_D
 where $J$ (in \si{\per\Molar\per\centi\metre\nano\metre}\textsuperscript{4}) is the normalised spectral overlap of the donor emission ($f_D$) and acceptor extinction ($\epsilon_A$), $q_D$ is the quantum efficiency of the donor measured in the absence of the acceptor, $n$ is the refractive index for the medium the experiment is performed in, and $\kappa^2$ is a geometric factor related to the relative orientation of the two transition dipoles of donor and acceptor that can take values between 0 and 4.
 
 For our purposes, we measured the overlap between donor emission measured from the averaged spectra from multiple unroofed membranes containing W311* without the C-terminal GFP tag, and acceptor extinction spectra measured from TNP-ATP in solution using a Beckman Coulter DU800 spectrophotometer (Pasadena, CA).
-We did not measure the $q_D$ of ANAP ourselves, instead using the quantum yield of 0.22 measured by \citeauthor{zagotta_measuring_2016}.
+We did not measure the $q_D$ of ANAP ourselves, instead using the quantum yield of 0.22 measured by \textcite{zagotta_measuring_2016}.
 As our experiments were performed in a water-based medium, we used the refractive index of water ($n = 1.33$).
 We used a $\kappa^2$ value of $\frac{2}{3}$, which is the case when the orientation of dipoles of donor and acceptor are able to rotate freely within the excited state donor lifetime.
 
@@ -282,8 +282,6 @@ The alternate single-binding model was formulated as follows:
 The extra length of these formulas when compared to equations \ref{eq:mwc_binding} and \ref{eq:normalised_po} do not represent any additional complexity; just an unfortunate consequence of the lack of exponents of $D_A$ which make it impossible to simplify further.
 Parameters were supplied and fitted as in equation \ref{eq:mwc_priors}.
 
-
-
 \section{Computational docking.}
 Computational docking of TNP-ATP into the nucleotide binding site of Kir6.2 was performed using AutoDock-Vina and Pymol (Schrödinger, LLC; New York, NY).
 11 TNP-ATP structures from the Protein Data Bank (PDB accession \#s 1I5D, 3AR7, 5NCQ, 5SVQ, 5XW6, 2GVD, 5A3S, 2PMK, and 3B5J) were used as starting poses and a 15x11.25x15 \si{\angstrom} box was centred on the ATP bound to Kir6.2 in PDB accession \#6BAA.
@@ -293,4 +291,6 @@ TNP-ATP (PDB \#3AR7) was positioned into the first nucleotide binding site of SU
 
 \section{Chemicals and stock solutions.}
 Unless otherwise noted, all chemicals were obtained from Sigma.
-TNP-ATP was obtained as a \SI{10}{\milli\Molar} aqueous stock from Jena Bioscience and stored at \SI{-20}{\degreeCelsius}. \SI{1}{\milli\Molar} aqueous stocks of ANAP-TFA were prepared by dissolving the free acid in \SI{30}{\milli\Molar} NaOH, and were stored at \SI{-20}{\degreeCelsius}. Tolbutamide stocks (\SI{50}{\milli\Molar}) were prepared in \SI{100}{\milli\Molar} KOH and stored at \SI{-20}{\degreeCelsius}.
+TNP-ATP was obtained as a \SI{10}{\milli\Molar} aqueous stock from Jena Bioscience and stored at \SI{-20}{\degreeCelsius}.
+\SI{1}{\milli\Molar} aqueous stocks of ANAP-TFA were prepared by dissolving the free acid in \SI{30}{\milli\Molar} NaOH, and were stored at \SI{-20}{\degreeCelsius}.
+Tolbutamide stocks (\SI{50}{\milli\Molar}) were prepared in \SI{100}{\milli\Molar} KOH and stored at \SI{-20}{\degreeCelsius}.
