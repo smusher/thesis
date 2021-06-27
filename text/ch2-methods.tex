@@ -2,7 +2,28 @@
 
 \graphicspath{{figures/ch2/}}
 
-\minitoc 
+\minitoc
+
+\section{Bayesian data analysis}
+"Statistical evidence is part of the hot mess that is science, with all of its combat and egotism and mutual coercion." - \textcite{mcelreath_statistical_2020}.
+Bayesian data analysis is the process of fitting a probability model to a set of data, and summarising the result with a probability distribution of the parameters of the model \cite{gelman_bayesian_2014}.
+At its most basic level, Bayesian data analysis is no more than counting the numbers of ways the data could happen, according to our assumptions.
+The more ways in which something can happen, the more plausible it is \cite{mcelreath_statistical_2020}.
+Frequentist statistical approaches (such as t-tests and ANOVAs) can be thought of as special cases of Bayesian data analysis, which requires all probabilities to be defined by connection to the frequencies of events in very large samples.
+
+We can use Bayes' theorem to evaluate model $m$ given our observed data $d$ as follows:
+\begin{equation}
+P(m \mid d) = \frac{P(d \mid m) \cdot P(m)}{P(d)}
+\end{equation}
+where
+\begin{itemize}
+\item $P(m)$ is the prior probability - how plausible is our model $m$ before we collect any data?
+\item $P(m \mid d)$ is the posterior probability - in light of the data $d$ we have collected, how plausible is our model $m$?
+\item $P(d \mid m)$ is the likelihood - the probability of observing the data $d$ if our model $m$ describes the true underlying data generating process.
+\end{itemize}
+
+Building and fitting a Bayesian model to data involves setting a prior probability for each parameter included in the model, and then updating the posterior probability based on the likelihood of the collected data.
+
 
 \section{Molecular biology}
 Human Kir6.2 and SUR1 were subcloned into pcDNA4/TO and pCGFP\_EU vectors for expression of wild-type and GFP-tagged constructs, respectively.
@@ -18,7 +39,7 @@ Cells were plated onto either poly-L-lysine coated borosilicate glass coverslips
 ANAP-tagged Kir6.2 constructs were labelled using amber stop codon suppression as described in reference \cite{chatterjee_genetically_2013}.
 Transfections were carried out 24 hours after plating using TransIT-LT1 (Mirus Bio LLC; Madison, WI) at a ratio of 3 \si{\micro\litre} per \si{\micro\gram} of DNA.
 Unless specified otherwise, all transfections included a Kir6.2 construct with an amber stop codon (TAG) at position 311 (Kir6.2-W311\textsuperscript{TAG}), SUR1, pANAP and eRF1-E55D in the ratio 0.5:1.5:1:1.
-Transfected cells cultured in Dulbecco’s Modified Eagle Medium (Sigma; St. Louis, MO) + 10\% foetal bovine serum, \SI{100}{\Unit\per\milli\litre} penicillin and \SI{100}{\micro\gram\per\milli\litre} streptomycin (Thermo Fisher Scientific; Waltham, MA) supplemented with \SI{20}{\milli\Molar} ANAP (free acid, AsisChem; Waltham, MA).
+Transfected cells cultured in Dulbecco’s Modified Eagle Medium (Sigma; St. Louis, MO) + \SI{10}{\percent} foetal bovine serum, \SI{100}{\Unit\per\milli\litre} penicillin and \SI{100}{\micro\gram\per\milli\litre} streptomycin (Thermo Fisher Scientific; Waltham, MA) supplemented with \SI{20}{\milli\Molar} ANAP (free acid, AsisChem; Waltham, MA).
 Cells were incubated at \SI{33}{\degreeCelsius} and in the presence of \SI{300}{\micro\Molar} tolbutamide to enhance protein expression and channel trafficking to the plasma membrane \cite{yan_sulfonylureas_2004, martin_pharmacological_2013}.
 eRF1-E55D was included to increase efficiency of ANAP incorporation.
 Experiments were carried out 2-4 days after transfection.
@@ -98,10 +119,10 @@ The bath solution (intracellular) contained \SI{140}{\milli\Molar} KCl, \SI{10}{
 The pipette solution (extracellular) contained \SI{140}{\milli\Molar} KCl, \SI{10}{\milli\Molar} HEPES and \SI{1}{\milli\Molar} EDTA (pH 7.4 with KOH).
 All experiments were carried out in Mg\textsuperscript{2+}-free conditions.
 Currents were leak corrected using the current remaining in bath solution containing \SI{5}{\milli\Molar} barium chloride at \SI{+60}{\milli\volt}, assuming a linear leak with a reversal potential of \SI{0}{\milli\volt}.
-Inhibition was calculated and corrected for rundown by alternating test concentrations of nucleotide solution with nucleotide-free solution, then expressing the test currents as a fraction of the average of the control currents before and after the test solution.
+Inhibition was calculated and corrected for rundown by alternating test concentrations of nucleotide solution with nucleotide-free solution, and then expressing the test currents as a fraction of the average of the control currents before and after the test solution.
 
 \section{FRET calculations}
-We calculated the expected FRET efficiency between ANAP incorporated at amino acid position 311 and a docked TNP-ATP molecule.
+We calculated the expected FRET efficiency between ANAP incorporated at amino acid position 311 and a docked TNP-ATP (fluorescent analogue of ATP) molecule.
 The efficiency of energy transfer is exquisitely distance-dependent, and can be calculated with the following formula:
 \begin{equation} \label{eq:forster_fret}
 E = \frac{1}{1 + \frac{R^6}{R_0^6}}
@@ -126,10 +147,11 @@ Firstly, we assume that the observed quenching from a bound nucleotide does not 
 As there is no open-state structure of K\textsubscript{ATP}, we do not know exactly how much relative movement would occur between a bound TNP-ATP and Kir6.2-W311.
 However, based on cryo-EM structures of apo and nucleotide-bound Kir6.2 we do not expect to see a change in the distance between these two positions.
 Secondly, we assume that the orientation of the ANAP and TNP-ATP dipoles can be well described by a $\kappa^2$ value of $\frac{2}{3}$.
-This assumption is commonly made in FRET assays, and reference \cite{stryer_fluorescence_1978} shows that uncertainty introduced by this assumption is relatively small (typically less than \SI{20}{\percent}). Empirically, our results showing FRET occurs to a similar extent as predicted by formula \ref{eq:forster_fret} supports this assumption as reasonable.
+This assumption is commonly made in FRET assays, and reference \cite{stryer_fluorescence_1978} shows that uncertainty introduced by this assumption is relatively small (typically less than \SI{20}{\percent}).
+Empirically, our results showing FRET occurs to a similar extent as predicted by formula \ref{eq:forster_fret} supports this assumption as reasonable.
 
 \section{Unroofed binding measurements.}
-Unroofed membranes were prepared as follows.
+Unroofed membranes which have their intracellular surface exposed to the bath solution were prepared as follows.
 A coverslip plated with transfected HEK-293T cells was removed from the culture media and rinsed with PBS.
 The coverslip was then briefly sonicated using a probe sonicator (Vibra-cell; Newtown, CT) leaving behind adherent plasma membrane fragments.
 Cells cultured on FluoroDishes were rinsed and sonicated directly in the dish.
@@ -140,6 +162,7 @@ Fluorescence spectra were collected as described above.
 A region of interest corresponding to the membrane fragment was manually selected and line-averaged for each wavelength.
 A similarly sized region of background was selected and averaged, then subtracted from the spectrum of interest.
 After subtraction, ANAP intensity was calculated by averaging the fluorescence intensity measured between \SI{469.5}{\nano\metre} and \SI{474.5}{\nano\metre}.
+Concentration-response experiments were conducted by alternating perfusion of nucleotide-free solution and perfusion of test nucleotide solutions of different concentrations, allowing \SI{60}{\second} of equilibration time before capturing a fluorescence spectrum.
 Bleaching was corrected by fitting the normalised ANAP intensity of exposures taken during perfusion with nucleotide-free solution to a single exponential decay of the form
 \begin{equation} \label{eq:bleaching}
     \frac{F}{F_{max}} = ae^{kt} + (1 - a)
@@ -156,7 +179,7 @@ Fluorescence emission spectra from the excised patch were acquired concurrently 
 Background subtraction was slightly imperfect due to the exclusion of TNP-ATP from volume of the glass of the pipette, resulting in spectra that have negative intensities at the TNP-ATP peak at high nucleotide concentrations.
 However, this over-subtraction does not affect the size of the ANAP peak, which we used to quantify nucleotide binding.
 
-Some experiments were excluded from further analysis due to low fluorescence intensity, as we were concerned about a low signal to noise ratio influencing our results.
+Some experiments were excluded from further analysis due to low fluorescence intensity (ANAP peak fluorescence intensity under 20 A.U. above background), as we were concerned about a low signal to noise ratio influencing our results.
 
 \section{Concentration response processing and presentation}
 Raw spectrographic images and current traces were pre-processed in Python and Clampfit (Axon) before analysis with R.
