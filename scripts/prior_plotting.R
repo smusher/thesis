@@ -62,21 +62,21 @@ facet_grid(rows = vars(name), cols = vars(n_trials))
 
 unfair_toss <-
 	tibble(
-		n_trials = c(10, 100, 1000),
-		n_success_fair = c(5, 50, 500)
+		n_trials = c(10, 50, 200),
+		n_success_fair = c(5, 25, 100)
 		) %>%
 	rowwise() %>%
 	mutate(
 		n_success = rbinom(1, n_trials, 0.8)
 		) %>%
 	expand(
-		nesting(n_trials, n_success, n_success_fair), p_heads = seq(from = 0, to = 1, length.out = 51)
+		nesting(n_trials, n_success, n_success_fair), p_heads = seq(from = 0, to = 1, length.out = 101)
 		) %>%
 	group_by(n_trials) %>%
 	mutate(
 		prior = dbinom(
-        	x = 5,
-        	size = 10,
+        	x = n_success_fair,
+        	size = n_trials,
         	prob = p_heads
         	),
         likelihood = dbinom(
@@ -98,4 +98,7 @@ geom_line(aes(y = value, colour = name)) +
 scale_x_continuous("proportion heads", breaks = c(0, .5, 1)) +
 scale_y_continuous("plausibility", breaks = NULL) +
 theme(panel.grid = element_blank()) +
-facet_wrap(~n_trials, scales = "free")
+facet_grid(cols = vars(n_trials), scales = "free")
+
+unfair_toss %>%
+filter(name == "posterior", n_trials == 50) 

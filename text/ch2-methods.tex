@@ -4,27 +4,6 @@
 
 \minitoc
 
-\section{Bayesian data analysis}
-"Statistical evidence is part of the hot mess that is science, with all of its combat and egotism and mutual coercion." - \textcite{mcelreath_statistical_2020}.
-Bayesian data analysis is the process of fitting a probability model to a set of data, and summarising the result with a probability distribution of the parameters of the model \cite{gelman_bayesian_2014}.
-At its most basic level, Bayesian data analysis is no more than counting the numbers of ways the data could happen, according to our assumptions.
-The more ways in which something can happen, the more plausible it is \cite{mcelreath_statistical_2020}.
-Frequentist statistical approaches (such as t-tests and ANOVAs) can be thought of as special cases of Bayesian data analysis, which requires all probabilities to be defined by connection to the frequencies of events in very large samples.
-
-We can use Bayes' theorem to evaluate model $m$ given our observed data $d$ as follows:
-\begin{equation}
-P(m \mid d) = \frac{P(d \mid m) \cdot P(m)}{P(d)}
-\end{equation}
-where
-\begin{itemize}
-\item $P(m)$ is the prior probability - how plausible is our model $m$ before we collect any data?
-\item $P(m \mid d)$ is the posterior probability - in light of the data $d$ we have collected, how plausible is our model $m$?
-\item $P(d \mid m)$ is the likelihood - the probability of observing the data $d$ if our model $m$ describes the true underlying data generating process.
-\end{itemize}
-
-Building and fitting a Bayesian model to data involves setting a prior probability for each parameter included in the model, and then updating the posterior probability based on the likelihood of the collected data.
-
-
 \section{Molecular biology}
 Human Kir6.2 and SUR1 were subcloned into pcDNA4/TO and pCGFP\_EU vectors for expression of wild-type and GFP-tagged constructs, respectively.
 pcDNA4/TO and pANAP were obtained from Addgene.
@@ -179,7 +158,62 @@ Fluorescence emission spectra from the excised patch were acquired concurrently 
 Background subtraction was slightly imperfect due to the exclusion of TNP-ATP from volume of the glass of the pipette, resulting in spectra that have negative intensities at the TNP-ATP peak at high nucleotide concentrations.
 However, this over-subtraction does not affect the size of the ANAP peak, which we used to quantify nucleotide binding.
 
-Some experiments were excluded from further analysis due to low fluorescence intensity (ANAP peak fluorescence intensity under 20 A.U. above background), as we were concerned about a low signal to noise ratio influencing our results.
+Some experiments were excluded from further analysis due to low fluorescence intensity, as we were concerned about a low signal to noise ratio influencing our results.
+
+\section{Bayesian data analysis}
+"Statistical evidence is part of the hot mess that is science, with all of its combat and egotism and mutual coercion." - \textcite{mcelreath_statistical_2020}.
+Bayesian data analysis is the process of fitting a probability model to a set of data, and summarising the result with a probability distribution of the parameters of the model \cite{gelman_bayesian_2014}.
+At its most basic level, Bayesian data analysis is no more than counting the numbers of ways the data could happen, according to our assumptions.
+The more ways in which something can happen, the more plausible it is \cite{mcelreath_statistical_2020}.
+Frequentist statistical approaches (such as t-tests and ANOVAs) can be thought of as special cases of Bayesian data analysis, which requires all probabilities to be defined by connection to the frequencies of events in very large samples.
+
+We can use Bayes' theorem to evaluate model $m$ given our observed data $d$ as follows:
+\begin{equation}
+P(m \mid d) = \frac{P(d \mid m) \cdot P(m)}{P(d)}
+\end{equation}
+where
+\begin{itemize}
+\item $P(m)$ is the prior probability - how plausible is our model $m$ before we collect any data?
+\item $P(m \mid d)$ is the posterior probability - in light of the data $d$ we have collected, how plausible is our model $m$?
+\item $P(d \mid m)$ is the likelihood - the probability of observing the data $d$ if our model $m$ describes the true underlying data generating process.
+\end{itemize}
+
+Building and fitting a Bayesian model to data involves setting a prior probability for each parameter included in the model, and then updating the posterior probability based on the likelihood of the collected data.
+What does this look like in practise?
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{coinflip_bayes.pdf}
+	\caption[Flipping a coin - illustrating Bayesian analysis]{
+		The prior probability (black), likelihood (red) and posterior probability (purple) distributions from flipping a biased coin ten (left) or fifty (right) times.
+		The distributions have been normalised to their density so that they are directly comparable.
+		The prior distribution is a binomial assuming a \SI{50}{\percent} probability of landing heads up.
+		The likelihood is a binomial with an \SI{80}{\percent} probability of landing heads up.
+	}\label{ch2fig:coinflip}
+\end{figure}
+
+Imagine we have a coin, and we want to know if it is fair - that when we flip it, there is a \SI{50}{\percent} chance that it will land heads up.
+Most coins are fair, which we can describe with a prior probability distribution which gives most weight to a \SI{50}{\percent} chance of landing heads up (Figure \ref{ch2fig:coinflip}, black line).
+After flipping our coin ten times, we find that it landed heads up eight times, giving rise to the likelihood shown in red.
+When we calculate our posterior probability distribution, which is proportional to the product of the prior and the likelihood, we see it falls midway between the prior and the likelihood (purple line).
+Why?
+Ten coin flips is not particularly strong evidence, so even though our coin landed heads up eight times out of ten, there is still a good chance that the coin is fair - especially starting from the assumption that most coins are!
+However, if we flip the coin fourty more times for a total of fifty coin flips, the likelihood begins to dominate our posterior probability distribution, pulling it away from the prior.
+It is now clear that this is not a fair coin; the 95\textsuperscript{th} percentiles of our posterior probability distribution fall between a \SIrange{65}{87}{\percent} chance of landing heads up.
+In actuality, the coin we have been flipping has an \SI{80}{\percent} chance of landing heads up, well within our posterior probability distribution.
+
+A lot of ink has been spilled on Bayesian methods and how they differ from frequentist approaches, but fundamentally they are more similar than they are different.
+In both approaches, the likelihood is the most important component of the analysis, and as samples sizes grow larger the likelihood becomes increasingly influential.
+However, they differ in two key ways.
+Firstly, instead of calculating a point estimate and a confidence interval, Bayesian analysis gives us the full probability distribution of our parameters of interest.
+Throughout this thesis, I have presented the full posterior probability distributions and expressed them in terms of their credible intervals.
+The credible interval is intuitive - it is simply the the range containing a particular percentage of probable values.
+For example, the \SI{95}{\percent} credible interval is the central portion of the posterior distribution that contains \SI{95}{\percent} of the values.
+We can say that given the observed data, the parameter we are estimating has a \SI{95}{\percent} probability of falling within this range.
+
+The second difference is the flexibility Bayesian analysis offers for incorporation of uncertainty from different sources, through a method known as multilevel or hierarchical modelling.
+Multilevel models seek to describe datasets which consist of clusters or groups of measurements that may differ from one another \cite{andrew_gelman_bayesian_2014, mcelreath_statistical_2020}.
+As opposed to fitting each group individually, multilevel models allows for 'pooling' of information between groups to give improved estimates and avoid averaging over experimental variability.
 
 \section{Concentration response processing and presentation}
 Raw spectrographic images and current traces were pre-processed in Python and Clampfit (Axon) before analysis with R.
@@ -194,7 +228,7 @@ where $y$ represents corrected fluorescence intensity, $EC_{50}$ and $[TNPATP]$ 
 For the fluorescence quenching data, $E_{max}$ was fixed to the value obtained from W311*-GFP+SUR1 unroofed experiments (0.1) as explained in more detail in chapter \ref{ch4}.
 Current inhibition data were fit to the same equation but with $y$ representing normalised current magnitude, $IC_{50}$ instead of $EC_{50}$, and $I_{max}$ instead of $E_{max}$.
 
-We used the brms package in R to perform a non-linear fit to equation \ref{eq:hill} reformulated as a multilevel (or hierarchical) model.
+We used the brms package in R to perform a non-linear fit to equation \ref{eq:hill} reformulated as a multilevel model.
 The parameters in the equation were supplied as:
 
 \begin{minipage}{.5\textwidth}
@@ -215,11 +249,7 @@ EC_{50} &= \beta + \delta_{experiment} \\
 \end{equation}
 \end{minipage}
 
-Multilevel models seek to describe datasets which consist of clusters or groups of measurements that may differ from one another \cite{andrew_gelman_bayesian_2014, mcelreath_statistical_2020}.
-In this case, each cluster of measurements is the set of current inhibition or fluorescence quenching values obtained from a single excised patch or unroofed membrane.
-As opposed to fitting each cluster individually, the multilevel model laid out in equation \ref{eq:drc_priors} allows for 'pooling' of information between clusters, so that the parameters for each experiment are influenced by all other experiments on the same construct.
-This pooling tends to improve estimates about each cluster.
-
+In this case, each group of measurements is the set of current inhibition or fluorescence quenching values obtained from a single excised patch or unroofed membrane.
 Essentially, the $EC_{50}$ (or $IC_{50}$) parameter for each concentration-response experiment can be described as the combination of a population parameter that is an estimate of the construct-specific value (\textgreek{b}), and an additional 'random' component that varies between experiments on the same construct (\textgreek{d}\textsubscript{experiment}).
 
 \section{MWC model equations and fitting}
