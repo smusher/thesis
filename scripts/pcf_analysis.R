@@ -22,7 +22,8 @@ concresp <-
     	) %>%
     mutate(
         response = case_when(measure == "fluorescence" ~ (1 - (log2(response + 1))) / 0.9, TRUE ~ response),
-        binding_mask = case_when(measure == "fluorescence" ~ 1, TRUE ~ 0)
+        binding_mask = case_when(measure == "fluorescence" ~ 1, TRUE ~ 0),
+        log_concentration = log10(concentration)
     )
 
 ggplot() +
@@ -228,7 +229,8 @@ mutate(.value = case_when(measure == "fluorescence" ~ 1 - .value, TRUE ~ .value)
 median_qi(.value, .width = .95) -> inferred_underlying
 
 ggplot() +
-geom_ribbon(data = inferred_underlying %>% filter(construct != "W311*-GFP+SUR+MG"), aes(x = concentration, ymin = .lower, ymax = .upper, colour = measure, fill = measure), alpha = 0.5) +
+geom_ribbon(data = inferred_underlying %>% filter(construct != "W311*-GFP+SUR+MG"), aes(x = concentration, ymin = .lower, ymax = .upper, fill = measure), alpha = 0.5) +
+geom_line(data = inferred_underlying %>% filter(construct != "W311*-GFP+SUR+MG"), aes(x = concentration, y= .value, colour = measure)) +
 geom_quasirandom(data = concresp_2 %>% filter(construct != "W311*-GFP+SUR+MG"), aes(x = concentration, y = response, fill = measure), size = 3, shape = 21, width=0.1) +
 scale_colour_brewer(aesthetics = c("colour", "fill"), palette = "Pastel1") +
 scale_x_log10() +

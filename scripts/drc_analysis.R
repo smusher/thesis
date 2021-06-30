@@ -270,7 +270,8 @@ add_fitted_draws(test_run, re_formula = NA) %>%
 median_qi(.value, .width = .95) -> inferred_underlying
 
 ggplot() +
-geom_ribbon(data = inferred_underlying, aes(x = 10^log_concentration, ymin = .lower, ymax = .upper, colour = construct_method, fill = construct_method), alpha = 0.5) +
+geom_ribbon(data = inferred_underlying, aes(x = 10^log_concentration, ymin = .lower, ymax = .upper, fill = construct_method), alpha = 0.5) +
+geom_line(data = inferred_underlying, aes(x = 10^log_concentration, y = .value, colour = construct_method), size=1) +
 geom_quasirandom(data = fluorescence, aes(x = 10^log_concentration, y = log2(response+1), fill = construct_method), size = 3, shape = 21, width=0.1) +
 scale_color_viridis_d(aesthetics = c("colour", "fill")) +
 scale_x_log10() +
@@ -286,7 +287,8 @@ add_fitted_draws(test_run_2, re_formula = NA) %>%
 median_qi(.value, .width = .95) -> inferred_underlying_2
 
 ggplot() +
-geom_ribbon(data = inferred_underlying_2, aes(x = 10^log_concentration, ymin = .lower, ymax = .upper, colour = construct_nucleotide, fill = construct_nucleotide), alpha = 0.5) +
+geom_ribbon(data = inferred_underlying_2, aes(x = 10^log_concentration, ymin = .lower, ymax = .upper, fill = construct_nucleotide), alpha = 0.5) +
+geom_line(data = inferred_underlying_2, aes(x = 10^log_concentration, y = .value, colour = construct_nucleotide), size=1) +
 geom_quasirandom(data = currents, aes(x = 10^log_concentration, y = response, fill = construct_nucleotide), size = 3, shape = 21, width=0.1) +
 scale_color_viridis_d(aesthetics = c("colour", "fill")) +
 scale_x_log10() +
