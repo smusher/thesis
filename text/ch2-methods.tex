@@ -38,14 +38,14 @@ Analysis was performed using custom code written in Python.
 
 To confirm our ability to express full-length W311*-GFP, we performed Western blots for HA-tagged Kir6.2 constructs in detergent-solubilized HEK-293T cells (Figure \ref{ch3fig:Western_1}).
 The HA tag plus a short linker (YAYMEKGITDLAYPYDVPDY) was inserted in the extracellular region following helix M1 of Kir6.2 between L100 and A101.
-Transfection of wild-type Kir6.2-HA or Kir6.2-HA-GFP resulted in two bands on the Western blots.
-The upper bands were close to the expected sizes for full-length Kir6.2-HA and Kir6.2-HA-GFP (\SI{46}{\kilo\dalton} and \SI{77}{\kilo\dalton}, respectively).
+Transfection of WT-HA or WT-HA-GFP resulted in two bands on the Western blots.
+The upper bands were close to the expected sizes for full-length WT-HA and WT-HA-GFP (\SI{46}{\kilo\dalton} and \SI{77}{\kilo\dalton}, respectively).
 
 We consistently observed a lower molecular weight band as well.
 This band must correspond to an N-terminally truncated Kir6.2 product, as the apparent molecular weight shifted with addition of the C-terminal GFP tag.
 Based on the molecular weight, we predict that the truncated protein product initiated from a start codon in the first transmembrane domain.
 Therefore, we believe it is unlikely that this protein would form functional channels or traffic to the plasma membrane.
-When Kir6.2-W311\textsuperscript{TAG}-HA or Kir6.2-W311\textsuperscript{TAG}-HA-GFP were co-transfected with SUR1, pANAP, and eRF1-E55D, and cells were cultured in the presence of ANAP, the Western blots were similar to wild-type Kir6.2-HA or Kir6.2-HA-GFP.
+When W311*-HA or W311*-HA-GFP were co-transfected with SUR1, pANAP, and eRF1-E55D, and cells were cultured in the presence of ANAP, the Western blots were similar to wild-type Kir6.2-HA or Kir6.2-HA-GFP.
 Over \SI{90}{\percent} full-length W311*-HA-GFP was produced under these conditions.
 We were unable to quantify the percentage of full-length W311*-HA produced as the C-terminally truncated band resulting from termination at the TAG codon was very similar in size to the N-terminally truncated band.
 Co-expression with SUR1 increased the percentage of full-length W311*-HA-GFP produced.
@@ -57,7 +57,7 @@ Transfected HEK-293T cells were incubated for 15 minutes with \SI{1}{\nano\Molar
 ANAP was excited with a solid-state laser at \SI{405}{\nano\metre}.
 GFP and CellMask were excited with an argon laser at \SI{488}{\nano\metre} and \SI{633}{\nano\metre} respectively.
 Images were captured on an EMCCD camera (ImagEM; Hamamatsu Photonics; Welwyn Garden City, UK) binned at 2 x 2 pixels and analysed using Python.
-A median filter with a box size of 32 x 32 pixels was applied to improve the signal-to-noise ratio by reducing background fluorescence.
+A median filter with a box size of 5 x 5 pixels was applied to improve the signal-to-noise ratio by reducing background fluorescence.
 
 We examined the surface expression of our ANAP-labelled constructs using confocal microscopy.
 When Kir6.2-W311\textsuperscript{TAG}-GFP was co-transfected with SUR1 along with pANAP and eRF1-E55D in the presence of ANAP, the ANAP and GFP fluorescence were co-localized at the plasma membrane.
@@ -77,11 +77,11 @@ Coverslips were removed from the culture dishes and placed in clean, untreated d
 
 HEK-293T cells were transfected with Kir6.2 constructs with or without a TAG stop codon corresponding to position 311.
 Cells were co-transfected with pANAP and eRF1-E55D in the presence or absence of SUR1 and cultured with or without ANAP.
-Wild-type Kir6.2-HA and Kir6.2-HA-GFP in the presence of SUR1 were included as positive controls.
+WT-HA and WT-HA-GFP in the presence of SUR1 were included as positive controls.
 Kir6.2 constructs with no HA tag served as negative controls.
-In the presence of ANAP, we observed strong trafficking of W311*-HA-GFP to the plasma membrane, but much less trafficking of W311*-HA (Figure 1—Figure supplement 1E).
+In the presence of ANAP, we observed strong trafficking of W311*-HA-GFP to the plasma membrane, but much less trafficking of W311*-HA (Figure \ref{ch3fig:surface_expression_1}).
 When cells were cultured in the absence of ANAP, we observed little to no Kir6.2 surface expression from cells that were transfected with Kir6.2-W311\textsuperscript{TAG}-HA or Kir6.2-W311\textsuperscript{TAG}-HA-GFP, suggesting that prematurely truncated constructs did not traffic to the plasma membrane.
-In the absence of SUR1, surface expression was weak for both wild-type and tagged constructs, despite the reported ability of Kir6.2-GFP to traffic to the plasma membrane in the absence of SUR1 \cite{john_sulphonylurea_1998-1}.
+In the absence of SUR1, surface expression was weak for both wild-type and tagged constructs, despite the reported ability of Kir6.2 with a C-terminal GFP tag to traffic to the plasma membrane in the absence of SUR1 \cite{john_sulphonylurea_1998-1}.
 
 \section{Epifluorescence imaging and spectroscopy}
 Epifluorescence imaging and spectroscopy were performed using a Nikon Eclipse TE2000-U microscope with a 60x water immersion objective (Plan Apo VC, NA = 1.2, Nikon; Kingston upon Thames, UK) or a 100x oil immersion objective (Nikon, Apo TIRF, NA = 1.49).

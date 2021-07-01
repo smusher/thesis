@@ -173,11 +173,12 @@ add_fitted_draws(test_run, re_formula = reduced_formula) %>%
 median_qi(.value, .width = .95) -> inferred_underlying
 
 ggplot() +
-geom_ribbon(data = inferred_underlying, aes(x = concentration, ymin = .lower, ymax = .upper, colour = interaction(method, measure), fill = interaction(method, measure)), alpha = 0.5) +
-geom_quasirandom(data = concresp, aes(x = concentration, y = response, fill = interaction(method, measure)), size = 3, shape = 21, width=0.1) +
+geom_ribbon(data = inferred_underlying, aes(x = concentration, ymin = 1-.lower, ymax = 1-.upper, fill = method), alpha = 0.5) +
+geom_line(data = inferred_underlying, aes(x = concentration, y = 1-.value, colour = method)) +
+geom_quasirandom(data = concresp, aes(x = concentration, y = 1-response, fill = method), size = 3, shape = 21, width=0.1) +
 scale_colour_brewer(aesthetics = c("colour", "fill"), palette = "Pastel1") +
 scale_x_log10() +
-facet_wrap(vars(inhibition_mask)) +
+facet_grid(rows = vars(inhibition_mask), cols = vars(measure)) +
 coord_cartesian(ylim = c(-0.1, 1.2))
 
 test_run %>%

@@ -18,7 +18,7 @@ After separation of the membrane fraction proteins on a gel, the quantity of bou
 These experiments were able to definitively establish that the inhibitory nucleotide binding site of K\ATP{} was on Kir6.2, and suggested that the Kir6.2 binding site possessed a lower affinity toward the radionucleotide than the SUR1 binding sites.
 
 The second made use of a fluorescent congener for ATP, trinitrophenyl (TNP)-ATP.
-TNP-ATP had previously been used in binding measurements of purified proteins due to it's increased quantum yield (and thus increase in observed fluorescence) upon binding (need a ref).
+TNP-ATP has previously been used in binding measurements of purified proteins due to it's increased quantum yield (and thus increase in observed fluorescence) upon binding \cite{hiratsuka_preparation_1973, hiratsuka_biological_1982}.
 TNP-ATP is most commonly used as an antogonist of P2X receptors, which are regulated by extracellular ATP.
 The authors measured binding of TNP-ATP to the purified carboxyl terminal of Kir6.2 (residues 169 to 354) solubilised by linking it to mannose binding protein (MBP) \cite{vanoye_carboxyl_2002}.
 The increased fluoresence of TNP-ATP when bound to the Kir6.2-MBP construct could be measured in a spectrometer, and allowed for equlibrium measurements of nucleotide binding.
@@ -29,7 +29,7 @@ These studies were hampered by the need to isolate the Kir6.2 binding site from 
 To improve on these methods, an ideal assay measuring nucleotide binding to the K\ATP{} channel needs to fulfill a number of criteria.
 
 \begin{enumerate}
-	\item We need sufficient spatial sensitivity to distinguish between different classes of binding site; i.e. the assay should be capable of distingushing binding to Kir6.2 from binding to NBS1 or NBS2 of SUR1
+	\item We need sufficient spatial sensitivity to distinguish between different classes of binding site; i.e. the assay should be capable of distingushing binding to Kir6.2 from binding to NBS1 or NBS2 of SUR.
 	\item We should be able to measure binding to a channel which we know is functional, so our experimental conditions cannot be drastically different from those used to measure channel function.
 	\item There should be minimal perturbation of the channel in order for binding measurements to be physiologically relevant.
 	\item For accurate measures of affinity, binding should be at equilibrium so we cannot use covalent interactions or other forms of non-equilibrium labelling.
@@ -93,7 +93,7 @@ This leads to a theoretical distance-dependency of FRET which is most sensitive 
 
 \subsection{Choosing a site to incorporate ANAP}
 
-THe theoretical R0 of \SI{38.4}{\angstrom} for FRET between ANAP and TNP-ATP allowed for flexibility when choosing a site to incorporate ANAP.
+The theoretical R0 of \SI{38.4}{\angstrom} for FRET between ANAP and TNP-ATP allowed for flexibility when choosing a site to incorporate ANAP.
 Ideally, a residue should be chosen to maximise the following aims:
 
 \begin{enumerate}
@@ -101,8 +101,8 @@ Ideally, a residue should be chosen to maximise the following aims:
 	This would not have to be close enough for \SI{100}{\percent} FRET to occur, but the greater the efficiency achieved the higher the signal-to-noise ratio would be for measuring binding.
 	\item It also needs to be far enough from each other class of nucleotide binding site to avoid quenching by TNP-ATP bound to other sites.
 	\item In addition to avoiding interference from other classes of binding site, we also need to avoid cross-talk between nucleotide binding sites of the same class on different subunits, as this would lead to difficulty interpreting the measured quenching.
-	The ideal theoretical solution would be labelling only one nucleotide binding site per ion channel, but without using a concatemer this is not so easy in practise.
-	\item More practically, incorporation of ANAP should not lead to drastic changes in nucleotide binding or channel gating properties, and the complete K\ATP{} channel needs to be expressed on the membrane.
+	The ideal theoretical solution would be labelling only one nucleotide binding site per ion channel, but without using a concatemer this is not so easy in practice.
+	\item More practically, incorporation of ANAP should not lead to drastic changes in nucleotide binding or channel gating properties, and the complete K\ATP{} channel needs to be expressed on the cell surface membrane.
 \end{enumerate}
 
 To narrow down which residues could be candidates for ANAP incorporation to measure binding at Kir6.2, we took three cryo-EM structures of K\ATP{} with ATP bound and computationally docked TNP-ATP into the nucleotide binding pocket (Figure \ref{ch3fig:docking}).
@@ -118,8 +118,11 @@ Based on the predicted TNP-ATP poses for \#6BAA and \#6C3P, we could narrow down
 In addition, we excluded residues which fell within \SI{45}{\angstrom} of NBS1 or NBS2, as this restricts the potential FRET between TNP-ATP bound at these sites and our chosen residue to roughly \SI{25}{\percent} or less.
 While we can exclude residues which fall too close to the NBS's of SUR1, the close proximity of the Kir6.2 nucleotide binding sites to each other means that we cannot exclude intersubunit FRET occuring; i.e. TNP-ATP binding to a neighbouring subunit will also be able to quench ANAP to a certain extent. However, this occurs in a predictable way that we can measure and account for.
 
-We ended up with one residue which fulfilled these criteria and for which membrane expression of the ANAP-incorporated channel could be detected: W311.
-It is a bulky hydrophobic residue similar to ANAP, and no mutations at this residue have been previously identified to alter K\ATP{} function.
+We ended up with one residue which fulfilled these criteria and for which surface membrane expression of the ANAP-incorporated channel could be detected: W311.
+It is a bulky hydrophobic residue similar to ANAP, and at the time of the construct design I was not aware of mutations at this residue which had been previously identified to alter K\ATP{} function.
+During the writing of this thesis, I came across an experiment by \textcite{cukras_structural_2002}, in which they mutated W311 to an alanine and were unable to observe K\ATP{} currents in excised patches.
+It was not resolved whether this was an assembly, trafficking, or functional disruption.
+However, as we were able to see K\ATP{} membrane expression and currents when we mutated W311 to ANAP, it is possible that this more conservative substitution is enough to overcome the lack of currents seen in the W311A mutant.
 
 \begin{figure}[h]
 	\centering
@@ -165,16 +168,20 @@ It is a bulky hydrophobic residue similar to ANAP, and no mutations at this resi
 
 \section{Incorporating ANAP into the Kir6.2 binding site}
 
-\subsection{Amber stop codon expression system}
+\subsection{The Amber stop codon expression system}
 
 ANAP can be introduced into a protein of interest by essentially expanding the genetic code to incorporate a noncanconical amino acid \cite{chin_expanding_2017}.
-The amber stop codon (TAG) is the least frequently occuring stop codon in eukaryotic cells \cite{cridge_eukaryotic_2018}, and can be repurposed to encode ANAP.
-This requires the introduction of a transfer RNA (tRNA) which recognises the TAG codon, and an aminoacyl-tRNA synthetase (aaRS) which selectively aminoacylates the tRNA with ANAP into the heterologous expression system, without crossreacting with the existing translational machinery \cite{lee_genetic_2009, chatterjee_genetically_2013}.
+The Amber stop codon (TAG) is the least frequently occuring stop codon in eukaryotic cells \cite{cridge_eukaryotic_2018}, and can be repurposed to encode ANAP.
+This requires the introduction of two new components into the translational machinery of the chosen heterologous expression system:
+\begin{itemize}
+\item A transfer RNA (tRNA) which specifically recognises the TAG codon.
+\item An aminoacyl-tRNA synthetase (aaRS) which selectively attaches ANAP to the introduced tRNA \cite{lee_genetic_2009, chatterjee_genetically_2013}.
+\end{itemize}
 
 \textcite{lee_genetic_2009} used directed evolution to develop a tRNA/aaRS pair to encode ANAP in \textit{Saccharomyces cerevisiae} \cite{lee_genetic_2009}.
 Briefly, they altered the specificity of \textit{Escherichia coli} leucyl-tRNA synthetase so that it was able to aminoacylate the leucyl-tRNA with ANAP, and not endogenous amino acids.
 The coevolved tRNA/aaRS pair were built into an expression plasmid pANAP (Figure \ref{ch3fig:amber_codon}) which is capable of driving expression in mammalian cells \cite{chatterjee_genetically_2013}.
-HEK293 cells transfected with pANAP and a plasmid encoding GFP with an amber stop codon at residue position 40 (40TAG) exhibited green fluorescence only when incubated in the presence of ANAP in the culture media \cite{chatterjee_genetically_2013}, demonstrating that ANAP can be selectively incorporated into proteins in mammalian cells.
+HEK293 cells transfected with pANAP and a plasmid encoding GFP with an Amber stop codon at residue position 40 exhibited green fluorescence only when incubated in the presence of ANAP in the culture media \cite{chatterjee_genetically_2013}, demonstrating that ANAP can be selectively incorporated into proteins in mammalian cells.
 
 As far as we are aware, only two other studies have incorporated unnatural amino acids into Kir6.2 \cite{zhang_conserved_2015, devaraneni_structurally_2015}.
 \textcite{zhang_conserved_2015} incorporated three unnatural tryptophan variants at position W68 to highlight the necessity of a planar amino acid side-chain at this location to maintain physiological K\ATP{} channel function \cite{zhang_conserved_2015}.
@@ -184,7 +191,7 @@ However, in this study \textit{Xenopus} oocytes were the heterologous expression
 AzF is photocross-linkable upon exposure to UV light, and the authors used this phenomenon to investigate the extent of physical interactions between the N-terminus of Kir6.2 and SUR1, and how these interactions are mediated by pharmacological chaperones.
 In this study, COSm6 cells were the heterologous expression system, and expression of AzF containing constructs was found to be dramatically reduced when compared to wild-type channels.
 
-\subsection{ANAP incorporation into amber stop codon containing constructs}
+\subsection{ANAP incorporation into Amber stop codon containing constructs}
 
 \begin{figure}[h]
 	\centering
@@ -207,8 +214,8 @@ In this study, COSm6 cells were the heterologous expression system, and expressi
 	\end{subfigure}
 	\caption[ANAP incorporation]{
 	\subref{ch3fig:amber_codon} ANAP incorporation is accomplished through the transfection of two plasmids.
-	pANAP codes for tRNA (red) and it's tRNA synthetase (green), while pW311TAG codes for Kir6.2 with an amber stop codon (TAG) inserted in place of the codon for W311 (grey).
-	When the transfected cells are incubated with ANAP (present here as its free acid, ANAP-TFA, blue) the tRNA synthetase assembles tRNA which is capable of recognising the amber stop codon and loads it with ANAP.
+	pANAP codes for tRNA (red) and it's tRNA synthetase (green), while W311TAG codes for Kir6.2 with an Amber stop codon (TAG) inserted in place of the codon for W311 (grey).
+	When the transfected cells are incubated with ANAP (present here as its free acid, ANAP-TFA, blue) the tRNA synthetase assembles tRNA which is capable of recognising the Amber stop codon and loads it with ANAP.
 	During translation of W311TAG, the primed ANAP tRNAs recognise the TAG and insert ANAP into the desired location.
 	\subref{ch3fig:western_1} Two separate western blots against the N-terminal HA epitope incorporated into WT or W311* (left) and WT-GFP or W311*-GFP (right) constructs.
 	Cells were co-transfected with pANAP, eRF1-E55D, and SUR1 unless otherwise indicated.
@@ -229,7 +236,7 @@ The nature of the amber stop codon suppression system requires a number of caref
 	\item Introducing a stop codon creates a risk that truncated Kir6.2 will be produced instead of ANAP labelled Kir6.2.
 	This risk can be reduced by transfecting a dominant negative engineered version of eukaryotic translation termination factor 1(eRF1-E55D), which does not efficiently terminate protein synthesis in response to the amber stop codon (but leaves opal and ochre stop codons nearly unaffected) and thus increases the incorporation of ANAP \cite{schmied_efficient_2014}.
 	We found that transfection of W311TAG constructs with a C-terminal GFP tag produced minimal truncated Kir6.2 (less than \SI{10}{\percent} of the total density observed in Figure \ref{ch3fig:western_2}).
-	\item Despite being the least frequent eukaryotic stop codon, the amber stop codon is still present in a significant number of proetin sequences.
+	\item Despite being the least frequent eukaryotic stop codon, the amber stop codon is still present in a significant number of protein sequences.
 	We must be careful that ANAP is not incorporated into a protein which localises to the plasma membrane to an extent which would affect our ability to assign ANAP fluorescence to Kir6.2.
 	We found that in cells transfected with GFP-tagged Kir6.2 without an amber stop codon, there was no increase in ANAP fluorescence at the cell membrane (Figure \ref{ch3fig:wt_confocal}, \ref{ch3fig:wt_confocal_profiles}).
 	By contrast, when W311TAG-GFP was transfected, we saw a clear increase in ANAP fluorescence at the cell membrane (Figure \ref{ch3fig:w311_confocal}, \ref{ch3fig:w311_confocal_profiles}), suggesting that any observed ANAP fluorescence at the cell membrane originates from our labelled Kir6.2 construct.
@@ -275,21 +282,21 @@ The nature of the amber stop codon suppression system requires a number of caref
 
 \subsection{Surface expression of HA-epitope labelled Kir6.2 constructs}
 
-To assess the ability of ANAP-incorporating constructs to traffic to the plasma membrane, we used a luminence-based surface expression assay.
-This assay relies on the recognition of an HA-epitope introduced into an extracellular region of the protein of interest (in this case, the N-terminal region of Kir6.2) by an anti-HA primary antibody followed by an HRP-conjugated secondary antibody.
+To assess the ability of ANAP-incorporating constructs to traffic to the plasma membrane, we used a luminescence-based surface expression assay \cite{zerangue_new_1999}.
+This assay relies on the recognition of a human influenza hemagglutinin (HA)-epitope introduced into an extracellular region of the protein of interest (in this case, the N-terminal region of Kir6.2) by an anti-HA primary antibody followed by a horseradish peroxidase (HRP)-conjugated secondary antibody.
 The luminescence after applying HRP substrate is then proportional to the amount of protein at the plasma membrane of the cells.
 
-We assessed the membrane expression of N-terminally HA-tagged Kir6.2 (nHA-Kir6.2) in the presence or absence of ANAP in the culture media and in the presence or absence of cotransfected SUR1.
+We assessed the membrane expression of N-terminally HA-tagged Kir6.2 (WT-HA) in the presence or absence of ANAP in the culture media and in the presence or absence of cotransfected SUR1.
 We also measured how the addition of a C-terminal GFP tag affected membrane expression under these conditions.
-We used untagged Kir6.2 as a control for nonspecific luminesence.
+We used untagged Kir6.2 as a control for nonspecific luminescence.
 
-We find that for wild-type Kir6.2 (WT) there is roughly a 20-fold increase in observed luminescence when coexpressed with SUR1 over background, and roughly a 100-fold increase for the C-terminally GFP tagged Kir6.2 (WT-GFP, Figure \ref{ch3fig:surface_expression_1}, \ref{ch3fig:surface_expression_3}).
+We found that for wild-type Kir6.2 (WT) there is roughly a 20-fold increase over background in observed luminescence when coexpressed with SUR1, and roughly a 100-fold increase for the C-terminally GFP tagged Kir6.2 (WT-GFP, Figure \ref{ch3fig:surface_expression_1}, \ref{ch3fig:surface_expression_3}).
 There is no difference in surface expression of these constructs when ANAP is present in the culture medium (Figure \ref{ch3fig:surface_expression_1}, \ref{ch3fig:surface_expression_4}).
-When ANAP is incorporated at either residue 183 or 311 (F183* and W311* respectively) we see an increase in luminescence over background when coexpressed with SUR1 and with ANAP present in the culture medium (Figure \ref{ch3fig:surface_expression_1}, \ref{ch3fig:surface_expression_3}).
+When ANAP is incorporated at either residue 183 or 311 (F183* and W311* respectively, F183* included here as an example of a construct deemed unsuitable for further experiments) we see an increase over background in luminescence when coexpressed with SUR1 and with ANAP present in the culture medium (Figure \ref{ch3fig:surface_expression_1}, \ref{ch3fig:surface_expression_3}).
 The presence of the C-terminal GFP tag increases luminescence further for both constructs, dramatically so for W311*.
-However, when F183* is transfected and ANAP is not present in the culture media we still see a similar increase in fluorescence over background when compared to the luminescence when ANAP is present (Figure \ref{ch3fig:surface_expression_1}, \ref{ch3fig:surface_expression_4}), suggesting that a large proportion of the protein reaching the membrane does not have ANAP incorporated.
-In contrast, when W311*-GFP is transfected with SUR1 in the presence of ANAP, we see a 10-fold increase in luminescence compared to when ANAP is not present, consitent with the majority of surface expressed protein incorporating ANAP.
-We also see a consistent increase in luminescence for all constructs aside from W311* due to cotransfection with SUR1 (Figure \ref{ch3fig:surface_expression_2}), suggesting that the incorporation of ANAP and the addition of a C-terminal GFP tag do not affect the role of SUR1 in forming the full K\ATP{} complex and trafficking to the membrane.
+However, when F183* is transfected and ANAP is not present in the culture media we still see a similar increase in fluorescence over background when compared to the luminescence when ANAP is present (Figure \ref{ch3fig:surface_expression_1}, \ref{ch3fig:surface_expression_4}), suggesting that a large proportion of the protein reaching the cell surface membrane does not have ANAP incorporated.
+In contrast, when W311*-GFP is transfected with SUR1 in the presence of ANAP, we see a 10-fold increase in luminescence compared to when ANAP is not present, consistent with the majority of cell surface expressed protein having incorporated ANAP.
+We also see a consistent increase in luminescence for all constructs aside from W311* when cotransfected with SUR1 (Figure \ref{ch3fig:surface_expression_2}), suggesting that the incorporation of ANAP and the addition of a C-terminal GFP tag do not affect the role of SUR1 in forming the full K\ATP{} complex and trafficking to the cell surface membrane.
 
 \begin{figure}[h]
 	\centering
@@ -317,8 +324,9 @@ We also see a consistent increase in luminescence for all constructs aside from 
 		\includegraphics[width=\textwidth]{surface_expression_4.pdf}
 	\end{subfigure}
 	\caption[ANAP construct surface expression assay]{
-	\subref{ch3fig:surface_expression_1}, \subref{ch3fig:surface_expression_2} Individual observations (points) and posterior probability distributions for surface expression of Kir6.2 constructs.
-	Before fitting, the observations for each construct were centered by subtracting the mean of the luminesence observed without the N-temrinal HA tag.
+	\subref{ch3fig:surface_expression_1}, \subref{ch3fig:surface_expression_2} Each point represents a luminescence reading from one well of a 6-well plate.
+	The coloured curves are the posterior probability distributions for surface expression of Kir6.2 constructs derived from those readings as described in the methods.
+	Before fitting, the observations for each construct were centered by subtracting the mean of the luminesence observed without the N-terminal HA tag.
 	Observations for constructs without the N-terminal HA tag and for constructs transfected with both ANAP and SUR1 are duplicated between panels to clarify the differences observed when either ANAP (\subref{ch3fig:surface_expression_1}) or SUR1 (\subref{ch3fig:surface_expression_2}) are omitted.
 	\subref{ch3fig:surface_expression_3}, \subref{ch3fig:surface_expression_4} Contrasts between constructs differing only in the presence or absence of the N-terminal HA-tag (\subref{ch3fig:surface_expression_3}) or the presence or absence of ANAP in the culture media (\subref{ch3fig:surface_expression_4}).
 	Different intervals in the posterior probability distribution of the contrasts are shown in shades of blue.
@@ -329,12 +337,12 @@ We also see a consistent increase in luminescence for all constructs aside from 
 
 To establish whether W311*-GFP formed K\ATP{} channels with similar function to wild-type, we excised patches from cells transfected with either WT-GFP or W311*-GFP cotransfected with SUR1.
 Excision was performed in Mg\textsuperscript{2+}-free solution to reduce rundown and to prevent activation of the channel by nucleotides.
-We observed similar magnitudes of current for both WT-GFP and W311*-GFP, and currents ran own at similar rates.
+We observed similar magnitudes of current for both WT-GFP and W311*-GFP, and the currents ran down at similar rates.
 
 We fit our inhibition data with equation \ref{eq:hill} (Figure \ref{ch3fig:atp_inhibition_1}) as described in the methods.
 Briefly, our fitting procedure assumes that there is a population parameter for $IC_{50}$, $I_{max}$ and $h$, and an additional 'random' effect on $IC_{50}$ that can differ between experiments (shown in Figure \ref{ch3fig:atp_inhibition_2}).
 Our fits result in posterior probability distributions for the population $IC_{50}$ parameter shown in blue in Figure \ref{ch3fig:ec50_fits_1}.
-These distributions reflect our confidence in the population parameter for the $IC_{50}$, marginalising over the random effect of different experiments.
+These distributions reflect our confidence in the population parameter for the $IC_{50}$.
 For all $IC_50$ and $EC_{50}$ values fitted this way, in the text we will report the \SI{95}{\percent} intervals of the posterior probability distribution for the fitted population parameter.
 
 Perfusion of ATP resulted in current inhibition with an IC\textsubscript{50} of \SIrange{24}{45}{\micro\Molar} for WT-GFP+SUR1 and \SIrange{75}{124}{\micro\Molar} for W311*-GFP+SUR1.
@@ -390,15 +398,15 @@ This could potentially be due to extra contacts made by the TNP moiety with Kir6
 \subsection{Unroofed membrane binding assay of Kir6.2 constructs}
 
 We then directly measured nucleotide binding to W311*-GFP in unroofed membranes.
-Briefly sonicating transfected cells adhered to coverslips results in the lower membrane of the cell remaining stuck to the coverslip while the rest of the cell contents is disrupted and perfused away.
-This leaves the cytoplasmic domains of expressed K\ATP{} channels open to perfusion of TNP-ATP.
+Briefly sonicating transfected cells adhered to coverslips results in the adhered lower membrane of the cell remaining stuck to the coverslip while the rest of the cell is disrupted and the contents are perfused away.
+This leaves the cytoplasmic domains of expressed K\ATP{} channels accessible to TNP-ATP in the perfusate.
 These patches of membrane are barely visible under brightfield illumination, but due to the presence of the C-terminal GFP tag and the incorporated ANAP, we can see patches of membrane expressing K\ATP{} channels light up when we excite either fluorophore (Figure \ref{ch3fig:unroofed_images}).
 By measuring the fluorescence spectra of patches of unroofed membrane, we can separate the fluorescence emission peaks of the C-terminal GFP tag and the incorporated ANAP (Figure \ref{ch3fig:unroofed_spectral_images}).
 The peak at \SI{472}{\nano\metre} corresponds to ANAP emission, while the peak at \SI{508}{\nano\metre} corresponds to GFP emission.
 We observed no change in the locations of those peaks in the presence of ATP or TNP-ATP.
 
-Perfusing TNP-ATP results in a decrease in the peak corresponding to ANAP fluorescence, and a concomittant increase in a fluorescence peak which corresponds to the TNP-ATP (Figure \ref{ch3fig:unroofed_spectral_traces}).
-This phenomenon is the fresult of FRET between TNP-ATP bound to the channel at the Kir6.2 binding site.
+Perfusing TNP-ATP results in a decrease in the peak corresponding to ANAP fluorescence, and a concomittant increase in a fluorescence peak at \SI{561}{\nano\metre} which corresponds to the TNP-ATP (Figure \ref{ch3fig:unroofed_spectral_traces}).
+This phenomenon is the result of FRET between TNP-ATP bound to the channel at the Kir6.2 binding site.
 The decrease in ANAP fluorescence is almost directly correlated to an increase in bound nucleotide.
 We chose to measure the decrease in ANAP fluorescence rather than the increase in TNP-ATP fluorescence or the change in the ratio of ANAP:TNP-ATP fluorescence as we know that the ANAP fluorescence is specific to the Kir6.2 binding site.
 Increases in TNP-ATP fluorescence could in part be due to direct excitation of TNP-ATP bound to other membrane proteins.
@@ -443,9 +451,9 @@ We can plot the quenching of ANAP fluorescence as a concentration-response curve
 \end{figure}
 
 Before analysis, ANAP bleaching was corrected as shown in Figure \ref{ch3fig:bleaching_plots_2}.
-ANAP intensities of spectra imaged during bath perfusion in between applications of TNP-ATP were fit with Equation \ref{eq:bleaching}.
-We found that all unroofed experiments showed bleaching well described by the single exponential fit to equation \ref{eq:bleaching}.
-In each experiment, there was a mean proportion of \SI{49}{\percent} ANAP fluorescence remaining by the last exposure (Figure \ref{ch3fig:bleaching_terms_4}), maintaining a good signal-to-noise ratio for each spectra imaged.
+ANAP intensities of spectra imaged during bath perfusion with TNP-ATP free solution, in between applications of TNP-ATP, were fit with Equation \ref{eq:bleaching}.
+We found that in all unroofed membrane experiments bleaching was well described by a single exponential fit to equation \ref{eq:bleaching}.
+In each experiment, there was a mean value of \SI{49}{\percent} ANAP fluorescence remaining by the last exposure (Figure \ref{ch3fig:bleaching_terms_4}), means we maintained a good signal-to-noise ratio for each spectra imaged.
 
 \begin{figure}[h]
 	\centering
@@ -489,10 +497,11 @@ We simulated the expected FRET for a single K\ATP{} channel bound to 0-4 molecul
 In the idealised scenario, each ANAP molecule is only able to FRET with the TNP-ATP molecule bound at the closest inhibitory binding site (Figure \ref{ch3fig:exifret_coords}).
 In the actual scenario, which resembles the experimental paradigm, each ANAP molecule is able to FRET with any bound TNP-ATP molecule in a probabilistic manner dependent on the inter-fluorophore distance.
 We can observe that there is a systematic deviation in the FRET efficiency between these two scenarios (Figure \ref{ch3fig:exifret_out}), which we can correct by transforming the actual values ($F/F_{max}$) into adjusted values ($log_2(\frac{F}{F_{max} + 1})$).
+This is an empirical transformation based on the observed deviation.
 
 Secondly, we need to correct for incomplete FRET due to the distance between the donor and acceptor.
-Based on the results of the computational docking, we predict a maximal FRET efficiency of \SI{91}{\percent} when every Kir6.2 subunit is bound by TNP-ATP.
-Fitting our adjusted data to a Hill equation results in a maximum observed FRET efficiency ($E_max$) of \SI{90}{\percent}, agreeing well with our prediction.
+Based on the results of the computational docking, we predict a maximal FRET efficiency of \SI{91}{\percent} when a TNP-ATP molecule is bound to each Kir6.2 subunit.
+Fitting our adjusted data to a Hill equation results in a maximum observed FRET efficiency ($E_{max}$) of \SI{91}{\percent}, agreeing well with our prediction.
 We can then constrain our Hill fits so that $E_{max}$ is equal to this maximum FRET efficiency, so that the $EC_{50}$ parameter we obtain is equivalent to the $EC_{50}$ of TNP-ATP binding.
 
 \begin{figure}[h]
@@ -534,7 +543,7 @@ We can then constrain our Hill fits so that $E_{max}$ is equal to this maximum F
 \end{figure}
 
 Overall, these two corrections do not dramatically alter our results (Figure \ref{ch3fig:tnpatp_quenching_1}).
-We observed quenching of ANAP fluorescence over a concentration range of TNP-ATP similar to the range in which we observed inhibition of current in W311*-GFP (Figure \ref{ch3fig:ec50_fits_3}, \ref{ch3fig:tnpatp_quenching_2}).
+We observed quenching of ANAP fluorescence from W311*-GFP+SUR1 in unroofed membranes over a concentration range of TNP-ATP similar to the range in which we observed inhibition of current in excised patches expressing W311*-GFP+SUR1 (Figure \ref{ch3fig:ec50_fits_3}, \ref{ch3fig:tnpatp_quenching_2}).
 When fit to a Hill equation, quenching ($F/F_{max}$) was fit with an EC\textsubscript{50} of \SIrange{21}{31}{\micro\Molar}, while the corrected binding data (adjusted $F/F_{max}$) gave an EC\textsubscript{50} of \SIrange{30}{45}{\micro\Molar}.
 
 \begin{figure}[h]
@@ -609,7 +618,7 @@ We were able to correct for ANAP bleaching in the same manner as we did for unro
 	}\label{ch3fig:pcf_bleaching}
 \end{figure}
 
-Our fluoresence measurements from excised patches are right-shifted with respect to our measurements for unroofed membranes (Figure \ref{ch3fig:pcf_1}), with an $EC_{50}$ value of \SIrange{76}{144}{\micro\Molar} compared to X.
+Our fluoresence measurements from excised patches are right-shifted with respect to our measurements for unroofed membranes (Figure \ref{ch3fig:pcf_1}), with an $EC_{50}$ value of \SIrange{76}{144}{\micro\Molar} in PCF compared to \SIrange{30}{45}{\micro\Molar}.
 Our finding that the EC\textsubscript{50} for TNP-ATP binding is right-shifted compared to the IC\textsubscript{50} for TNP-ATP inhibition is consistent between each experimental paradigm (Figure \ref{ch3fig:ec50_fits_4}).
 This finding has implications for how exactly the binding of nucleotides to Kir6.2 leads to closure of the K\ATP{} channel pore.
 
@@ -661,7 +670,7 @@ This finding has implications for how exactly the binding of nucleotides to Kir6
 \section{Discussion}
 
 We have demonstrated that we can measure nucleotide binding to the inhibitory nucleotide binding site of Kir6.2 in intact, functional K\ATP{} channels in their native membrane environment.
-Measuring binding directly in either unroofed membrane patches or in excised patches simultaneously with current recordings reveals that nucleotide binding is right-shifted compared to nucleotide inhibition; i.e. K\ATP{} channels begin to close at nucleotide concentrations where there is very little binding.
+Measuring binding directly in either unroofed membrane patches, or in excised patches simultaneously with current recordings, reveals that nucleotide binding is right-shifted compared to nucleotide inhibition; i.e. K\ATP{} channels begin to close at nucleotide concentrations where there is very little binding.
 This observation rules out certain models of ion channel function, which will be explored further in chapter \ref{ch:4}.
 
 These findings come with some important caveats.
@@ -670,8 +679,12 @@ Our analysis of nucleotide binding and inhibition is therefore predicated on thi
 As all of our binding experiments are performed in the W311* background by necessity, we hope that measurements of relative changes in binding and inhibition will still be meaningfuly interpretable as they will mirror similar relative changes in inhibition observed in the WT background.
 
 Secondly, K\ATP{} channels are more sensitive to inhibition by TNP-ATP than by ATP.
-Again, this means that any conclusions we draw from experiments measuring relative changes in binding and inhibition rely on those relative changes affecting ATP binding and inhibition to a similar extent.
+Again, this means that any conclusions we draw from experiments measuring relative changes in binding and inhibition rely on those relative changes affecting ATP binding and inhibition to a similar extent as TNP-ATP.
 To try and ameliorate these caveats as best as we can, where possible we have performed control experiments in the WT background with ATP to ensure that introduced mutations result in similar relative effects on nucleotide inhibition despite the background of the construct or the identitity of the nucleotide.
-As control experiments of this sort are not possible in unroofed membranes, where it is impossible to measure current inhibition, we have focused on patch-clamp fluorometry for constructs where expression is good enough to measure sufficient fluorescence.
+As control experiments of this sort are not possible in unroofed membranes, where it is impossible to measure current inhibition, we have focused on PCF for constructs where expression is good enough to measure sufficient fluorescence.
 
-This methodology should be readily adaptable to the study of other nucleotide-regulated channels, such as the P2X receptor family or CFTR.
+Finally, there is a clear difference between the $EC_{50}$ values we estimate from TNP-ATP binding in unroofed membranes and in excised patches.
+This may be due to increased levels of channel rundown in unroofed membranes, as the time between unroofing and measurement is longer (not measured, but around 10 minutes until first exposure) than the time between patch excision and measurement (typically less than a minute before first exposure).
+Rundown K\ATP{} channels with a lower $P_O$ would be expected to have lower apparent $EC_{50}$ values for TNP-ATP binding.
+An additional possibility is that our unroofing procedure does not result in all of the cell contents being disrupted, and that some of the ANAP fluorescence we are measuring is from W311*-GFP subunits resident in ER fragments associated with the adherent membrane.
+Again, where possible we have tried to perform our experiments with PCF to avoid these possibilities.
