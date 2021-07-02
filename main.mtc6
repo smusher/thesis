@@ -1,8 +1,8 @@
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.1}Modelling nucleotide regulation of the K\textsubscript {ATP}{} channel}{\reset@font\mtcSfont 71}{section.4.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.1.1}Restricting the subset of possible models}{\reset@font\mtcSSfont 73}{subsection.4.1.1}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.2}Implementing an MWC model}{\reset@font\mtcSfont 75}{section.4.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.1}A simple case}{\reset@font\mtcSSfont 75}{subsection.4.2.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.2}The role of PIP\textsubscript {2}}{\reset@font\mtcSSfont 75}{subsection.4.2.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.3}Determining open probability}{\reset@font\mtcSSfont 80}{subsection.4.2.3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.4}Comparing models}{\reset@font\mtcSSfont 85}{subsection.4.2.4}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.5}Discussion}{\reset@font\mtcSSfont 90}{subsection.4.2.5}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.1}Modelling nucleotide regulation of the K\textsubscript {ATP}{} channel}{\reset@font\mtcSfont 75}{section.4.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.1.1}Restricting the subset of possible models}{\reset@font\mtcSSfont 77}{subsection.4.1.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.2}Implementing an MWC model}{\reset@font\mtcSfont 79}{section.4.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.1}A simple case}{\reset@font\mtcSSfont 79}{subsection.4.2.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.2}The role of PIP\textsubscript {2}}{\reset@font\mtcSSfont 79}{subsection.4.2.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.3}Determining open probability}{\reset@font\mtcSSfont 84}{subsection.4.2.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.4}Comparing models}{\reset@font\mtcSSfont 89}{subsection.4.2.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.5}Discussion}{\reset@font\mtcSSfont 94}{subsection.4.2.5}}

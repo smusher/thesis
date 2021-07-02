@@ -16,6 +16,12 @@
    sodipodi:docname="regulation_diagram.svg">
   <defs
      id="defs2">
+    <rect
+       x="46.920548"
+       y="91.95688"
+       width="7.719881"
+       height="4.238014"
+       id="rect1195" />
     <marker
        style="overflow:visible"
        id="Arrow1Mend"
@@ -150,8 +156,8 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="181.56932"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="100.75712"
      inkscape:cy="104.0566"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -161,7 +167,8 @@
      inkscape:window-height="768"
      inkscape:window-x="0"
      inkscape:window-y="0"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="1"
+     showguides="false" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -273,36 +280,41 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:condensed;font-size:3.52777px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Semi-Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
-       x="45.391579"
-       y="89.584038"
+       x="48.039715"
+       y="88.880005"
        id="text861-6"><tspan
          sodipodi:role="line"
          id="tspan859-8"
-         x="45.391579"
-         y="89.584038"
-         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:condensed;font-size:3.52777px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Semi-Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583">NBS</tspan></text>
+         x="48.039715"
+         y="88.880005"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:condensed;font-size:3.52777px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Semi-Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;stroke-width:0.264583">Nucleotide</tspan><tspan
+         sodipodi:role="line"
+         x="48.039715"
+         y="93.289719"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:condensed;font-size:3.52777px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Semi-Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         id="tspan1167">site</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.396875;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 49.168134,96.969235 v 9.371835 L 50.3753,104.2502"
+       d="M 49.168134,98.452463 V 107.8243 L 50.3753,105.73343"
        id="path863-8" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.396875;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 47.675726,106.83479 V 97.462954 L 46.46856,99.553827"
+       d="M 47.675726,108.31802 V 98.946182 L 46.46856,101.03706"
        id="path863-3-6" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.396875;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 47.675725,102.61274 c 0,0 0.0021,2.17974 -3.04088,4.19044"
+       d="m 47.675725,104.09597 c 0,0 0.0021,2.17974 -3.04088,4.19044"
        id="path992" />
     <text
        xml:space="preserve"
        style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.52777px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Italic Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
        x="42.873302"
-       y="102.80865"
+       y="104.29188"
        id="text886-7"><tspan
          sodipodi:role="line"
          id="tspan884-5"
          x="42.873302"
-         y="102.80865"
+         y="104.29188"
          style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.52777px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Italic Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583">K<tspan
    style="font-size:65%;baseline-shift:sub"
    id="tspan994">A</tspan></tspan></text>
@@ -310,34 +322,34 @@
        xml:space="preserve"
        style="font-stretch:condensed;font-size:2.82223px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
        x="44.865925"
-       y="94.922127"
+       y="96.405357"
        id="text890-4"><tspan
          sodipodi:role="line"
          id="tspan888-4"
          x="44.865925"
-         y="94.922127"
+         y="96.405357"
          style="stroke-width:0.264583">bound</tspan></text>
     <text
        xml:space="preserve"
        style="font-stretch:condensed;font-size:2.82223px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
        x="43.444931"
-       y="111.28265"
+       y="112.76588"
        id="text894-6"><tspan
          sodipodi:role="line"
          id="tspan892-0"
          x="43.444931"
-         y="111.28265"
+         y="112.76588"
          style="stroke-width:0.264583">unbound</tspan></text>
     <text
        xml:space="preserve"
        style="font-stretch:condensed;font-size:2.82223px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
        x="39.623161"
-       y="108.03049"
+       y="109.51372"
        id="text998"><tspan
          sodipodi:role="line"
          id="tspan996"
          x="39.623161"
-         y="108.03049"
+         y="109.51372"
          style="stroke-width:0.264583">ANP</tspan></text>
     <rect
        style="opacity:0.99;fill:#e8f5e9;fill-opacity:1;stroke:#1b5e20;stroke-width:0.264583;stroke-miterlimit:10;stroke-dasharray:0.264583, 0.264583;stroke-dashoffset:0"
@@ -362,26 +374,26 @@
    id="tspan1101">2</tspan> site</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.396875;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 77.878614,96.969235 v 9.371835 l 1.207166,-2.09087"
+       d="m 77.878614,98.452463 v 9.371837 l 1.207166,-2.09087"
        id="path863-8-4" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.396875;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 76.386206,106.83479 V 97.462954 L 75.17904,99.553827"
+       d="M 76.386206,108.31802 V 98.946182 L 75.17904,101.03706"
        id="path863-3-6-5" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.396875;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 76.386211,102.61274 c 0,0 0.0021,2.17974 -3.04088,4.19044"
+       d="m 76.386211,104.09597 c 0,0 0.0021,2.17974 -3.04088,4.19044"
        id="path992-8" />
     <text
        xml:space="preserve"
        style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.52777px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Italic Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
        x="71.583786"
-       y="102.80865"
+       y="104.29188"
        id="text886-7-2"><tspan
          sodipodi:role="line"
          id="tspan884-5-8"
          x="71.583786"
-         y="102.80865"
+         y="104.29188"
          style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.52777px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Italic Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583">K<tspan
    style="font-size:65%;baseline-shift:sub"
    id="tspan1103">B</tspan></tspan></text>
@@ -389,34 +401,34 @@
        xml:space="preserve"
        style="font-stretch:condensed;font-size:2.82223px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
        x="73.576408"
-       y="94.922127"
+       y="96.405357"
        id="text890-4-8"><tspan
          sodipodi:role="line"
          id="tspan888-4-5"
          x="73.576408"
-         y="94.922127"
+         y="96.405357"
          style="stroke-width:0.264583">bound</tspan></text>
     <text
        xml:space="preserve"
        style="font-stretch:condensed;font-size:2.82223px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
        x="72.155418"
-       y="111.28265"
+       y="112.76588"
        id="text894-6-3"><tspan
          sodipodi:role="line"
          id="tspan892-0-4"
          x="72.155418"
-         y="111.28265"
+         y="112.76588"
          style="stroke-width:0.264583">unbound</tspan></text>
     <text
        xml:space="preserve"
        style="font-stretch:condensed;font-size:2.82223px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
        x="68.333649"
-       y="108.03049"
+       y="109.51372"
        id="text998-0"><tspan
          sodipodi:role="line"
          id="tspan996-1"
          x="68.333649"
-         y="108.03049"
+         y="109.51372"
          style="stroke-width:0.264583">PIP<tspan
    style="font-size:65%;baseline-shift:sub"
    id="tspan1105">2</tspan></tspan></text>
@@ -595,5 +607,9 @@
          style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:3.52777px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Italic Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583">D<tspan
    style="font-size:2.29305px;baseline-shift:sub;stroke-width:0.264583"
    id="tspan994-1-3-2">NBD</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text1193"
+       style="font-family:'Noto Sans';font-size:2.82222231px;line-height:1.25;letter-spacing:0px;word-spacing:0px;-inkscape-font-specification:'Noto Sans, Condensed';font-stretch:condensed;writing-mode:lr;white-space:pre;shape-inside:url(#rect1195);" />
   </g>
 </svg>

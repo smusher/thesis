@@ -34,7 +34,7 @@ When K\ATP{} channels are closed and membrane resistance is high, even small cur
 	\caption[Electrical excitability of pancreatic beta cells]{
 		\subref{ch1fig:beta_cells} When the ATP:ADP ratio is low, K\ATP{} channels are open, allowing K\textsuperscript{+} ions to flow out of the pancreatic beta cell and maintain a hyperpolarised membrane potential.
 		When the ATP:ADP ratio is high, K\ATP{} channels close, allowing depolarisation of the membrane potential and insulin secretion.
-		\subref{ch1fig:beta_cells_firing} Current record of a cell-attached patch of an isolated pancreatic beta cell, reproduced from \cite{rorsman_calcium_1986} and reversed. 
+		\subref{ch1fig:beta_cells_firing} Current record of a cell-attached patch of an isolated pancreatic beta cell, reproduced from \cite{rorsman_calcium_1986}. 
 		Perfusion of glucose leads to depolarisation and action potential firing.
 	}
 	\label{ch1fig:beta_cells_overview}
@@ -85,7 +85,7 @@ Activation by PIP\textsubscript{2} is a mechanism common to the whole Kir family
 		\subref{ch1fig:kir_struct} Cryo-EM structure of Kir6.2 (PDB \#6BAA) captured with ATP bound (red) and with the proposed binding position of PIP\textsubscript{2} visualised by alignment of the channel with the X-ray structure of Kir2.2 solved in compex with a short-chain dioctanoyl (diC8) PIP\textsubscript{2} (PDB \#6C3I).
 		The plasma membrane is shown in pink.
 		(Adapted from \cite{puljung_cryo-electron_2018}).
-		\subref{ch1fig:shyng_trace} Macroscopic currents from Kir6.2 channels coexpressed with SUR1 in excised patches from cultured cells, adapted from \ref{pratt_n-terminal_2011}.
+		\subref{ch1fig:shyng_trace} Macroscopic currents from Kir6.2 channels coexpressed with SUR1 in excised patches from cultured cells, adapted from \cite{pratt_n-terminal_2011}.
 		Perfusion of ATP or PIP\textsubscript{2} is indicated by coloured bars, and demonstrates the contrasting effects of these two ligands on channel activity.
 	}
 	\label{ch1fig:kir_breakdown}
@@ -281,10 +281,10 @@ The contributions of the interactions of these regions have been studied in a va
 		Adapted from \cite{enkvetchakul_kinetic_2000-1}.
 		In both panels, openings are displayed as upward deflections.
 		Note that the timescales differ slightly between panels as traces are from two separate papers.
-		\subref{ch1fig:intrinsic_diagram} The intrinsic open-closed equilibrium of the pancreatic K\ATP{} channel pore is regulated by the K\textsuperscript{+} driving force and by the presence of different SUR1 domains.
 		\subref{ch1fig:sur_shift} Concentration-response relationship of ATP from macroscopic currents excised from \textit{Xenopus} oocytes injected with either Kir6.2\textgreek{D}C26 mRNA alone (open circles), or a mixture of Kir6.2\textgreek{D}C26 and SUR1 mRNAs (closed circles).
 		Response is given as the fraction of the slope conductance (G) remaining during exposure to ATP.
 		Adapted from \cite{tucker_truncation_1997}.
+		\subref{ch1fig:intrinsic_diagram} The intrinsic open-closed equilibrium of the pancreatic K\ATP{} channel pore is regulated by the K\textsuperscript{+} driving force and by the presence of different SUR1 domains.
 	}
 \end{figure}
 
@@ -340,7 +340,7 @@ The K\ATP{} channel is no exception.
 The ability of the channel to open and close in the absence of ligand (i.e. after channel rundown due to loss of PIP\textsubscript{2}) shows that at equilbrium, the K\ATP{} channel is able to exchange between open and closed states, albeit with a much higher occupancy of closed states \cite{ribalet_regulation_2000, proks_running_2016-2}.
 One mechanism by which ligands are proposed to regulate the equilibrium of K\ATP{} channels (and macromolecules in general) is by being selective for particular conformations.
 For example, PIP\textsubscript{2} will exhibit a higher binding affinity for the open state of the channel that it will for the closed state; and thus the presence of PIP\textsubscript{2} will selectively stabilise the open state of K\ATP{} channels.
-This mechanism is the cornerstone of the MWC model of allostery \cite{monod_nature_1965-1, rubin_nature_1966, garcia_chapter_2011, marzen_statistical_2013}, and its assumptions and implications will be discussed in more detail in \ref{ch4}.
+This mechanism is the cornerstone of the MWC model of allostery \cite{monod_nature_1965-1, rubin_nature_1966, garcia_chapter_2011, marzen_statistical_2013}, and its assumptions and implications will be discussed in more detail in \ref{ch:4}.
 In this framework, the link between ligand binding and channel gating, sometimes called transduction, is the factor by which a ligand preferentially stabilises a particular conformation.
 Figure \ref{ch1fig:regulation_diagram} is a simplified diagram of how ligands interact to regulate the K\ATP{} channel.
 Briefly, $L$ describes the unliganded equilibrium between open and closed states, while ligands which bind with affinity constants $K_X$ preferentially stabilise the open state by a factor $D_X > 1$ or the closed state by a factor $D_X < 1$ (where $X$ is the general term for a particular ligand interaction).
@@ -351,9 +351,9 @@ Briefly, $L$ describes the unliganded equilibrium between open and closed states
 	\caption[Modes of regulation of K\ATP{}]{
 	Adapted from \textcite{puljung_cryo-electron_2018}.
 	The open-closed equilibrium of the K\ATP{} channel pore (denoted as $L$) is energetically coupled to three different ligand binding sites.
-	The four inhibitory nucleotide binding sites of Kir6.2 (labelled as NBS) bind either ATP or ADP (generalised to ANP) with an equilbrium binding constant $K_A$.
+	The four inhibitory nucleotide binding sites of Kir6.2 bind either ATP or ADP (generalised to ANP) with an equilbrium binding constant $K_A$.
 	The four stimulatory PIP\textsubscript{2} binding sites of Kir6.2 bind PIP\textsubscript{2} with an equilbrium binding constant $K_B$.
-	The four stimulatory Mg-nucleotide binding site formed by the dimerisation of the NBDs of SUR1 (labelled as NBDs) bind either Mg-ATP or Mg-ADP (generalised to Mg-ANP) with an equilbrium binding constant $K_C$.
+	The four stimulatory Mg-nucleotide binding sites formed by the dimerisation of the NBDs of SUR1 (labelled as NBDs) bind either ATP or ADP with an equilbrium binding constant $K_C$, and Mg\textsuperscript{2+} is required for transduction.
 	Each binding domain interacts with the channel pore according to the factors $D_A$, $D_B$, and $D_{NBD}$ respectively.
 	In addition, there is a potential coupling between the inhibitory nucleotide binding site of Kir6.2 and the stimulatory PIP\textsubscript{2} binding site of Kir6.2 described by the factor $C$.
 	}\label{ch1fig:regulation_diagram}

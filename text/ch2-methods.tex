@@ -206,14 +206,93 @@ A lot of ink has been spilled on Bayesian methods and how they differ from frequ
 In both approaches, the likelihood is the most important component of the analysis, and as samples sizes grow larger the likelihood becomes increasingly influential.
 However, they differ in two key ways.
 Firstly, instead of calculating a point estimate and a confidence interval, Bayesian analysis gives us the full probability distribution of our parameters of interest.
-Throughout this thesis, I have presented the full posterior probability distributions and expressed them in terms of their credible intervals.
+Throughout this thesis, I have presented the full posterior probability distributions and expressed them in terms of their credible intervals (an example is given in Figure \ref{ch2fig:intervals}.
 The credible interval is intuitive - it is simply the the range containing a particular percentage of probable values.
 For example, the \SI{95}{\percent} credible interval is the central portion of the posterior distribution that contains \SI{95}{\percent} of the values.
 We can say that given the observed data, the parameter we are estimating has a \SI{95}{\percent} probability of falling within this range.
 
+\begin{figure}
+	\centering
+	\includegraphics[width=.75\textwidth]{intervals.pdf}
+	\caption[Credible intervals of a probability distribution]{
+		A normal probability distribution with a mean of 0 and a standard deviation of 1.
+		The distribution is shaded according to its credible intervals, the ranges of which are also indicated below the distribution.
+	}\label{ch2fig:intervals}
+\end{figure}
+
 The second difference is the flexibility Bayesian analysis offers for incorporation of uncertainty from different sources, through a method known as multilevel or hierarchical modelling.
 Multilevel models seek to describe datasets which consist of clusters or groups of measurements that may differ from one another \cite{andrew_gelman_bayesian_2014, mcelreath_statistical_2020}.
 As opposed to fitting each group individually, multilevel models allows for 'pooling' of information between groups to give improved estimates and avoid averaging over experimental variability.
+Again, it is easiest to appreciate this with an example.
+
+Imagine that instead of testing just one coin as in Figure \ref{ch2fig:coinflip}, we are interested in the differences between batches of coins.
+Instead of just modelling the variability inherent in the coin flip, we now need to capture any additional variability from batch to batch.
+We collect our data by flipping 100 different coins from 9 separate batches 50 times each, recording the number of heads in Figure \ref{ch2fig:mixed_1}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{coinflip_mixed_1.pdf}
+	\caption[Multilevel modelling of coinflips]{
+		Each point represents the number of heads recorded from a single coin flipped 50 times.
+		Data are presented in their separate batches.
+		The generative model was a binomial with each batch having a different probability of landing heads taken from a normal distribution with a mean of 0.5 and a standard deviation of 0.1.
+	}\label{ch2fig:mixed_1}
+\end{figure}
+
+We could fit this dataset with a single or fixed-level model by estimating the probability of a coin landing heads up individually for each batch as below:
+
+\begin{minipage}{.5\textwidth}
+\centering
+\includegraphics[width=\textwidth]{coinflip_priors_1.pdf}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+\centering
+\begin{equation} \label{eq:coinflip_priors_1}
+\begin{split}
+nheads_i &\sim Binomial(50, p_i) \\
+logit(p_i) &= \alpha_{batch[i]} \\
+\alpha_j &\sim Normal(0, 1)
+\end{split}
+\end{equation}
+\end{minipage}
+
+where $nheads_i$ is the number of times coin $i$ lands heads up, $\alpha_{batch[i]}$ is the unique log-odds for landing heads up for each batch of coins $j$, and $\alpha_j$ is our prior.
+This would give us a separate posterior probability distribution for each batch, but would not be able to tell us anything about the global population of all nine batches.
+The logit transformation here converts the prior from real values to probabilities between zero and one.
+
+Instead, in addition to estimating the probability separately for each batch, we can estimate a population parameter (across batches) and a parameter which corresponds to the variability between batches.
+We can do this with the multilevel model below:
+
+\begin{minipage}{.5\textwidth}
+\centering
+\includegraphics[width=\textwidth]{coinflip_priors_2.pdf}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+\centering
+\begin{equation} \label{eq:coinflip_priors_2}
+\begin{split}
+nheads_i &\sim Binomial(50, p_i) \\
+logit(p_i) &= \alpha_{batch[i]} \\
+\alpha_j &\sim Normal(\bar{\alpha}, \sigma) \\
+\bar{\alpha} &\sim Normal(0, 1) \\
+\sigma &\sim Cauchy(0, 1) \\
+\end{split}
+\end{equation}
+\end{minipage}
+
+where $\alpha_j$ is again our prior, but this time it has two separate parameters: one for the population average probability of landing heads up $\bar{\alpha}$, and one for the standard deviation of that probability between batches $\sigma$.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{coinflip_mixed_2.pdf}
+	\caption[Multilevel modelling of coinflips - fitting the model]{
+		Data are the same as in Figure \ref{ch2fig:mixed_1}.
+		Posterior probability densities for the population average probability of a coin landing heads up (in grey) and the probability of a coin from each batch landing heads up (coloured by batch), from fits to the model specified in equation \ref{eq:coinflip_priors_2}.
+	}\label{ch2fig:mixed_2}
+\end{figure}
+
+Fitting this model to the data in Figure \ref{ch2fig:mixed_1}, we can see that while the overall population average probability of a coin landing heads up when we flip it is very close to \SI{50}{\percent}, there is between group variability which we are able to capture using a multilevel model.
+For a more detailed - and eloquent - overview of Bayesian data analysis and multilevel modelling, Chapter 1 of \textcite{mcelreath_statistical_2020} is an excellent introduction.
 
 \section{Concentration response processing and presentation}
 Raw spectrographic images and current traces were pre-processed in Python and Clampfit (Axon) before analysis with R.
@@ -225,7 +304,7 @@ We fit our fluorescence quenching data with the following equation:
     \frac{y}{y_{max}} = 1 - E_{max} + \frac{E_{max}}{1 + 10^{(EC_{50} - [TNPATP]) \cdot h}} + \sigma
 \end{equation}
 where $y$ represents corrected fluorescence intensity, $EC_{50}$ and $[TNPATP]$ are $\log_{10}$ values, and $\sigma$ is the remaining variance.
-For the fluorescence quenching data, $E_{max}$ was fixed to the value obtained from W311*-GFP+SUR1 unroofed experiments (0.1) as explained in more detail in chapter \ref{ch4}.
+For the fluorescence quenching data, $E_{max}$ was fixed to the value obtained from W311*-GFP+SUR1 unroofed experiments (0.1) as explained in more detail in chapter \ref{ch:4}.
 Current inhibition data were fit to the same equation but with $y$ representing normalised current magnitude, $IC_{50}$ instead of $EC_{50}$, and $I_{max}$ instead of $E_{max}$.
 
 We used the brms package in R to perform a non-linear fit to equation \ref{eq:hill} reformulated as a multilevel model.
@@ -286,7 +365,7 @@ We can use this to normalise the predicted changes in the open fraction to an ob
 
 We used the brms package in R to fit a multilevel model to equations \ref{eq:mwc_binding} and \ref{eq:normalised_po}.
 First, we normalised the fluorescence quenching data by the $E_{max}$ determined from W311*-GFP+SUR1 unroofed experiments (0.1).
-We then corrected it by transforming each data point as $log_2(\frac{F}{F_{max} + 1})$ as described in more detail in Chapter \ref{ch3}.
+We then corrected it by transforming each data point as $log_2(\frac{F}{F_{max} + 1})$ as described in more detail in Chapter \ref{ch:3}.
 
 The parameters in the equation were supplied as:
 

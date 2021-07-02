@@ -42,7 +42,8 @@
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg4425" />
+     inkscape:current-layer="svg4425"
+     inkscape:document-rotation="0" />
   <defs
      id="defs4331">
     <style
@@ -293,4 +294,16 @@
        lengthAdjust="spacingAndGlyphs"
        id="text4421">FRET efficiency</text>
   </g>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:13.3333px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb"
+     x="160.45374"
+     y="15.033347"
+     id="text40180"><tspan
+       sodipodi:role="line"
+       id="tspan40178"
+       x="160.45374"
+       y="15.033347">R<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan40182">0</tspan></tspan></text>
 </svg>
