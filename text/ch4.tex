@@ -80,12 +80,12 @@ These two states exist in an equilibrium described by L, which is equivalent to 
 Ligand $A$ binds to the protein with a microscopic affinity constant $K_A$.
 The ligand $A$ differentially stabilises the open and closed states by a constant $D_A$.
 When $D_A$ is unity, the ligand $A$ binds equally to both states and so does not influence the conformational changes of the channel.
-When $D_A>1$, the ligand $A$ preferentially stabilises the open state, while when $D_A<1$ the ligand instead preferentially stabilises the closed state.
+When $D_A>1$, the ligand $A$ preferentially stabilises the open state, whereas when $D_A<1$ the ligand instead preferentially stabilises the closed state.
 $D_A$ therefore represents \textit{transduction} of nucleotide binding to channel gating, and vice versa.
 
 For K\ATP{} inhibition, each monomer in Scheme I represents a subunit of Kir6.2, and in our case the ligand $A$ is TNP-ATP.
-Expansion of Scheme I to account for four identical subunits is shown in Chapter \ref{ch:2-methods}.
-Importantly, in an MWC model, cooperativity between subunits is not due to the incorporation of an additional paramater, but a phenomenon which arises naturally due to the energetic coupling between ligand binding and channel gating described by the transduction paramater $D_A$.
+The equation describing the expansion of Scheme I to account for four identical subunits is shown in Chapter \ref{ch:2-methods}.
+Importantly, in an MWC model, cooperativity between subunits is not due to the incorporation of an additional parameter, but a phenomenon which arises naturally due to the energetic coupling between ligand binding and channel gating described by the transduction parameter $D_A$.
 
 \begin{figure}[h]
 	\centering
@@ -213,7 +213,8 @@ We would still expect changes in the three parameters which exist in Scheme I to
 		\includegraphics[width=\textwidth]{mwc_scheme_param_fits_3.pdf}
 	\end{subfigure}
 	\caption[Parameter retrieval from MWC models]{
-	\subref{ch4fig:scheme_2_kb_shift}, \subref{ch4fig:scheme_3_kb_shift} Data generated from \subref{ch4fig:scheme_2_kb_shift} Scheme II  or \subref{ch4fig:scheme_3_kb_shift} with $K_B$ shifted from $10^5$ to $10^6$.
+	\subref{ch4fig:scheme_2_kb_shift}, \subref{ch4fig:scheme_3_kb_shift} Data generated from \subref{ch4fig:scheme_2_kb_shift} Scheme II  or \subref{ch4fig:scheme_3_kb_shift} Scheme III with $K_B$ shifted from $10^5$ to $10^6$.
+	\subref{ch4fig:mwc_params_3} When $K_B$ is increased in Scheme II/III, fitting the generated data with Scheme I results in the expected increase in $L$ but also a reduction in $K_A$.
 	}\label{ch4fig:scheme_2_3_shifts}
 \end{figure}
 
@@ -329,7 +330,7 @@ For WT-GFP+SUR1, we observe that at frequencies approaching our filter cut-off a
 	The fitted value for $i$ is shown for each recording separately.
 	\subref{ch4fig:spectra_converge} Averaged power spectra for the three recordings analysed.
 	The blue line is the power spectra when channels are fully inhibited and represents the background, while the orange line is the power spectra when channels are most active.
-	The high frequency components of the current fluctuations are attenuated to near background levels above \SIrange{2}{3}{\kilo\hertz}.
+	The high frequency components of the current fluctuations are attenuated to near background levels above \SI{3}{\kilo\hertz}.
 	}\label{ch4fig:noise_manual}
 \end{figure}
 
@@ -385,8 +386,8 @@ In fact, the underestimation of $i$ from fitting to data simulated in this way i
 	\caption[Simulated multibinomial currents]{
 	\subref{ch4fig:simulated_noise_1} 5 second segments of simulated channel currents drawn from a single binomial distribution.
 	All segments share a common single channel conductance $i$ and number of channels $N$, but the $P_O$ is varied.
-	\subref{ch4fig:simulated_noise_2} Fits of equation \ref{eq:bin_2} to the simulated currents in \subref{ch4fig:simulated_noise_1} successfully retrieve an estimate of $i$ which is approximately correct.
-	\subref{ch4fig:simulated_noise_3} Fits of equation \ref{eq:bin_2} to segments of currents simulated by drawing from a mixture of two binomial distributions with different baseline $P_O$s.
+	\subref{ch4fig:simulated_noise_2} Fits to equation \ref{eq:bin_2} to the simulated currents in \subref{ch4fig:simulated_noise_1} successfully retrieve an estimate of $i$ which is approximately correct.
+	\subref{ch4fig:simulated_noise_3} Fits to equation \ref{eq:bin_2} to segments of currents simulated by drawing from a mixture of two binomial distributions with different baseline $P_O$s.
 	The estimate for $i$ retrieved by letting the parameter vary is much lower than the actual value for $i$.
 	Fixing $i$ to the correct value results in a fit which underestimates the number of channels $N$.
 	}\label{ch4fig:noise_sim}
@@ -412,8 +413,8 @@ The fits with $i$ fixed to \SI{4.32}{\pico\ampere} clearly fit the data less wel
 		\includegraphics[width=\textwidth]{noise_fits_2.pdf}
 	\end{subfigure}
 	\caption[Estimating open probability from stationary noise analysis]{
-	\subref{ch4fig:noise_fits_1} Plots of the mean current and variance for 1 second extracts from recordings of WT-GFP+SUR1 (blue) or W311*-GFP+SUR1 (orange).
-	Fits to equation x are shown as a solid line when $i$ is allowed to vary freely, and as a dashed line when $i$ is fixed to \SI{4.32}{\pico\ampere}.
+	\subref{ch4fig:noise_fits_1} Plots of the mean current against variance for 1 second extracts from recordings of WT-GFP+SUR1 (blue) or W311*-GFP+SUR1 (orange).
+	Fits to equation \ref{eq:bin_2} are shown as a solid line when $i$ is allowed to vary freely, and as a dashed line when $i$ is fixed to \SI{4.32}{\pico\ampere}.
 	\subref{ch4fig:noise_fits_2} Parameter estimates from fits in \subref{ch4fig:noise_fits_1} are shown as separate points for each experiment.
 	For fits to equation \ref{eq:bin_2}, open probability is calculated from the intial current on patch excision.
 	}\label{ch4fig:all_noise_fits}
@@ -456,7 +457,7 @@ First, we used bridge sampling to calculate a Bayes factor of \num{1.1e4} in fav
 The Bayes factor can be interpreted as the weight of evidence in favour of one model over another \cite{wagenmakers_practical_2007}.
 Specifically, the observed data are \num{1.1e4} more likely to have occured under the MWC model than they are under the single binding model.
 In addition, we performed leave-one-out cross-validation (LOO-CV), which approximates the out-of-sample predictive accuracy of each of the fitted models \cite{vehtari_practical_2017}.
-The MWC model fit has a higher expected predictive accuracy than the single binding model (elpd difference of \num{27.3 (63)}).
+The MWC model fit has a higher expected predictive accuracy than the single binding model (ELPD increase of \num{27.3 (63)}).
 Together, the Bayes factor and LOO-CV scores favour a concerted MWC binding model.
 
 \begin{figure}[h]
@@ -492,22 +493,21 @@ Together, the Bayes factor and LOO-CV scores favour a concerted MWC binding mode
 	\end{subfigure}
 	\caption[A concerted model explains the data better than an independent model]{
 	\subref{ch4fig:w311_mwc_fit_1} Current inhibition (orange) and fluorescence quenching (blue) by TNP-ATP of W311*-GFP+SUR1 in excised patches, data the same as Figure \ref{ch3fig:pcf_1}.
-	Fitted curves are the \SI{95}{\percent} intervals of the posterior probability distribution of fits to the MWC model paramaterised in equations \ref{eq:mwc_binding} and \ref{eq:normalised_po}, not including the $\delta_{experiment}$
+	Fitted curves are the \SI{95}{\percent} credible intervals of the posterior probability distribution of fits to the MWC model parameterised in equations \ref{eq:mwc_binding} and \ref{eq:normalised_po}, not including the $\delta_{experiment}$.
 	\subref{ch4fig:w311_mwc_fit_2} Each experiment from \subref{ch4fig:w311_mwc_fit_1} is plotted separately.
-	The fitted curves represent the \SI{95}{\percent} intervals of the posterior probability distribution including the $\delta_{experiment}$.
-	\subref{ch4fig:w311_single_fit_1} Current inhibition (orange) and fluorescence quenching (blue) by TNP-ATP of W311*-GFP+SUR1 in excised patches, data the same as Figure \ref{ch3fig:pcf_1}.
-	Fitted curves are the \SI{95}{\percent} intervals of the posterior probability distribution of fits to the single binding model paramaterised in equation x, not including the $\delta_{experiment}$
+	The fitted curves represent the \SI{95}{\percent} credible intervals of the posterior probability distribution including the $\delta_{experiment}$.
+	\subref{ch4fig:w311_single_fit_1} Data the same as \subref{ch4fig:w311_mwc_fit_1}, but the fitted curves are the \SI{95}{\percent} credible intervals of the posterior probability distribution of fits to the single binding model parameterised in equations \ref{eq:single_binding} and \ref{eq:single_gating}, not including the $\delta_{experiment}$.
 	\subref{ch4fig:w311_single_fit_2} Each experiment from \subref{ch4fig:w311_single_fit_1} is plotted separately.
-	The fitted curves represent the \SI{95}{\percent} intervals of the posterior probability distribution including the $\delta_{experiment}$.
-	\subref{ch4fig:w311_mwc_fit_3} Posterior probability distributions for each of the three free parameters estimated from fits to the MWC model (blue) or the single binding model (orange) are shown shaded according to their intervals.
+	The fitted curves represent the \SI{95}{\percent} credible intervals of the posterior probability distribution including the $\delta_{experiment}$.
+	\subref{ch4fig:w311_mwc_fit_3} Posterior probability distributions for each of the three free parameters estimated from fits to the MWC model (purple) or the single binding model (green) are shown shaded according to their credible intervals.
 	The prior distributions for each of the parameters are shown as a dashed line.
 	}\label{ch4fig:w311_model_comparison}
 \end{figure}
 
-The \SI{95}{\percent} intervals for $K_A$ are \SIrange{9e3}{1.7e4}{\per\Molar} for the MWC model, corresponding to a $K_d$ of \SIrange{56}{110}{\micro\Molar}.
-The \SI{95}{\percent} intervals for $L$ are \numrange{.007}{.254}, which is equivalent to an unliganded $P_O$ of \numrange{<0.01}{0.2}.
+The \SI{95}{\percent} credible intervals for $K_A$ are \SIrange{9e3}{1.7e4}{\per\Molar} for the MWC model, corresponding to a $K_d$ of \SIrange{56}{110}{\micro\Molar}.
+The \SI{95}{\percent} credible intervals for $L$ are \numrange{.007}{.254}, which is equivalent to an unliganded $P_O$ of \numrange{<0.01}{0.2}.
 This is a broad range of predicted $P_O$, which may reflect the variability of PIP\textsubscript{2} concentrations in the excised patches.
-The \SI{95}{\percent} intervals for $D_A$ are \numrange{.002}{.096}.
+The \SI{95}{\percent} credible intervals for $D_A$ are \numrange{.002}{.096}.
 This low range for $D_A$ indicates very strong coupling between TNP-ATP binding to Kir6.2 and K\ATP{} channel closure.
 Based on the fits to the data, we can illustrate how these models couple nucleotide binding to the functional state of the channel by predicting the occupancy of the different states of the K\ATP{} channel defined in Figure \ref{ch4fig:model_compare}.
 Figure \ref{ch4fig:w311_model_comparison} shows the weighted occupancy of each of the ten states across a range of TNP-ATP concentrations as predicted by our fits to an MWC or single binding model.
@@ -528,9 +528,9 @@ Crucially however, for the single binding model to explain the data in Figure \r
 		\includegraphics[width=\textwidth]{weighted_states_2.pdf}
 	\end{subfigure}
 	\caption[Comparing the states and weights of concerted and independent models]{
-	\subref{ch4fig:w311_states_weights_1}, \subref{ch4fig:w311_states_weights_2} Weighted occupancy of the different states of W311*-GFP+SUR1 predicted by the fits to the data in Figure \ref{ch4fig:w311_model_comparison} as the concentration of TNP-ATP increases.
+	\subref{ch4fig:w311_states_weights_1}, \subref{ch4fig:w311_states_weights_2} Weighted occupancy of the different states of W311*-GFP+SUR1 predicted by the MWC fits to the data in Figure \ref{ch4fig:w311_model_comparison} as the concentration of TNP-ATP increases.
 	\subref{ch4fig:w311_states_weights_1} shows the occupancy on a linear scale, while \subref{ch4fig:w311_states_weights_2} shows the occupancy on a logarithmic scale.
-	The weighted occupancies are shown as the \SI{95}{\percent} posterior proability distributions from the fits to the parameters shown in Figure \ref{ch4fig:w311_mwc_fit_3}.
+	The weighted occupancies are shown as the \SI{95}{\percent} creduble intervals of the posterior proability distributions from the MWC fits to the parameters shown in Figure \ref{ch4fig:w311_mwc_fit_3}.
 	}\label{ch4fig:w311_model_comparison}
 \end{figure}
 

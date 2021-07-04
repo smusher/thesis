@@ -1,0 +1,1 @@
+pandoc -F pandoc-crossref --citeproc --lua-filter /home/sam/thesis/remove-tables-images.lua --bibliography=/home/sam/thesis/text/ref_gen_210302.bib -o /home/sam/thesis/draft_210704.docx /home/sam/thesis/main.tex

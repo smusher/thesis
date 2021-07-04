@@ -329,7 +329,7 @@ We also see a consistent increase in luminescence for all constructs aside from 
 	Before fitting, the observations for each construct were centered by subtracting the mean of the luminesence observed without the N-terminal HA tag.
 	Observations for constructs without the N-terminal HA tag and for constructs transfected with both ANAP and SUR1 are duplicated between panels to clarify the differences observed when either ANAP (\subref{ch3fig:surface_expression_1}) or SUR1 (\subref{ch3fig:surface_expression_2}) are omitted.
 	\subref{ch3fig:surface_expression_3}, \subref{ch3fig:surface_expression_4} Contrasts between constructs differing only in the presence or absence of the N-terminal HA-tag (\subref{ch3fig:surface_expression_3}) or the presence or absence of ANAP in the culture media (\subref{ch3fig:surface_expression_4}).
-	Different intervals in the posterior probability distribution of the contrasts are shown in shades of blue.
+	Different credible intervals in the posterior probability distribution of the contrasts are shown in shades of blue.
 	}
 \end{figure}
 
@@ -343,7 +343,7 @@ We fit our inhibition data with equation \ref{eq:hill} (Figure \ref{ch3fig:atp_i
 Briefly, our fitting procedure assumes that there is a population parameter for $IC_{50}$, $I_{max}$ and $h$, and an additional 'random' effect on $IC_{50}$ that can differ between experiments (shown in Figure \ref{ch3fig:atp_inhibition_2}).
 Our fits result in posterior probability distributions for the population $IC_{50}$ parameter shown in blue in Figure \ref{ch3fig:ec50_fits_1}.
 These distributions reflect our confidence in the population parameter for the $IC_{50}$.
-For all $IC_50$ and $EC_{50}$ values fitted this way, in the text we will report the \SI{95}{\percent} intervals of the posterior probability distribution for the fitted population parameter.
+For all $IC_50$ and $EC_{50}$ values fitted this way, in the text we will report the \SI{95}{\percent} credible intervals of the posterior probability distribution for the fitted population parameter.
 
 Perfusion of ATP resulted in current inhibition with an IC\textsubscript{50} of \SIrange{24}{45}{\micro\Molar} for WT-GFP+SUR1 and \SIrange{75}{124}{\micro\Molar} for W311*-GFP+SUR1.
 Thus, despite the distance from the ATP binding site, the incorporation of ANAP at W311 clearly affects some aspect of nucleotide inhibition.
@@ -388,9 +388,9 @@ This could potentially be due to extra contacts made by the TNP moiety with Kir6
 	\caption[WT-GFP and W311*-GFP electrophysiology]{
 	\subref{ch3fig:atp_inhibition_1},  \subref{ch3fig:tnpatp_inhibition_1}Inhibition of current by ATP (\subref{ch3fig:atp_inhibition_1}) or TNP-ATP (\subref{ch3fig:tnpatp_inhibition_1}) in excised patches expressing either WT-GFP+SUR1 (blue) or W311*-GFP+SUR1 (orange).
 	Each point represents an individual measurement normalised to the average of the current measured immediately before TNP-ATP perfusion, and immediately after TNP-ATP washout.
-	The smooth filled curves are the \SI{95}{\percent} intervals of the posterior probability distribution of fits to equation \ref{eq:hill} as described in the methods.
+	The smooth filled curves are the \SI{95}{\percent} credible intervals of the posterior probability distribution of fits to equation \ref{eq:hill} as described in the methods.
 	\subref{ch3fig:atp_inhibition_2}, \subref{ch3fig:tnpatp_inhibition_2} Data from each experiment is shown separately.
-	The smooth filled curves are the \SI{95}{\percent} intervals of the posterior predictions for each experiment.
+	The smooth filled curves are the \SI{95}{\percent} credible intervals of the posterior predictions for each experiment.
 	\subref{ch3fig:ec50_fits_1} Posterior probability distributions for the population $IC_{50}$ values for inhibition by ATP (blue) or TNP-ATP (orange).
 	}
 \end{figure}
@@ -569,11 +569,11 @@ When fit to a Hill equation, quenching ($F/F_{max}$) was fit with an EC\textsubs
 	\subref{ch3fig:tnpatp_quenching_1} Fluorescence quenching of W311*-GFP+SUR1 by TNP-ATP in unroofed membrane patches.
 	Each uncorrected point (white with dashed blue outline) represents an individual measurement normalised to the maximum current observed in that unroofed membrane.
 	Each corrected point (blue filled points) has been transformed to $log_2(\frac{F}{F_{max}}+1)$.
-	The smooth filled curves are the \SI{95}{\percent} intervals of the posterior probability distribution of fits to equation \ref{eq:hill} as described in the methods.
+	The smooth filled curves are the \SI{95}{\percent} credible intervals of the posterior probability distribution of fits to equation \ref{eq:hill} as described in the methods.
 	The dashed curve is the median of the fits to the uncorrected data.
 	\subref{ch3fig:ec50_fits_3} Posterior probability distribution for the population $EC_{50}$ values from fits to the corrected $F/F_{max}$ data.
 	\subref{ch3fig:tnpatp_quenching_2} Data from each experiment is shown separately.
-	The smooth filled curves are the \SI{95}{\percent} intervals of the posterior predictions for each experiment.
+	The smooth filled curves are the \SI{95}{\percent} credible intervals of the posterior predictions for each experiment.
 	}
 \end{figure}
 
@@ -660,9 +660,9 @@ This finding has implications for how exactly the binding of nucleotides to Kir6
 	Each spectra was captured with a one second exposure and corrected for background fluorescence and bleaching as described elsewhere.
 	\subref{ch3fig:atp_tnpatp_spectra_2} Averaged traces of the spectra shown in \subref{ch3fig:atp_tnpatp_spectra_1}. The location of the peak ANAP fluorescence is marked by a grey box.
 	\subref{ch3fig:pcf_1} Current inhibition ($I/I_{max}$, orange points) and fluorescence quenching (adjusted $F/F_{max}$, blue points) of W311*-GFP+SUR1 in excised membrane patches recorded simultaneously.
-	The smooth filled curves are the \SI{95}{\percent} intervals of the posterior probability distribution of fits to equation \ref{eq:hill} as described in the methods.
-	The dashed blue lines are the \SI{95}{\percent} intervals of the fits reported in Figure \ref{ch3fig:tnpatp_quenching_1}.
-	\subref{ch3fig:ec50_fits_4} Posterior probability distributions for the estimated population $EC_{50}$ and $IC_{50}$ values are shown coloured according to their intervals.
+	The smooth filled curves are the \SI{95}{\percent} credible intervals of the posterior probability distribution of fits to equation \ref{eq:hill} as described in the methods.
+	The dashed blue lines are the \SI{95}{\percent} credible intervals of the fits reported in Figure \ref{ch3fig:tnpatp_quenching_1}.
+	\subref{ch3fig:ec50_fits_4} Posterior probability distributions for the estimated population $EC_{50}$ and $IC_{50}$ values are shown coloured according to their credible intervals.
 	The posterior probability distribution for the $EC_{50}$ values in unroofed membranes is the same as reported in Figure \ref{ch3fig:ec50_fits_3}.
 	}
 \end{figure}
