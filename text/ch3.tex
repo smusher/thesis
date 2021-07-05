@@ -147,22 +147,22 @@ However, as we were able to see K\ATP{} membrane expression and currents when we
 	\begin{subfigure}[t]{0.4\textwidth}
 		\caption{}\label{ch3fig:6c3p_bound}
 		\centering
-		\includegraphics[width=\textwidth]{6c3p_site_bound.png}
+		\includegraphics[width=\textwidth]{6c3p_site_bound_2.pdf}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[t]{0.4\textwidth}
 		\caption{}\label{ch3fig:6c3p_docked}
 		\centering
-		\includegraphics[width=\textwidth]{6c3p_site_docked.png}
+		\includegraphics[width=\textwidth]{6c3p_site_docked_2.pdf}
 	\end{subfigure}
 	
 	\caption[TNP-ATP is predicted to bind with a similar pose to ATP]{
-	\subref{ch3fig:6baa_docking}, \subref{ch3fig:6c3p_docking}, \subref{ch3fig:6c3o_docking} Cryo-EM binding poses for ATP bound to Kir6.2 (white) from PDB \#6BAA (\subref{ch3fig:6baa_docking}), \#6C3P (\subref{ch3fig:6c3p_docking}) and \#6C30 (\subref{ch3fig:6c3o_docking}) overlayed with either the ten highest scoring computationally docked ATP poses (red) or the three highest scoring computationally docked TNP-ATP poses (orange).
+	\subref{ch3fig:6baa_docking}, \subref{ch3fig:6c3p_docking}, \subref{ch3fig:6c3o_docking} Cryo-EM binding poses for ATP bound to Kir6.2 (white) from PDB \#6BAA (\subref{ch3fig:6baa_docking}), \#6C3P (\subref{ch3fig:6c3p_docking}) and \#6C30 (\subref{ch3fig:6c3o_docking}) overlayed with either the ten highest scoring computationally docked ATP poses (red) or the three highest scoring computationally docked TNP-ATP poses (orange) to demonstrate the similarity in binding poses.
 	Starting poses for ATP were generated from ten different random seeds based on the cryo-EM poses.
-	Starting poses for TNP-ATP were generated from eleven structures taken from the RCSB database for different proteins solved in the presence of TNP-ATP.
-	The poses shown are from \#5SVQ (X-ray diffraction structure of TNP-ATP bound to the human P2X3 ion channel).
-	\subref{ch3fig:6c3p_bound} Cryo-EM structure of the nucleotide binding site in the presence of ATP from PDB \#6C3P.
-	\subref{ch3fig:6c3p_docked} As \subref{ch3fig:6c3p_bound} but with the three top scoring binding poses for docked TNP-ATP.
+	Starting poses for TNP-ATP were generated from eleven structures taken from the RCSB database for different proteins solved in the presence of TNP-ATP - the poses shown are from \#5SVQ (X-ray diffraction structure of TNP-ATP bound to the human P2X3 ion channel).
+	\subref{ch3fig:6c3p_bound}, \subref{ch3fig:6c3p_docked} Cryo-EM structure of the nucleotide binding site in the presence of ATP from PDB \#6C3P (\subref{ch3fig:6c3p_bound}) or with the three highest scoring computationally docked TNP-ATP poses (\subref{ch3fig:6c3p_docked}).
+	Side chains from two residues implicated in ATP binding are labelled (R50, K185), along with two residues predicted to lie within \SI{3}{\angstrom} of the TNP-moiety of the docked TNP-ATP (E51, K39).
+	Residue E203 from the L0 loop of SUR1 is also labelled as it is predicted to be the closest residue on SUR1 to the TNP-moiety at a distance of \SI{5.3}{\angstrom} at the closest point.
 	}\label{ch3fig:docking}
 \end{figure}
 
@@ -330,6 +330,7 @@ We also see a consistent increase in luminescence for all constructs aside from 
 	Observations for constructs without the N-terminal HA tag and for constructs transfected with both ANAP and SUR1 are duplicated between panels to clarify the differences observed when either ANAP (\subref{ch3fig:surface_expression_1}) or SUR1 (\subref{ch3fig:surface_expression_2}) are omitted.
 	\subref{ch3fig:surface_expression_3}, \subref{ch3fig:surface_expression_4} Contrasts between constructs differing only in the presence or absence of the N-terminal HA-tag (\subref{ch3fig:surface_expression_3}) or the presence or absence of ANAP in the culture media (\subref{ch3fig:surface_expression_4}).
 	Different credible intervals in the posterior probability distribution of the contrasts are shown in shades of blue.
+	Only W311*-GFP coexpressed with SUR1 shows a large fold change in luminescence when ANAP is included in the culture media.
 	}
 \end{figure}
 
@@ -386,8 +387,8 @@ This could potentially be due to extra contacts made by the TNP moiety with Kir6
 		\includegraphics[width=\textwidth]{ec50_fits_1.pdf}
 	\end{subfigure}
 	\caption[WT-GFP and W311*-GFP electrophysiology]{
-	\subref{ch3fig:atp_inhibition_1},  \subref{ch3fig:tnpatp_inhibition_1}Inhibition of current by ATP (\subref{ch3fig:atp_inhibition_1}) or TNP-ATP (\subref{ch3fig:tnpatp_inhibition_1}) in excised patches expressing either WT-GFP+SUR1 (blue) or W311*-GFP+SUR1 (orange).
-	Each point represents an individual measurement normalised to the average of the current measured immediately before TNP-ATP perfusion, and immediately after TNP-ATP washout.
+	\subref{ch3fig:atp_inhibition_1}, \subref{ch3fig:tnpatp_inhibition_1} Inhibition of current by ATP (\subref{ch3fig:atp_inhibition_1}) or TNP-ATP (\subref{ch3fig:tnpatp_inhibition_1}) in excised patches expressing either WT-GFP+SUR1 (blue) or W311*-GFP+SUR1 (orange).
+	Each point represents an individual measurement at the nucleotide concentration indicated, bracketed by perfusion with nucleotide-free solution and normalised to the mean current observed there.
 	The smooth filled curves are the \SI{95}{\percent} credible intervals of the posterior probability distribution of fits to equation \ref{eq:hill} as described in the methods.
 	\subref{ch3fig:atp_inhibition_2}, \subref{ch3fig:tnpatp_inhibition_2} Data from each experiment is shown separately.
 	The smooth filled curves are the \SI{95}{\percent} credible intervals of the posterior predictions for each experiment.
@@ -442,10 +443,10 @@ We can plot the quenching of ANAP fluorescence as a concentration-response curve
 	The dashed white lines indicate the region of the image isolated by the spectrometer mask for spectral imaging.
 	\subref{ch3fig:unroofed_spectral_images} Bleaching-corrected spectral images of the unroofed membrane patch in \subref{ch3fig:unroofed_images} captured in the presence of different concentrations of TNP-ATP.
 	Each image represents the region delineated by the dashed white lines in \subref{ch3fig:unroofed_images}, but the $x$-dimension is lost and instead we are able to separate the emitted light by wavelength.
+	The location of the three fluorescent peaks are indicated by arrows at the top of the plot.
 	\subref{ch3fig:unroofed_spectral_traces} Line-averaged, bleaching-corrected traces of the spectral images in \subref{ch3fig:unroofed_spectral_images} coloured according to the TNP-ATP concentration present.
-	The two clearest peaks in emission belong to ANAP and GFP.
-	The ANAP peak is marked with with a grey line.
-	At the higher TNP-ATP concentrations, the presence of a third peak belonging to the TNP-moiety begins to appear as the ANAP peak reduces in intensity due to FRET.
+	The two clearest peaks in emission belong to ANAP and GFP, marked with light blue and light green shaded bars respectively.
+	At the higher TNP-ATP concentrations, the presence of a third peak belonging to the TNP-moiety begins to appear as the ANAP peak reduces in intensity due to FRET, marked with a light orange shaded bar.
 	\subref{ch3fig:unroofed_intensities} Bleaching-corrected ANAP fluorescence intensities of the spectral traces in \subref{ch3fig:unroofed_spectral_images} expressed as the average fluorescence of the ANAP peak (the average intensity of the spectra inside the grey line in \subref{ch3fig:unroofed_spectral_images}) divided by the average fluorescence of the ANAP peak in $0$ TNP-ATP, or $F/F_{max}$.
 	}
 \end{figure}
@@ -657,11 +658,13 @@ This finding has implications for how exactly the binding of nucleotides to Kir6
 	\subref{ch3fig:atp_tnpatp_trace} Current trace from an excised patch expressing W311*-GFP+SUR1 perfused with either ATP or TNP-ATP.
 	The zero current level is shown as a dotted line, and the nucleotide applications are marked as coloured bars.
 	\subref{ch3fig:atp_tnpatp_spectra_1} Spectra captured from the same patch during the nucleotide applications marked in \subref{ch3fig:atp_tnpatp_trace}, and during the washout periods between applications.
-	Each spectra was captured with a one second exposure and corrected for background fluorescence and bleaching as described elsewhere.
-	\subref{ch3fig:atp_tnpatp_spectra_2} Averaged traces of the spectra shown in \subref{ch3fig:atp_tnpatp_spectra_1}. The location of the peak ANAP fluorescence is marked by a grey box.
+	Each spectra was captured with a one second exposure and corrected for background fluorescence and bleaching as described in the main text.
+	The location of the three fluorescent peaks are indicated by arrows at the top of the plot.
+	\subref{ch3fig:atp_tnpatp_spectra_2} Averaged traces of the spectra shown in \subref{ch3fig:atp_tnpatp_spectra_1}.
+	The three fluorescence peaks are maked with shaded blue (ANAP), green (GFP) and orange (TNP-ATP) bars.
 	\subref{ch3fig:pcf_1} Current inhibition ($I/I_{max}$, orange points) and fluorescence quenching (adjusted $F/F_{max}$, blue points) of W311*-GFP+SUR1 in excised membrane patches recorded simultaneously.
 	The smooth filled curves are the \SI{95}{\percent} credible intervals of the posterior probability distribution of fits to equation \ref{eq:hill} as described in the methods.
-	The dashed blue lines are the \SI{95}{\percent} credible intervals of the fits reported in Figure \ref{ch3fig:tnpatp_quenching_1}.
+	The dashed blue line is the median fit to the fluorescence quenching in unroofed membranes reported in Figure \ref{ch3fig:tnpatp_quenching_1}.
 	\subref{ch3fig:ec50_fits_4} Posterior probability distributions for the estimated population $EC_{50}$ and $IC_{50}$ values are shown coloured according to their credible intervals.
 	The posterior probability distribution for the $EC_{50}$ values in unroofed membranes is the same as reported in Figure \ref{ch3fig:ec50_fits_3}.
 	}
