@@ -210,6 +210,7 @@ Thus, even at millimolar concentrations of TNP-ATP when all of the Kir6.2 subuni
 	The dotted lines are the equivalent credible intervals for MWC fits to the W311*-GFP+SUR1 construct as shown in Figure \ref{ch3fig:pcf_1}.
 	White circles are the inhibition of current by \SI{10}{\milli\Molar} ATP in separate experiments.
 	\subref{ch5fig:c166s_mwc_params_1} Posterior probability distributions for the estimated population $L$, $D_A$ and $K_A$ values are shown shaded according to their credible intervals.
+	Each construct is coexpressed with SUR1.
 	}\label{ch5fig:c166s_3}
 \end{figure}
 
@@ -336,10 +337,12 @@ In addition, mutation to a K led to a $D_A$ value closer to unity than for E or 
 	\end{subfigure}
 	\caption[E179 mutations affect gating and nucleotide binding]{
 	\subref{ch5fig:mwc_e179_1} Fluorescence quenching (blue) and current inhibition (orange) from excised patches expressing W311*,E179A-GFP+SUR1 (left) or W311*,E179K-GFP+SUR1 (right).
+	Data points are the same as shown in Figures \ref{ch5fig:e179_tnpatp_popfits_1} and \ref{ch5fig:e179_tnpatp_popfits_2}.
 	The smooth filled curves are the \SI{95}{\percent} credible intervals of the posterior probability distribution of fits to equations \ref{eq:mwc_binding} and \ref{eq:normalised_po}.
-	Dashed curves are for comparison, and indicate the \SI{95}{\percent} credible intervals of the posterior probability distribution of fits to equations \ref{eq:mwc_binding} and \ref{eq:normalised_po} for the W311*-GFP+SUR1 data.
+	Dark grey curves are for comparison, and indicate the \SI{95}{\percent} credible intervals of the posterior probability distribution of fits to equations \ref{eq:mwc_binding} and \ref{eq:normalised_po} for the W311*-GFP+SUR1 data.
 	\subref{ch5fig:mwc_e179_2} Posterior probability distributions for the estimated population $L$, $D$ and $K_A$ parameters from the fits in panel \subref{ch5fig:mwc_e179_1}.
 	Each distribution is shaded with respect to its credible intervals.
+	Each construct is coexpressed with SUR1.
 	}\label{ch5fig:e179_2}
 \end{figure}
 
@@ -360,36 +363,44 @@ This suggests a potential role for K39 in the binding sites of both ATP and PIP\
 		\centering
 		\includegraphics[width=\textwidth]{k39_1.pdf}
 	\end{subfigure}
-	\hfill
-	\begin{subfigure}[t]{0.45\textwidth}
+	\vfill
+	\begin{subfigure}[t]{0.9\textwidth}
+		\caption{}\label{ch5fig:k39_atp_popfits}
+		\centering
+		\includegraphics[width=\textwidth]{k39_2.pdf}
+	\end{subfigure}
+	\caption[Functional effects of K39 mutations on ATP inhibition]{
+	\subref{ch5fig:k39_loc} Residue K39 is shown in purple in the cryo-EM structure of K\ATP{} (PDB \#6C3P), with all four Kir6.2 and two SUR1 subunits shown.
+	Adjacent subunits of Kir6.2 are shown in two different shades of yellow, TMD0 and L0 of SUR1 are shown in two different shades of blue.
+	The core of SUR1 is not shown.
+	Bound ATP is shown in red.
+	\subref{ch5fig:k39_atp_popfits} Current inhibition of K39 mutants in the WT-GFP+SUR1 and W311*-GFP+SUR1 background by ATP is shown in purple.
+	Each point represents an individual experiment.
+	The smooth filled curves are the \SI{95}{\percent} credible intervals of the posterior probability distribution of fits to equation \ref{eq:hill} as described in the methods.
+	}\label{ch5fig:k39_1}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[t]{0.9\textwidth}
 		\caption{}\label{ch5fig:k39_tnpatp_popfits_1}
 		\centering
 		\includegraphics[width=\textwidth]{k39_3.pdf}
 	\end{subfigure}
 	\vfill
-	\begin{subfigure}[t]{0.45\textwidth}
-		\caption{}\label{ch5fig:k39_atp_popfits}
-		\centering
-		\includegraphics[width=\textwidth]{k39_2.pdf}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[t]{0.45\textwidth}
+	\begin{subfigure}[t]{0.9\textwidth}
 		\caption{}\label{ch5fig:k39_tnpatp_popfits_2}
 		\centering
 		\includegraphics[width=\textwidth]{k39_4.pdf}
 	\end{subfigure}
-	\caption[Functional effects of K39 mutations]{
-	\subref{ch5fig:k39_loc} Residue K39 is shown in purple in the cryo-EM structure of K\ATP{} (PDB \#6C3P), with all four Kir6.2 and two SUR1 subunits shown.
-	Adjacent subunits of Kir6.2 are shown in two different shades of yellow, TMD0 and L0 of SUR1 are shown in two different shades of blue.
-	The core of SUR1 is not shown.
-	Bound ATP is shown in red.
-	\subref{ch5fig:k39_tnpatp_popfits_1}, \subref{ch5fig:k39_atp_popfits} Current inhibition of K39 mutants in the WT-GFP+SUR1 and W311*-GFP+SUR1 background by TNP-ATP (\subref{ch5fig:k39_tnpatp_popfits_1}) or ATP (\subref{ch5fig:k39_atp_popfits}) is shown in purple.
+	\caption[Functional effects of K39 mutations on TNP-ATP binding and inhibition]{
+	\subref{ch5fig:k39_tnpatp_popfits_1} Current inhibition of K39 mutants in the WT-GFP+SUR1 and W311*-GFP+SUR1 background by TNP-ATP is shown in purple.
 	Each point represents an individual experiment.
 	The smooth filled curves are the \SI{95}{\percent} credible intervals of the posterior probability distribution of fits to equation \ref{eq:hill} as described in the methods.
 	\subref{ch5fig:k39_tnpatp_popfits_2} Fluorescence quenching of K39 mutants in the W311*-GFP+SUR1 background by TNP-ATP in excised patches acquired simultaneously with the inhibition data in panel \subref{ch5fig:k39_tnpatp_popfits_1} is shown in purple.
 	Each point represents an individual experiment.
 	The smooth filled curves are the \SI{95}{\percent} credible intervals of the posterior probability distribution of fits to equation \ref{eq:hill} as described in the methods.
-	}\label{ch5fig:k39_1}
+	}\label{ch5fig:k39_1b}
 \end{figure}
 
 \begin{figure}[h]
@@ -434,10 +445,12 @@ The increase in our estimate for $D_A$ when K39 is mutated to an A or an E, but 
 	\end{subfigure}
 	\caption[K39 mutations affect gating and nucleotide binding]{
 	\subref{ch5fig:mwc_k39_1} Current inhibition (orange) and fluorescence quenching (blue) from excised patches expressing W311*,K39A-GFP+SUR1 (left), W311*,K39E-GFP+SUR1 (middle), or W311*,K39R-GFP+SUR1 (right).
+	Data points are the same as shown in Figures \ref{ch5fig:k39_tnpatp_popfits_1} and \ref{ch5fig:k39_tnpatp_popfits_2}.
 	The smooth filled curves are the \SI{95}{\percent} credible intervals of the posterior probability distribution of fits to equations \ref{eq:mwc_binding} and \ref{eq:normalised_po}.
-	Dashed curves are for comparison, and indicate the \SI{95}{\percent} credible intervals of the posterior probability distribution of fits to equations \ref{eq:mwc_binding} and \ref{eq:normalised_po} for the W311*-GFP+SUR1 data.
+	The dark grey curves are for comparison, and indicate the \SI{95}{\percent} credible intervals of the posterior probability distribution of fits to equations \ref{eq:mwc_binding} and \ref{eq:normalised_po} for the W311*-GFP+SUR1 data.
 	\subref{ch5fig:mwc_k39_2} Posterior probability distributions for the estimated population $L$, $D$ and $K_A$ parameters from the fits in panel \subref{ch5fig:mwc_k39_1}.
 	Each distribution is shaded with respect to its credible intervals.
+	Each construct is coexpressed with SUR1.
 	}\label{ch5fig:k39_2}
 \end{figure}
 

@@ -179,7 +179,7 @@ where
 \end{itemize}
 
 Building and fitting a Bayesian model to data involves setting a prior probability for each parameter included in the model, and then updating the posterior probability based on the likelihood of the collected data.
-What does this look like in practise?
+What does this look like in practice?
 
 \begin{figure}
 	\centering
@@ -198,7 +198,7 @@ After flipping our coin ten times, we find that it landed heads up eight times, 
 When we calculate our posterior probability distribution, which is proportional to the product of the prior and the likelihood, we see it falls midway between the prior and the likelihood (purple line).
 Why?
 Ten coin flips is not particularly strong evidence, so even though our coin landed heads up eight times out of ten, there is still a good chance that the coin is fair - especially starting from the assumption that most coins are!
-However, if we flip the coin fourty more times for a total of fifty coin flips, the likelihood begins to dominate our posterior probability distribution, pulling it away from the prior.
+However, if we flip the coin forty more times for a total of fifty coin flips, the likelihood begins to dominate our posterior probability distribution, pulling it away from the prior.
 It is now clear that this is not a fair coin; the 95\textsuperscript{th} percentiles of our posterior probability distribution fall between a \SIrange{65}{87}{\percent} chance of landing heads up.
 In actuality, the coin we have been flipping has an \SI{80}{\percent} chance of landing heads up, well within our posterior probability distribution.
 
@@ -222,7 +222,7 @@ We can say that given the observed data, the parameter we are estimating has a \
 
 The second difference is the flexibility Bayesian analysis offers for incorporation of uncertainty from different sources, through a method known as multilevel or hierarchical modelling.
 Multilevel models seek to describe datasets which consist of clusters or groups of measurements that may differ from one another \cite{gelman_bayesian_2014, mcelreath_statistical_2020}.
-As opposed to fitting each group individually, multilevel models allows for 'pooling' of information between groups to give improved estimates and avoid averaging over experimental variability.
+As opposed to fitting each group individually, multilevel models allow for 'pooling' of information between groups to give improved estimates and avoid averaging over experimental variability.
 Again, it is easiest to appreciate this with an example.
 
 Imagine that instead of testing just one coin as in Figure \ref{ch2fig:coinflip}, we are interested in the differences between batches of coins.
@@ -280,7 +280,7 @@ logit(p_i) &= \alpha_{batch[i]} \\
 \end{equation}
 \end{minipage}
 
-where $\alpha_j$ is again our prior, but this time it has two separate parameters: one for the population average probability of landing heads up $\bar{\alpha}$, and one for the standard deviation of that probability between batches $\sigma$.
+where $\alpha_j$ is again our prior probability, but this time it has two separate parameters: one for the population average probability of landing heads up $\bar{\alpha}$, and one for the standard deviation of that probability between batches $\sigma$.
 
 \begin{figure}
 	\centering
@@ -297,7 +297,7 @@ For a more detailed - and eloquent - overview of Bayesian data analysis and mult
 \section{Concentration response processing and presentation}
 Raw spectrographic images and current traces were pre-processed in Python and Clampfit (Axon) before analysis with R.
 Where applicable, all experimental data points are displayed in each figure.
-To help visualise uncertainty and prevent some data points being hidden, they are arranged with a small amount of horizontal jitter; vertical position remains unaffected.
+To help visualise uncertainty and prevent some data points being hidden, they are arranged with a small amount of horizontal jitter; the vertical position remains unaffected.
 
 We fit our fluorescence quenching data with the following equation:
 \begin{equation} \label{eq:hill}

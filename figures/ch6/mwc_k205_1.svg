@@ -41,7 +41,7 @@
      showgrid="false"
      inkscape:zoom="1"
      inkscape:cx="250.89095"
-     inkscape:cy="194.26681"
+     inkscape:cy="74.26681"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -11677,4 +11677,92 @@
      clip-path="url(#cpOTA4LjgxfDEzMzkuOTV8NDY5LjUwfDIyLjQw-7-8)"
      id="circle14148-9"
      transform="matrix(1.1579286,0,0,1.1579286,-1070.7955,9.6277444)" />
+  <rect
+     style="opacity:0.99;fill:#263238;fill-opacity:0.5;stroke:none;stroke-width:1.88976;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+     id="rect18438-4-7"
+     width="21.858936"
+     height="5.1155124"
+     x="38.495964"
+     y="123.83327" />
+  <path
+     style="fill:none;stroke:#263238;stroke-width:1.88976;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+     d="m 38.495944,126.39104 h 21.85894"
+     id="path18345-0-9-8" />
+  <text
+     xml:space="preserve"
+     style="font-stretch:condensed;font-size:10.6667px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.999999"
+     x="66.07177"
+     y="130.39638"
+     id="text18373-7-8"><tspan
+       sodipodi:role="line"
+       id="tspan18371-0-2"
+       x="66.07177"
+       y="130.39638"
+       style="stroke-width:0.999999">W311*-GFP+SUR1</tspan></text>
+  <rect
+     style="opacity:0.99;fill:#263238;fill-opacity:0.5;stroke:none;stroke-width:1.88976;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+     id="rect18438-4-7-3"
+     width="21.858936"
+     height="5.1155124"
+     x="239.06786"
+     y="123.82327" />
+  <path
+     style="fill:none;stroke:#263238;stroke-width:1.88976;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+     d="m 239.06784,126.38104 h 21.85894"
+     id="path18345-0-9-8-5" />
+  <text
+     xml:space="preserve"
+     style="font-stretch:condensed;font-size:10.6667px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.999999"
+     x="266.64368"
+     y="130.38638"
+     id="text18373-7-8-6"><tspan
+       sodipodi:role="line"
+       id="tspan18371-0-2-1"
+       x="266.64368"
+       y="130.38638"
+       style="stroke-width:0.999999">W311*-GFP+SUR1</tspan></text>
+  <rect
+     style="opacity:0.99;fill:#263238;fill-opacity:0.5;stroke:none;stroke-width:1.88976;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+     id="rect18438-4-7-8"
+     width="21.858936"
+     height="5.1155124"
+     x="37.9561"
+     y="308.15372" />
+  <path
+     style="fill:none;stroke:#263238;stroke-width:1.88976;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+     d="m 37.956078,310.71149 h 21.85894"
+     id="path18345-0-9-8-8" />
+  <text
+     xml:space="preserve"
+     style="font-stretch:condensed;font-size:10.6667px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.999999"
+     x="65.531906"
+     y="314.71683"
+     id="text18373-7-8-62"><tspan
+       sodipodi:role="line"
+       id="tspan18371-0-2-0"
+       x="65.531906"
+       y="314.71683"
+       style="stroke-width:0.999999">W311*-GFP+SUR1</tspan></text>
+  <rect
+     style="opacity:0.99;fill:#263238;fill-opacity:0.5;stroke:none;stroke-width:1.88976;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none"
+     id="rect18438-4-7-7"
+     width="21.858936"
+     height="5.1155124"
+     x="238.528"
+     y="308.15372" />
+  <path
+     style="fill:none;stroke:#263238;stroke-width:1.88976;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+     d="m 238.52798,310.71149 h 21.85894"
+     id="path18345-0-9-8-6" />
+  <text
+     xml:space="preserve"
+     style="font-stretch:condensed;font-size:10.6667px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Condensed';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.999999"
+     x="266.10382"
+     y="314.71683"
+     id="text18373-7-8-9"><tspan
+       sodipodi:role="line"
+       id="tspan18371-0-2-8"
+       x="266.10382"
+       y="314.71683"
+       style="stroke-width:0.999999">W311*-GFP+SUR1</tspan></text>
 </svg>
