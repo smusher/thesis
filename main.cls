@@ -266,6 +266,21 @@
 }
 {\end{alwayssingle}}
 
+% STATEMENT OF AUTHORSHIP
+%
+% The acknowledgements environment puts a large, bold, centered 
+% "Acknowledgements" label at the top of the page. The acknowledgements
+% themselves appear in a quote environment, i.e. tabbed in at both sides, and
+% on its own page.
+
+\newenvironment{authorship}%
+{   \begin{alwayssingle}\chapter*{Statement of Authorship}
+    \thispagestyle{empty}
+  \pagestyle{empty}
+  \setlength{\baselineskip}{\frontmatterbaselineskip}
+}
+{\end{alwayssingle}}
+
 
 %ABSTRACT
 %
