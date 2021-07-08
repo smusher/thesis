@@ -449,7 +449,7 @@ We then fit our observed TNP-ATP binding and current inhibition data from excise
 	}\label{ch4fig:model_compare}
 \end{figure}
 
-Both models fit our data reasonably well (Figure \ref{ch4fig:w311_model_comparison}), although the posterior distributions of the fits to the MWC model (Figure \ref{ch4fig:w311_mwc_fit_1}, \ref{ch4fig:w311_mwc_fit_2}) are narrower than those for the single binding model (Figure \ref{ch4fig:w311_single_fit_1}, \ref{ch4fig:w311_single_fit_2}).
+Both models fit our data reasonably well (Figure \ref{ch4fig:w311_model_comparison_1}), although the posterior distributions of the fits to the MWC model (Figure \ref{ch4fig:w311_mwc_fit_1}, \ref{ch4fig:w311_mwc_fit_2}) are narrower than those for the single binding model (Figure \ref{ch4fig:w311_single_fit_1}, \ref{ch4fig:w311_single_fit_2}).
 Examining the posterior distributions for the three parameters, both models yield similar estimates, with much narrow distributions for $K_A$ than for $D_A$ and $L$ (Figure \ref{ch4fig:w311_mwc_fit_3}).
 The cross-correlation plots for the parameter estimates indicate that the model is identifiable given the data, with well bounded ellipses clearly visible (Figure \ref{apxfig:inhib_cc_1}).
 We compared the ability of the two models to explain the data with two complimentary methods.
@@ -501,7 +501,7 @@ Together, the Bayes factor and LOO-CV scores favour a concerted MWC binding mode
 	The fitted curves represent the \SI{95}{\percent} credible intervals of the posterior probability distribution including the $\delta_{experiment}$.
 	\subref{ch4fig:w311_mwc_fit_3} Posterior probability distributions for each of the three free parameters estimated from fits to the MWC model (purple) or the single binding model (green) are shown shaded according to their credible intervals.
 	The prior distributions for each of the parameters are shown as a dashed line.
-	}\label{ch4fig:w311_model_comparison}
+	}\label{ch4fig:w311_model_comparison_1}
 \end{figure}
 
 The \SI{95}{\percent} credible intervals for $K_A$ are \SIrange{9e3}{1.7e4}{\per\Molar} for the MWC model, corresponding to a $K_d$ of \SIrange{56}{110}{\micro\Molar}.
@@ -510,7 +510,7 @@ This is a broad range of predicted $P_O$, which may reflect the variability of P
 The \SI{95}{\percent} credible intervals for $D_A$ are \numrange{.002}{.096}.
 This low range for $D_A$ indicates very strong coupling between TNP-ATP binding to Kir6.2 and K\ATP{} channel closure.
 Based on the fits to the data, we can illustrate how these models couple nucleotide binding to the functional state of the channel by predicting the occupancy of the different states of the K\ATP{} channel defined in Figure \ref{ch4fig:model_compare}.
-Figure \ref{ch4fig:w311_model_comparison} shows the weighted occupancy of each of the ten states across a range of TNP-ATP concentrations as predicted by our fits to an MWC or single binding model.
+Figure \ref{ch4fig:w311_model_comparison_2} shows the weighted occupancy of each of the ten states across a range of TNP-ATP concentrations as predicted by our fits to an MWC or single binding model.
 Qualitatively, the models make similar predictions; as nucleotide binding is so tightly coupled to pore closure, there is a vanishingly small proportion of K\ATP{} channels which exist in the open state with two or more TNP-ATP molecules bound to Kir6.2 subunits under the MWC model.
 Crucially however, for the single binding model to explain the data in Figure \ref{ch4fig:model_compare}, it predicts that even at saturating nucleotide concentrations a reasonable fraction of K\ATP{} channels (up to \SI{1}{\percent}) will be open even with all four Kir6.2 subunits bound to nucleotide.
 
@@ -528,10 +528,10 @@ Crucially however, for the single binding model to explain the data in Figure \r
 		\includegraphics[width=\textwidth]{weighted_states_2.pdf}
 	\end{subfigure}
 	\caption[Comparing the states and weights of concerted and independent models]{
-	\subref{ch4fig:w311_states_weights_1}, \subref{ch4fig:w311_states_weights_2} Weighted occupancy of the different states of W311*-GFP+SUR1 predicted by the MWC fits to the data in Figure \ref{ch4fig:w311_model_comparison} as the concentration of TNP-ATP increases.
+	\subref{ch4fig:w311_states_weights_1}, \subref{ch4fig:w311_states_weights_2} Weighted occupancy of the different states of W311*-GFP+SUR1 predicted by the MWC fits to the data in Figure \ref{ch4fig:w311_model_comparison_1} as the concentration of TNP-ATP increases.
 	\subref{ch4fig:w311_states_weights_1} shows the occupancy on a linear scale, while \subref{ch4fig:w311_states_weights_2} shows the occupancy on a logarithmic scale.
 	The weighted occupancies are shown as the \SI{95}{\percent} creduble intervals of the posterior proability distributions from the MWC fits to the parameters shown in Figure \ref{ch4fig:w311_mwc_fit_3}.
-	}\label{ch4fig:w311_model_comparison}
+	}\label{ch4fig:w311_model_comparison_2}
 \end{figure}
 
 \subsection{Discussion}
