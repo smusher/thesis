@@ -58,7 +58,7 @@ As ATP itself is not fluorescent, and has no intrinsic fluorescence quenching, w
 TNP-ATP is an excellent FRET partner of ANAP, as evidenced by the good overlap in the TNP emission spectra and the ANAP extinction spectra (Figure \ref{ch3fig:spectral_overlap}).
 This leads to a theoretical distance-dependency of FRET which is most sensitive between \SIrange{20}{60}{\angstrom} (Figure \ref{ch3fig:fret_efficiency}) with a calculated R0 of \SI{38.4}{\angstrom}.
 
-\begin{figure}[h]
+\begin{figure}[hbtp]
 	\centering
 	\begin{subfigure}[t]{0.4\textwidth}
 		\caption{}\label{ch3fig:chemical_structures}
@@ -124,7 +124,7 @@ During the writing of this thesis, I came across an experiment by \textcite{cukr
 It was not resolved whether this was an assembly, trafficking, or functional disruption.
 However, as we were able to see K\ATP{} membrane expression and currents when we mutated W311 to ANAP, it is possible that this more conservative substitution is enough to overcome the lack of currents seen in the W311A mutant.
 
-\begin{figure}[h]
+\begin{figure}[hbtp]
 	\centering
 	\begin{subfigure}[t]{0.30\textwidth}
 		\caption{}\label{ch3fig:6baa_docking}
@@ -193,7 +193,7 @@ In this study, COSm6 cells were the heterologous expression system, and expressi
 
 \subsection{ANAP incorporation into Amber stop codon containing constructs}
 
-\begin{figure}[h]
+\begin{figure}[hbtp]
 	\centering
 	\begin{subfigure}[t]{0.9\textwidth}
 		\caption{}\label{ch3fig:amber_codon}
@@ -201,13 +201,19 @@ In this study, COSm6 cells were the heterologous expression system, and expressi
 		\includegraphics[width=\textwidth]{amber_codon.pdf}
 	\end{subfigure}
 	\vfill
-	\begin{subfigure}[t]{0.45\textwidth}
+	\begin{subfigure}[t]{0.25\textwidth}
 		\caption{}\label{ch3fig:western_1}
 		\centering
 		\includegraphics[width=\textwidth]{western_1.pdf}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}[t]{0.45\textwidth}
+	\begin{subfigure}[t]{0.25\textwidth}
+		\caption{}\label{ch3fig:western_1b}
+		\centering
+		\includegraphics[width=\textwidth]{western_1b.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.4\textwidth}
 		\caption{}\label{ch3fig:western_2}
 		\centering
 		\includegraphics[width=\textwidth]{western_2.pdf}
@@ -217,11 +223,11 @@ In this study, COSm6 cells were the heterologous expression system, and expressi
 	pANAP codes for tRNA (red) and it's tRNA synthetase (green), while W311TAG codes for Kir6.2 with an Amber stop codon (TAG) inserted in place of the codon for W311 (grey).
 	When the transfected cells are incubated with ANAP (present here as its free acid, ANAP-TFA, blue) the tRNA synthetase assembles tRNA which is capable of recognising the Amber stop codon and loads it with ANAP.
 	During translation of W311TAG, the primed ANAP tRNAs recognise the TAG and insert ANAP into the desired location.
-	\subref{ch3fig:western_1} Two separate western blots against the N-terminal HA epitope incorporated into WT or W311* (left) and WT-GFP or W311*-GFP (right) constructs.
+	\subref{ch3fig:western_1}, \subref{ch3fig:western_1b} Two separate western blots against the N-terminal HA epitope incorporated into WT or W311* (\subref{ch3fig:western_1}) and WT-GFP or W311*-GFP (\subref{ch3fig:western_1b}) constructs.
 	Cells were co-transfected with pANAP, eRF1-E55D, and SUR1 unless otherwise indicated.
 	Full-length Kir6.2 constructs are indicated on each gel with a dashed box.
 	The higher molecular weight doublets represent full-length protein and an N-terminally truncated product decribed in the methods.
-	\subref{ch3fig:western_2} Each lane from the gel containing C-terminally GFP-tagged constructs is displayed normalised to its highest intensity accompanied by the line averaged density trace.
+	\subref{ch3fig:western_2} Each lane from the gel containing C-terminally GFP-tagged constructs in \subref{ch3fig:western_1b} is displayed normalised to its highest intensity accompanied by the line averaged density trace.
 	The density peak corresponding to full-length and N-terminally truncated Kir6.2 is filled in blue.
 	The density peak for C-terminally truncated and doubly truncated Kir6.2 is filled in orange.
 	}\label{ch3fig:anap_incorporation}
@@ -232,7 +238,7 @@ The nature of the amber stop codon suppression system requires a number of caref
 \begin{enumerate}
 	\item Stop codon recognition is not perfect, and there is a chance of read-through.
 	Instead of incorporating ANAP, it is possible that the translation machinery can insert endogenous amino acids instead, leading to production of full length,unlabelled Kir6.2.
-	However, we found that cells transfected with W311TAG constructs and pANAP which were not cultured in the presence of ANAP did not produce full length Kir6.2 (Figure \ref{ch3fig:western_1}, \ref{ch3fig:western_2}), suggesting there is minimal read-through of the stop codon in our experiments.
+	However, we found that cells transfected with W311TAG constructs and pANAP which were not cultured in the presence of ANAP did not produce full length Kir6.2 (Figure \ref{ch3fig:western_1}, \ref{ch3fig:western_1b}, \ref{ch3fig:western_2}), suggesting there is minimal read-through of the stop codon in our experiments.
 	\item Introducing a stop codon creates a risk that truncated Kir6.2 will be produced instead of ANAP labelled Kir6.2.
 	This risk can be reduced by transfecting a dominant negative engineered version of eukaryotic translation termination factor 1(eRF1-E55D), which does not efficiently terminate protein synthesis in response to the amber stop codon (but leaves opal and ochre stop codons nearly unaffected) and thus increases the incorporation of ANAP \cite{schmied_efficient_2014}.
 	We found that transfection of W311TAG constructs with a C-terminal GFP tag produced minimal truncated Kir6.2 (less than \SI{10}{\percent} of the total density observed in Figure \ref{ch3fig:western_2}).
@@ -242,7 +248,7 @@ The nature of the amber stop codon suppression system requires a number of caref
 	By contrast, when W311TAG-GFP was transfected, we saw a clear increase in ANAP fluorescence at the cell membrane (Figure \ref{ch3fig:w311_confocal}, \ref{ch3fig:w311_confocal_profiles}), suggesting that any observed ANAP fluorescence at the cell membrane originates from our labelled Kir6.2 construct.
 \end{enumerate}
 
-\begin{figure}[h]
+\begin{figure}[hbtp]
 	\centering
 	\begin{subfigure}[t]{0.55\textwidth}
 		\caption{}\label{ch3fig:wt_confocal}
@@ -298,7 +304,7 @@ However, when F183* is transfected and ANAP is not present in the culture media 
 In contrast, when W311*-GFP is transfected with SUR1 in the presence of ANAP, we see a 10-fold increase in luminescence compared to when ANAP is not present, consistent with the majority of cell surface expressed protein having incorporated ANAP.
 We also see a consistent increase in luminescence for all constructs aside from W311* when cotransfected with SUR1 (Figure \ref{ch3fig:surface_expression_2}), suggesting that the incorporation of ANAP and the addition of a C-terminal GFP tag do not affect the role of SUR1 in forming the full K\ATP{} complex and trafficking to the cell surface membrane.
 
-\begin{figure}[h]
+\begin{figure}[hbtp]
 	\centering
 	\begin{subfigure}[t]{0.45\textwidth}
 		\caption{}\label{ch3fig:surface_expression_1}
@@ -355,7 +361,7 @@ We observed current inhibition with an IC\textsubscript{50} of \SIrange{0.7}{1.8
 K\ATP{} thus appears to be more sensitive to inhibition by TNP-ATP than by ATP.
 This could potentially be due to extra contacts made by the TNP moiety with Kir6.2, seen in our computational docking (Figure \ref{ch3fig:docking}).
 
-\begin{figure}[h]
+\begin{figure}[hbtp]
 	\centering
 	\begin{subfigure}[t]{0.45\textwidth}
 		\caption{}\label{ch3fig:atp_inhibition_1}
@@ -389,7 +395,7 @@ This could potentially be due to extra contacts made by the TNP moiety with Kir6
 	\caption[WT-GFP and W311*-GFP electrophysiology]{
 	\subref{ch3fig:atp_inhibition_1}, \subref{ch3fig:tnpatp_inhibition_1} Inhibition of current by ATP (\subref{ch3fig:atp_inhibition_1}) or TNP-ATP (\subref{ch3fig:tnpatp_inhibition_1}) in excised patches expressing either WT-GFP+SUR1 (blue) or W311*-GFP+SUR1 (orange).
 	Each point represents an individual measurement at the nucleotide concentration indicated, bracketed by perfusion with nucleotide-free solution and normalised to the mean current observed there.
-	The smooth filled curves are the \SI{95}{\percent} credible intervals of the posterior probability distribution of fits to equation \ref{eq:hill} as described in the methods.
+	The line is the median estimate and the smooth filled curves are the \SI{95}{\percent} credible intervals of the posterior probability distribution of fits to equation \ref{eq:hill} as described in the methods.
 	\subref{ch3fig:atp_inhibition_2}, \subref{ch3fig:tnpatp_inhibition_2} Data from each experiment is shown separately.
 	The smooth filled curves are the \SI{95}{\percent} credible intervals of the posterior predictions for each experiment.
 	\subref{ch3fig:ec50_fits_1} Posterior probability distributions for the population $IC_{50}$ values for inhibition by ATP (blue) or TNP-ATP (orange).
@@ -413,7 +419,7 @@ We chose to measure the decrease in ANAP fluorescence rather than the increase i
 Increases in TNP-ATP fluorescence could in part be due to direct excitation of TNP-ATP bound to other membrane proteins.
 We can plot the quenching of ANAP fluorescence as a concentration-response curve as in Figure \ref{ch3fig:unroofed_intensities}.
 
-\begin{figure}[h]
+\begin{figure}[hbtp]
 	\centering
 	\begin{subfigure}[t]{0.3\textwidth}
 		\caption{}\label{ch3fig:unroofed_images}
@@ -456,7 +462,7 @@ ANAP intensities of spectra imaged during bath perfusion with TNP-ATP free solut
 We found that in all unroofed membrane experiments bleaching was well described by a single exponential fit to equation \ref{eq:bleaching}.
 In each experiment, there was a mean value of \SI{49}{\percent} ANAP fluorescence remaining by the last exposure (Figure \ref{ch3fig:bleaching_terms_4}), means we maintained a good signal-to-noise ratio for each spectra imaged.
 
-\begin{figure}[h]
+\begin{figure}[hbtp]
 	\centering
 	\begin{subfigure}[t]{0.9\textwidth}
 		\caption{}\label{ch3fig:bleaching_plots_2}
@@ -505,7 +511,7 @@ Based on the results of the computational docking, we predict a maximal FRET eff
 Fitting our adjusted data to a Hill equation results in a maximum observed FRET efficiency ($E_{max}$) of \SI{91}{\percent}, agreeing well with our prediction.
 We can then constrain our Hill fits so that $E_{max}$ is equal to this maximum FRET efficiency, so that the $EC_{50}$ parameter we obtain is equivalent to the $EC_{50}$ of TNP-ATP binding.
 
-\begin{figure}[h]
+\begin{figure}[hbtp]
 	\centering
 	\begin{minipage}{0.35\textwidth}
 	\begin{subfigure}[t]{\textwidth}
@@ -547,7 +553,7 @@ Overall, these two corrections do not dramatically alter our results (Figure \re
 We observed quenching of ANAP fluorescence from W311*-GFP+SUR1 in unroofed membranes over a concentration range of TNP-ATP similar to the range in which we observed inhibition of current in excised patches expressing W311*-GFP+SUR1 (Figure \ref{ch3fig:tnpatp_quenching_2}).
 When fit to a Hill equation, quenching ($F/F_{max}$) was fit with an EC\textsubscript{50} of \SIrange{21}{31}{\micro\Molar}, while the corrected binding data (adjusted $F/F_{max}$) gave an EC\textsubscript{50} of \SIrange{30}{45}{\micro\Molar}.
 
-\begin{figure}[h]
+\begin{figure}[hbtp]
 	\centering
 	\begin{subfigure}[t]{0.8\textwidth}
 		\caption{}\label{ch3fig:tnpatp_quenching_1}
@@ -564,7 +570,7 @@ When fit to a Hill equation, quenching ($F/F_{max}$) was fit with an EC\textsubs
 	\subref{ch3fig:tnpatp_quenching_1} Fluorescence quenching of W311*-GFP+SUR1 by TNP-ATP in unroofed membrane patches.
 	Each uncorrected point (white with blue outline) represents an individual measurement normalised to the maximum current observed in that unroofed membrane.
 	Each corrected point (blue filled points) has been transformed to $log_2(\frac{F}{F_{max}}+1)$.
-	The smooth filled curves are the \SI{95}{\percent} credible intervals of the posterior probability distribution of fits to equation \ref{eq:hill} as described in the methods.
+	The line is the median estimate and the smooth filled curves are the \SI{95}{\percent} credible intervals of the posterior probability distribution of fits to equation \ref{eq:hill} as described in the methods.
 	The dashed curve is the median of the fits to the uncorrected data.
 	\subref{ch3fig:tnpatp_quenching_2} Data from each experiment is shown separately.
 	The smooth filled curves are the \SI{95}{\percent} credible intervals of the posterior predictions for each experiment.
@@ -574,6 +580,7 @@ When fit to a Hill equation, quenching ($F/F_{max}$) was fit with an EC\textsubs
 \subsection{Patch-clamp fluorometry of Kir6.2 constructs}
 
 To ensure that the ANAP fluorescence we observe in the unroofed membranes is emitted by functional channels, we measured fluorescence quenching and current inhibition from the same excised patches (Figure \ref{ch3fig:atp_tnpatp_trace}, \ref{ch3fig:atp_tnpatp_spectra_1}, \ref{ch3fig:atp_tnpatp_spectra_2}).
+Notably, while ATP and TNP-ATP both inhibit K\ATP{} channel currents (Figure \ref{ch3fig:atp_tnpatp_trace}), we observe that ANAP fluorescence is only quenched by perfusion of TNP-ATP (Figure \ref{ch3fig:atp_tnpatp_spectra_2}).
 
 This experimental paradigm leads to two complications compared to performing the measurements separately.
 Firstly, the number of channels in an excised patch are far smaller than the number of channels in an unroofed membrane patch.
@@ -584,7 +591,7 @@ This leads to oversubtraction of the background TNP-ATP spectra, leading to an a
 However, we find that there is no overlap of this peak and the ANAP peak, so our fluorescence quenching measurements are unaffected by this phenomenon.
 We were able to correct for ANAP bleaching in the same manner as we did for unroofed membranes (Figure \ref{ch3fig:pcf_bleaching}).
 
-\begin{figure}[h]
+\begin{figure}[hbtp]
 	\centering
 	\begin{subfigure}[t]{0.9\textwidth}
 		\caption{}\label{ch3fig:bleaching_plots_1}
@@ -613,11 +620,11 @@ We were able to correct for ANAP bleaching in the same manner as we did for unro
 	}\label{ch3fig:pcf_bleaching}
 \end{figure}
 
-Our fluoresence measurements from excised patches are right-shifted with respect to our measurements for unroofed membranes (Figure \ref{ch3fig:pcf_1}), with an $EC_{50}$ value of \SIrange{76}{144}{\micro\Molar} in PCF compared to \SIrange{30}{45}{\micro\Molar}.
+Our fluorescence measurements from excised patches are right-shifted with respect to our measurements for unroofed membranes (Figure \ref{ch3fig:pcf_1}), with an $EC_{50}$ value of \SIrange{76}{144}{\micro\Molar} in PCF compared to \SIrange{30}{45}{\micro\Molar}.
 Our finding that the EC\textsubscript{50} for TNP-ATP binding is right-shifted compared to the IC\textsubscript{50} for TNP-ATP inhibition is consistent between each experimental paradigm (Figure \ref{ch3fig:ec50_fits_4}).
 This finding has implications for how exactly the binding of nucleotides to Kir6.2 leads to closure of the K\ATP{} channel pore.
 
-\begin{figure}[h]
+\begin{figure}[hbtp]
 	\centering
 	\begin{subfigure}[t]{0.9\textwidth}
 		\caption{}\label{ch3fig:atp_tnpatp_trace}
@@ -657,7 +664,7 @@ This finding has implications for how exactly the binding of nucleotides to Kir6
 	\subref{ch3fig:atp_tnpatp_spectra_2} Averaged traces of the spectra shown in \subref{ch3fig:atp_tnpatp_spectra_1}.
 	The three fluorescence peaks are maked with shaded blue (ANAP), green (GFP) and orange (TNP-ATP) bars.
 	\subref{ch3fig:pcf_1} Current inhibition ($I/I_{max}$, orange points) and fluorescence quenching (adjusted $F/F_{max}$, blue points) of W311*-GFP+SUR1 in excised membrane patches recorded simultaneously.
-	The smooth filled curves are the \SI{95}{\percent} credible intervals of the posterior probability distribution of fits to equation \ref{eq:hill} as described in the methods.
+	The line is the median estimate and the smooth filled curves are the \SI{95}{\percent} credible intervals of the posterior probability distribution of fits to equation \ref{eq:hill} as described in the methods.
 	The dashed blue line is the median fit to the fluorescence quenching in unroofed membranes reported in Figure \ref{ch3fig:tnpatp_quenching_1}.
 	\subref{ch3fig:ec50_fits_4} Posterior probability distributions for the estimated population $EC_{50}$ and $IC_{50}$ values are shown coloured according to their credible intervals.
 	The posterior probability distribution for the $EC_{50}$ values in unroofed membranes is derived from the data in Figure \ref{ch3fig:tnpatp_quenching_1}.

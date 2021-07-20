@@ -6,12 +6,13 @@
 
 \section{Modelling nucleotide regulation of the K\ATP{} channel}
 
-The complex regulation of K\ATP{} channel activity by nucleotides and phosphoinositides has led to a wide range of scientists seeking to unify the constellation of structural and functional studies into one mechanistic framework, which is capable of explaining each aspect of channel regulation.
+The regulation of K\ATP{} channel activity by nucleotides and phosphoinositides is complex.
+This has led to a wide range of scientists seeking to unify the constellation of structural and functional studies into one mechanistic framework, which is capable of explaining each aspect of channel regulation.
 The importance of K\ATP{} channels in regulating insulin secretion, responding to cardiac stress, and protecting against seizures is one driving force behind the search for a functional model \cite{proks_modeling_2009}.
 Another aim is more holistic; hoping that increasing our understanding of how the K\ATP{} channel is regulated by the interplay of its ligands may shed light on other ion channels or proteins functions \cite{garfinkel_alan_modeling_2017}.
-In any case, the primary goal of constructing a mathematical model of the K\ATP{} channel is to explain as much of the diversity of channel function as possible, while keeping the model as simple and biologically relevant as possible; a balancing act between completeness and complexity.
+In any case, the primary goal of constructing a mathematical model of the K\ATP{} channel is to explain as much of the diversity of channel function as possible, while keeping the model as simple and biologically relevant as possible: a balancing act between completeness and complexity.
 
-Previous attempts at modelling the function of K\ATP{} channel regulation have primarily focused on nucleotide inhibition \cite{trapp_molecular_1998, enkvetchakul_kinetic_2000, markworth_atp4-_2000, ribalet_regulation_2000, enkvetchakul_atp_2001-1, drain_concerted_2004, proks_gating_2005, li_ligand-dependent_2005, ribalet_atp-sensitive_2006-1, craig_how_2008-1}, due to the relative ease of isolating the effects of nucleotide inhibition.
+Previous attempts at modelling the function of K\ATP{} channel regulation have primarily focused on nucleotide inhibition \cite{trapp_molecular_1998, enkvetchakul_kinetic_2000, markworth_atp4-_2000, ribalet_regulation_2000, enkvetchakul_atp_2001-1, drain_concerted_2004, proks_gating_2005, li_ligand-dependent_2005, ribalet_atp-sensitive_2006-1, craig_how_2008-1}, due to the relative ease of isolating these effects.
 There have been fewer attempts at incorporating activation by Mg-nucleotides \cite{ribalet_regulation_2000, proks_activation_2010-1, vedovato_nucleotide-binding_2015}.
 The difficulty in quantifying phosphinositide regulation of the K\ATP{} channel means that in most cases where it is considered, it is implicitly included as a component of the intrinisc gating of the channel, rather than explicitly described \cite{baukrowitz_pip2_1998, fan_phosphoinositides_1999, enkvetchakul_kinetic_2000}, although there are some exceptions \cite{ribalet_regulation_2000, enkvetchakul_atp_2001-1, enkvetchakul_gating_2003}.
 
@@ -20,7 +21,7 @@ Broadly, a model attempts to categorise discrete conformational states of the ch
 In the simplest case, an ion channel can be described as fluctuating between an open state and a closed state (Figure \ref{ch4fig:simple_model_diagram}).
 As these states exist in equilibrium, they can be described by an equilbrium constant ($L$) which is composed of the rate constant for the opening transition ($k_O$) divided by the rate constant for the closing transition ($k_C$).
 
-\begin{figure}[h]
+\begin{figure}[hbtp]
 	\centering
 	\begin{subfigure}[t]{0.45\textwidth}
 		\caption{}\label{ch4fig:simple_diag_1}
@@ -38,28 +39,28 @@ As these states exist in equilibrium, they can be described by an equilbrium con
 	}\label{ch4fig:simple_model_diagram}
 \end{figure}
 
-To relate this to empirical measurements of ion channel function, $L$ is equivalent to the $P_O$ of this two-state channel.
+To relate this to empirical measurements of ion channel function, $L$ is proportional to the $P_O$ of this two-state channel.
 Alternatively, in this simple two-state channel, $k_O$ and $k_C$ can be calculated directly by measuring the lifetimes of the closed and open states respectively from single-channel recordings \cite{reinhold_penner_auth_single-channel_1995, sivilotti_praise_2016}.
 Of course, real ion channels are more complicated and two states are not sufficient to describe the complexity of the ligand regulation of K\ATP{} channels, which visit a multitude of conformational states.
-As our understanding of the channel grows, the more complex a model needs to be to fully account for all observed aspects of function.
+As our understanding of the channel grows, a more complex model is needed to fully account for all observed aspects of function.
 
 One shortcoming of K\ATP{} channel functional models to date is that there are limited data directly measuring binding of nucleotides to the channel, and as such the nucleotide-bound conformational states and transitions of the channel have had to be inferred from electrophysiologcal measurements.
-Here, we hope to apply our correlated measurements of nucleotide binding and channel inhibition to reconcile the predictions of existing models of K\ATP{} channel inhibition by nucleotides.
+Here, we will apply correlated measurements of nucleotide binding and channel inhibition to reconcile the predictions of existing models of K\ATP{} channel inhibition by nucleotides.
 
 \subsection{Restricting the subset of possible models}
 
-Functional models which have been proposed to describe K\ATP{} channel inhibition can be categorised into two groups; models in which each Kir6.2 subunit is able to change between open and closed conformations independently, and models in which opening and closing take place via a concerted mechanism of all four subunits \cite{enkvetchakul_kinetic_2000-1, enkvetchakul_atp_2001, drain_concerted_2004, fang_n-terminal_2006, wang_subunit-stoichiometric_2007, craig_how_2008-1, proks_modeling_2009, vedovato_nucleotide-binding_2015}.
+Functional models that have been proposed to describe K\ATP{} channel inhibition can be categorised into two groups: models in which each Kir6.2 subunit is able to change between open and closed conformations independently, and models in which opening and closing take place via a concerted mechanism of all four subunits \cite{enkvetchakul_kinetic_2000-1, enkvetchakul_atp_2001, drain_concerted_2004, fang_n-terminal_2006, wang_subunit-stoichiometric_2007, craig_how_2008-1, proks_modeling_2009, vedovato_nucleotide-binding_2015}.
 The independent class of models are often referred to as Hodgkin and Huxley (HH)-like models, after the original model proposed to describe voltage-gated ion channels \cite{hodgkin_quantitative_1952}.
 The concerted class of models are often referred to as Monod-Wyman-Changeaux (MWC)-like models, after the allosteric model formulated by Monod, Wyman and Changeaux to describe hemoglobin \cite{monod_nature_1965}.
 
 Conceptually, an MWC-like model is easier to reconcile with the structure of K\ATP{} given that each inhibitory nucleotide binding site is composed of domains from two adjacent subunits; it is hard to imagine how nucleotide binding could lead to an indepedent conformational change in one subunit alone \cite{craig_how_2008-1}.
 Empirically, the two types of model make testable predictions about channel behaviour and nucleotide binding.
-In a concerted model, each nucleotide binding event contributes the same amount of energy towards closure of the pore, such that each subunit binding a nucleotide will have an additive effect on the probability of the channel closing.
+In a concerted model, each nucleotide binding event contributes the same amount of energy towards closure of the pore, such that each subunit binding a nucleotide will have a multiplicative effect on the probability of the channel closing.
 In an independent model, as each subunit is free to change its conformation independently, the stochiometry of nucleotide binding is less clear.
 Most formulations of an independent model have suggested that K\ATP{} channel behaviour is most consistent with a single nucleotide binding event being sufficient to drive closure of the channel \cite{trapp_molecular_1998, markworth_atp4-_2000, li_open_2002, fang_n-terminal_2006-1}.
 
 A number of studies have examined the kinetics of single K\ATP{} channels to determine which model best describes nucleotide inhibition \cite{drain_concerted_2004, fang_n-terminal_2006-1, wang_subunit-stoichiometric_2007, craig_how_2008-1}.
-\cite{drain_concerted_2004} examined single channel currents in patches excised from \textit{Xenopus} oocytes injected with a mixture of Kir6.2\textgreek{D}C and Kir6.2\textgreek{D}C-N160D,T171A subunits.
+\textcite{drain_concerted_2004} examined single channel currents in patches excised from \textit{Xenopus} oocytes injected with a mixture of Kir6.2\textgreek{D}C and Kir6.2\textgreek{D}C-N160D,T171A subunits.
 The T171A mutation appears to eliminate the interburst closures of Kir6.2\textgreek{D}C by dramatically slowing the rate at which the ATP-sensitive inhibitory gate closes.
 The authors classified the single channel stoichiometry by assessing the sensitivity of currents to inhibition by spermine, which is provided to a subunit by the N160D mutation.
 An exponential relationship between the mean burst time of the channel and the number of mutant subunits incorporated into it fit the predictions made by a concerted model of inhibition.
@@ -85,9 +86,9 @@ $D_A$ therefore represents \textit{transduction} of nucleotide binding to channe
 
 For K\ATP{} inhibition, each monomer in Scheme I represents a subunit of Kir6.2, and in our case the ligand $A$ is TNP-ATP.
 The equation describing the expansion of Scheme I to account for four identical subunits is shown in Chapter \ref{ch:2-methods}.
-Importantly, in an MWC model, cooperativity between subunits is not due to the incorporation of an additional parameter, but a phenomenon which arises naturally due to the energetic coupling between ligand binding and channel gating described by the transduction parameter $D_A$.
+Importantly, in an MWC model, cooperativity between subunits is not due to the incorporation of an additional parameter, but a phenomenon which arises naturally due to the requirement for a synchronised conformational change in all four subunits.
 
-\begin{figure}[h]
+\begin{figure}[hbtp]
 	\centering
 	\begin{subfigure}[t]{0.9\textwidth}
 		\caption{}\label{ch4fig:mwc_model_diagrams}
@@ -152,7 +153,7 @@ To determine whether this approximation is appropriate, we generated data using 
 Ten individual sets of observations were generated using the inputs shown above each figure panel as the centre of a lognormal distribution with a standard deviation of 0.25.
 These observations were then fit to Scheme I and the values of the three free parameters ($K_A$, $D_A$ and $L$) were estimated (Figure \ref{ch4fig:mwc_params_1}).
 
-\begin{figure}[h]
+\begin{figure}[hbtp]
 	\centering
 	\begin{subfigure}[t]{0.3\textwidth}
 		\caption{}\label{ch4fig:scheme_1_ka_shift}
@@ -178,8 +179,8 @@ These observations were then fit to Scheme I and the values of the three free pa
 		\includegraphics[width=\textwidth]{mwc_scheme_param_fits_2.pdf}
 	\end{subfigure}
 	\caption[Parameter retrieval from MWC models]{
-	\subref{ch4fig:scheme_1_ka_shift}, \subref{ch4fig:scheme_1_da_shift}, \subref{ch4fig:scheme_1_l_shift} Data generated from Scheme I with \subref{ch4fig:scheme_1_ka_shift} $K_A$ shifted from $10^4$ to $10^3$, \subref{ch4fig:scheme_1_da_shift} $D_A$ shifted from $0.1$ to $0.8$, or \subref{ch4fig:scheme_1_l_shift} $L$ shifted from $1$ to $10$.
-	\subref{ch4fig:mwc_params_2} Parameter estimates from each of the model fits.
+	\subref{ch4fig:scheme_1_ka_shift}, \subref{ch4fig:scheme_1_da_shift}, \subref{ch4fig:scheme_1_l_shift} Data generated from Scheme I with \subref{ch4fig:scheme_1_ka_shift} $K_A$ shifted from $10^4$ to $10^3$, \subref{ch4fig:scheme_1_da_shift} $D_A$ shifted from $0.1$ to $0.8$, or \subref{ch4fig:scheme_1_l_shift} $L$ shifted from $1$ to $10$ all fit to Scheme I.
+	\subref{ch4fig:mwc_params_2} Parameter estimates from the Scheme I model fits.
 	In each case, the modified parameter is retrieved accurately and no other parameters are affected.
 	}\label{ch4fig:scheme_1_shifts}
 \end{figure}
@@ -193,7 +194,7 @@ This suggests that introducing mutations or perturbing nucleotide inhibition in 
 What if Scheme II or III were the underlying model?
 We would still expect changes in the three parameters which exist in Scheme I to be identifiable ($L$, $K_A$ and $D_A$), although $L$ would not represent the true unliganded open/closed equilibrium as we would be estimating an $L$ modified by the resting PIP\textsubscript{2} concentration, $K_B$, $D_B$ and $C$ - in this case, the estimated $L$ parameter in fact represents the ATP-unbound open/closed equilibrium.
 
-\begin{figure}[h]
+\begin{figure}[hbtp]
 	\centering
 	\begin{subfigure}[t]{0.45\textwidth}
 		\caption{}\label{ch4fig:scheme_2_kb_shift}
@@ -213,8 +214,9 @@ We would still expect changes in the three parameters which exist in Scheme I to
 		\includegraphics[width=\textwidth]{mwc_scheme_param_fits_3.pdf}
 	\end{subfigure}
 	\caption[Parameter retrieval from MWC models]{
-	\subref{ch4fig:scheme_2_kb_shift}, \subref{ch4fig:scheme_3_kb_shift} Data generated from \subref{ch4fig:scheme_2_kb_shift} Scheme II  or \subref{ch4fig:scheme_3_kb_shift} Scheme III with $K_B$ shifted from $10^5$ to $10^6$.
-	\subref{ch4fig:mwc_params_3} When $K_B$ is increased in Scheme II/III, fitting the generated data with Scheme I results in the expected increase in $L$ but also a reduction in $K_A$.
+	\subref{ch4fig:scheme_2_kb_shift}, \subref{ch4fig:scheme_3_kb_shift} Data generated from \subref{ch4fig:scheme_2_kb_shift} Scheme II  or \subref{ch4fig:scheme_3_kb_shift} Scheme III with $K_B$ shifted from $10^5$ to $10^6$, all fit to Scheme I.
+	\subref{ch4fig:mwc_params_3} Parameter estimates from the Scheme I model fits.
+	When $K_B$ is increased in Scheme II/III, fitting the generated data with Scheme I results in the expected increase in $L$ but also a reduction in $K_A$.
 	}\label{ch4fig:scheme_2_3_shifts}
 \end{figure}
 
@@ -268,17 +270,17 @@ Unfortunately, in most of the published research the exact procedure for extract
 A notable exception to this rule is in reference \cite{tammaro_mutation_2007}, in which two findings are discussed.
 Firstly, fitting equation \ref{eq:bin_2} to the mean and variance of \SI{200}{\milli\second} sections of macroscopic currents from wild-type Kir6.2+SUR2A resulted in a systematic underestimation of the single channel current $i$.
 From single channel experiments, the single channel current was determined to be \SI{4}{\pico\ampere}, while the value obtained from fitting macroscopic currents was only \SI{2}{\pico\ampere}.
-In the case of WT-GFP+SUR1, we see a similar understimation of single channel current (Figure \ref{ch4fig:noise_example_fits_1}, \ref{ch4fig:noise_example_fits_2}, \ref{ch4fig:noise_example_fits_3}), with fits yielding estimates of \SIrange{1.66}{2.64}{\pico\ampere}, while measured single channel currents are at least \SI{4}{\pico\ampere} at a holding potential of \SI{-60}{\milli\volt} \cite{shyng_control_1997, proks_mutations_2001}.
+In the case of WT-GFP+SUR1, we see a similar understimation of single channel current (Figure \ref{ch4fig:noise_example_fits_1}, \ref{ch4fig:noise_example_fits_2}, \ref{ch4fig:noise_example_fits_3}), with fits yielding estimates of \SIrange{1.66}{2.64}{\pico\ampere}, whereas measured single channel currents are at least \SI{4}{\pico\ampere} at a holding potential of \SI{-60}{\milli\volt} \cite{shyng_control_1997, proks_mutations_2001}.
 This underestimate of $i$ is most likely due to a reduction in observed channel current variance when compared to the predictions of equation \ref{eq:bin_2}. 
 
 There are two possible explanations for this reduction.
 Firstly, the process of filtering and digitising channel currents can lead to underestimates of variance depending on the relationship between the open time of the measured channel and the cut-off frequency of the filter used.
-It is unlikely that this phenomenon is responsible for our findings, as the K\ATP{} mean open time duration is close to \SI{1}{\milli\second} and therefore filtering at \SI{5}{\kilo\hertz} would lead to less than a \SI{5}{\percent} underestimation of $i$ \cite{}.
-Even if the mean open time of WT-GFP+SUR1 was closer to \SI{0.1}{\milli\second}, we would expect a \SI{20}{\percent} reduction rather than the \SI{50}{\percent} we actually observe.
+It is unlikely that this phenomenon is responsible for our findings, as the K\ATP{} mean open time duration is close to \SI{1}{\milli\second} and therefore filtering at \SI{5}{\kilo\hertz} would lead to less than a \SI{5}{\percent} underestimation of $i$ \cite{alvarez_counting_2002}.
+Even if the mean open time of WT-GFP+SUR1 were closer to \SI{0.1}{\milli\second}, we would expect a \SI{20}{\percent} reduction rather than the \SI{50}{\percent} we actually observe.
 Empirically, we can use the frequency power spectrum of our measured current fluctuations to determine whether there may be high frequency channel openings we are missing (Figure \ref{ch4fig:spectra_converge}).
 For WT-GFP+SUR1, we observe that at frequencies approaching our filter cut-off at \SI{5}{\kilo\hertz} there is very little observed amplitude in active channels when compared to fully inhibited channels, suggesting we are not missing high frequency current fluctuations.
 
-\begin{figure}[h]
+\begin{figure}[hbtp]
 	\centering
 	\begin{subfigure}[t]{0.3\textwidth}
 		\caption{}\label{ch4fig:noise_example_1}
@@ -323,13 +325,14 @@ For WT-GFP+SUR1, we observe that at frequencies approaching our filter cut-off a
 	\end{subfigure}
 	\caption[Systematic underestimation of single channel currents]{
 	\subref{ch4fig:noise_example_1},\subref{ch4fig:noise_example_2},\subref{ch4fig:noise_example_3} 5 second extracts from three separate recordings of WT-GFP+SUR1 currents.
+	Each extract is from an excised patch clamped at \SI{-60}{\milli\volt} exposed to a different concentration of ATP.
 	Extracts from different recordings are coloured differently.
 	The zero current level determined by barium is indicated as a dashed line.
 	\subref{ch4fig:noise_example_fits_1}, \subref{ch4fig:noise_example_fits_2}, \subref{ch4fig:noise_example_fits_3} Plots of the mean current and variance for each of the extracts in the panel above.
-	Fits to equation x are shown as a solid line when $i$ is allowed to vary freely, and as a dashed line when $i$ is fixed to \SI{4.32}{\pico\ampere}.
+	Fits to equation \ref{eq:bin_2} are shown as a solid line when $i$ is allowed to vary freely, and as a dashed line when $i$ is fixed to \SI{4.32}{\pico\ampere}.
 	The fitted value for $i$ is shown for each recording separately.
 	\subref{ch4fig:spectra_converge} Averaged power spectra for the three recordings analysed.
-	The blue line is the power spectra when channels are fully inhibited and represents the background, while the orange line is the power spectra when channels are most active.
+	The blue line is the power spectrum when channels are fully inhibited and represents the background, whereas the orange line is the power spectrum when channels are most active.
 	The high frequency components of the current fluctuations are attenuated to near background levels above \SI{3}{\kilo\hertz}.
 	}\label{ch4fig:noise_manual}
 \end{figure}
@@ -364,7 +367,7 @@ where population $a$ consists of $N_a$ channels with an open probability $P_{O_{
 Comparing the mean current/variance relationship of simulated currents from a single binomial (Figure \ref{ch4fig:simulated_noise_1}, \ref{ch4fig:simulated_noise_2}) to that of simulated currents from the mixture of binomials in equation \ref{eq:bibi_sim} (Figure \ref{ch4fig:simulated_noise_3}) reveals that equation \ref{eq:bin_1} is no longer able to retrieve the true values of $i$ and $N$ when the data generating process is not a single binomial distribution.
 In fact, the underestimation of $i$ from fitting to data simulated in this way is very similar to the underestimation of $i$ we see when fitting to our measured data (Figure \ref{ch4fig:noise_manual}).
 
-\begin{figure}[h]
+\begin{figure}[hbtp]
 	\centering
 	\begin{subfigure}[t]{0.3\textwidth}
 		\caption{}\label{ch4fig:simulated_noise_1}
@@ -384,22 +387,22 @@ In fact, the underestimation of $i$ from fitting to data simulated in this way i
 		\includegraphics[width=\textwidth]{simulated_noise_3.pdf}
 	\end{subfigure}
 	\caption[Simulated multibinomial currents]{
-	\subref{ch4fig:simulated_noise_1} 5 second segments of simulated channel currents drawn from a single binomial distribution.
+	\subref{ch4fig:simulated_noise_1} 5 second segments of simulated macroscopic channel currents drawn from a single binomial distribution.
 	All segments share a common single channel conductance $i$ and number of channels $N$, but the $P_O$ is varied.
 	\subref{ch4fig:simulated_noise_2} Fits to equation \ref{eq:bin_2} to the simulated currents in \subref{ch4fig:simulated_noise_1} successfully retrieve an estimate of $i$ which is approximately correct.
-	\subref{ch4fig:simulated_noise_3} Fits to equation \ref{eq:bin_2} to segments of currents simulated by drawing from a mixture of two binomial distributions with different baseline $P_O$s.
+	\subref{ch4fig:simulated_noise_3} Fits to equation \ref{eq:bin_2} to segments of currents simulated by drawing from a mixture of two binomial distributions with different baseline $P_O$s, shown as a solid line when $i$ is allowed to vary freely, and as a dashed line when $i$ is fixed to \SI{4}{\pico\ampere}.
 	The estimate for $i$ retrieved by letting the parameter vary is much lower than the actual value for $i$.
 	Fixing $i$ to the correct value results in a fit which underestimates the number of channels $N$.
 	}\label{ch4fig:noise_sim}
 \end{figure}
 
 We considered whether the underestimation of $i$ and the poor fits to equation \ref{eq:bin_2} when $i$ was fixed to \SI{4.32}{\pico\ampere} (Figure \ref{ch4fig:noise_manual}) may be due to the low number of data points when selecting segments of current manually.
-We took our full current records from each excised patch from cells expressing WT-GFP+SUR1 or W311*-GFP+SUR1, divided them into 1 second segments, and plotted the mean current/variance relationship for each segment (Figure \ref{ch4fig:noise_fits_1}).
-We fit the data to equation \ref{eq:bin_2} either with $i$ allowed to vary freely, or with $i$ fixed to \SI{4.32}{\pico\ampere}.
-Our estimates for $i$ when it was allowed to vary freely were similar to our estimates from Figure \ref{ch4fig:noise_manual}, with no patch yielding a value above \SI{3}{\pico\ampere} (Figure \ref{ch4fig:noise_fits_2}).
+We took the full current records from each excised patch from cells expressing WT-GFP+SUR1 or W311*-GFP+SUR1, divided them into 1 second segments, and plotted the mean current/variance relationship for each segment (Figure \ref{ch4fig:noise_fits_1}).
+We then fit the data to equation \ref{eq:bin_2} either with $i$ allowed to vary freely, or with $i$ fixed to \SI{4.32}{\pico\ampere}.
+Estimates for $i$ when it was allowed to vary freely were similar to the estimates in Figure \ref{ch4fig:noise_manual}, with no patch yielding a value above \SI{3}{\pico\ampere} (Figure \ref{ch4fig:noise_fits_2}).
 The fits with $i$ fixed to \SI{4.32}{\pico\ampere} clearly fit the data less well, and the resulting estimate for the open probability on patch excision exceeded 1 for nearly every patch, which is of course not possible.
 
-\begin{figure}[h]
+\begin{figure}[hbtp]
 	\centering
 	\begin{subfigure}[t]{0.9\textwidth}
 		\caption{}\label{ch4fig:noise_fits_1}
@@ -420,8 +423,10 @@ The fits with $i$ fixed to \SI{4.32}{\pico\ampere} clearly fit the data less wel
 	}\label{ch4fig:all_noise_fits}
 \end{figure}
 
-Given these results, we chose not to use noise analysis to calculate the $P_O$ directly for each patch.
-In addition, \textcite{cukras_role_2002} compared the $P_O$ calculated from noise analysis and the $P_O$ calculated by application of saturating concentrations of PIP\textsubscript{2} to a variety of K\ATP{} channel mutants, and found only a weak correlation between the two methods \cite{cukras_role_2002}.
+Given these results, we chose not to use noise analysis to calculate the $P_O$ directly for each patch due to my inability to retrieve realistic estimates for the single channel conductance.
+A possible explanation is that channel rundown results in macroscopic channel currents coming from more than one binomial distribution, although more work would be required to directly substantiate this hypothesis.
+This is not the first example in the literature of difficulties in using stationary noise analysis for the study of K\ATP{} channels.
+For example, \textcite{cukras_role_2002} compared the $P_O$ calculated from noise analysis and the $P_O$ calculated by application of saturating concentrations of PIP\textsubscript{2} to a variety of K\ATP{} channel mutants, and found only a weak correlation between the two methods \cite{cukras_role_2002}.
 
 \subsection{Comparing models}
 
@@ -429,7 +434,7 @@ We expanded Scheme I from Figure \ref{ch4fig:mwc_model_diagrams} to account for 
 In addition, we considered an alternate model in which only the first nucleotide binding event contributes towards closure of the channel, and thus there is no cooperativity between subunits (Figure \ref{ch4fig:model_expansion_2}).
 We then fit our observed TNP-ATP binding and current inhibition data from excised patches expressing W311*-GFP+SUR1 to equations \ref{eq:mwc_binding} and \ref{eq:normalised_po} respectively.
 
-\begin{figure}[h]
+\begin{figure}[hbtp]
 	\centering
 	\begin{subfigure}[t]{0.9\textwidth}
 		\caption{}\label{ch4fig:model_expansion_1}
@@ -452,15 +457,15 @@ We then fit our observed TNP-ATP binding and current inhibition data from excise
 Both models fit our data reasonably well (Figure \ref{ch4fig:w311_model_comparison_1}), although the posterior distributions of the fits to the MWC model (Figure \ref{ch4fig:w311_mwc_fit_1}, \ref{ch4fig:w311_mwc_fit_2}) are narrower than those for the single binding model (Figure \ref{ch4fig:w311_single_fit_1}, \ref{ch4fig:w311_single_fit_2}).
 Examining the posterior distributions for the three parameters, both models yield similar estimates, with much narrow distributions for $K_A$ than for $D_A$ and $L$ (Figure \ref{ch4fig:w311_mwc_fit_3}).
 The cross-correlation plots for the parameter estimates indicate that the model is identifiable given the data, with well bounded ellipses clearly visible (Figure \ref{apxfig:inhib_cc_1}).
-We compared the ability of the two models to explain the data with two complimentary methods.
-First, we used bridge sampling to calculate a Bayes factor of \num{1.1e4} in favor of the MWC model over the single binding model \cite{gronau_bridgesampling_2020}.
+We compared the ability of the two models to explain the data with two complimentary methods, described in more detail in Chapter \ref{ch:2-methods}.
+First, we calculated a Bayes factor of \num{1.1e4} in favor of the MWC model over the single binding model \cite{gronau_bridgesampling_2020}.
 The Bayes factor can be interpreted as the weight of evidence in favour of one model over another \cite{wagenmakers_practical_2007}.
 Specifically, the observed data are \num{1.1e4} more likely to have occured under the MWC model than they are under the single binding model.
 In addition, we performed leave-one-out cross-validation (LOO-CV), which approximates the out-of-sample predictive accuracy of each of the fitted models \cite{vehtari_practical_2017}.
 The MWC model fit has a higher expected predictive accuracy than the single binding model (ELPD increase of \num{27.3 (63)}).
 Together, the Bayes factor and LOO-CV scores favour a concerted MWC binding model.
 
-\begin{figure}[h]
+\begin{figure}[hbtp]
 	\centering
 	\begin{subfigure}[t]{0.45\textwidth}
 		\caption{}\label{ch4fig:w311_mwc_fit_1}
@@ -493,13 +498,13 @@ Together, the Bayes factor and LOO-CV scores favour a concerted MWC binding mode
 	\end{subfigure}
 	\caption[A concerted model explains the data better than an independent model]{
 	\subref{ch4fig:w311_mwc_fit_1} Current inhibition (orange) and fluorescence quenching (blue) by TNP-ATP of W311*-GFP+SUR1 in excised patches, data the same as Figure \ref{ch3fig:pcf_1}.
-	Fitted curves are the \SI{95}{\percent} credible intervals of the posterior probability distribution of fits to the MWC model parameterised in equations \ref{eq:mwc_binding} and \ref{eq:normalised_po}, not including the $\delta_{experiment}$.
+	Fitted curves are the median (line) and \SI{95}{\percent} credible intervals (shaded area) of the posterior probability distribution of fits to the MWC model parameterised in equations \ref{eq:mwc_binding} and \ref{eq:normalised_po}, not including the $\delta_{experiment}$.
 	\subref{ch4fig:w311_mwc_fit_2} Each experiment from \subref{ch4fig:w311_mwc_fit_1} is plotted separately.
 	The fitted curves represent the \SI{95}{\percent} credible intervals of the posterior probability distribution including the $\delta_{experiment}$.
-	\subref{ch4fig:w311_single_fit_1} Data the same as \subref{ch4fig:w311_mwc_fit_1}, but the fitted curves are the \SI{95}{\percent} credible intervals of the posterior probability distribution of fits to the single binding model parameterised in equations \ref{eq:single_binding} and \ref{eq:single_gating}, not including the $\delta_{experiment}$.
+	\subref{ch4fig:w311_single_fit_1} Data the same as \subref{ch4fig:w311_mwc_fit_1}, but the fitted curves are the median (line) and \SI{95}{\percent} credible intervals (shaded area) of the posterior probability distribution of fits to the single binding model parameterised in equations \ref{eq:single_binding} and \ref{eq:single_gating}, not including the $\delta_{experiment}$.
 	\subref{ch4fig:w311_single_fit_2} Each experiment from \subref{ch4fig:w311_single_fit_1} is plotted separately.
 	The fitted curves represent the \SI{95}{\percent} credible intervals of the posterior probability distribution including the $\delta_{experiment}$.
-	\subref{ch4fig:w311_mwc_fit_3} Posterior probability distributions for each of the three free parameters estimated from fits to the MWC model (purple) or the single binding model (green) are shown shaded according to their credible intervals.
+	\subref{ch4fig:w311_mwc_fit_3} Posterior probability distributions for each of the three free parameters estimated from fits to the MWC model or the single binding model are shown shaded according to their credible intervals.
 	The prior distributions for each of the parameters are shown as a dashed line.
 	}\label{ch4fig:w311_model_comparison_1}
 \end{figure}
@@ -514,7 +519,7 @@ Figure \ref{ch4fig:w311_model_comparison_2} shows the weighted occupancy of each
 Qualitatively, the models make similar predictions; as nucleotide binding is so tightly coupled to pore closure, there is a vanishingly small proportion of K\ATP{} channels which exist in the open state with two or more TNP-ATP molecules bound to Kir6.2 subunits under the MWC model.
 Crucially however, for the single binding model to explain the data in Figure \ref{ch4fig:model_compare}, it predicts that even at saturating nucleotide concentrations a reasonable fraction of K\ATP{} channels (up to \SI{1}{\percent}) will be open even with all four Kir6.2 subunits bound to nucleotide.
 
-\begin{figure}[h]
+\begin{figure}[hbtp]
 	\centering
 	\begin{subfigure}[t]{0.45\textwidth}
 		\caption{}\label{ch4fig:w311_states_weights_1}
@@ -530,7 +535,7 @@ Crucially however, for the single binding model to explain the data in Figure \r
 	\caption[Comparing the states and weights of concerted and independent models]{
 	\subref{ch4fig:w311_states_weights_1}, \subref{ch4fig:w311_states_weights_2} Weighted occupancy of the different states of W311*-GFP+SUR1 predicted by the MWC fits to the data in Figure \ref{ch4fig:w311_model_comparison_1} as the concentration of TNP-ATP increases.
 	\subref{ch4fig:w311_states_weights_1} shows the occupancy on a linear scale, while \subref{ch4fig:w311_states_weights_2} shows the occupancy on a logarithmic scale.
-	The weighted occupancies are shown as the \SI{95}{\percent} creduble intervals of the posterior proability distributions from the MWC fits to the parameters shown in Figure \ref{ch4fig:w311_mwc_fit_3}.
+	The weighted occupancies are shown as the \SI{95}{\percent} credible intervals of the posterior probability distributions from the MWC fits to the parameters shown in Figure \ref{ch4fig:w311_mwc_fit_3}.
 	}\label{ch4fig:w311_model_comparison_2}
 \end{figure}
 
@@ -538,10 +543,10 @@ Crucially however, for the single binding model to explain the data in Figure \r
 
 Measuring binding of TNP-ATP to K\ATP{} channels concurrently with measuring inhibition of channel currents has allowed us to test the predictions of prior studies about the stochiometry of nucleotide binding, and the suitability of an MWC model to describe inhibition of the channel.
 We have established that a simple MWC model is capable of describing both inhibition of K\ATP{} channel currents as well as the binding of nucleotides to the Kir6.2 subunit.
-There has been some debate over the stochiometry of nucleotide inhibition of the K\ATP{} channel, with some research indicating that a single Kir6.2 subunit binding to ATP is sufficient to close the channel, while other studies have suggested that further subunit binding events contribute additively to pore closure.
+There has been some debate over the stochiometry of nucleotide inhibition of the K\ATP{} channel, with some research indicating that a single Kir6.2 subunit binding to ATP is sufficient to close the channel, while other studies have suggested that further subunit binding events contribute multiplicatively to pore closure.
 Our data suggest that these findings can be reconciled with the observation that even within the framework of a concerted MWC model, where each nucleotide binding event is energetically coupled to the pore, the proportion of K\ATP{} channels which are in the open state with more than one TNP-ATP molecule bound to a Kir6.2 subunit is essentially nil.
-This is of course caveated by our assumption that TNP-ATP, while exhibiting a higher affinity for the channel than by ATP, does not alter transduction of binding to inhibition.
+This is of course caveated by our assumption that TNP-ATP, while exhibiting a higher affinity for the channel than ATP, does not alter transduction of binding to inhibition.
 
 However, a model capable of describing K\ATP{} channel function should also be able to explain how mutations or other perturbations disrupt the regulation of channel function by nucleotide inhibition.
-In the following chapters, we will explore whether this method and model are capable of discerning between alterations of nucleotide binding, K\ATP{} channel gating, and transduction of nucleotide binding to the pore.
-In addition, these experiments should allow us to test the ability of a simple MWC model to explain the variety of functional changes we observe.
+In the following chapters, I will explore whether this method and model are capable of discerning between alterations of nucleotide binding, K\ATP{} channel gating, and transduction of nucleotide binding to the pore.
+In addition, these experiments should allow us to test the ability of a simple MWC model to explain the variety of functional changes observed.

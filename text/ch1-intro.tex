@@ -18,7 +18,7 @@ At rest, K\ATP{} channel activity results in a leak current of K\textsuperscript
 Glucose metabolism in beta cells increases the ATP:ADP ratio, closing K\ATP{} channels and releasing their hyperpolarising clamp on the membrane potential \cite{ashcroft_glucose_1984-1, rorsman_glucose_1985-1}.
 When K\ATP{} channels are closed and membrane resistance is high, even small currents are sufficient to induce large membrane potential depolarisations and action potential initiation (Figure \ref{ch1fig:beta_cells_firing}).
 
-\begin{figure}[h]
+\begin{figure}[hbtp]
 	\centering
 	\begin{subfigure}[t]{0.9\textwidth}
 		\caption{}\label{ch1fig:beta_cells}
@@ -34,7 +34,7 @@ When K\ATP{} channels are closed and membrane resistance is high, even small cur
 	\caption[Electrical excitability of pancreatic beta cells]{
 		\subref{ch1fig:beta_cells} When the ATP:ADP ratio is low, K\ATP{} channels are open, allowing K\textsuperscript{+} ions to flow out of the pancreatic beta cell and maintain a hyperpolarised membrane potential.
 		When the ATP:ADP ratio is high, K\ATP{} channels close, allowing depolarisation of the membrane potential and insulin secretion.
-		\subref{ch1fig:beta_cells_firing} Current record of a cell-attached patch of an isolated pancreatic beta cell, reproduced from \cite{rorsman_calcium_1986}. 
+		\subref{ch1fig:beta_cells_firing} Current record of a cell-attached patch of an isolated pancreatic beta cell, adapted from \textcite{rorsman_calcium_1986}. 
 		Perfusion of glucose leads to depolarisation and action potential firing.
 	}
 	\label{ch1fig:beta_cells_overview}
@@ -55,10 +55,10 @@ In contrast, Kir6.2 is a weak rectifier, and allows substantial current to flow 
 
 In addition to voltage, Kir6.2 is regulated by two endogenous ligands; 
 phosphatidylinositol 4,5-bisphosphate (PIP\textsubscript{2}) and adenine nucleotides (Figure \ref{ch1fig:kir_struct}) \cite{baukrowitz_pip2_1998, shyng_membrane_1998}.
-The binding of adenine nucleotides to Kir6.2 leads to closure of the channel pore, while the binding of PIP\textsubscript{2} promotes the opening of the pore (Figure \ref{ch1fig:shyng_trace}).
+The binding of adenine nucleotides to Kir6.2 leads to closure of the channel pore, while the binding of PIP\textsubscript{2} promotes the opening of the pore (Figure \ref{ch1fig:fan_trace}).
 Activation by PIP\textsubscript{2} is a mechanism common to the whole Kir family, whereas inhibition by nucleotides is unique to the Kir6 subfamily \cite{enkvetchakul_direct_2005}.
 
-\begin{figure}[h]
+\begin{figure}[hbtp]
 	\centering
 	\begin{subfigure}[t]{0.5\textwidth}
 		\caption{}\label{ch1fig:rectification}
@@ -72,21 +72,24 @@ Activation by PIP\textsubscript{2} is a mechanism common to the whole Kir family
 		\includegraphics[width=\textwidth]{kir_structure.pdf}
 	\end{subfigure}
 	\vfill
-	\begin{subfigure}[t]{0.9\textwidth}
-		\caption{}\label{ch1fig:shyng_trace}
+	\begin{subfigure}[t]{0.6\textwidth}
+		\caption{}\label{ch1fig:fan_trace}
 		\centering
-		\includegraphics[width=\textwidth]{shyng_atp_pip_trace.pdf}
+		\includegraphics[width=\textwidth]{fan_pip_trace.pdf}
 	\end{subfigure}
 	\caption[Structure of Kir6.2]{
 		\subref{ch1fig:rectification} Current-voltage plot demonstrating inward rectification of Kir channels.
 		Here, the reversal potential of potassium (\textit{E\textsubscript{K}}) is set to zero, i.e. there is an equal concentration of K\textsuperscript{+} on each side of the membrane.
 		Weak rectifiers such as Kir6.2 exhibit only a weak voltage dependent decline in conductance (visualised as a departure from the dashed line of an ideal conductor).
-		(Adapted from \cite{zheng_handbook_2015}).
+		(Adapted from \textcite{zheng_handbook_2015}).
 		\subref{ch1fig:kir_struct} Cryo-EM structure of Kir6.2 (PDB \#6BAA) captured with ATP bound (red) and with the proposed binding position of PIP\textsubscript{2} visualised by alignment of the channel with the X-ray structure of Kir2.2 solved in compex with a short-chain dioctanoyl (diC8) PIP\textsubscript{2} (PDB \#6C3I).
+		Unresolved residues in the structure are shown as dashed lines.
 		The plasma membrane is shown in pink.
-		(Adapted from \cite{puljung_cryo-electron_2018}).
-		\subref{ch1fig:shyng_trace} Macroscopic currents from Kir6.2 channels coexpressed with SUR1 in excised patches from cultured cells, adapted from \cite{pratt_n-terminal_2011}.
-		Perfusion of ATP or PIP\textsubscript{2} is indicated by coloured bars, and demonstrates the contrasting effects of these two ligands on channel activity.
+		(Adapted from \textcite{puljung_cryo-electron_2018}).
+		\subref{ch1fig:fan_trace} Macroscopic currents from excised patches from pancreatic beta-cells clamped at \SI{-50}{\milli\volt}, adapted from \textcite{fan_anionic_1997}.
+		Perfusion of ATP or phosphoinositides (PPIs) is indicated by coloured bars, and demonstrates the contrasting effects of these two ligands on channel activity.
+		The zero current level is indicated by a dotted line.
+		Patch excision is indicated with an arrow.
 	}
 	\label{ch1fig:kir_breakdown}
 \end{figure}
@@ -104,7 +107,7 @@ The two domains come together to form an antiparallel dimer with two nucleotide 
 NBS2, also known as the consensus site as it is more similar in sequence to other ABC family members, is catalytically competent and able to hydrolyse ATP \cite{matsuo_atp_1999, zingman_signaling_2001, de_wet_studies_2007}.
 In contrast, NBS1 is the degenerate site, with a less conserved sequence and an inability to catalyse hydrolysis of ATP \cite{ter_beek_structural_2014, puljung_cryo-electron_2018}.
 
-\begin{figure}[h]
+\begin{figure}[hbtp]
 	\centering
 	\begin{subfigure}[t]{0.4\textwidth}
 		\caption{}\label{ch1fig:sur_struct}
@@ -124,7 +127,7 @@ In contrast, NBS1 is the degenerate site, with a less conserved sequence and an 
 		The plasma membrane is displayed in pink.
 		\subref{ch1fig:nbd_struct} Top-down view of the NBDs from the same cryo-EM structure.
 		NBD1 is on the left in silver, NBD2 is on the right in dark grey, and the two NBSs are higlighted; NBS1 in orange and NBS2 in blue.
-		Adapted from \cite{puljung_cryo-electron_2018}.
+		Adapted from \textcite{puljung_cryo-electron_2018}.
 	}
 \end{figure}
 
@@ -166,7 +169,7 @@ Sulphonylureas bind directly to the channel during biogenesis, as mutation of re
 Pharmacological chaperoning requires full assembly of the channel complex, as the presence of Kir6.2 was required to rescue expression of trafficking mutants even when the SUR1 RKR motif was mutated to AAA \cite{yan_sulfonylureas_2006}.
 In addition, reducing the temperature at which cells are cultured can rescue some trafficking defects \cite{yang_low_2005}.
 
-\begin{figure}[h]
+\begin{figure}[hbtp]
 	\centering
 	\begin{subfigure}[t]{0.9\textwidth}
 		\caption{}\label{ch1fig:katp_cartoon}
@@ -198,7 +201,7 @@ In addition, reducing the temperature at which cells are cultured can rescue som
 
 In the absence of nucleotides, K\ATP{} channels are spontaneously active.
 This can be seen at a macroscopic level in excised patches.
-Upon excision of a patch from a cell membrane containing K\ATP{} channels, the magnitude of current dramatically increases when voltage is applied (Figure \ref{ch1fig:shyng_trace}), reflecting the relief from inhibition of cytoplasmic nucleotides.
+Upon excision of a patch from a cell membrane containing K\ATP{} channels, the magnitude of current dramatically increases when voltage is applied (Figure \ref{ch1fig:fan_trace}), reflecting the relief from inhibition of cytoplasmic nucleotides.
 While this macroscopic time course is smooth and graded, it consists of hundreds or thousands of individual channels which exhibit binary behaviour, switching between a nonconducting closed state and a conducting open state \cite{hille_ion_2001}.
 The summed activity of these individual channels constitutes the large currents observed in macroscopic excised patches.
 
@@ -249,7 +252,7 @@ The mechanisms by which SUR1 regulates intrinsic gating of the K\ATP{} channel a
 Structurally, the primary contacts between the two subunits are formed between the N-terminus and first transmembrane domain of Kir6.2 and TMD0 and L0 of SUR1 (Figure \ref{ch1fig:sur_struct}) \cite{martin_anti-diabetic_2017, lee_molecular_2017-1, li_structure_2017-1}.
 The contributions of the interactions of these regions have been studied in a variety of ways.
 
-\begin{figure}[h]
+\begin{figure}[hbtp]
 	\centering
 	\begin{subfigure}[t]{0.45\textwidth}
 		\caption{}\label{ch1fig:singles_ploop}
@@ -276,14 +279,14 @@ The contributions of the interactions of these regions have been studied in a va
 	\end{subfigure}
 	\caption[Intrinsic regulation of Kir6.2 gating]{
 		\subref{ch1fig:singles_ploop} Single channel recordings of excised patches from oocytes either expressing SUR1 with either Kir6.2 or Kir6.2-V127T in symmetrical 140 mM K\textsuperscript{+} at a membrane potential of -60 mV.
-		Adapted from \cite{proks_mutations_2001}.
-		\subref{ch1fig:singles_sur} Single channel recordings of excised patches from cultured cells either expressing Kir6.2 alone with the C-terminal 36 amino acids truncated (Kir6.2\textgreek{D}C36) or coexpressing wild-type Kir6.2 with SUR1 in symmetrical 140 mM K\textsuperscript{+} at a membrane potential of -50 mV
-		Adapted from \cite{enkvetchakul_kinetic_2000-1}.
-		In both panels, openings are displayed as upward deflections.
+		Adapted from \textcite{proks_mutations_2001}.
+		\subref{ch1fig:singles_sur} Single channel recordings of excised patches from cultured cells either expressing Kir6.2 alone with the C-terminal 36 amino acids truncated (Kir6.2\textgreek{D}C36) or coexpressing wild-type Kir6.2 with SUR1 in symmetrical 140 mM K\textsuperscript{+} at a membrane potential of \SI{-50}{\milli\volt}.
+		Adapted from \textcite{enkvetchakul_kinetic_2000-1}.
+		In both panels, openings leading to inward currents are displayed as upward deflections.
 		Note that the timescales differ slightly between panels as traces are from two separate papers.
 		\subref{ch1fig:sur_shift} Concentration-response relationship of ATP from macroscopic currents excised from \textit{Xenopus} oocytes injected with either Kir6.2\textgreek{D}C26 mRNA alone (open circles), or a mixture of Kir6.2\textgreek{D}C26 and SUR1 mRNAs (closed circles).
 		Response is given as the fraction of the slope conductance (G) remaining during exposure to ATP.
-		Adapted from \cite{tucker_truncation_1997}.
+		Adapted from \textcite{tucker_truncation_1997}.
 		\subref{ch1fig:intrinsic_diagram} The intrinsic open-closed equilibrium of the pancreatic K\ATP{} channel pore is regulated by the K\textsuperscript{+} driving force and by the presence of different SUR1 domains.
 	}
 \end{figure}
@@ -345,7 +348,7 @@ In this framework, the link between ligand binding and channel gating, sometimes
 Figure \ref{ch1fig:regulation_diagram} is a simplified diagram of how ligands interact to regulate the K\ATP{} channel.
 Briefly, $L$ describes the unliganded equilibrium between open and closed states, while ligands which bind with affinity constants $K_X$ preferentially stabilise the open state by a factor $D_X > 1$ or the closed state by a factor $D_X < 1$ (where $X$ is the general term for a particular ligand interaction).
 
-\begin{figure}[h]
+\begin{figure}[hbtp]
 	\centering
 	\includegraphics[width=0.7\textwidth]{regulation_diagram.pdf}
 	\caption[Modes of regulation of K\ATP{}]{
@@ -484,7 +487,7 @@ One particularly hard-working fluorescent UAA is L-3-(6-acetylnaphthalen-2-ylami
 This work built on the previously described findings of \textcite{cha_characterizing_1997} by labelling previously inaccessible residues in the lower part of the S4 helix and the intracellular loops of the channel.
 Since then, 32 primary research articles published (or pre-printed) as of March 2021 include the use of ANAP, and 21 of those are ion channel studies \cite{puljung_anap_2021}.
 
-\begin{figure}[h]
+\begin{figure}[hbtp]
 	\centering
 	\includegraphics[width=0.7\textwidth]{fluorophore_sizes.pdf}
 	\caption[Contrasting sizes of flurophores]{

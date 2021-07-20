@@ -165,10 +165,10 @@ Some experiments were excluded from further analysis due to low fluorescence int
 Bayesian data analysis is the process of fitting a probability model to a set of data, and summarising the result with a probability distribution of the parameters of the model \cite{gelman_bayesian_2014}.
 At its most basic level, Bayesian data analysis is no more than counting the numbers of ways the data could happen, according to our assumptions.
 The more ways in which something can happen, the more plausible it is \cite{mcelreath_statistical_2020}.
-Frequentist statistical approaches (such as t-tests and ANOVAs) can be thought of as special cases of Bayesian data analysis, which requires all probabilities to be defined by connection to the frequencies of events in very large samples.
+Frequentist statistical approaches (such as t-tests and ANOVAs) can be thought of as special cases of Bayesian data analysis; the former require all probabilities to be defined by connection to the frequencies of events in very large samples.
 
 We can use Bayes' theorem to evaluate model $m$ given our observed data $d$ as follows:
-\begin{equation}
+\begin{equation}\label{eq:bayes_eq_1}
 P(m \mid d) = \frac{P(d \mid m) \cdot P(m)}{P(d)}
 \end{equation}
 where
@@ -176,6 +176,7 @@ where
 \item $P(m)$ is the prior probability - how plausible is our model $m$ before we collect any data?
 \item $P(m \mid d)$ is the posterior probability - in light of the data $d$ we have collected, how plausible is our model $m$?
 \item $P(d \mid m)$ is the likelihood - the probability of observing the data $d$ if our model $m$ describes the true underlying data generating process.
+\item $P(d)$ is the probability of observing the data $d$ regardless of our model $m$ - it is commonly referred to as the average probability of the data, and standardises the posterior probability to ensure it integrates to one.
 \end{itemize}
 
 Building and fitting a Bayesian model to data involves setting a prior probability for each parameter included in the model, and then updating the posterior probability based on the likelihood of the collected data.
@@ -194,13 +195,13 @@ What does this look like in practice?
 
 Imagine we have a coin, and we want to know if it is fair - that when we flip it, there is a \SI{50}{\percent} chance that it will land heads up.
 Most coins are fair, which we can describe with a prior probability distribution which gives most weight to a \SI{50}{\percent} chance of landing heads up (Figure \ref{ch2fig:coinflip}, black line).
+Unbeknownst to us however, in actuality the coin we have been flipping is not fair and has an \SI{80}{\percent} chance of landing heads up.
 After flipping our coin ten times, we find that it landed heads up eight times, giving rise to the likelihood shown in red.
 When we calculate our posterior probability distribution, which is proportional to the product of the prior and the likelihood, we see it falls midway between the prior and the likelihood (purple line).
 Why?
 Ten coin flips is not particularly strong evidence, so even though our coin landed heads up eight times out of ten, there is still a good chance that the coin is fair - especially starting from the assumption that most coins are!
 However, if we flip the coin forty more times for a total of fifty coin flips, the likelihood begins to dominate our posterior probability distribution, pulling it away from the prior.
-It is now clear that this is not a fair coin; the 95\textsuperscript{th} percentiles of our posterior probability distribution fall between a \SIrange{65}{87}{\percent} chance of landing heads up.
-In actuality, the coin we have been flipping has an \SI{80}{\percent} chance of landing heads up, well within our posterior probability distribution.
+We can conclude that this is not a fair coin; the 95\textsuperscript{th} percentiles of our posterior probability distribution fall between a \SIrange{65}{87}{\percent} chance of landing heads up.
 
 A lot of ink has been spilled on Bayesian methods and how they differ from frequentist approaches, but fundamentally they are more similar than they are different.
 In both approaches, the likelihood is the most important component of the analysis, and as samples sizes grow larger the likelihood becomes increasingly influential.
@@ -293,6 +294,26 @@ where $\alpha_j$ is again our prior probability, but this time it has two separa
 
 Fitting this model to the data in Figure \ref{ch2fig:mixed_1}, we can see that while the overall population average probability of a coin landing heads up when we flip it is very close to \SI{50}{\percent}, there is between group variability which we are able to capture using a multilevel model.
 For a more detailed - and eloquent - overview of Bayesian data analysis and multilevel modelling, Chapter 1 of \textcite{mcelreath_statistical_2020} is an excellent introduction.
+
+Finally, how can we used Bayesian methods to compare the ability of different models to describe the data?
+Here I have applied two approaches: calculating a Bayes factor and using approximate leave-one-out cross-validation (LOO-CV).
+A Bayes factor is defined by the ratio of the likelihoods of the two models under consideration - using the terms in Equation \ref{eq:bayes_eq_1} we can define it as:
+\begin{equation}\label{eq:bayes_eq_2}
+\frac{P(m_1 \mid d)}{P(m_2 \mid d)} = \frac{P(d \mid m_1)}{P(d \mid m_2)} \cdot \frac{P(m_1)}{P(m_2)}
+\end{equation}
+which can be expressed more simply as:
+\begin{equation*}
+\textrm{posterior odds } = \textrm{ Bayes factor } \cdot \textrm{ prior odds}
+\end{equation*}
+The Bayes factor is thus the weight of the evidence in favour of Model 1 ($m_1$) over Model 2 ($m_2$) in light of the data ($d$).
+
+Cross-validation is a procedure which attempts to estimate the ability of a model to make predictions on data which were not used to fit the model.
+LOO-CV is a particular form of this approach which essentially refits the chosen model on the collected data multiple times, leaving out a single observation each time and then testing how well the fitted model predicts the left-out data point.
+Here we use a method by \textcite{vehtari_practical_2017} which results in a summary test statistic called the expected log pointwise predictive density (ELPD).
+The precise definition of this statistic is not terribly important for our purposes.
+Instead, we are interested in the \textit{difference} between the computed ELPD scores for each of the models considered.
+A higher ELPD for Model 1 over Model 2 means that Model 1 has a higher predictive accuracy for new data.
+Even if we are not interested in making predictions, predictive accuracy is a useful measure of the robustness of a model.
 
 \section{Concentration response processing and presentation}
 Raw spectrographic images and current traces were pre-processed in Python and Clampfit (Axon) before analysis with R.
