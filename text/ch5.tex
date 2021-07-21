@@ -56,7 +56,6 @@ It has therefore been suggested that while G334 forms part of the ATP binding si
 	The core of SUR1 is not shown.
 	Bound ATP is shown in red.
 	\subref{ch5fig:g334d_popfits} Fluorescence quenching of W311*,G334D-GFP+SUR1 by TNP-ATP in unroofed membrane patches is shown in purple.
-	Each point represents an individual experiment.
 	The line is the median estmate and the smooth filled curves are the \SI{95}{\percent} credible intervals of the posterior probability distribution of fits to equation \ref{eq:hill} as diescribed in the methods.
 	\subref{ch5fig:g334d_indfits} Data from each experiment is shown separately.
 	The smooth filled curves are the \SI{95}{\percent} credible intervals of the posterior predictions for each experiment.
@@ -120,7 +119,6 @@ This finding therefore suggests a role for C166 in the transduction of nucleotid
 	The core of SUR1 is not shown.
 	Bound ATP is shown in red.
 	\subref{ch5fig:c166s_popfits} Fluorescence quenching of W311*,C166S-GFP+SUR1 by TNP-ATP in unroofed membrane patches is shown in purple.
-	Each point represents an individual experiment.
 	The line is the median estimate and the smooth filled curves are the \SI{95}{\percent} credible intervals of the posterior probability distribution of fits to equation \ref{eq:hill} as described in the methods.
 	\subref{ch5fig:c166s_indfits} Data from each experiment is shown separately.
 	The smooth filled curves are the \SI{95}{\percent} credible intervals of the posterior predictions for each experiment.
@@ -169,7 +167,6 @@ Intuitively, a change in nucleotide-dependent channel gating which is not accomp
 	The concentration of TNP-ATP perfused is shown by colour.
 	The location of the peak ANAP fluorescence is marked as a grey box.
 	\subref{ch5fig:c166s_popfits_2} Fluorescence quenching of W311*,C166S-GFP+SUR1 by TNP-ATP in excised patches.
-	Each point represents an individual experiment.
 	The line is the median estimate and the smooth filled curves are the \SI{95}{\percent} credible intervals of the posterior probability distribution of fits to equation \ref{eq:hill} as described in the methods.
 	\subref{ch5fig:c166s_popfits_3} Current inhibition of W311*,C166S-GFP+SUR1 by TNP-ATP in excised patches.
 	Each point represents an individual experiment.
@@ -288,7 +285,6 @@ In addition, mutation of the residue to asparagine (which is not capable of form
 	The core of SUR1 is not shown.
 	Bound ATP is shown in red.
 	\subref{ch5fig:e179_tnpatp_popfits_1}, \subref{ch5fig:e179_atp_popfits} Current inhibition of E179 mutants in the WT-GFP+SUR1 and W311*-GFP+SUR1 background by TNP-ATP (\subref{ch5fig:e179_tnpatp_popfits_1}) or ATP (\subref{ch5fig:e179_atp_popfits}) is shown in purple.
-	Each point represents an individual experiment.
 	The lines are the median estimates and the smooth filled curves are the \SI{95}{\percent} credible intervals of the posterior probability distribution of fits to equation \ref{eq:hill} as described in the methods.
 	\subref{ch5fig:e179_tnpatp_popfits_2} Fluorescence quenching of E179 mutants in the W311*-GFP+SUR1 background by TNP-ATP in excised patches acquired simultaneously with the inhibition data in panel \subref{ch5fig:e179_tnpatp_popfits_1} is shown in purple.
 	Each point represents an individual experiment.
@@ -303,8 +299,15 @@ In addition, mutation of the residue to asparagine (which is not capable of form
 		\centering
 		\includegraphics[width=\textwidth]{e179_5.pdf}
 	\end{subfigure}
+	\vfill
+	\begin{subfigure}[t]{0.9\textwidth}
+		\caption{}\label{ch5fig:e179_ec50_fits_2}
+		\centering
+		\includegraphics[width=\textwidth]{e179_6.pdf}
+	\end{subfigure}
 	\caption[E179 mutations $EC_{50}$ parameters]{
-	\subref{ch5fig:e179_ec50_fits} Posterior probability distributions for the estimated population $IC_{50}$ or $EC_{50}$ values are shown in dark pink ($IC_{50}$ for ATP inhibition), orange ($IC_{50}$ for TNP-ATP inhibition), or blue ($EC_{50}$ for TNP-ATP binding).
+	\subref{ch5fig:e179_ec50_fits} Posterior probability distributions for the estimated population $IC_{50}$ values are shown in dark pink ($IC_{50}$ for ATP inhibition) and orange ($IC_{50}$ for TNP-ATP inhibition).
+	\subref{ch5fig:e179_ec50_fits_2} Posterior probability distributions for the estimated population values $IC_{50}$ or $EC_{50}$ values are shown in orange ($IC_{50}$ for TNP-ATP inhibition) or blue ($EC_{50}$ for TNP-ATP binding).
 	Each distribution is shaded with respect to its credible intervals.
 	}\label{ch5fig:e179_1a}
 \end{figure}
@@ -318,7 +321,7 @@ To attempt to resolve the precise role of E179 in nucleotide binding and inhibit
 For E179A-GFP+SUR1 and E179K-GFP+SUR1, we observed an increase in IC\textsubscript{50} for both ATP and TNP-ATP inhibition (Figure \ref{ch5fig:e179_ec50_fits}).
 ATP inhibition did not seem to be influenced by the identity of the replacement amino acid (\SIrange{49}{145}{\micro\Molar} and \SIrange{43}{138}{\micro\Molar} respectively), while TNP-ATP inhibition was less reduced by mutation to an A than a K (\SIrange{6.5}{21}{\micro\Molar} and \SIrange{16}{87}{\micro\Molar} respectively).
 Introducing the mutations into the ANAP-labelled construct did not affect the relative changes in inhibition by either nucleotide, with ATP inhibition occurring at similar IC\textsubscript{50}s for A and K (\SIrange{162}{562}{\micro\Molar} and \SIrange{191}{479}{\micro\Molar} respectively) and with A increasing the IC\textsubscript{50} for TNP-ATP less than K (\SIrange{14}{44}{\micro\Molar} and \SIrange{42}{224}{\micro\Molar} respectively).
-Measurements of TNP-ATP binding mirrored our observations for current inhibition by TNP-ATP, with mutation to both A and K resulting in an increased apparant binding EC\textsubscript{50}, with A having less of an effect than K (\SIrange{166}{417}{\micro\Molar} and \SIrange{347}{813}{\micro\Molar} respectively).
+Measurements of TNP-ATP binding mirrored our observations for current inhibition by TNP-ATP, with mutation to both A and K resulting in an increased apparant binding EC\textsubscript{50}, with A having less of an effect than K (\SIrange{166}{417}{\micro\Molar} and \SIrange{347}{813}{\micro\Molar} respectively, Figure \ref{ch5fig:e179_ec50_fits_2}).
 Fitting the combined data to the MWC-type model, we found that both mutations resulted in a decreased $K_A$ estimate, with no apparent change in $L$.
 In addition, mutation to a K led to a $D_A$ value closer to unity than for E or the wild-type A (Figure \ref{ch5fig:e179_2}).
 
@@ -375,7 +378,6 @@ This suggests a potential role for K39 in the binding sites of both ATP and PIP\
 	The core of SUR1 is not shown.
 	Bound ATP is shown in red.
 	\subref{ch5fig:k39_atp_popfits} Current inhibition of K39 mutants in the WT-GFP+SUR1 and W311*-GFP+SUR1 background by ATP is shown in purple.
-	Each point represents an individual experiment.
 	The lines are the median estimates and the smooth filled curves are the \SI{95}{\percent} credible intervals of the posterior probability distribution of fits to equation \ref{eq:hill} as described in the methods.
 	}\label{ch5fig:k39_1}
 \end{figure}
@@ -395,7 +397,6 @@ This suggests a potential role for K39 in the binding sites of both ATP and PIP\
 	\end{subfigure}
 	\caption[Functional effects of K39 mutations on TNP-ATP binding and inhibition]{
 	\subref{ch5fig:k39_tnpatp_popfits_1} Current inhibition of K39 mutants in the WT-GFP+SUR1 and W311*-GFP+SUR1 background by TNP-ATP is shown in purple.
-	Each point represents an individual experiment.
 	The lines are the median estimates and the smooth filled curves are the \SI{95}{\percent} credible intervals of the posterior probability distribution of fits to equation \ref{eq:hill} as described in the methods.
 	\subref{ch5fig:k39_tnpatp_popfits_2} Fluorescence quenching of K39 mutants in the W311*-GFP+SUR1 background by TNP-ATP in excised patches acquired simultaneously with the inhibition data in panel \subref{ch5fig:k39_tnpatp_popfits_1} is shown in purple.
 	Each point represents an individual experiment.
@@ -410,8 +411,15 @@ This suggests a potential role for K39 in the binding sites of both ATP and PIP\
 		\centering
 		\includegraphics[width=\textwidth]{k39_5.pdf}
 	\end{subfigure}
+	\vfill
+	\begin{subfigure}[t]{0.9\textwidth}
+		\caption{}\label{ch5fig:k39_ec50_fits_2}
+		\centering
+		\includegraphics[width=\textwidth]{k39_6.pdf}
+	\end{subfigure}
 	\caption[K39 mutations $EC_{50}$ parameters]{
-	\subref{ch5fig:k39_ec50_fits} Posterior probability distributions for the estimated population $IC_{50}$ or $EC_{50}$ values are shown in purple ($IC_{50}$ for ATP inhibition), orange ($IC_{50}$ for TNP-ATP inhibition), or blue ($EC_{50}$ for TNP-ATP binding).
+	\subref{ch5fig:e179_ec50_fits} Posterior probability distributions for the estimated population $IC_{50}$ values are shown in dark pink ($IC_{50}$ for ATP inhibition) and orange ($IC_{50}$ for TNP-ATP inhibition).
+	\subref{ch5fig:e179_ec50_fits_2} Posterior probability distributions for the estimated population values $IC_{50}$ or $EC_{50}$ values are shown in orange ($IC_{50}$ for TNP-ATP inhibition) or blue ($EC_{50}$ for TNP-ATP binding).
 	Each distribution is shaded with respect to its credible intervals.
 	}\label{ch5fig:k39_1a}
 \end{figure}
@@ -422,7 +430,7 @@ We did not see an increase in the IC\textsubscript{50} for ATP inhibition when K
 Inhibition by TNP-ATP displayed a different profile depending on the mutant residue (Figure \ref{ch5fig:k39_tnpatp_popfits_1}).
 In both WT and W311* backgrounds, inhibition by TNP-ATP exhibited higher IC\textsubscript{50} values for K39A and K39E than we observed for K39R, which was not really distinguishable from K39 (\ref{ch5fig:k39_ec50_fits}).
 Our docked conformation for TNP-ATP suggests that the TNP-moiety of the nucleotide may result in extra contacts with K39 compared to ATP, which may be the cause of the different sensitivity to inhibition between the two nucleotides when this residue is mutated.
-Measurements of TNP-ATP binding showed increases in the EC\textsubscript{50} estimates for each of the three mutations (Figure \ref{ch5fig:k39_tnpatp_popfits_2}, \ref{ch5fig:k39_ec50_fits}).
+Measurements of TNP-ATP binding showed increases in the EC\textsubscript{50} estimates for each of the three mutations (Figure \ref{ch5fig:k39_tnpatp_popfits_2}, \ref{ch5fig:k39_ec50_fits_2}).
 
 Fits of the combined data to the MWC model gave parameter estimates for $K_A$ that decreased from K>R>E>A (Figure \ref{ch5fig:k39_2}).
 In addition, mutation to an E or an A resulted in $D_A$ values closer to unity.
@@ -503,7 +511,8 @@ Thus, any changes observed in nucleotide binding in the C166S background when PI
 	\end{subfigure}
 	\caption[K39 is in close proximity to the TNP moiety of bound TNP-ATP]{
 	\subref{ch5fig:k39_clash_atp}, \subref{ch5fig:k39_clash_tnpatp} Cryo-EM structure of ATP-bound K\ATP{} (PDB \# 6C3P) with residue K39 highlighted in purple.
-	SHown as sticks is either the ATP molecule resolved in the cryo-EM structure (\subref{ch5fig:k39_clash_atp}, red) or a docked TNP-ATP molecule (\subref{ch5fig:k39_clash_tnpatp}, orange).
+	Two adjacent subunits of Kir6.2 are visible.
+	Shown as sticks is either the ATP molecule resolved in the cryo-EM structure (\subref{ch5fig:k39_clash_atp}, red) or a docked TNP-ATP molecule (\subref{ch5fig:k39_clash_tnpatp}, orange).
 	}\label{ch5fig:k39_3}
 \end{figure}
 
