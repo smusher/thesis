@@ -341,16 +341,16 @@ The parameters in the equation were supplied as:
 \begin{split}
 E_{max} &\sim Uniform(0, 1) \\
 h &\sim Normal(1, 0.3) \\
-EC_{50} &= \beta + \delta_{experiment} \\
+EC_{50} &= \beta + \delta_{exp} \\
 \beta &\sim Normal(-4, 1) \\
-\delta_{experiment} &\sim Cauchy(0, 1) \\
+\delta_{exp} &\sim Cauchy(0, 1) \\
 \sigma &\sim Cauchy(0, 1)
 \end{split}
 \end{equation}
 \end{minipage}
 
 In this case, each group of measurements is the set of current inhibition or fluorescence quenching values obtained from a single excised patch or unroofed membrane.
-Essentially, the $EC_{50}$ (or $IC_{50}$) parameter for each concentration-response experiment can be described as the combination of a population parameter that is an estimate of the construct-specific value (\textgreek{b}), and an additional 'random' component that varies between experiments on the same construct (\textgreek{d}\textsubscript{experiment}).
+Essentially, the $EC_{50}$ (or $IC_{50}$) parameter for each concentration-response experiment can be described as the combination of a population parameter that is an estimate of the construct-specific value (\textgreek{b}), and an additional 'random' component that varies between experiments on the same construct (\textgreek{d}\textsubscript{exp}).
 
 \section{MWC model equations and fitting}
 
@@ -398,19 +398,19 @@ The parameters in the equation were supplied as:
 \centering
 \begin{equation} \label{eq:mwc_priors}
 \begin{split}
-log(K_A) &\sim \beta_{K_A} + \delta_{experiment} \\
-log(D_A) &\sim \beta_{D_A} + \delta_{experiment} \\
-log(L) &\sim \beta_{L} + \delta_{experiment} \\
+log(K_A) &\sim \beta_{K_A} + \delta_{exp} \\
+log(D_A) &\sim \beta_{D_A} + \delta_{exp} \\
+log(L) &\sim \beta_{L} + \delta_{exp} \\
 \beta_{K_A} &\sim Normal(log(10^4), log(5)) \\
 \beta_{D_A} &\sim Normal(log(0.1), log(5)) \\
 \beta_{L} &\sim Normal(log(1), log(5)) \\
-\delta_{experiment} &\sim Cauchy(0, 1) \\
+\delta_{exp} &\sim Cauchy(0, 1) \\
 \sigma &\sim Cauchy(0, 1)
 \end{split}
 \end{equation}
 \end{minipage}
 
-Each of the three parameters was modelled as a combination of a population parameter $\beta_x$ and an additional random component $\delta_{experiment}$.
+Each of the three parameters was modelled as a combination of a population parameter $\beta_x$ and an additional random component $\delta_{exp}$.
 Each combined set of current inhibition and nucleotide binding measurements from one excised patch was grouped as one experiment.
 The remaining variance $\sigma$ was allowed to vary between fluorescence and current data.
 

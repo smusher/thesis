@@ -27,10 +27,10 @@ In this chapter, we aim to clarify the role of SUR1 in regulating the inhibitory
 
 \subsection{SUR1 dramatically alters nucleotide inhibition, but only subtly effects nucleotide binding at Kir6.2}
 Expressing WT-GFP alone without SUR1 results in smaller, noisier currents than when coexpressed with SUR1.
-Currents are less sensitive to ATP and TNP-ATP by an order of magnitude (Figure \ref{ch6fig:nosur_atp}, \ref{ch6fig:nosur_tnpatp}.
+Currents are less sensitive to ATP and TNP-ATP by an order of magnitude (Figure \ref{ch6fig:nosur_atp}, \ref{ch6fig:nosur_tnpatp}).
 Our surface expression assay suggested that while WT-GFP was able to reach the membrane in the absence of SUR1, W311*-GFP was not, and when we excised patches from cells expressing W311*-GFP alone, we were not able to resolve any currents (Figure \ref{ch3fig:surface_expression_2}).
-We were still able to resolve fluorescence in unroofed membranes expressing W311*-GFP alone, and so we measured binding of TNP-ATP to W311*-GFP alone in unroofed membranes.
-We observed very minimal differences in the EC\textsubscript{50} for binding.
+We were still able to resolve fluorescence in unroofed membranes expressing W311*-GFP alone, and so we measured binding of TNP-ATP to W311*-GFP alone in unroofed membranes (Figure \ref{ch6fig:nosur_unroofed}.
+We observed very minimal differences in the EC\textsubscript{50} for binding (Figure \ref{ch6fig:nosur_ec50s_2}).
 However, given that we did not observe currents under these experimental conditions, we cannot determine the functional state of these channels and so this finding may not be representative of K\ATP{} channels physiologically.
 
 Given that we were able to observe currents when we expressed WT-GFP in the absence of SUR1, we confirmed that when SUR1 was cotransfected with our Kir6.2 constructs we were measuring currents and fluorescence from correctly assembled K\ATP{} channels.
@@ -65,12 +65,6 @@ When we expressed WT-GFP alone, we saw no inhibition of currents by \SI{100}{\mi
 		\centering
 		\includegraphics[width=\textwidth]{tolb_inhibition_1.pdf}
 	\end{subfigure}
-	\vfill
-	\begin{subfigure}[t]{0.9\textwidth}
-		\caption{}\label{ch6fig:nosur_ec50s}
-		\centering
-		\includegraphics[width=\textwidth]{nosur_ec50s.pdf}
-	\end{subfigure}
 	\caption[SUR1 dramatically alters inhibition but only subtly alters binding at Kir6.2]{
 	\subref{ch6fig:nosur_atp}, \subref{ch6fig:nosur_tnpatp} Current inhibition of WT-GFP expressed alone in excised patches by ATP (\subref{ch6fig:nosur_atp}) or TNP-ATP (\subref{ch6fig:nosur_tnpatp}).
 	The lines are the median estimates and the smooth filled curves are the \SI{95}{\percent} credible intervals of the posterior probability distribution of fits to equation \ref{eq:hill} as described in the methods.
@@ -80,9 +74,27 @@ When we expressed WT-GFP alone, we saw no inhibition of currents by \SI{100}{\mi
 	The dark grey curve is the fit to the W311*-GFP+SUR1 fluorescence quenching by TNP-ATP and is shown for comparison.
 	\subref{ch6fig:tolb_inhibition_1} Inhibition by \SI{100}{\micro\Molar} tolbutamide of currents from WT-GFP expressed alone (grey) or with SUR1 (pink) or from W311*-GFP expressed with SUR1 (green).
 	Each point is from a separate excised patch.
-	\subref{ch6fig:nosur_ec50s} Posterior probability distributions for the estimated population $IC_{50}$ or $EC_{50}$ values are shown in dark pink ($IC_{50}$ for ATP inhibition), orange ($IC_{50}$ for TNP-ATP inhibition), or blue ($EC_{50}$ for TNP-ATP binding in unroofed membranes).
-	Each distribution is shaded with respect to its credible intervals.
 	}\label{ch6fig:no_sur}
+\end{figure}
+
+\begin{figure}[hbtp]
+	\centering
+	\begin{subfigure}[t]{0.9\textwidth}
+		\caption{}\label{ch6fig:nosur_ec50s}
+		\centering
+		\includegraphics[width=\textwidth]{nosur_ec50s.pdf}
+	\end{subfigure}
+	\vfill
+	\begin{subfigure}[t]{0.9\textwidth}
+		\caption{}\label{ch6fig:nosur_ec50s_2}
+		\centering
+		\includegraphics[width=\textwidth]{nosur_ec50s_2.pdf}
+	\end{subfigure}
+	\caption[SUR1 $EC_{50}$ and $IC_{50}$ parameters]{
+	\subref{ch5fig:e179_ec50_fits} Posterior probability distributions for the estimated population $IC_{50}$ values are shown in dark pink ($IC_{50}$ for ATP inhibition) and orange ($IC_{50}$ for TNP-ATP inhibition).
+	\subref{ch5fig:e179_ec50_fits_2} Posterior probability distributions for the estimated population values $IC_{50}$ or $EC_{50}$ values are shown in orange ($IC_{50}$ for TNP-ATP inhibition) or blue ($EC_{50}$ for TNP-ATP binding).
+	Each distribution is shaded with respect to its credible intervals.
+	}\label{ch6fig:no_sur_2}
 \end{figure}
 
 While tolbutamide inhibition provides evidence for SUR1 association with our Kir6.2 constructs in excised patches, we cannot perform the same experiment to test for association in unroofed membranes.
