@@ -80,6 +80,7 @@ This leads to a theoretical distance-dependency of FRET which is most sensitive 
 	\end{subfigure}
 	}
 	\caption[ANAP and TNP-nucleotides as FRET pairs]{
+		{\bf\mccorrect{ANAP and TNP-nucleotides as FRET pairs.}}
 		\subref{ch3fig:chemical_structures} Chemical structures of ANAP and TNP-ATP shown with the fluorescent moieties highlighted in blue (ANAP) or orange (TNP-ATP) with a tryptophan shown for reference.
 		\subref{ch3fig:spectral_overlap} Normalised emission spectra (solid lines) of ANAP (blue) and TNP-nucleotides (orange) overlayed on the normalised extinction spectra of ANAP (filled light blue area).
 		Extinction spectra were measured from ANAP and TNP-nucleotides separately in aqueous solution.
@@ -118,12 +119,6 @@ Based on the predicted TNP-ATP poses for \#6BAA and \#6C3P, we could narrow down
 In addition, we excluded residues which fell within \SI{45}{\angstrom} of NBS1 or NBS2, as this restricts the potential FRET between TNP-ATP bound at these sites and our chosen residue to roughly \SI{25}{\percent} or less.
 While we can exclude residues which fall too close to the NBS's of SUR1, the close proximity of the Kir6.2 nucleotide binding sites to each other means that we cannot exclude intersubunit FRET occuring; i.e. TNP-ATP binding to a neighbouring subunit will also be able to quench ANAP to a certain extent. However, this occurs in a predictable way that we can measure and account for.
 
-We ended up with one residue which fulfilled these criteria and for which surface membrane expression of the ANAP-incorporated channel could be detected: W311.
-It is a bulky hydrophobic residue similar to ANAP, and at the time of the construct design I was not aware of mutations at this residue which had been previously identified to alter K\ATP{} function.
-During the writing of this thesis, I came across an experiment by \textcite{cukras_structural_2002}, in which they mutated W311 to an alanine and were unable to observe K\ATP{} currents in excised patches.
-It was not resolved whether this was an assembly, trafficking, or functional disruption.
-However, as we were able to see K\ATP{} membrane expression and currents when we mutated W311 to ANAP, it is possible that this more conservative substitution is enough to overcome the lack of currents seen in the W311A mutant.
-
 \begin{figure}[hbtp]
 	\centering
 	\begin{subfigure}[t]{0.30\textwidth}
@@ -155,8 +150,8 @@ However, as we were able to see K\ATP{} membrane expression and currents when we
 		\centering
 		\includegraphics[width=\textwidth]{6c3p_site_docked_2.pdf}
 	\end{subfigure}
-	
 	\caption[TNP-ATP is predicted to bind with a similar pose to ATP]{
+	{\bf\mccorrect{TNP-ATP is predicted to bind with a similar pose to ATP.}}
 	\subref{ch3fig:6baa_docking}, \subref{ch3fig:6c3p_docking}, \subref{ch3fig:6c3o_docking} Cryo-EM binding poses for ATP bound to Kir6.2 (white) from PDB \#6BAA (\subref{ch3fig:6baa_docking}), \#6C3P (\subref{ch3fig:6c3p_docking}) and \#6C30 (\subref{ch3fig:6c3o_docking}) overlayed with either the ten highest scoring computationally docked ATP poses (red) or the three highest scoring computationally docked TNP-ATP poses (orange) to demonstrate the similarity in binding poses.
 	Starting poses for ATP were generated from ten different random seeds based on the cryo-EM poses.
 	Starting poses for TNP-ATP were generated from eleven structures taken from the RCSB database for different proteins solved in the presence of TNP-ATP - the poses shown are from \#5SVQ (X-ray diffraction structure of TNP-ATP bound to the human P2X3 ion channel).
@@ -164,6 +159,24 @@ However, as we were able to see K\ATP{} membrane expression and currents when we
 	Side chains from two residues implicated in ATP binding are labelled (R50, K185), along with two residues predicted to lie within \SI{3}{\angstrom} of the TNP-moiety of the docked TNP-ATP (E51, K39).
 	Residue E203 from the L0 loop of SUR1 is also labelled as it is predicted to be the closest residue on SUR1 to the TNP-moiety at a distance of \SI{5.3}{\angstrom} at the closest point.
 	}\label{ch3fig:docking}
+\end{figure}
+
+We ended up with one residue which fulfilled these criteria and for which surface membrane expression of the ANAP-incorporated channel could be detected: W311 \mccorrect{(Figure {\ref{ch3fig:w311_loc}})}.
+It is a bulky hydrophobic residue similar to ANAP, and at the time of the construct design I was not aware of mutations at this residue which had been previously identified to alter K\ATP{} function.
+During the writing of this thesis, I came across an experiment by \textcite{cukras_structural_2002}, in which they mutated W311 to an alanine and were unable to observe K\ATP{} currents in excised patches.
+It was not resolved whether this was an assembly, trafficking, or functional disruption.
+However, as we were able to see K\ATP{} membrane expression and currents when we mutated W311 to ANAP, it is possible that this more conservative substitution is enough to overcome the lack of currents seen in the W311A mutant.
+
+\begin{figure}[hbtp]
+	\centering
+	\includegraphics[width=0.9\textwidth]{w311_loc_1.pdf}
+	\caption[Location of residue W311 in Kir6.2]{
+	{\bf{Location of residue W311 in Kir6.2.}}
+	Residue W311 is shown in purple in the cryo-EM structure of K\ATP{} (PDB \#6C3P), with all four Kir6.2 and TMD0 and L0 of two SUR1 subunits shown.
+	Adjacent subunits of Kir6.2 are shown in two different shades of yellow, TMD0 and L0 of SUR1 are shown in two different shades of blue.
+	The core of SUR1 is not shown.
+	Bound ATP is shown in red.
+	}\label{ch3fig:w311_loc}
 \end{figure}
 
 \section{Incorporating ANAP into the Kir6.2 binding site}
@@ -185,7 +198,7 @@ HEK293 cells transfected with pANAP and a plasmid encoding GFP with an Amber sto
 
 As far as we are aware, only two other studies have incorporated unnatural amino acids into Kir6.2 \cite{zhang_conserved_2015, devaraneni_structurally_2015}.
 \textcite{zhang_conserved_2015} incorporated three unnatural tryptophan variants at position W68 to highlight the necessity of a planar amino acid side-chain at this location to maintain physiological K\ATP{} channel function \cite{zhang_conserved_2015}.
-However, in this study \textit{Xenopus} oocytes were the heterologous expression system, so rather than transfecting a combination of plasmids, the authors injected a combination of transcribed mRNAs.
+However, in this study \textit{Xenopus} oocytes were the heterologous expression system, so rather than transfecting a combination of plasmids, the authors injected a combination of transcribed mRNAs \mccorrect{plus synthetic aminoacylated tRNA}.
 
 \textcite{devaraneni_structurally_2015} incorporated azidophenylalanine (AzF) at three different positions on the N-terminus of Kir6.2 (residue numbers 12, 18 and 52) \cite{devaraneni_structurally_2015}.
 AzF is photocross-linkable upon exposure to UV light, and the authors used this phenomenon to investigate the extent of physical interactions between the N-terminus of Kir6.2 and SUR1, and how these interactions are mediated by pharmacological chaperones.
@@ -219,8 +232,9 @@ In this study, COSm6 cells were the heterologous expression system, and expressi
 		\includegraphics[width=\textwidth]{western_2.pdf}
 	\end{subfigure}
 	\caption[ANAP incorporation]{
+	{\bf\mccorrect{ANAP incorporation.}}
 	\subref{ch3fig:amber_codon} ANAP incorporation is accomplished through the transfection of two plasmids.
-	pANAP codes for tRNA (red) and it's tRNA synthetase (green), while W311TAG codes for Kir6.2 with an Amber stop codon (TAG) inserted in place of the codon for W311 (grey).
+	pANAP codes for tRNA (red) and \mccorrect{its} tRNA synthetase (green), while W311TAG codes for Kir6.2 with an Amber stop codon (TAG) inserted in place of the codon for W311 (grey).
 	When the transfected cells are incubated with ANAP (present here as its free acid, ANAP-TFA, blue) the tRNA synthetase assembles tRNA which is capable of recognising the Amber stop codon and loads it with ANAP.
 	During translation of W311TAG, the primed ANAP tRNAs recognise the TAG and insert ANAP into the desired location.
 	\subref{ch3fig:western_1}, \subref{ch3fig:western_1b} Two separate western blots against the N-terminal HA epitope incorporated into WT or W311* (\subref{ch3fig:western_1}) and WT-GFP or W311*-GFP (\subref{ch3fig:western_1b}) constructs.
@@ -274,6 +288,7 @@ The nature of the amber stop codon suppression system requires a number of caref
 		\includegraphics[width=\textwidth]{w311_confocal_profiles.pdf}
 	\end{subfigure}
 	\caption[Confocal imaging]{
+	{\bf\mccorrect{Confocal imaging.}}
 	\subref{ch3fig:wt_confocal}, \subref{ch3fig:w311_confocal} Confocal images of two HEK293T cells transfected with WT-GFP (\subref{ch3fig:wt_confocal}) or W311TAG-GFP (\subref{ch3fig:w311_confocal}), plus SUR1, pANAP, peRF1-E55D and with ANAP in the culture medium.
 	Cells were incubated with Cellmask Deep Red for ten minutes before imaging to label the plasma membranes.
 	The vertical grey box indicates the section of the images plotted in \subref{ch3fig:wt_confocal_profiles} and \subref{ch3fig:w311_confocal_profiles}.
@@ -330,6 +345,7 @@ We also see a consistent increase in luminescence for all constructs aside from 
 		\includegraphics[width=\textwidth]{surface_expression_4.pdf}
 	\end{subfigure}
 	\caption[ANAP construct surface expression assay]{
+	{\bf\mccorrect{ANAP construct surface expression assay.}}
 	\subref{ch3fig:surface_expression_1}, \subref{ch3fig:surface_expression_2} Each point represents a luminescence reading from one well of a 6-well plate.
 	The coloured curves are the posterior probability distributions for surface expression of Kir6.2 constructs derived from those readings as described in the methods.
 	Before fitting, the observations for each construct were centered by subtracting the mean of the luminesence observed without the N-terminal HA tag.
@@ -393,6 +409,7 @@ This could potentially be due to extra contacts made by the TNP moiety with Kir6
 		\includegraphics[width=\textwidth]{ec50_fits_1.pdf}
 	\end{subfigure}
 	\caption[WT-GFP and W311*-GFP electrophysiology]{
+	{\bf\mccorrect{WT-GFP and W311*-GFP electrophysiology.}}
 	\subref{ch3fig:atp_inhibition_1}, \subref{ch3fig:tnpatp_inhibition_1} Inhibition of current by ATP (\subref{ch3fig:atp_inhibition_1}) or TNP-ATP (\subref{ch3fig:tnpatp_inhibition_1}) in excised patches expressing either WT-GFP+SUR1 (blue) or W311*-GFP+SUR1 (orange).
 	Each point represents an individual measurement at the nucleotide concentration indicated, bracketed by perfusion with nucleotide-free solution and normalised to the mean current observed there.
 	The line is the median estimate and the smooth filled curves are the \SI{95}{\percent} credible intervals of the posterior probability distribution of fits to equation \ref{eq:hill} as described in the methods.
@@ -421,7 +438,7 @@ We can plot the quenching of ANAP fluorescence as a concentration-response curve
 
 \begin{figure}[hbtp]
 	\centering
-	\begin{subfigure}[t]{0.3\textwidth}
+	\begin{subfigure}[t]{0.25\textwidth}
 		\caption{}\label{ch3fig:unroofed_images}
 		\centering
 		\includegraphics[width=\textwidth]{unroofed_images.pdf}
@@ -445,6 +462,7 @@ We can plot the quenching of ANAP fluorescence as a concentration-response curve
 		\includegraphics[width=\textwidth]{unroofed_intensities.pdf}
 	\end{subfigure}
 	\caption[Unroofed membranes spectral images]{
+	{\bf\mccorrect{Unroofed membranes spectral images.}}
 	\subref{ch3fig:unroofed_images} An unroofed membrane patch imaged either with brightfield illumination (top), GFP fluorescence (middle) or ANAP fluorescence (bottom).
 	The dashed white lines indicate the region of the image isolated by the spectrometer mask for spectral imaging.
 	\subref{ch3fig:unroofed_spectral_images} Bleaching-corrected spectral images of the unroofed membrane patch in \subref{ch3fig:unroofed_images} captured in the presence of different concentrations of TNP-ATP.
@@ -482,6 +500,7 @@ In each experiment, there was a mean value of \SI{49}{\percent} ANAP fluorescenc
 		\includegraphics[width=\textwidth]{bleaching_terms_4.pdf}
 	\end{subfigure}
 	\caption[Unroofed membranes bleaching correction]{
+	{\bf\mccorrect{Unroofed membranes bleaching correction.}}
 	\subref{ch3fig:bleaching_plots_2} Normalised ANAP fluorescence intensities in unroofed membranes from cells expressing W311*-GFP+SUR1 perfused at different concentrations of TNP-ATP are shown as points coloured according to the concentration of TNP-ATP.
 	The black dashed lines are fits to the fluorescence intensities without TNP-ATP present with equation \ref{eq:bleaching}.
 	\subref{ch3fig:bleaching_terms_3} Values of the two parameters in equation \ref{eq:bleaching} for fits to each of the experiments in \subref{ch3fig:bleaching_plots_2}.
@@ -535,6 +554,7 @@ We can then constrain our Hill fits so that $E_{max}$ is equal to this maximum F
 	\end{subfigure}
 	\end{minipage}
 	\caption[Numerical analysis of FRET efficiency in tetrameric Kir6.2]{
+	{\bf\mccorrect{Numerical analysis of FRET efficiency in tetrameric Kir6.2.}}
 	\subref{ch3fig:exifret_program} Schematic of the numerical simulation.
 	After the geometry and fluorophore types are assigned, an exciton schedule is generated from the photon flux determined by the irradiance and wavelength of the LED used to excite ANAP.
 	For each simulated photon (exciton), a relaxed donor is chosen at random.
@@ -567,6 +587,7 @@ When fit to a Hill equation, quenching ($F/F_{max}$) was fit with an EC\textsubs
 		\includegraphics[width=\textwidth]{tnpatp_quenching_2.pdf}
 	\end{subfigure}
 	\caption[W311*-GFP unroofed membrane binding]{
+	{\bf\mccorrect{W311*-GFP unroofed membrane binding.}}
 	\subref{ch3fig:tnpatp_quenching_1} Fluorescence quenching of W311*-GFP+SUR1 by TNP-ATP in unroofed membrane patches.
 	Each uncorrected point (white with blue outline) represents an individual measurement normalised to the maximum current observed in that unroofed membrane.
 	Each corrected point (blue filled points) has been transformed to $log_2(\frac{F}{F_{max}}+1)$.
@@ -611,6 +632,7 @@ We were able to correct for ANAP bleaching in the same manner as we did for unro
 		\includegraphics[width=\textwidth]{bleaching_terms_2.pdf}
 	\end{subfigure}
 	\caption[PCF bleaching correction]{
+	{\bf\mccorrect{PCF bleaching correction.}}
 	\subref{ch3fig:bleaching_plots_1} Normalised ANAP fluorescence intensities in excised patches from cells expressing W311*-GFP+SUR1 perfused at different concentrations of TNP-ATP are shown as points coloured according to the concentration of TNP-ATP.
 	The black dashed lines are fits to the fluorescence intensities without TNP-ATP present with equation \ref{eq:bleaching}.
 	The order in which different TNP-ATP concentrations was applied varied between experiments.
@@ -656,6 +678,7 @@ This finding has implications for how exactly the binding of nucleotides to Kir6
 		\includegraphics[width=\textwidth]{ec50_fits_4.pdf}
 	\end{subfigure}
 	\caption[ANAP is not quenched by ATP]{
+	{\bf\mccorrect{ANAP is not quenched by ATP.}}
 	\subref{ch3fig:atp_tnpatp_trace} Current trace from an excised patch expressing W311*-GFP+SUR1 perfused with either ATP or TNP-ATP.
 	The zero current level is shown as a dotted line, and the nucleotide applications are marked as coloured bars.
 	\subref{ch3fig:atp_tnpatp_spectra_1} Spectra captured from the same patch during the nucleotide applications marked in \subref{ch3fig:atp_tnpatp_trace}, and during the washout periods between applications.

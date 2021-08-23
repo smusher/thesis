@@ -361,16 +361,16 @@ summarise(ind_value = median(ind_value)) -> f_draws_2
 
 ggplot() +
 stat_slab(
-    data = f_draws_1 %>% filter(.variable == "b_ec50"),
+    data = f_draws_1 %>% filter(.variable == "b_ec50", construct_method %in% c("W311*-GFP+SUR_unroofed", "W311*-GFP_unroofed", "W311*-GFP+TMD0_195_unroofed", "W311*-GFP+TMD0_232_unroofed")),
     aes(y = construct_method, x = .value, fill = stat(cut_cdf_qi(cdf, .width = c(.5, .8, .95), labels = scales::percent_format())))
     ) +
-geom_point(
-    data = f_draws_2,
-    aes(y = construct_method, x = ind_value),
-    fill = "white",
-    shape = 21,
-    size = 2
-    ) +
+# geom_point(
+#     data = f_draws_2,
+#     aes(y = construct_method, x = ind_value),
+#     fill = "white",
+#     shape = 21,
+#     size = 2
+#     ) +
 scale_fill_brewer(palette = "Blues", direction = -1) +
 theme(legend.position = "none")
 
